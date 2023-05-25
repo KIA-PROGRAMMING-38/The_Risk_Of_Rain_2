@@ -3,7 +3,12 @@ guid: 84890bb7552964141a0744af87e8ece4
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CommandoFMJMesh_0Mat
+    second: {fileID: 2100000, guid: c654d62cb6a9c3a4fa454047ddf1b77d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
