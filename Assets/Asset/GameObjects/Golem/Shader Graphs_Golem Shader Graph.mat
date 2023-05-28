@@ -39,7 +39,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DamagedTexture:
-        m_Texture: {fileID: 2800000, guid: 8d8a41d69b3875340a0b038fb8822043, type: 3}
+        m_Texture: {fileID: 2800000, guid: ecd1f872328eb5c46b1541d01b31aec8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse_Map:
@@ -51,7 +51,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
-        m_Texture: {fileID: 2800000, guid: c979fc9f77e24d74c8f0f3f9a8ce09f7, type: 3}
+        m_Texture: {fileID: 2800000, guid: ff1fb87c7466ffe4184e68da72aaf01a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SurfaceTexture:
@@ -72,9 +72,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _NormalDepth: 1
+    - _Metallic: 0.84
+    - _NormalDepth: 0.06
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Smooth: 0
     m_Colors:
-    - _EmmisionColor: {r: 0.26415098, g: 0.09597176, b: 0.058561772, a: 0}
+    - _EmmisionColor: {r: 0.7924528, g: 0.29051048, b: 0, a: 0}
   m_BuildTextureStacks: []
