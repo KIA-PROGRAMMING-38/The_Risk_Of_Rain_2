@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d353ee42302ffbd0f8b12a8da516e1, type: 3}
+  m_Name: dccsGolemFamilyNature
+  m_EditorClassIdentifier:
+  categories:
+  - name: Champions
+    cards:
+    - spawnCard: {fileID: 11400000, guid: 2d3dca0fc603d1a4e874e89cc67dc74b, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 2
+  - name: Minibosses
+    cards:
+    - spawnCard: {fileID: 11400000, guid: f1f5e8468d6a31b41b493dd5a0fe7d67, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 6
+  selectionChatString: FAMILY_GOLEM
+  minimumStageCompletion: 1
+  maximumStageCompletion: 2147483647

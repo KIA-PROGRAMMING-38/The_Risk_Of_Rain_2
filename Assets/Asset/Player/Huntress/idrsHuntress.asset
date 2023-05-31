@@ -1,0 +1,3586 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf1a75d95a3f44928336bc7e15c5489, type: 3}
+  m_Name: idrsHuntress
+  m_EditorClassIdentifier:
+  namedItemRuleGroups: []
+  namedEquipmentRuleGroups: []
+  keyAssetRuleGroups:
+  - keyAsset: {fileID: 11400000, guid: a7d7a6a21442ad442b962dd6b7724929, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1858017589106463, guid: 2d547ff4e7dbc404fb68dc987a863426, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.086
+          y: 0.218
+          z: -0.18
+        localAngles:
+          x: 318.51437
+          y: 250.67406
+          z: 3.9603734
+        localScale:
+          x: 0.07
+          y: 0.07
+          z: 0.07
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 7db3225a66d4f5642b2653e9afb79d96, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1974114180432886, guid: 515f1b7786ecbbf4aa3e2735d751052c, type: 2}
+        childName: BowHinge2L
+        localPos:
+          x: -0.036
+          y: 0.366
+          z: 0.008
+        localAngles:
+          x: -2.2198115E-05
+          y: 90
+          z: 42.154034
+        localScale:
+          x: 0.3426181
+          y: 0.3426181
+          z: 0.3426181
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1974114180432886, guid: 515f1b7786ecbbf4aa3e2735d751052c, type: 2}
+        childName: BowHinge2R
+        localPos:
+          x: -0.043
+          y: 0.376
+          z: -0.017
+        localAngles:
+          x: -3.927359E-05
+          y: 90
+          z: 48.741062
+        localScale:
+          x: 0.34261838
+          y: 0.3426184
+          z: 0.34261864
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: b5969526e927a714bbeeba43321fe0ca, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1399705976936322, guid: b92a4cbaff3dc7c4d8d52ba90bc2514e, type: 2}
+        childName: Stomach
+        localPos:
+          x: -0.185
+          y: -0.042
+          z: -0.133
+        localAngles:
+          x: 294.8114
+          y: 42.325813
+          z: 108.96607
+        localScale:
+          x: 0.7
+          y: 0.7
+          z: 0.7
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: a392dd7b986cad0408ea2c549ba99816, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1481869693942866, guid: 19c0e5fb31cd3584e85ef5de50b658d0, type: 2}
+        childName: CalfR
+        localPos:
+          x: 0.013
+          y: 0.344
+          z: -0.063
+        localAngles:
+          x: 74.36488
+          y: 5.747312
+          z: 5.5360003
+        localScale:
+          x: 0.075
+          y: 0.075
+          z: 0.075
+        limbMask: 0
+      - ruleType: 1
+        followerPrefab: {fileID: 0}
+        childName: CalfR
+        localPos:
+          x: 0
+          y: 0
+          z: 0
+        localAngles:
+          x: 0
+          y: 0
+          z: 0
+        localScale:
+          x: 0
+          y: 0
+          z: 0
+        limbMask: 8
+  - keyAsset: {fileID: 11400000, guid: abf67df292fe3104395c1d273289fbe4, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1784708301513331, guid: 8edd989031eb635448f997ff90023f74, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.06
+          y: 0.137
+          z: -0.133
+        localAngles:
+          x: 5.752528
+          y: 154.28502
+          z: 2.0980415
+        localScale:
+          x: 0.25
+          y: 0.25
+          z: 0.25
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: d9a5c37af63f2c3478c904d29ef7a1b5, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1264378828866735, guid: c7940bcb45c7a584db34ca760d52ff58, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.172
+          y: 0.192
+          z: -0.124
+        localAngles:
+          x: 83.10516
+          y: 11.997929
+          z: 34.691956
+        localScale:
+          x: 0.7
+          y: 0.7
+          z: 0.7
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 8af46b8a55e09ba48b03c1ff0f4b98cf, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1434514102253756, guid: d471814925d34df4bae85465cdf23406, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.094
+          y: 0.213
+          z: -0.201
+        localAngles:
+          x: 297.56012
+          y: 49.820965
+          z: 274.44006
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: af33f8a9d7c41284680fea173936254a, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1917521111288351, guid: 0c9e231ea5899e64b93c5d18ba5e0e70, type: 2}
+        childName: BowBase
+        localPos:
+          x: 0
+          y: -0.0139
+          z: -0.0338
+        localAngles:
+          x: -2.7265014E-05
+          y: 4.983902E-05
+          z: 180.00005
+        localScale:
+          x: 0.30172
+          y: 0.30172
+          z: 0.30172
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 0f6ea12b2781ef74dac45f3515a89a3f, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1876299500272152, guid: f2f1dee3d63182c40a8a0bbaaebf9ba8, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.139
+          y: 0.387
+          z: -0.146
+        localAngles:
+          x: 62.59295
+          y: 32.940784
+          z: 293.20532
+        localScale:
+          x: 0.3
+          y: 0.3
+          z: 0.3
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 4488a78b165d7194193970e587024216, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1332552119395851, guid: 24a3a045a407e6d4f9f65bf46cfabad2, type: 2}
+        childName: ThighR
+        localPos:
+          x: -0.0767
+          y: 0.2247
+          z: -0.0631
+        localAngles:
+          x: 0.8525262
+          y: 119.174614
+          z: 272.61142
+        localScale:
+          x: 0.053420078
+          y: 0.05342011
+          z: 0.05342006
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 8543193f2511e304aa5fc75d1c57dd2e, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1950910456740793, guid: afd1134776d3db74d93d145a46fd1b2b, type: 2}
+        childName: Head
+        localPos:
+          x: -0
+          y: 0.143
+          z: 0.065
+        localAngles:
+          x: 74.9999
+          y: -0.0001437658
+          z: -0.00012565048
+        localScale:
+          x: 0.1851693
+          y: 0.1851693
+          z: 0.1851693
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 49dd0eb7266e3964a94a4872a8891398, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1178558770585627, guid: 6da6eb0a678833646a22c5beaf188deb, type: 2}
+        childName: Base
+        localPos:
+          x: -0.659
+          y: 0.394
+          z: -0.787
+        localAngles:
+          x: -0.000298756
+          y: 180.07904
+          z: 180.40181
+        localScale:
+          x: 1.0000001
+          y: 1.0000005
+          z: 1.0000002
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: acd38ac434ae8ea46ab23447a31b0c75, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1740366514966633, guid: bf65bb4b82cc9e148adedd5378068bee, type: 2}
+        childName: ThighR
+        localPos:
+          x: -0.0417
+          y: 0.3482
+          z: 0.1571
+        localAngles:
+          x: 24.650883
+          y: 311.58746
+          z: 44.59273
+        localScale:
+          x: 0.07820004
+          y: 0.078200065
+          z: 0.07820007
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: d0930ee14250e1340b1417991472d538, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1083146932859744, guid: d8e6acee7f7ea664bbca2101f3880c90, type: 2}
+        childName: ThighL
+        localPos:
+          x: 0.057
+          y: 0.02
+          z: 0.135
+        localAngles:
+          x: 44.187054
+          y: 164.36217
+          z: 132.60248
+        localScale:
+          x: 0.06
+          y: 0.06
+          z: 0.06
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: ca7412bad9d1e404fae7aaf6a7800443, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1270262308443670, guid: 8d0318a691fd6f041b87151f848996e3, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.038
+          y: -0.096
+          z: -0.051
+        localAngles:
+          x: 274.81036
+          y: 176.6928
+          z: 49.475155
+        localScale:
+          x: 0.4
+          y: 0.4
+          z: 0.4
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: b637e95365e09734ba1c36dc3e00d271, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1504735757685570, guid: 7a4d326249ef0624986cc509eb450aa5, type: 2}
+        childName: Pelvis
+        localPos:
+          x: -0.22
+          y: 0.063
+          z: -0.017
+        localAngles:
+          x: 15.255849
+          y: 178.05238
+          z: 158.61148
+        localScale:
+          x: 0.07
+          y: 0.07
+          z: 0.07
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: f04aff505f97e1b47b220e8da07ef414, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1379804691063569, guid: 86e84ed668962bd4a9be8edc6cccf461, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.075
+          y: 0.25
+          z: -0.155
+        localAngles:
+          x: 65.58364
+          y: 171.05333
+          z: 20.549934
+        localScale:
+          x: 0.35
+          y: 0.35
+          z: 0.35
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: dd74bc30ff44d45418a181576a32e884, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1232663811154977, guid: 39cd7b7e18afbdd4d9c40d8ed662c090, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.016
+          y: -0.033
+          z: -0.152
+        localAngles:
+          x: 350.39804
+          y: 168.66971
+          z: 12.502311
+        localScale:
+          x: 0.15
+          y: 0.15
+          z: 0.15
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 407cd9cca62bdbe43b7ba612b1791122, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1127904354373980, guid: e11c1f7c56d0ff943a9e644860eb9da0, type: 2}
+        childName: Head
+        localPos:
+          x: -0.008
+          y: 0.215
+          z: 0.113
+        localAngles:
+          x: 339.42172
+          y: 349.62518
+          z: 270.20728
+        localScale:
+          x: 0.25
+          y: 0.25
+          z: 0.25
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 8e6bf725d9a1ea74ebd9b5386c3b34f3, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1425621779882951, guid: f7ce9bc9bf21c894787c8686a7060700, type: 2}
+        childName: Head
+        localPos:
+          x: 0.079
+          y: 0.274
+          z: 0.007
+        localAngles:
+          x: 334.19614
+          y: 219.36467
+          z: 25.5484
+        localScale:
+          x: 0.6
+          y: 0.6
+          z: 0.6
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 7f132d8dcede5714585ba2069afc39f5, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1855227322961332, guid: 79bd87da3c779ec49bea78e476627caf, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.195
+          y: 0.469
+          z: -0.149
+        localAngles:
+          x: 350.82315
+          y: 344.59323
+          z: 23.487541
+        localScale:
+          x: 0.08
+          y: 0.08
+          z: 0.08
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 6ccdef6ef43d6684e87d0259636b4a46, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1625962303667705, guid: 5f4889a2c7284cf4f9ece858b723c596, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.083
+          y: 0.216
+          z: 0.007
+        localAngles:
+          x: 328.93564
+          y: 221.48442
+          z: 54.75902
+        localScale:
+          x: 0.1
+          y: 0.1
+          z: 0.1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 4fe502eb779912141938b00a5a4765a3, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1092795522962539, guid: 7503d001673269340b73c889d7ca7062, type: 2}
+        childName: Pelvis
+        localPos:
+          x: -0.247
+          y: 0.118
+          z: -0.031
+        localAngles:
+          x: 79.726036
+          y: 48.58894
+          z: 48.12903
+        localScale:
+          x: 0.3
+          y: 0.3
+          z: 0.3
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 4cf564e78902f144dbdf0d82802815e2, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1575005502953818, guid: 3af38850191ad1d4ba587d353b741500, type: 2}
+        childName: Base
+        localPos:
+          x: -0.554367
+          y: -0.026102543
+          z: -1.0185604
+        localAngles:
+          x: 270
+          y: 0.3226165
+          z: 0
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 7826f560b34844d419def0441bd2ac1e, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1335160050720358, guid: 8c07cc149c810e248b77bf42a421d0ad, type: 2}
+        childName: Finger42R
+        localPos:
+          x: -0.0063
+          y: -0.017
+          z: 0.0079
+        localAngles:
+          x: 46.00763
+          y: 6.036116
+          z: 6.105653
+        localScale:
+          x: 0.25
+          y: 0.25
+          z: 0.25
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 2d77028fe90e3a845a98a328b783292e, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1947879490787113, guid: ba4606b29fd0ca5409ebbd79113e492e, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.047
+          y: 0.139
+          z: 0.171
+        localAngles:
+          x: 351.27048
+          y: 1.21811045E-05
+          z: -2.5352317E-06
+        localScale:
+          x: 0.6
+          y: 0.6
+          z: 0.6
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 09293765fbda7714780f601cbdc43e32, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1421680091808319, guid: 7a3067c5ca117084494b5f5ce43ea349, type: 2}
+        childName: Head
+        localPos:
+          x: -0
+          y: 0.257
+          z: -0.037
+        localAngles:
+          x: 281.96368
+          y: 179.99977
+          z: 176.00455
+        localScale:
+          x: 0.045
+          y: 0.045
+          z: 0.045
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: cc43182f8dc9b374e8aab29613f7f9fe, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1606357923811173, guid: da054a7358d7ef3469cead96ddab690d, type: 2}
+        childName: ThighR
+        localPos:
+          x: -0.114
+          y: -0.017
+          z: 0.004
+        localAngles:
+          x: 20.452236
+          y: 121.18854
+          z: 139.70004
+        localScale:
+          x: 0.264748
+          y: 0.264748
+          z: 0.264748
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: e6e91794b561a7b4d8de32bf9d1e03d3, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1920515019667868, guid: 21090ebd5f9f69948ad60f098ce89473, type: 2}
+        childName: UpperArmL
+        localPos:
+          x: -0.04
+          y: 0.045
+          z: -0.091
+        localAngles:
+          x: 14.59291
+          y: 81.702545
+          z: 251.35478
+        localScale:
+          x: 0.015
+          y: 0.015
+          z: 0.015
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 66505a4092c59eb46abd85100e53a9b4, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1492545246064512, guid: fdd3336055c3fe94588559be70eaf857, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.0053168
+          y: 0.21252137
+          z: 0.2617346
+        localAngles:
+          x: 330.25995
+          y: 340.06534
+          z: 14.848838
+        localScale:
+          x: 0.07605019
+          y: 0.07605019
+          z: 0.07605019
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: d96592c821610504c841273f78e3326d, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1108743316006812, guid: d4acce49f46786e4c9bfac119795308d, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.139
+          y: 0.387
+          z: -0.146
+        localAngles:
+          x: 62.59295
+          y: 32.940784
+          z: 293.20532
+        localScale:
+          x: 0.3
+          y: 0.3
+          z: 0.3
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 83f68cb6abcb6ec4b854d84e670517b6, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1875194313266319, guid: 5c3df95b9dc24b94c869a7c639c91bb4, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.034
+          y: -0.061
+          z: -0.06
+        localAngles:
+          x: 1.6814053
+          y: 40.098007
+          z: 345.02353
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 7a8622abbe34f474790a31e709ed43e6, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1980566719817076, guid: c435c4f358706434ea493d19c244ef11, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.034
+          y: 0.159
+          z: -0.147
+        localAngles:
+          x: 3.3058562
+          y: 163.22523
+          z: 22.583559
+        localScale:
+          x: 0.7
+          y: 0.7
+          z: 0.7
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 8954cbd46f570264192e4d3d79abfbe4, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 1
+        followerPrefab: {fileID: 0}
+        childName: Head
+        localPos:
+          x: 0
+          y: 0
+          z: 0
+        localAngles:
+          x: 0
+          y: 0
+          z: 0
+        localScale:
+          x: 0
+          y: 0
+          z: 0
+        limbMask: 1
+      - ruleType: 0
+        followerPrefab: {fileID: 1990235738200434, guid: d28d0c3bcdd0c644c8e32e74bc4ed1c3, type: 2}
+        childName: Head
+        localPos:
+          x: -0
+          y: 0.193
+          z: -0
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 0.76757
+          y: 0.76757
+          z: 0.76757
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1856856878313103, guid: b4990439cb622e94ba66b65021328b62, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.0009478965
+          y: 0.33789378
+          z: 0.0006378368
+        localAngles:
+          x: 358.8337
+          y: 192.63051
+          z: 357.0116
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 480452924ddc83e49b07578eb29be854, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1427190149486416, guid: 1d44e3965995610448bd95e4f9a62be0, type: 2}
+        childName: FootL
+        localPos:
+          x: 0.011
+          y: 0.023
+          z: -0.099
+        localAngles:
+          x: 274.9472
+          y: 244.59468
+          z: 121.64038
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1427190149486416, guid: 1d44e3965995610448bd95e4f9a62be0, type: 2}
+        childName: FootR
+        localPos:
+          x: -0.007
+          y: 0.027
+          z: -0.107
+        localAngles:
+          x: 273.69305
+          y: 281.97937
+          z: 78.38435
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: eff95dd94674b244f9dfb8f4f9ffd29b, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1605097068375698, guid: ac18148eee08384478f432215a52d31a, type: 2}
+        childName: Head
+        localPos:
+          x: -0
+          y: 0.268
+          z: 0.137
+        localAngles:
+          x: 340.92896
+          y: -1.7031805E-05
+          z: -1.6841062E-06
+        localScale:
+          x: 0.07010551
+          y: 0.07010551
+          z: 0.07010551
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1605097068375698, guid: ac18148eee08384478f432215a52d31a, type: 2}
+        childName: Head
+        localPos:
+          x: -0
+          y: 0.17
+          z: 0.171
+        localAngles:
+          x: 340.92896
+          y: -1.7031805E-05
+          z: -1.6841062E-06
+        localScale:
+          x: 0.07010551
+          y: 0.07010551
+          z: 0.07010551
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 7a275e19c304511489c2edc17b5968b0, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1356745143786513, guid: de10754fbc3143c498844388ec247e52, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.134
+          y: 0.295
+          z: -0.011
+        localAngles:
+          x: 276.1347
+          y: 46.345432
+          z: 246.68729
+        localScale:
+          x: 0.7
+          y: 0.7
+          z: 0.7
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 17cf105897574f2498d13ebb1bfe4281, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1907968564042618, guid: 0d5f2c0b3617d454db9aa3e5581573a5, type: 2}
+        childName: Pelvis
+        localPos:
+          x: 0.092
+          y: -0.08
+          z: 0.162
+        localAngles:
+          x: 11.777677
+          y: 22.964373
+          z: 3.8501325
+        localScale:
+          x: 0.6
+          y: 0.6
+          z: 0.6
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: c691d0e1afe5ebd498f0ecaf27b17147, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1879507996161693, guid: 272431fafb9e8a0448a58994121d601f, type: 2}
+        childName: Stomach
+        localPos:
+          x: 0.16
+          y: 0.023
+          z: 0.077
+        localAngles:
+          x: 345.69138
+          y: 65.579865
+          z: 27.118496
+        localScale:
+          x: 0.4
+          y: 0.4
+          z: 0.4
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: ca1ac070e2215d64880f26dded55dc2b, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1121758091940599, guid: 55aa6f0782232524989e67ce58e572f6, type: 2}
+        childName: LowerArmL
+        localPos:
+          x: 0
+          y: 0.1508
+          z: -0
+        localAngles:
+          x: 285.00006
+          y: 179.9994
+          z: 180.00064
+        localScale:
+          x: 0.05
+          y: 0.05
+          z: 0.05
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 32f25c166f11b184dbf0d06cdb6dbb1e, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1523121198544925, guid: 8495287d8567e0046974657fed4ee0db, type: 2}
+        childName: Base
+        localPos:
+          x: 0.52
+          y: -0.433
+          z: -0.835
+        localAngles:
+          x: 270
+          y: 0.32261598
+          z: 0
+        localScale:
+          x: 0.4
+          y: 0.4
+          z: 0.4
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 7d062d6ac11f5b74e963e992fd286167, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1186534040092557, guid: 9b35a422e46d84e4cac2a2f4023a596f, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.007
+          y: 0.215
+          z: -0.171
+        localAngles:
+          x: 310.6469
+          y: 262.44492
+          z: 86.11216
+        localScale:
+          x: 0.4
+          y: 0.4
+          z: 0.4
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 34b01cc00bfb4d248a96e8c74e8f2530, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1465865768379809, guid: 5e7f36b9902b5754d891ded5152d42bf, type: 2}
+        childName: ThighL
+        localPos:
+          x: 0.13326076
+          y: 0.35405898
+          z: 0.05649049
+        localAngles:
+          x: 8.441277
+          y: 179.71664
+          z: 10.938846
+        localScale:
+          x: 0.40000084
+          y: 0.40000063
+          z: 0.40000075
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: a018a3979c99e324788dcbcd0f1e7e46, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1116240553372644, guid: 2d24705755f07de418ad7e20027413b6, type: 2}
+        childName: ThighR
+        localPos:
+          x: -0.07380201
+          y: 0.49221164
+          z: 0.053334154
+        localAngles:
+          x: 7.0573316
+          y: 5.817944
+          z: 137.48648
+        localScale:
+          x: 0.3000004
+          y: 0.3000002
+          z: 0.3000004
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: a3e3f18f027588c43b77061f1ea724d9, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1907429562189658, guid: 7a1a50765a096444caf2c621206cc84b, type: 2}
+        childName: Head
+        localPos:
+          x: -0
+          y: 0.287
+          z: -0
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 0.53586
+          y: 0.53586
+          z: 0.53586
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 807da3cf8ba483d4fa75d73f9a3048c5, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1855407944898695, guid: f24050af5013697479d2e997389cd5bb, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.171
+          y: 0.267
+          z: -0.06
+        localAngles:
+          x: 12.781588
+          y: 133.76805
+          z: 358.83484
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 114eb38691013504b93e782001e250da, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1663327771194904, guid: c60bb60af80932545afb1a75b3adbc73, type: 2}
+        childName: LowerArmR
+        localPos:
+          x: 0.0356
+          y: 0.0805
+          z: -0
+        localAngles:
+          x: -0
+          y: 0
+          z: 270
+        localScale:
+          x: 0.020000048
+          y: 0.02000003
+          z: 0.020000042
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 56bb4da831134fb4cb62b07b0111e422, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1877303603481569, guid: 452e4b48269932745af1536dbe809837, type: 2}
+        childName: ThighR
+        localPos:
+          x: -0.078
+          y: -0.078
+          z: 0.104
+        localAngles:
+          x: 355.5485
+          y: 347.05655
+          z: 203.28395
+        localScale:
+          x: 0.77
+          y: 0.77
+          z: 0.77
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: a488f12793c6e764191dd58d0c586cd5, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1161526877543946, guid: 07cf81a029e4b6547ae23c632eb8ee8e, type: 2}
+        childName: ThighR
+        localPos:
+          x: -0.05680243
+          y: -0.10438131
+          z: 0.10866887
+        localAngles:
+          x: 326.0253
+          y: 263.60416
+          z: 261.93985
+        localScale:
+          x: 0.17265078
+          y: 0.17265078
+          z: 0.17265081
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 8d222882195bc39428c8f8567ac23d45, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1385510464002355, guid: 99ca58599d0c29a4ba93f6a5d8016879, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.144
+          y: 0.171
+          z: -0.071
+        localAngles:
+          x: 359.31595
+          y: 341.80426
+          z: 359.69543
+        localScale:
+          x: 0.25
+          y: 0.25
+          z: 0.25
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 364d6b89b34b37b448fd3445936b0e49, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1500858482853022, guid: 6d8784d0ab848144ca4d6cd5b62a8c96, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.088
+          y: 0.191
+          z: -0.198
+        localAngles:
+          x: 7.943826
+          y: 331.0334
+          z: 171.57549
+        localScale:
+          x: 0.35
+          y: 0.35
+          z: 0.35
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 4a519b195381ae74fad1e90d1e1c6aed, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1672872970213023, guid: 8e16b08d570fbdb4e8fdadba0f667cc0, type: 2}
+        childName: Base
+        localPos:
+          x: 0.327
+          y: -0.273
+          z: -1.173
+        localAngles:
+          x: 270
+          y: 0.32261598
+          z: 0
+        localScale:
+          x: 0.07500004
+          y: 0.075
+          z: 0.07500009
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 2829623154c16f8429b9552852164086, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1708674194495812, guid: 9654c7d0731d12b4ab329d5d631e7ac2, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.099
+          y: 0.147
+          z: 0.187
+        localAngles:
+          x: 352.21103
+          y: 287.98883
+          z: 21.8543
+        localScale:
+          x: 0.25
+          y: 0.25
+          z: 0.25
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 3dcfc1531c166d94e84e3f0ddd4432ff, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1870459312622267, guid: 70125f0ec0387d046a8dd574ebfba474, type: 2}
+        childName: Head
+        localPos:
+          x: -0
+          y: 0.366
+          z: -0.06
+        localAngles:
+          x: 281.96368
+          y: 179.99977
+          z: 176.00455
+        localScale:
+          x: 0.025
+          y: 0.025
+          z: 0.025
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 3312ede40c1022d4e9210662272b2f14, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1503561330499357, guid: d232800413af4284c8e43b5260929d42, type: 2}
+        childName: Base
+        localPos:
+          x: -0.554367
+          y: -0.026102543
+          z: -1.0185604
+        localAngles:
+          x: 270
+          y: 0.3226165
+          z: 0
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: d7f8bacefe82fb94eb03e6bc8f6daa63, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1120668165047116, guid: 7575b78e1f1f49d448904b29757ff8ea, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.034
+          y: -0.061
+          z: -0.06
+        localAngles:
+          x: 1.6814053
+          y: 40.098007
+          z: 345.02353
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 3fb66bf02da6289419d116c3c22a18bd, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1368309077220426, guid: 7919f4b0ee0be3d458f73100e36fde9a, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.061
+          y: 0.015
+          z: -0.103
+        localAngles:
+          x: 0.33302638
+          y: 321.53592
+          z: 359.9418
+        localScale:
+          x: 0.5
+          y: 0.5
+          z: 0.5
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 50b1108d0dc59554a94450d0e3eb1501, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1631449935515484, guid: f74e88aca58ac5a44886b7f70f2ca84a, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.245
+          y: 0.237
+          z: 0.009
+        localAngles:
+          x: 308.5436
+          y: 130.66844
+          z: 311.07892
+        localScale:
+          x: 0.8
+          y: 0.8
+          z: 0.8
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 147de0372db884d4296d2334386998aa, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1574546688954810, guid: d29c8e811bf2f3b4aa9cca9375ca3e11, type: 2}
+        childName: Head
+        localPos:
+          x: 0
+          y: 0.325
+          z: -0.112
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 0.87
+          y: 0.87
+          z: 0.87
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 0ab40b1dd4442c741a520c8b210946fd, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1901859280907482, guid: 676f023b548f2a04092cd9fd6be377d2, type: 2}
+        childName: ThighL
+        localPos:
+          x: 0.04
+          y: 0.078
+          z: 0.245
+        localAngles:
+          x: 359.1773
+          y: 18.42551
+          z: 182.46779
+        localScale:
+          x: 0.090820305
+          y: 0.09082002
+          z: 0.09082033
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 44921cebb4f32e344a32647c876dc351, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1536988504495101, guid: ca71e13f39bd4b14487bd63c7bc40693, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.0238
+          y: 0.1538
+          z: 0.1488
+        localAngles:
+          x: 297.34702
+          y: 179.07051
+          z: 176.63477
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: f4cf032d9d8190c48a04ab3d80664be1, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1227844648529869, guid: d9d2dd39f6a371844865b9ee034b9cfc, type: 2}
+        childName: ThighR
+        localPos:
+          x: -0.0671
+          y: 0.1914
+          z: 0.174
+        localAngles:
+          x: 66.143974
+          y: 344.10718
+          z: 188.37086
+        localScale:
+          x: 0.061750144
+          y: 0.061750107
+          z: 0.061750118
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: b57081b7ab8f1864d8aa4d69a6e29b4f, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1183966177771135, guid: 165bb299b8b46c345b0436f5e5f100da, type: 2}
+        childName: LowerArmR
+        localPos:
+          x: 0.0576
+          y: 0.1044
+          z: -0.0143
+        localAngles:
+          x: 276.90842
+          y: 93.803406
+          z: 199.36514
+        localScale:
+          x: 0.0418961
+          y: 0.04189606
+          z: 0.04189609
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: ea6465ac95aba25458d58eeffb51c75e, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1951032644893354, guid: f44b2f93ae6cc11448fb1723524e3e17, type: 2}
+        childName: Head
+        localPos:
+          x: 0.003
+          y: 0.312
+          z: -0.037
+        localAngles:
+          x: 359.93167
+          y: 273.65863
+          z: 348.98642
+        localScale:
+          x: 0.5
+          y: 0.5
+          z: 0.5
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 7ebbe486c2fdc55459fedcc3eac5ade4, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1228143567785184, guid: fe90bc7312280024bb3e1b1e5ab98cd1, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.056
+          y: 0.144
+          z: -0.077
+        localAngles:
+          x: 347.83365
+          y: 253.94928
+          z: 1.5914742
+        localScale:
+          x: 0.69864476
+          y: 0.69864476
+          z: 0.69864476
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: e7730ba957d59704ebbb4e0dcdf17dff, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1965762596881913, guid: d97859d79c377f74b9b38ed93734a725, type: 2}
+        childName: UpperArmR
+        localPos:
+          x: 0
+          y: 0
+          z: 0
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+      - ruleType: 1
+        followerPrefab: {fileID: 0}
+        childName: UpperArmR
+        localPos:
+          x: 0
+          y: 0
+          z: 0
+        localAngles:
+          x: 0
+          y: 0
+          z: 0
+        localScale:
+          x: 0
+          y: 0
+          z: 0
+        limbMask: 2
+  - keyAsset: {fileID: 11400000, guid: 78e33305168e74d44b0faeffae996286, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1551363406476686, guid: 934dad063e8a2484a954c886bd403338, type: 2}
+        childName: ThighR
+        localPos:
+          x: -0.07380201
+          y: 0.49221164
+          z: 0.053334154
+        localAngles:
+          x: 7.0573316
+          y: 5.817944
+          z: 137.48648
+        localScale:
+          x: 0.3000004
+          y: 0.3000002
+          z: 0.3000004
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: e2aca5fa428efd24d9b06ed60bc8b3b2, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1288715661430994, guid: 8798c964a9fc86248a859ba138c79c8f, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.182
+          y: 0.233
+          z: -0.106
+        localAngles:
+          x: 335.70587
+          y: 15.338259
+          z: 303.05087
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 5b963756c05261f479c6f54152b01337, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1805172129911413, guid: d555ce18d6c61f043a8e3ef9dc1755ba, type: 2}
+        childName: Finger22R
+        localPos:
+          x: 0.0033064538
+          y: -0.018905053
+          z: 0.014503018
+        localAngles:
+          x: 28.107243
+          y: 7.460154
+          z: 11.569948
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 091942a5d936ff9429edbd68ec5bad48, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1282653774953869, guid: ea5f8d5cb79ed844aaf18c3d2a25f81a, type: 2}
+        childName: UpperArmR
+        localPos:
+          x: -0.042
+          y: 0.129
+          z: -0.043
+        localAngles:
+          x: 10.345346
+          y: 142.67934
+          z: 234.47159
+        localScale:
+          x: 0.68829
+          y: 0.68829
+          z: 0.68829
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: d34093a9f66e973438089a7bf9f20388, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1335485746986470, guid: bf03ea8f22d8d8d42b99de0a5c7c825d, type: 2}
+        childName: Head
+        localPos:
+          x: -0.003
+          y: 0.2
+          z: 0.065
+        localAngles:
+          x: 338.03683
+          y: 359.19604
+          z: 358.78992
+        localScale:
+          x: 0.5
+          y: 0.5
+          z: 0.5
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: cf536c621b0860641b8840acb939843d, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1110288883121416, guid: fe838a3e8d8ddcc4f82e6ec33a1481ed, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.195
+          y: 0.179
+          z: 0.029
+        localAngles:
+          x: 336.01367
+          y: 207.85495
+          z: 165.00082
+        localScale:
+          x: 0.25
+          y: 0.25
+          z: 0.25
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 9cb131b49353aae48bd1d650c148d938, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1112761629287470, guid: 4159a6fe4ddd77745b4013e1a8fc8107, type: 2}
+        childName: Pelvis
+        localPos:
+          x: -0.0183
+          y: 0.1247
+          z: 0.2044
+        localAngles:
+          x: 1.2059553E-05
+          y: 90
+          z: 177.358
+        localScale:
+          x: 0.100000486
+          y: 0.10000024
+          z: 0.10000042
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 781623b325ababf42a16e753969f7f2a, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1541804815343550, guid: 424d145182c6cc64e941b994097df20e, type: 2}
+        childName: ThighR
+        localPos:
+          x: -0.12329261
+          y: 0.19641928
+          z: 0.028893303
+        localAngles:
+          x: 79.601875
+          y: 355.93878
+          z: 250.63771
+        localScale:
+          x: 0.7
+          y: 0.7
+          z: 0.7
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 10aaca7556dc0b74bafd7301abe55c5b, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1401545718910033, guid: 7f535e57f3f9a7b49a646173fcabf3a6, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.251
+          y: 0.303
+          z: -0.022
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 0.87
+          y: 0.87
+          z: 0.87
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: d04a5adb4b8aa894c9072f16d3761664, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1499740339785029, guid: 7afee995e66aeb648be10aaf2aa40d3c, type: 2}
+        childName: LowerArmL
+        localPos:
+          x: -0
+          y: 0.039
+          z: -0.077
+        localAngles:
+          x: 89.98022
+          y: 0.00011047866
+          z: 0
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 312963d7bd70530478afad32b37cbc59, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1175530837481169, guid: 86666639620b5b54f9c4ba4a293abfa4, type: 2}
+        childName: ThighR
+        localPos:
+          x: -0.148
+          y: 0.197
+          z: -0.018
+        localAngles:
+          x: 23.444689
+          y: 203.34328
+          z: 202.02489
+        localScale:
+          x: 0.22104327
+          y: 0.22104327
+          z: 0.22104327
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 9b09221866d1de34faf92a82c5d1b96c, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1836280383905542, guid: 4f082557b17830f40b6ec84874607604, type: 2}
+        childName: HandR
+        localPos:
+          x: -0.024
+          y: 0.0936
+          z: -0.0063
+        localAngles:
+          x: 285.27167
+          y: 252.06793
+          z: 85.67995
+        localScale:
+          x: 0.019419165
+          y: 0.01941919
+          z: 0.01941917
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 172ad036aad96c74abf0b798a1e02a32, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1826731581469041, guid: 91ef6001a083107489d49d962e304cc1, type: 2}
+        childName: Head
+        localPos:
+          x: -0.008
+          y: 0.215
+          z: 0.113
+        localAngles:
+          x: 339.42172
+          y: 349.62518
+          z: 270.20728
+        localScale:
+          x: 0.25
+          y: 0.25
+          z: 0.25
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 273d437b94dc8a9489f4ed44d5b388e5, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1911756028056717, guid: c8c63b5947383ec489d69ed037189f58, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.068
+          y: 0.18
+          z: 0.149
+        localAngles:
+          x: 51.97876
+          y: 358.3465
+          z: 5.896256
+        localScale:
+          x: 0.6
+          y: 0.6
+          z: 0.6
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: c14214eb3affaa84eaff5fb6d149a4d5, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1060962182339322, guid: 8fea046cf2661214eb6c7d7d866383ff, type: 2}
+        childName: UpperArmR
+        localPos:
+          x: -0.019
+          y: 0.113
+          z: -0.071
+        localAngles:
+          x: -7.4705196E-05
+          y: 14.999963
+          z: 44.999977
+        localScale:
+          x: 0.3
+          y: 0.3
+          z: 0.3
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: d05f467cadf6bfb40a7cc90e9728a61a, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1695232885481357, guid: b8bb875df6238c5449298e1ac65db26f, type: 2}
+        childName: LowerArmR
+        localPos:
+          x: -0
+          y: 0.13
+          z: -0
+        localAngles:
+          x: 270
+          y: -0
+          z: 0
+        localScale:
+          x: 0.05
+          y: 0.05
+          z: 0.05
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 9e4d2b943f240994a992a7ff9558e636, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1141430006927832, guid: 3a286e98cf93a8b48b4ef43aa8540fab, type: 2}
+        childName: Pelvis
+        localPos:
+          x: 0.1932
+          y: -0.0709
+          z: 0.0269
+        localAngles:
+          x: 3.3680113E-05
+          y: -1.3173103E-05
+          z: 148.11392
+        localScale:
+          x: 0.52
+          y: 0.52
+          z: 0.52
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: c38b48354eba3844aa9dcb94d1e62ed9, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1479630958146824, guid: c2d6b7d478bf9054584e5a39afe92885, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.11076519
+          y: 0.19076307
+          z: -0.10231808
+        localAngles:
+          x: 357.01013
+          y: 337.91162
+          z: 4.04161
+        localScale:
+          x: 0.15
+          y: 0.15
+          z: 0.15
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: e981c876232f3f5449ca34765ab6b8b9, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1689321670155204, guid: 6bde1915b14f4894798c652095f39960, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.017
+          y: 0.182
+          z: 0.238
+        localAngles:
+          x: 344.99997
+          y: -6.7483093E-06
+          z: 7.742233E-05
+        localScale:
+          x: 0.15
+          y: 0.15
+          z: 0.15
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 39f1a2c35b56edf49816667c98513061, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1796417495498268, guid: 09f9ed1211df7cf4bbe67d28276b8eb8, type: 2}
+        childName: Pelvis
+        localPos:
+          x: 0.0181
+          y: -0.0284
+          z: 0.3079
+        localAngles:
+          x: 8.304096
+          y: 5.1267304
+          z: 182.19966
+        localScale:
+          x: 0.17049012
+          y: 0.17049012
+          z: 0.17049004
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: d800c3487be2e8046872af7959ad18ab, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1920551599732127, guid: ff916c83d80720645a4995e6ed70c118, type: 2}
+        childName: ThighL
+        localPos:
+          x: -0.0025
+          y: 0.3234
+          z: 0.0955
+        localAngles:
+          x: 68.07979
+          y: 6.9865746
+          z: 178.14777
+        localScale:
+          x: -0.2958025
+          y: 0.29580137
+          z: 0.2958116
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: ed11c566eafd1794e883420fd84203dc, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1764107841190399, guid: 3a095cf814c7d464ea3766c1d70b9608, type: 2}
+        childName: ThighR
+        localPos:
+          x: -0.0867
+          y: 0.0545
+          z: -0.0252
+        localAngles:
+          x: -0
+          y: 0
+          z: 171.39801
+        localScale:
+          x: 0.05013008
+          y: 0.05013002
+          z: 0.05013006
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 4bdf603766c0d344893f746b05966ac9, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1880915981574857, guid: 366ea4f6569199a4db42d9910b31724d, type: 2}
+        childName: Head
+        localPos:
+          x: 0.008
+          y: -0.076
+          z: -0.191
+        localAngles:
+          x: 1.1657199
+          y: 177.14653
+          z: 359.72836
+        localScale:
+          x: 0.8
+          y: 0.8
+          z: 0.8
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 5cc6ba116b0246f4a98846f2f92bb609, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1687259145575220, guid: e42f627ff7ae64f48bb950bfe0b0015c, type: 2}
+        childName: Head
+        localPos:
+          x: -0.001
+          y: 0.184
+          z: 0.085
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 0.6
+          y: 0.6
+          z: 0.6
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 8d2cb885bec50bc4ab5569ad4fdf4c53, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1854509916653665, guid: 803fa977839b9b94e9e3172096832553, type: 2}
+        childName: HandL
+        localPos:
+          x: 0.0263
+          y: 0.0104
+          z: 0.0069
+        localAngles:
+          x: 55.4236
+          y: 67.01917
+          z: 69.02083
+        localScale:
+          x: 0.50586
+          y: 0.50586
+          z: 0.50586
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: adf85a3d7a4dcea44807391647fab81b, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1757848585668170, guid: 5706f8fdf99f55344923696e1ad17927, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.06
+          y: 0.137
+          z: -0.133
+        localAngles:
+          x: 5.752528
+          y: 154.28502
+          z: 2.0980415
+        localScale:
+          x: 0.25
+          y: 0.25
+          z: 0.25
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 4ad7f518bfdcd554bba30962027e1268, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1563965234615924, guid: 086db2326cfb99549857450396f97cef, type: 2}
+        childName: Head
+        localPos:
+          x: 0
+          y: 0.325
+          z: -0.112
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 0.87
+          y: 0.87
+          z: 0.87
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1298403125129085, guid: 931954a1b3aff984e9fa58e496f739e9, type: 2}
+        childName: Base
+        localPos:
+          x: 0.718
+          y: -0.273
+          z: -0.58
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: c180474d11acf334787b0c3c0ea68fc9, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1088960151185842, guid: 845c1dd01a6930246bb3b1681063c8aa, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.081
+          y: -0.125
+          z: 0.146
+        localAngles:
+          x: 303.01633
+          y: 247.57367
+          z: 169.58989
+        localScale:
+          x: 0.5
+          y: 0.5
+          z: 0.5
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: bdbc969f25783c5499d46593e099479b, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1422319226062010, guid: 660242be42235714fab8fdcd41aa1502, type: 2}
+        childName: Base
+        localPos:
+          x: 1.293
+          y: 0.946
+          z: -0.792
+        localAngles:
+          x: 270
+          y: -0
+          z: 0
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 983d90d20f77f9d4788f98e626d88dba, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1899925061803116, guid: 123e6c4a62f518b47b3737618ab89ad0, type: 2}
+        childName: Head
+        localPos:
+          x: 0.079
+          y: 0.274
+          z: 0.007
+        localAngles:
+          x: 334.19614
+          y: 219.36467
+          z: 25.5484
+        localScale:
+          x: 0.6
+          y: 0.6
+          z: 0.6
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 32972a93f0f7d9645978f9953331df44, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1939634780593286, guid: 72eeb2d1dc8b4c244b7e7f9a49a00ca2, type: 2}
+        childName: Base
+        localPos:
+          x: -0.88
+          y: -0.026
+          z: -1.016
+        localAngles:
+          x: -6.152722E-05
+          y: 0.3226373
+          z: 1.9636253E-05
+        localScale:
+          x: 0.15
+          y: 0.15
+          z: 0.15
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 4b8d3dad733c4264fa4d7270c52dcf75, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1159574384443734, guid: 2222ea5e2465a8b4aae964dc028815bd, type: 2}
+        childName: Head
+        localPos:
+          x: 0.2958
+          y: 0.2634
+          z: -0.035
+        localAngles:
+          x: 24.207949
+          y: 262.9574
+          z: 87.37803
+        localScale:
+          x: 0.12903014
+          y: 0.1290301
+          z: 0.12903012
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: cf3be3edc9a1f1b4bbc7f5983c12968b, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1178375536193678, guid: 1262f81a3e5061a45b4330f4ff543c2d, type: 2}
+        childName: Head
+        localPos:
+          x: 0.067
+          y: 0.148
+          z: 0.022
+        localAngles:
+          x: 25.140703
+          y: 346.18588
+          z: 17.798717
+        localScale:
+          x: 0.6
+          y: 0.6
+          z: 0.6
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1178375536193678, guid: 1262f81a3e5061a45b4330f4ff543c2d, type: 2}
+        childName: Head
+        localPos:
+          x: -0.045
+          y: 0.1585
+          z: 0.0281
+        localAngles:
+          x: 23.276169
+          y: 9.115407
+          z: 345.9379
+        localScale:
+          x: -0.6
+          y: 0.6
+          z: 0.6
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: d9dcf28f3bb37b24f962032f38cb294d, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1788357138650501, guid: b122063ba4771964aab39ce65b16b616, type: 2}
+        childName: Head
+        localPos:
+          x: -0.038
+          y: 0.106
+          z: -0.083
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 0.15
+          y: 0.15
+          z: 0.15
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 9beea621d0b6508429ab16b80fc6b4aa, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1208047428185103, guid: 2ef1cc521349a8e4e870f36028115028, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.014
+          y: 0.2
+          z: 0.14
+        localAngles:
+          x: 289.6539
+          y: 167.0097
+          z: 192.27132
+        localScale:
+          x: 0.15
+          y: 0.15
+          z: 0.15
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 5bf2df7a390a8fc4898e3d106e55616f, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1384517979664360, guid: d7be93f2a7370544da3177446c60e687, type: 2}
+        childName: ThighL
+        localPos:
+          x: 0.129
+          y: 0.043
+          z: 0.105
+        localAngles:
+          x: 6.425195
+          y: 100.73679
+          z: 152.01324
+        localScale:
+          x: 0.25
+          y: 0.25
+          z: 0.25
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 6285f40f6126f8848a03193f6f18a772, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1188389246693730, guid: 528c8c2d0cf6a2340b8ae7ef0990832b, type: 2}
+        childName: Base
+        localPos:
+          x: -0.846
+          y: 0.888
+          z: -0.447
+        localAngles:
+          x: 349.89832
+          y: 13.203591
+          z: 269.86023
+        localScale:
+          x: 0.2989526
+          y: 0.2989526
+          z: 0.2989526
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 9b8a4a9f38f024545a47648c0e62424d, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1884471177685149, guid: d8dac5b2fd3e3f64fab9f87612afbe74, type: 2}
+        childName: CalfL
+        localPos:
+          x: -0.069
+          y: 0.241
+          z: 0.06
+        localAngles:
+          x: 345.71603
+          y: 114.150154
+          z: 207.3472
+        localScale:
+          x: 0.211662
+          y: 0.211662
+          z: 0.211662
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 301e220b90c8af74e9e90b0d777e581e, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1266469009904006, guid: 6bc5054ee1219c7409dd5b8c944fdb34, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.157
+          y: 0.268
+          z: -0.008
+        localAngles:
+          x: 352.8416
+          y: 326.96338
+          z: 318.5526
+        localScale:
+          x: 0.10862057
+          y: 0.10862057
+          z: 0.10862057
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: a3800a622df05714b842d248eb531324, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1394174522774209, guid: ea19b7b91c09ca84983c06cde84e5787, type: 2}
+        childName: CalfL
+        localPos:
+          x: -0.156
+          y: 0.348
+          z: -0
+        localAngles:
+          x: 81.8223
+          y: 318.50476
+          z: 45.45017
+        localScale:
+          x: 0.8
+          y: 0.8
+          z: 0.8
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 9c97220e08fda0c4488447e3c2708207, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1926342243224095, guid: 7c845a000c460d94f865273c5f7b47f8, type: 2}
+        childName: ThighL
+        localPos:
+          x: 0.129
+          y: 0.043
+          z: 0.038
+        localAngles:
+          x: 63.003174
+          y: 290.48877
+          z: 92.31062
+        localScale:
+          x: 0.5
+          y: 0.5
+          z: 0.5
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 830e092fc0bd64b43aa7b207b215a995, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1412704979870912, guid: e00f53e5bf68f594e98a7a3165159569, type: 2}
+        childName: HandR
+        localPos:
+          x: -0.019
+          y: 0.04
+          z: -0.012
+        localAngles:
+          x: 90
+          y: 4.8296737E-05
+          z: 0
+        localScale:
+          x: 0.8
+          y: 0.8
+          z: 0.8
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 3b4194598d2630f4b9cd5b3838d936ab, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1149561740040181, guid: c2a1ea1d1b9e9c64a8cf2e179cc30eb8, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.1436
+          y: 0.0853
+          z: -0.0766
+        localAngles:
+          x: 4.1085362
+          y: 134.99994
+          z: 6.4197997E-07
+        localScale:
+          x: 0.08
+          y: 0.08
+          z: 0.08
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 1394760367165d843a888b28257b3824, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1582299289481730, guid: 63155001ee9b014499b636afa831c55b, type: 2}
+        childName: Head
+        localPos:
+          x: -0.013
+          y: 0.232
+          z: -0.124
+        localAngles:
+          x: 39.544476
+          y: 3.0228543
+          z: 2.830207
+        localScale:
+          x: 0.07
+          y: 0.07
+          z: 0.07
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: ec06324d36f0ba64f80f764f92612982, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1553481829147671, guid: b0467b7faa9f2a9478953cee455010a8, type: 2}
+        childName: UpperArmR
+        localPos:
+          x: 0.023
+          y: -0.009
+          z: -0.015
+        localAngles:
+          x: 52.003635
+          y: 46.486702
+          z: 202.66144
+        localScale:
+          x: 0.06
+          y: 0.06
+          z: 0.06
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 4215e425d727c51478afc4697e8b5a2d, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1758789930903765, guid: 55958eeaad6fba9449d62f5eff854a36, type: 2}
+        childName: Pelvis
+        localPos:
+          x: -0.199
+          y: -0.088
+          z: 0.052
+        localAngles:
+          x: 63.111263
+          y: 330.45193
+          z: 181.07954
+        localScale:
+          x: 0.8502516
+          y: 0.8502516
+          z: 0.8502516
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 6568ec98a2ebee145bf5b58570db41a0, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1108678555995181, guid: 1de08f6d14094b54f815f31180f2b1db, type: 2}
+        childName: Pelvis
+        localPos:
+          x: -0
+          y: -0.084
+          z: 0.014
+        localAngles:
+          x: 348.447
+          y: 180
+          z: 180
+        localScale:
+          x: 0.91137
+          y: 0.91137
+          z: 0.91137
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 5042a57a3c7837e429de7896648976be, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1032735207023339, guid: 6d40bfd9d69d7c64280fd3d45fddfe50, type: 2}
+        childName: Head
+        localPos:
+          x: -0
+          y: 0.213
+          z: -0.019
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 00011c0866de3ce4b9ae446d50d4c275, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1022831676572703, guid: da55e8708a7edbf45bfae0ca826a0b0e, type: 2}
+        childName: ThighL
+        localPos:
+          x: 0.056632288
+          y: -0.07527909
+          z: 0.12735383
+        localAngles:
+          x: 7.918988
+          y: 192.5945
+          z: 289.3082
+        localScale:
+          x: 1.3
+          y: 1.3
+          z: 1.3
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 084e4484c8a1f2a4eab38570fc05c5a0, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1125469715660306, guid: 5c7aed310fe3f85489f7317c0c55dc69, type: 2}
+        childName: UpperArmR
+        localPos:
+          x: 0
+          y: 0
+          z: 0
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: baee8f08e95767449b7d73cd18beb5cd, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1042160079428638, guid: 227aa1ae8419cf148be3a36a316867b2, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.171
+          y: 0.267
+          z: -0.06
+        localAngles:
+          x: 12.781588
+          y: 133.76805
+          z: 358.83484
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 1c4642a0b5a13b048beafc46024c1624, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1182698824230429, guid: 946263f68768b514bb2b14fcc8912dc3, type: 2}
+        childName: Head
+        localPos:
+          x: 0.088
+          y: 0.26
+          z: -0.04
+        localAngles:
+          x: 358.75208
+          y: 269.48224
+          z: 15.750061
+        localScale:
+          x: 0.2800004
+          y: 0.28000036
+          z: 0.28000042
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1182698824230429, guid: 946263f68768b514bb2b14fcc8912dc3, type: 2}
+        childName: Head
+        localPos:
+          x: -0.096002474
+          y: 0.25952485
+          z: -0.04040477
+        localAngles:
+          x: 1.5157578
+          y: 270.35962
+          z: 15.752033
+        localScale:
+          x: 0.28000045
+          y: 0.2800004
+          z: -0.28000036
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: f276a01c27445734387b21ebf03a39fc, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1138693057198580, guid: fc563782e6cf68541ac29fe8a004c033, type: 2}
+        childName: Head
+        localPos:
+          x: 0
+          y: 0.184
+          z: 0.344
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 0.3
+          y: 0.3
+          z: 0.3
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: e4d5f93b22d8ba84697178c053d8cfc4, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1457332633501249, guid: c81d28da8e3c4bd4b86f8ed002b8020a, type: 2}
+        childName: Pelvis
+        localPos:
+          x: -0.1292
+          y: -0.0012
+          z: 0.1287
+        localAngles:
+          x: 38.954967
+          y: 329.6593
+          z: 178.71703
+        localScale:
+          x: 0.134738
+          y: 0.134738
+          z: 0.134738
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 170f0216b520d3a4da81788fe454a618, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1340975790218865, guid: da8b10be5e4e6b949bca8412c80ac443, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.251
+          y: 0.251
+          z: 0.031
+        localAngles:
+          x: 341.50665
+          y: 95.04551
+          z: 314.4066
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 70c75f9e9f034b94daa9879d49034a93, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1718557598151757, guid: bf97b12989366974fa0a27ab7b25e331, type: 2}
+        childName: Pelvis
+        localPos:
+          x: 0.215
+          y: 0.043
+          z: 0.079
+        localAngles:
+          x: 1.0006685
+          y: 256.82953
+          z: 285.4561
+        localScale:
+          x: 0.4
+          y: 0.4
+          z: 0.4
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 32b8ff6901213234ca52814158b2f458, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1677768088682955, guid: a56cdd58599821e46a8b2f736f1e9ce9, type: 2}
+        childName: CalfR
+        localPos:
+          x: 0.121
+          y: 0.261
+          z: 0.025
+        localAngles:
+          x: 357.85126
+          y: 354.18616
+          z: 188.92929
+        localScale:
+          x: 0.14728573
+          y: 0.14728573
+          z: 0.14728573
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: cab505ab06f0b074bbe42eb1884e324b, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1505902449791655, guid: 993113167461e7b489b917907c4ac7fc, type: 2}
+        childName: Head
+        localPos:
+          x: -0.0009
+          y: 0.2578
+          z: 0.0902
+        localAngles:
+          x: 285.00006
+          y: 180
+          z: 180
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1505902449791655, guid: 993113167461e7b489b917907c4ac7fc, type: 2}
+        childName: Head
+        localPos:
+          x: -0.0002
+          y: 0.1592
+          z: 0.1166
+        localAngles:
+          x: 285.00006
+          y: 180
+          z: 180
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: f9391b98baa7939448d47e1d1ed0ff18, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 1
+        followerPrefab: {fileID: 0}
+        childName: Head
+        localPos:
+          x: 0
+          y: 0
+          z: 0
+        localAngles:
+          x: 0
+          y: 0
+          z: 0
+        localScale:
+          x: 0
+          y: 0
+          z: 0
+        limbMask: 1
+      - ruleType: 0
+        followerPrefab: {fileID: 1990235738200434, guid: d28d0c3bcdd0c644c8e32e74bc4ed1c3, type: 2}
+        childName: Head
+        localPos:
+          x: -0
+          y: 0.193
+          z: -0
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 0.76757
+          y: 0.76757
+          z: 0.76757
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1856856878313103, guid: b4990439cb622e94ba66b65021328b62, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.0009478965
+          y: 0.33789378
+          z: 0.0006378368
+        localAngles:
+          x: 358.8337
+          y: 192.63051
+          z: 357.0116
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: e7c0232d5d1109f44ab62ac662d7e19c, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1313986544384380, guid: ad4a3a3d4a669f0419fe9d28c79544a6, type: 2}
+        childName: Pelvis
+        localPos:
+          x: 0
+          y: 0.044
+          z: -0.165
+        localAngles:
+          x: -4.098114E-05
+          y: 180
+          z: 180
+        localScale:
+          x: 0.1550064
+          y: 0.1550064
+          z: 0.1550064
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 89edb1f01e012914ca60fad51a9e04ad, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1939332319874096, guid: c0dee6dfc5fe26b439f682ddf6f0f4f3, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.01
+          y: 0.154
+          z: 0.078
+        localAngles:
+          x: 329.56314
+          y: 262.0695
+          z: 89.44415
+        localScale:
+          x: 0.45
+          y: 0.45
+          z: 0.45
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 8f81556d9fa7e9841bfbc942e11604f8, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1927505936186787, guid: f81345138402af44f869fd4281b0285e, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.024
+          y: 0.049
+          z: 0.029
+        localAngles:
+          x: -1.0596334E-06
+          y: 37.77413
+          z: 2.76753E-06
+        localScale:
+          x: 0.25
+          y: 0.25
+          z: 0.25
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 05f1786902cbff641977fb4bec41cccd, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1960939979652920, guid: e9855f7b61c7b844a9f7b3910dce2fb7, type: 2}
+        childName: ThighR
+        localPos:
+          x: -0.089
+          y: 0.115
+          z: 0.0932
+        localAngles:
+          x: 86.20089
+          y: 288.19656
+          z: 352.2336
+        localScale:
+          x: 0.15
+          y: 0.15
+          z: 0.15
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: bdc9b80d6a13e0a4ca224a07db89a2d9, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1332491886388881, guid: a9389ba30efa85148870c230830a9ef9, type: 2}
+        childName: Pelvis
+        localPos:
+          x: 0.076
+          y: -0.098
+          z: 0.073
+        localAngles:
+          x: 15.566365
+          y: 212.79024
+          z: 184.9889
+        localScale:
+          x: 0.242102
+          y: 0.242102
+          z: 0.242102
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 48a0c77b473568e41900bafa6bfadfc3, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1305232028655426, guid: 35bd275541f871a4db333153289d914f, type: 2}
+        childName: ThighR
+        localPos:
+          x: -0.0884708
+          y: 0.115082085
+          z: 0.20082085
+        localAngles:
+          x: 350.9183
+          y: 323.73114
+          z: 181.94821
+        localScale:
+          x: 0.059480093
+          y: 0.05948001
+          z: 0.05948008
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 4ab8a287b5d31234790be07b63d6e5ab, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1015958781179497, guid: 31b799171acc2584e8cd8645586a9bf3, type: 2}
+        childName: BowBase
+        localPos:
+          x: -0
+          y: 0.0286
+          z: 0.0239
+        localAngles:
+          x: 20.173754
+          y: 180.00008
+          z: 179.99998
+        localScale:
+          x: 0.34
+          y: 0.34
+          z: 0.34
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: bb100e742783a4449b4ef45c24f41d8a, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1254611562834037, guid: af829f6db3b936a42b7d16e3988cf99d, type: 2}
+        childName: Head
+        localPos:
+          x: 0.044
+          y: 0.269
+          z: 0.007
+        localAngles:
+          x: 358.03882
+          y: 93.19246
+          z: 1.436809
+        localScale:
+          x: 0.4
+          y: 0.4
+          z: 0.4
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1254611562834037, guid: af829f6db3b936a42b7d16e3988cf99d, type: 2}
+        childName: Head
+        localPos:
+          x: -0.0439944
+          y: 0.26899695
+          z: 0.0070016943
+        localAngles:
+          x: 358.039
+          y: 266.808
+          z: 1.4369981
+        localScale:
+          x: -0.4000001
+          y: 0.4000003
+          z: 0.4000002
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 325dfd97d22fe6e4688a0b3dc2644221, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1888949272222917, guid: 4994ab1f225cd934cb8b1ee6451a3e70, type: 2}
+        childName: Finger42R
+        localPos:
+          x: -0.0063
+          y: -0.017
+          z: 0.0079
+        localAngles:
+          x: 46.00763
+          y: 6.036116
+          z: 6.105653
+        localScale:
+          x: 0.25
+          y: 0.25
+          z: 0.25
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 9946018c21acbe747aa7c69d35409dab, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1785812951236611, guid: 49bc09aa36d5b01499570cb64e5bc753, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.071
+          y: 0.134
+          z: 0.115
+        localAngles:
+          x: 73.63582
+          y: 30.586393
+          z: 61.572456
+        localScale:
+          x: 0.4
+          y: 0.4
+          z: 0.4
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: d759bf56f3ee0164a8b03fa8fbb736b3, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1950536858026697, guid: a77e093c4e6e6bd4c9abd71bd65f5a93, type: 2}
+        childName: ThighR
+        localPos:
+          x: -0.054
+          y: 0.011
+          z: -0.064
+        localAngles:
+          x: 302.14703
+          y: 197.72688
+          z: 207.97308
+        localScale:
+          x: 0.58970165
+          y: 0.58970165
+          z: 0.58970165
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 2472ab44fe19ef648959d41292e65a71, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1292992840299333, guid: 6a3d4cd0d51519246a209e5981dd239f, type: 2}
+        childName: UpperArmR
+        localPos:
+          x: 0.023
+          y: -0.009
+          z: -0.015
+        localAngles:
+          x: 52.003635
+          y: 46.486702
+          z: 202.66144
+        localScale:
+          x: 0.06
+          y: 0.06
+          z: 0.06
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 17fb835e927289746ab18f92f794497f, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1750086570471542, guid: e54580d717f87e24a993437579f0138a, type: 2}
+        childName: BowBase
+        localPos:
+          x: 0
+          y: -0.003
+          z: 0.0113
+        localAngles:
+          x: 2.3905663E-05
+          y: 270
+          z: 90
+        localScale:
+          x: 0.049751706
+          y: 0.049751706
+          z: 0.049751706
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 99006a7e7789b63469dc90f71654459b, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1429015276900604, guid: a9f975aded3456a4fb028ae883386e26, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.126
+          y: 0.225
+          z: 0.026
+        localAngles:
+          x: 49.465767
+          y: 191.4856
+          z: 217.92615
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1429015276900604, guid: a9f975aded3456a4fb028ae883386e26, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.126
+          y: 0.225
+          z: 0.026
+        localAngles:
+          x: 49.465816
+          y: 168.51445
+          z: 142.07391
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 9138c8b568c364b46bf2ee0f64e3a00f, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1687367953011587, guid: dce79d47460fd8c4592cced5dc380ae2, type: 2}
+        childName: Head
+        localPos:
+          x: -0
+          y: 0.241
+          z: -0.027
+        localAngles:
+          x: 356.4714
+          y: 359.93954
+          z: 0.033251192
+        localScale:
+          x: 0.8
+          y: 0.8
+          z: 0.8
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: d709a674cc26f2b4096a1a0d807c173d, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1241135674108494, guid: c826777cb49520f43b5cfc3d2cd30b3e, type: 2}
+        childName: HandL
+        localPos:
+          x: -0.005
+          y: 0.079
+          z: 0.065
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 0.1
+          y: 0.1
+          z: 0.1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: ba1843ded7cc71b4b8e33a93cf46e19e, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1416531871802631, guid: b58a314db4015a3499a17bfcf9148a47, type: 2}
+        childName: Pelvis
+        localPos:
+          x: 0.077
+          y: -0.106
+          z: 0.05
+        localAngles:
+          x: 0.5476683
+          y: 312.91077
+          z: 135.71089
+        localScale:
+          x: 0.1565
+          y: 0.1565
+          z: 0.1565
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: fdb1db898dfbf7e4abd8e32756935f38, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1227677750735509, guid: fcda428eb5101b74fb5a3a4573056dbf, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.17
+          y: 0.316
+          z: 0.138
+        localAngles:
+          x: 280.02106
+          y: 150.59901
+          z: 218.2666
+        localScale:
+          x: 0.1
+          y: 0.1
+          z: 0.1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 164ae011c209fe0449d340cddd2be94d, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1326357881851817, guid: 6fad8ebcf9a943f44b21693535f9e30a, type: 2}
+        childName: ThighL
+        localPos:
+          x: 0.056632288
+          y: -0.07527909
+          z: 0.12735383
+        localAngles:
+          x: 7.918988
+          y: 192.5945
+          z: 289.3082
+        localScale:
+          x: 1.3
+          y: 1.3
+          z: 1.3
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: ddb1b99053990c045943d1b3e7cab922, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1248647153444368, guid: 41090eb6c5331e7448edce3b21d04d99, type: 2}
+        childName: Stomach
+        localPos:
+          x: 0.188
+          y: -0.085
+          z: 0.109
+        localAngles:
+          x: 7.22323
+          y: 70.73365
+          z: 70.370445
+        localScale:
+          x: 0.1
+          y: 0.1
+          z: 0.1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 42c30ac775de208438c0e38fe10fe7d3, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1898933903015610, guid: f07ab7bd8ffe2934aa8716ba62c75596, type: 2}
+        childName: CalfL
+        localPos:
+          x: -0.122
+          y: 0.205
+          z: 0.008
+        localAngles:
+          x: 80.357574
+          y: 165.40904
+          z: 71.69302
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: dfb31b79e321bd34a937e5b124c4d04d, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1621821617886633, guid: 63f8568920e65d44fba0bff9d23f540f, type: 2}
+        childName: Stomach
+        localPos:
+          x: 0.002
+          y: 0.005
+          z: 0.02
+        localAngles:
+          x: 11.831649
+          y: 331.49518
+          z: 358.97528
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: b07082b274e88504d8d41f6d3d07606a, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1997796074412222, guid: 2214721abb6d3d348baa810895c2237e, type: 2}
+        childName: Base
+        localPos:
+          x: 0.529
+          y: 0.474
+          z: -0.888
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 9a4b03e623636434e8f878f67035a7ab, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1039909246471502, guid: 1074ccbd1bddac44489ae59ea7a580f7, type: 2}
+        childName: Head
+        localPos:
+          x: -0
+          y: 0.257
+          z: -0.037
+        localAngles:
+          x: 281.96368
+          y: 179.99977
+          z: 176.00455
+        localScale:
+          x: 0.045
+          y: 0.045
+          z: 0.045
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: f8ceec1c17d2f004ab38a87cc94576c8, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1656810089636243, guid: 67c04528499ed9247a6ce5ef1eb579e8, type: 2}
+        childName: Head
+        localPos:
+          x: 0
+          y: -0.318
+          z: -0.032
+        localAngles:
+          x: 352.83047
+          y: -1.0151133E-05
+          z: -1.8234666E-06
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 5575aee364c00924e84cb05d0c3da7d7, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1122293634677803, guid: 4c614721e9d713a429f581a77dad2144, type: 2}
+        childName: ThighL
+        localPos:
+          x: 0.102
+          y: -0.021
+          z: 0.053
+        localAngles:
+          x: 9.661932
+          y: 199.45439
+          z: 201.5534
+        localScale:
+          x: 0.3
+          y: 0.3
+          z: 0.3
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 44c2d1a26b266ee4e8867864a921e237, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1065536054212857, guid: c3d11e15b1853eb4ca4947c6e38ce691, type: 2}
+        childName: Base
+        localPos:
+          x: 0.658
+          y: 0.74
+          z: -1.025
+        localAngles:
+          x: 270
+          y: 0.32261652
+          z: 0
+        localScale:
+          x: 1.0000001
+          y: 1.0000005
+          z: 1.0000002
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 8dc557ac00a12b045be18793911bcf74, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1646170826011073, guid: 8f08085cfe5e0e84799445017c24e9ec, type: 2}
+        childName: Pelvis
+        localPos:
+          x: -0.22
+          y: 0.063
+          z: -0.017
+        localAngles:
+          x: 15.255849
+          y: 178.05238
+          z: 158.61148
+        localScale:
+          x: 0.07
+          y: 0.07
+          z: 0.07
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: af81270a59664ab40bc73fc514b1d9a5, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1602813816432620, guid: 9c2f3917b0f79a5438656ac23b76deb9, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.049
+          y: 0.164
+          z: 0.198
+        localAngles:
+          x: 270
+          y: 350.3126
+          z: 0
+        localScale:
+          x: 0.25
+          y: 0.25
+          z: 0.25
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 456b38f4e9942dd4abeb2d359493f5da, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1143660928943246, guid: 518679e660cd29848866b3748b7afaa1, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.034
+          y: 0.159
+          z: -0.147
+        localAngles:
+          x: 3.3058562
+          y: 163.22523
+          z: 22.583559
+        localScale:
+          x: 0.7
+          y: 0.7
+          z: 0.7
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 57df82b6ec546254c88b12c036397194, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1048477768573435, guid: 9593a8fdc9d41fa48b1825a264080437, type: 2}
+        childName: LowerArmR
+        localPos:
+          x: -0.036
+          y: 0.2107
+          z: -0.0235
+        localAngles:
+          x: 355.51822
+          y: 18.919838
+          z: 88.542854
+        localScale:
+          x: 0.025587121
+          y: 0.02558713
+          z: 0.02558715
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 64d58b43f508a0d4fa9e3c3ace3d103c, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1104702158823478, guid: 8ec05cb260ad63c43ae719140ac431f7, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.259
+          y: 0.46
+          z: 0.265
+        localAngles:
+          x: 32.339787
+          y: 13.70161
+          z: 334.3902
+        localScale:
+          x: 0.15
+          y: 0.15
+          z: 0.15
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 39249eb1804171243808fec0cb37defa, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1184499739214074, guid: bdb908e0d24a6764c88198df0aa6b24d, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.142
+          y: 0.186
+          z: -0.082
+        localAngles:
+          x: 270
+          y: 305.04584
+          z: 0
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: b9a03a3dfd4b0674d9944e8f913bfc38, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1020086942939522, guid: 627830afd0acdb9428ab95dab8b6931e, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.109
+          y: 0.267
+          z: -0.129
+        localAngles:
+          x: 287.24976
+          y: 58.06437
+          z: 306.54895
+        localScale:
+          x: 0.4
+          y: 0.4
+          z: 0.4
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: dff08ec67e738154ab93301982120784, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1194339059077734, guid: c77f80ab4930a5b46b58bc34b1c8b2f1, type: 2}
+        childName: CalfR
+        localPos:
+          x: 0.075
+          y: 0.07
+          z: 0.019
+        localAngles:
+          x: 4.851575
+          y: 9.211069E-06
+          z: 270.00006
+        localScale:
+          x: 0.61
+          y: 0.61
+          z: 0.61
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: e78543f4460611947942c0ed1a6c94e0, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1520679865226773, guid: 5368ff2607287884284f2230ccec3036, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.195
+          y: 0.469
+          z: -0.149
+        localAngles:
+          x: 350.82315
+          y: 344.59323
+          z: 23.487541
+        localScale:
+          x: 0.08
+          y: 0.08
+          z: 0.08
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: d0e7c602e3e457f40b5e947e256fd2be, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1903170921169539, guid: c017db34f8b55114188228392fdfddf6, type: 2}
+        childName: LowerArmL
+        localPos:
+          x: -0.016
+          y: 0.089
+          z: -0.033
+        localAngles:
+          x: 0.8128889
+          y: 192.9256
+          z: 91.19135
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 43fd01dfe7bf2ce41a6d979dccb5dd93, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1638373376897252, guid: ff01fb8fd766f584682a13495e5dddf8, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.135
+          y: 0.223
+          z: -0.024
+        localAngles:
+          x: 338.15363
+          y: 339.3216
+          z: 328.30984
+        localScale:
+          x: 0.3
+          y: 0.3
+          z: 0.3
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 9a6422e3723f2334690d285240186e8d, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1804833097866269, guid: 9b14eec4c6f503c45ba33627709f9c08, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.0003
+          y: 0.239
+          z: 0.0326
+        localAngles:
+          x: 312.1634
+          y: 175.08575
+          z: 1.5685972
+        localScale:
+          x: 0.3293397
+          y: 0.108100206
+          z: 0.35274148
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1008337237611829, guid: 6e544bf6dc2d7f84db687ffae8f711c4, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.042
+          y: 0.1871
+          z: 0.1399
+        localAngles:
+          x: 307.5171
+          y: 353.34692
+          z: 28.481668
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1715250085306697, guid: e33b4626604c9a64cb49e103bafd9159, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.0502
+          y: 0.1908
+          z: 0.1453
+        localAngles:
+          x: 308.2399
+          y: 1.7931912E-05
+          z: 330.0512
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1008337237611829, guid: 6e544bf6dc2d7f84db687ffae8f711c4, type: 2}
+        childName: Chest
+        localPos:
+          x: -0.083
+          y: 0.206
+          z: 0.125
+        localAngles:
+          x: 332.7899
+          y: 345.60223
+          z: 334.1762
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 7c0cda1b242be2e4a8b381b1f9d726d9, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1181728174114650, guid: 7708ce758828256429d8ae421964a395, type: 2}
+        childName: Pelvis
+        localPos:
+          x: -0.1896
+          y: -0.0374
+          z: -0.0377
+        localAngles:
+          x: 7.694708
+          y: 168.45268
+          z: 147.16855
+        localScale:
+          x: 0.068776
+          y: 0.068776
+          z: 0.068776
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: b5fdbcd50c20d1d4a8af947992dad28d, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1152592405461666, guid: 5b51972405bbf3f4d941a3d6612ad0bf, type: 2}
+        childName: ThighL
+        localPos:
+          x: 0.129
+          y: 0.043
+          z: 0.105
+        localAngles:
+          x: 6.425195
+          y: 100.73679
+          z: 152.01324
+        localScale:
+          x: 0.055
+          y: 0.055
+          z: 0.055
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: fbe0ba09a15f24b4f981537b0352229c, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1745699576344962, guid: c917dbbf241a20c498c509f714709bc7, type: 2}
+        childName: ThighR
+        localPos:
+          x: -0.141
+          y: 0.032
+          z: 0.129
+        localAngles:
+          x: 79.11995
+          y: 33.539597
+          z: 225.15302
+        localScale:
+          x: 0.3
+          y: 0.3
+          z: 0.3
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 21c8dbc9357f66646b89ef64f977fce3, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1180837791134181, guid: 4721887f9dd02974f99c5cd2402dadf2, type: 2}
+        childName: Head
+        localPos:
+          x: -0
+          y: 0.244
+          z: 0.01
+        localAngles:
+          x: 302.17596
+          y: -3.7728369E-06
+          z: -2.3267516E-07
+        localScale:
+          x: 0.4
+          y: 0.4
+          z: 0.4
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1180837791134181, guid: 4721887f9dd02974f99c5cd2402dadf2, type: 2}
+        childName: Head
+        localPos:
+          x: 0
+          y: 0.254
+          z: -0.034
+        localAngles:
+          x: 282.49942
+          y: -1.9096062E-05
+          z: 1.8336914E-05
+        localScale:
+          x: 0.2
+          y: 0.2
+          z: 0.2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 57f0f57c6f4a20f42821bccdb4111cf8, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1138854852489825, guid: 2d2ffcca7b0f8ab47b4279552a073af7, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.097
+          y: 0.106
+          z: -0.136
+        localAngles:
+          x: 19.820143
+          y: 350.93796
+          z: 328.79733
+        localScale:
+          x: 0.17165719
+          y: 0.17165719
+          z: 0.17165719
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 220ef0f5845d1a6479e39aaf819b646a, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1293792227338135, guid: c928edbe6ed61dc4d9e74c0a02d5a79e, type: 2}
+        childName: Chest
+        localPos:
+          x: 0.083
+          y: 0.301
+          z: -0.095
+        localAngles:
+          x: 295.23285
+          y: 32.970833
+          z: 301.4315
+        localScale:
+          x: 0.4
+          y: 0.4
+          z: 0.4
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 8949dbe41e087444fbb2ae41cc290197, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1839763920369985, guid: d472b7f03c7db434b94f7e2658c20f7e, type: 2}
+        childName: Head
+        localPos:
+          x: 0.037
+          y: 0.298
+          z: 0
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 0.1
+          y: 0.1
+          z: 0.1
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1839763920369985, guid: d472b7f03c7db434b94f7e2658c20f7e, type: 2}
+        childName: Head
+        localPos:
+          x: -0.03699968
+          y: 0.29799727
+          z: -6.575138E-07
+        localAngles:
+          x: 1.707547E-06
+          y: -3.4150937E-06
+          z: 1.8142686E-06
+        localScale:
+          x: -0.1
+          y: 0.10000004
+          z: 0.10000005
+        limbMask: 0

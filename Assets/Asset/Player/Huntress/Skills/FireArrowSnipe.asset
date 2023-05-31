@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186eaa076aa62480936b44fb59ad8348, type: 3}
+  m_Name: FireArrowSnipe
+  m_EditorClassIdentifier:
+  skillName: FireArrowSnipe
+  skillNameToken: HUNTRESS_SPECIAL_ALT1_NAME
+  skillDescriptionToken: HUNTRESS_SPECIAL_ALT1_DESCRIPTION
+  keywordTokens: []
+  icon: {fileID: 21300000, guid: adcb51aa55032e041b37b0b8c4cb66af, type: 2}
+  activationStateMachineName: Weapon
+  activationState:
+    _typeName: EntityStates.Huntress.Weapon.FireArrowSnipe
+  interruptPriority: 1
+  baseRechargeInterval: 0
+  baseMaxStock: 3
+  rechargeStock: 0
+  requiredStock: 1
+  stockToConsume: 1
+  resetCooldownTimerOnUse: 0
+  fullRestockOnAssign: 1
+  dontAllowPastMaxStocks: 1
+  beginSkillCooldownOnSkillEnd: 0
+  cancelSprintingOnActivation: 1
+  forceSprintDuringState: 0
+  canceledFromSprinting: 0
+  isCombatSkill: 1
+  mustKeyPress: 1

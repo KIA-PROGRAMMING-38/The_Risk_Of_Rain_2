@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0682e7b67c36d354ff74c7717dd2da, type: 3}
+  m_Name: EntityStates.Huntress.AimArrowSnipe
+  m_EditorClassIdentifier:
+  targetType:
+    assemblyQualifiedName: EntityStates.Huntress.AimArrowSnipe, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  serializedFieldsCollection:
+    serializedFields:
+    - fieldName: maxDuration
+      fieldValue:
+        stringValue: 4
+        objectValue: {fileID: 0}
+    - fieldName: beginLoopSoundString
+      fieldValue:
+        stringValue: Play_huntress_R_snipe_readyBow
+        objectValue: {fileID: 0}
+    - fieldName: endLoopSoundString
+      fieldValue:
+        stringValue:
+        objectValue: {fileID: 0}
+    - fieldName: fireSoundString
+      fieldValue:
+        stringValue:
+        objectValue: {fileID: 0}
+    - fieldName: primarySkillDef
+      fieldValue:
+        stringValue:
+        objectValue: {fileID: 11400000, guid: efff92aa1d38ca34ab03d94eeec2eed8, type: 2}
+    - fieldName: crosshairOverridePrefab
+      fieldValue:
+        stringValue:
+        objectValue: {fileID: 1114971414436684, guid: 8ae596ca37706fa43b836cee32651883, type: 2}

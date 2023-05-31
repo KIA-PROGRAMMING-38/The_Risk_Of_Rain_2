@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d655b07d2cd0339744b343f35ac324, type: 3}
+  m_Name: ppLocalVoidDeathBomDetonate
+  m_EditorClassIdentifier:
+  settings:
+  - {fileID: 11400000, guid: a63f9a78c035ab640bf79d137022b5e6, type: 2}
+  - {fileID: 11400000, guid: 5249c409e5bcec34b985e9da224b5e07, type: 2}
+  - {fileID: 11400000, guid: ffdcf54b3b7df0f419e0849fb971ae6b, type: 2}
+  - {fileID: 11400000, guid: e2f8c516762f2d34dae46175987638b4, type: 2}

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddc288ee56768d9bdacabe3501a74d1d, type: 3}
+  m_Name: IntroCutsceneControllerTimeline
+  m_EditorClassIdentifier:
+  m_Version: 0
+  m_Tracks:
+  - {fileID: 11400000, guid: 1e07838e2792c9241bef2258fdd38a12, type: 2}
+  - {fileID: 11400000, guid: 30db3b3add2e92545862b2ca294d60bb, type: 2}
+  - {fileID: 11400000, guid: aa81635480d35c547a9ab236fcef0e12, type: 2}
+  - {fileID: 11400000, guid: 520da31f11acf8f4b9a2b5d0d94c1583, type: 2}
+  - {fileID: 11400000, guid: 8537d581be7ce284497d868bb18e68d6, type: 2}
+  - {fileID: 11400000, guid: 6705d1429dade5a42a394adb6fd82ca5, type: 2}
+  - {fileID: 11400000, guid: 2c0ca5cfff7e37042b1e047aa75ce8e0, type: 2}
+  - {fileID: 11400000, guid: 39d5da71ced43a7479251e6701571a27, type: 2}
+  - {fileID: 11400000, guid: 1e7daadb3dcc83245bcf5775fbfdfa0b, type: 2}
+  - {fileID: 11400000, guid: a971f6d242cd06e43be332627ef258ce, type: 2}
+  - {fileID: 11400000, guid: 457f5df0a08a06744bce0835d4a75569, type: 2}
+  - {fileID: 11400000, guid: e48ebdd78240df64faf9258b35d711fe, type: 2}
+  - {fileID: 11400000, guid: 3683ddcdf7ad7bb43851c49a81cdab69, type: 2}
+  - {fileID: 11400000, guid: 585ce4ab025895c45b6d9a8cb8771035, type: 2}
+  - {fileID: 11400000, guid: 5e244dac5a509ab4a9f302878cb43b91, type: 2}
+  - {fileID: 11400000, guid: 922dcdd6342087048a6951b76a64b75a, type: 2}
+  - {fileID: 11400000, guid: c097c673bc40e594796e00dcccb8c179, type: 2}
+  - {fileID: 11400000, guid: 95fc72b89510e8a4db27cfc2d8845390, type: 2}
+  - {fileID: 11400000, guid: fc3f8d38fe858264ab3c4855639b7458, type: 2}
+  m_FixedDuration: 0
+  m_EditorSettings:
+    m_Framerate: 60
+    m_ScenePreview: 1
+  m_DurationMode: 0
+  m_MarkerTrack: {fileID: 0}

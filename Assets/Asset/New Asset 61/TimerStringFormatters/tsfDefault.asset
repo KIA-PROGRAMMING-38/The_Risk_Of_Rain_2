@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7616a2d7b2ab76fc43bd7cee921b9f05, type: 3}
+  m_Name: tsfDefault
+  m_EditorClassIdentifier:
+  format:
+    units:
+    - name: days
+      conversionRate: 86400
+      minDigits: 2
+      maxDigits: 2147483647
+      prefix:
+      suffix:
+    - name: hours
+      conversionRate: 3600
+      minDigits: 2
+      maxDigits: 2
+      prefix: ':'
+      suffix:
+    - name: minutes
+      conversionRate: 60
+      minDigits: 2
+      maxDigits: 2
+      prefix: ':'
+      suffix:
+    - name: seconds
+      conversionRate: 1
+      minDigits: 2
+      maxDigits: 2
+      prefix: ':'
+      suffix:
+    - name: centiseconds
+      conversionRate: 0.01
+      minDigits: 2
+      maxDigits: 2
+      prefix: '<voffset=0.4em><size=40%><mspace=0.5em>.'
+      suffix: '</size></voffset></mspace>'
+    prefix: '<mspace=0.5em>'
+    suffix: '</mspace>'

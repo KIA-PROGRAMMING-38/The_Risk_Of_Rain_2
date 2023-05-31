@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d655b07d2cd0339744b343f35ac324, type: 3}
+  m_Name: ppLocalVoidDeathBombWarning
+  m_EditorClassIdentifier:
+  settings:
+  - {fileID: 11400000, guid: e87a983695132e141b101fb196593bea, type: 2}
+  - {fileID: 11400000, guid: 6d7af4344cfa0874c88a1d8e63a3e77f, type: 2}
+  - {fileID: 11400000, guid: 2b04a20a73dc75c458849f99b8362556, type: 2}
+  - {fileID: 11400000, guid: 40a5d648a8a77f04ab6d2419147b4ff6, type: 2}

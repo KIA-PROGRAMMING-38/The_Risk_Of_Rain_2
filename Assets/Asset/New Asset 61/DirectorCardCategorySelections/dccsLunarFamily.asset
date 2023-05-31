@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d353ee42302ffbd0f8b12a8da516e1, type: 3}
+  m_Name: dccsLunarFamily
+  m_EditorClassIdentifier:
+  categories:
+  - name: Basic Monsters
+    cards:
+    - spawnCard: {fileID: 11400000, guid: 0ed3cf7972670254e8a0e254f6310e50, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 1
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 11400000, guid: 2c45edc00d068de4cb21c374e80b79fd, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 11400000, guid: 5261644949ea344449851d8fd6b205c4, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 4
+  selectionChatString: FAMILY_LUNAR
+  minimumStageCompletion: 6
+  maximumStageCompletion: 12

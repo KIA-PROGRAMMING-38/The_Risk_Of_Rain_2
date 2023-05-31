@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0682e7b67c36d354ff74c7717dd2da, type: 3}
+  m_Name: EntityStates.VoidCamp.Idle
+  m_EditorClassIdentifier:
+  targetType:
+    assemblyQualifiedName: EntityStates.VoidCamp.Idle, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  serializedFieldsCollection:
+    serializedFields:
+    - fieldName: additiveAnimationStateName
+      fieldValue:
+        stringValue: None
+        objectValue: {fileID: 0}
+    - fieldName: additiveAnimationLayerName
+      fieldValue:
+        stringValue: Additive Layer
+        objectValue: {fileID: 0}
+    - fieldName: loopSoundDef
+      fieldValue:
+        stringValue:
+        objectValue: {fileID: 11400000, guid: 67855023cf04dd742978f1beba774efc, type: 2}
+    - fieldName: initialClearCheckDelay
+      fieldValue:
+        stringValue: 3
+        objectValue: {fileID: 0}
+    - fieldName: indicatorPrefab
+      fieldValue:
+        stringValue:
+        objectValue: {fileID: 1330690673507649, guid: c492ac93a3aa9f143ba8127a238d0938, type: 2}
+    - fieldName: indicatorMaxTeamCountThreshold
+      fieldValue:
+        stringValue: 3
+        objectValue: {fileID: 0}
+    - fieldName: clearCheckRate
+      fieldValue:
+        stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: baseAnimationStateName
+      fieldValue:
+        stringValue: Idle
+        objectValue: {fileID: 0}
+    - fieldName: baseAnimationLayerName
+      fieldValue:
+        stringValue: Base Layer
+        objectValue: {fileID: 0}

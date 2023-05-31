@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0682e7b67c36d354ff74c7717dd2da, type: 3}
+  m_Name: EntityStates.Huntress.HuntressWeapon.ThrowGlaive
+  m_EditorClassIdentifier:
+  targetType:
+    assemblyQualifiedName: EntityStates.Huntress.HuntressWeapon.ThrowGlaive, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  serializedFieldsCollection:
+    serializedFields:
+    - fieldName: baseDuration
+      fieldValue:
+        stringValue: 1.1
+        objectValue: {fileID: 0}
+    - fieldName: chargePrefab
+      fieldValue:
+        stringValue:
+        objectValue: {fileID: 1037338275418922, guid: 2c92b07dad1b1464bb4acd5c496f2ec2, type: 2}
+    - fieldName: muzzleFlashPrefab
+      fieldValue:
+        stringValue:
+        objectValue: {fileID: 1360925217758939, guid: 0425143c45c160046839136761d9a685, type: 2}
+    - fieldName: smallHopStrength
+      fieldValue:
+        stringValue: 3
+        objectValue: {fileID: 0}
+    - fieldName: antigravityStrength
+      fieldValue:
+        stringValue: 30
+        objectValue: {fileID: 0}
+    - fieldName: damageCoefficient
+      fieldValue:
+        stringValue: 2.5
+        objectValue: {fileID: 0}
+    - fieldName: damageCoefficientPerBounce
+      fieldValue:
+        stringValue: 1.1
+        objectValue: {fileID: 0}
+    - fieldName: glaiveProcCoefficient
+      fieldValue:
+        stringValue: 0.8
+        objectValue: {fileID: 0}
+    - fieldName: maxBounceCount
+      fieldValue:
+        stringValue: 6
+        objectValue: {fileID: 0}
+    - fieldName: glaiveTravelSpeed
+      fieldValue:
+        stringValue: 60
+        objectValue: {fileID: 0}
+    - fieldName: glaiveBounceRange
+      fieldValue:
+        stringValue: 35
+        objectValue: {fileID: 0}
+    - fieldName: attackSoundString
+      fieldValue:
+        stringValue: Play_huntress_m2_throw
+        objectValue: {fileID: 0}

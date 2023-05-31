@@ -1,5 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+
 
 
 public class BasicAttackController : MonoBehaviour
@@ -28,17 +29,25 @@ public class BasicAttackController : MonoBehaviour
     {
         spawnTransforms = new Transform[2] { _spawnPositionLeft, _spawnPositionRight };
         rigidbody = GetComponent<Rigidbody>();
+       
     }
-    private void Start()
-    {
-    }
+
+   
+    [SerializeField]
+    ParticleSystem particleSystemOnEnableLeft;
+    [SerializeField]
+    ParticleSystem particleSystemOnEnableRight;
 
     private void OnEnable()
     {
+        particleSystemOnCollision.SetActive(false);
 
-        SetLaunchPosition();
         RotateCommandoProjectile();
+        SetLaunchPosition();
         LaunchProjectile();
+        SetLaunchAnimation();
+
+
     }
 
 
@@ -64,9 +73,32 @@ public class BasicAttackController : MonoBehaviour
     }
 
     void Deactivate() => gameObject.SetActive(false);
-    private void Update()
+   
+
+    [SerializeField]
+     GameObject particleSystemOnCollision;
+
+    private void OnTriggerStay(Collider other)
     {
+       
+
+        if (IsBulletCollided(other))
+        {
+            Debug.Log("has collided!");
+            particleSystemOnCollision.SetActive(true);
+            rigidbody.Sleep(); // Stop the basic skill immediately.
+            
+        }
+      
+
+      
     }
+
+    private bool IsBulletCollided(Collider collision)
+    {
+        return (collision.CompareTag(TagID.TERRAIN) || collision.CompareTag(TagID.ENEMY));
+    }
+
 
     private void OnDisable()
     {
@@ -74,5 +106,17 @@ public class BasicAttackController : MonoBehaviour
         ObjectPooler.ReturnToPool(gameObject);
 
 
+    }
+
+    private void SetLaunchAnimation()
+    {
+        if (Commando_Skill_Spawner.launchOrder % 2 == 0)
+        {
+            particleSystemOnEnableLeft.Play();
+        }
+        else
+        {
+            particleSystemOnEnableRight.Play();
+        }
     }
 }

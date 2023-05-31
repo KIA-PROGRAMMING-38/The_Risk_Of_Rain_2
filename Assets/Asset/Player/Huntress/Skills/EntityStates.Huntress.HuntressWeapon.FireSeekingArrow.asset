@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0682e7b67c36d354ff74c7717dd2da, type: 3}
+  m_Name: EntityStates.Huntress.HuntressWeapon.FireSeekingArrow
+  m_EditorClassIdentifier:
+  targetType:
+    assemblyQualifiedName: EntityStates.Huntress.HuntressWeapon.FireSeekingArrow, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  serializedFieldsCollection:
+    serializedFields:
+    - fieldName: orbDamageCoefficient
+      fieldValue:
+        stringValue: 1.5
+        objectValue: {fileID: 0}
+    - fieldName: orbProcCoefficient
+      fieldValue:
+        stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: muzzleString
+      fieldValue:
+        stringValue: Muzzle
+        objectValue: {fileID: 0}
+    - fieldName: muzzleflashEffectPrefab
+      fieldValue:
+        stringValue:
+        objectValue: {fileID: 1389431612422031, guid: 635ffca498b6377468cbf81a8f1cbb95, type: 2}
+    - fieldName: attackSoundString
+      fieldValue:
+        stringValue: Play_huntress_m1_ready
+        objectValue: {fileID: 0}
+    - fieldName: baseDuration
+      fieldValue:
+        stringValue: 0.5
+        objectValue: {fileID: 0}
+    - fieldName: maxArrowCount
+      fieldValue:
+        stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: baseArrowReloadDuration
+      fieldValue:
+        stringValue: 0
+        objectValue: {fileID: 0}

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d353ee42302ffbd0f8b12a8da516e1, type: 3}
+  m_Name: dccsJellyfishFamily
+  m_EditorClassIdentifier:
+  categories:
+  - name: Champions
+    cards:
+    - spawnCard: {fileID: 11400000, guid: 895dc1a871f16be4396340ed67bf47f8, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 2
+  - name: Basic Monsters
+    cards:
+    - spawnCard: {fileID: 11400000, guid: 49c4496228ea1ac45a979a932b457920, type: 2}
+      selectionWeight: 1
+      spawnDistance: 2
+      preventOverhead: 1
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 6
+  selectionChatString: FAMILY_JELLYFISH
+  minimumStageCompletion: 1
+  maximumStageCompletion: 2147483647

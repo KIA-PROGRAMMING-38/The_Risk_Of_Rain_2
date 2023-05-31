@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b819dae9297680f46e117abf0cce8970, type: 3}
+  m_Name: dccsShipgraveyardMonsters
+  m_EditorClassIdentifier:
+  categories:
+  - name: Champions
+    cards:
+    - spawnCard: {fileID: 11400000, guid: f8f918e6b6f6e9447a6307cb3d5d3346, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 11400000, guid: bfed562dd563e9a4fa7347a5cb1e19d0, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 11400000, guid: 895dc1a871f16be4396340ed67bf47f8, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 1
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 2
+  - name: Minibosses
+    cards:
+    - spawnCard: {fileID: 11400000, guid: 92b37827a280adc4cb6a2a4475c80f35, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 1
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 11400000, guid: 3d8ab693a807b2b43a892f3778700db4, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 1
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 11400000, guid: 268698938bd6c53489358e5e188ef15b, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 11400000, guid: bfdbe1f327c07ae4da949e16fdaa8fd4, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 4
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 2
+  - name: Basic Monsters
+    cards:
+    - spawnCard: {fileID: 11400000, guid: 673514572f5498740be77efd1b60cf4c, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 11400000, guid: 49c4496228ea1ac45a979a932b457920, type: 2}
+      selectionWeight: 1
+      spawnDistance: 2
+      preventOverhead: 1
+      minimumStageCompletions: 1
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 11400000, guid: b434215968ca6b94f96cf1ecffe939f6, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 1
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 4
+  - name: Special
+    cards:
+    - spawnCard: {fileID: 11400000, guid: 08198310e98e85947a62e25b8957bd29, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 1

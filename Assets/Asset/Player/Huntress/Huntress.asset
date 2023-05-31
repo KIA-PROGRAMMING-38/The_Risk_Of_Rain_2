@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f381b9cb2150c4e664c760560a1313e7, type: 3}
+  m_Name: Huntress
+  m_EditorClassIdentifier:
+  bodyPrefab: {fileID: 1018936729976195, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+  displayPrefab: {fileID: 1946045968060330, guid: d7559b68e1e612347871d216045a0cc5, type: 2}
+  unlockableName:
+  unlockableDef: {fileID: 0}
+  displayNameToken: HUNTRESS_BODY_NAME
+  descriptionToken: HUNTRESS_DESCRIPTION
+  outroFlavorToken: HUNTRESS_OUTRO_FLAVOR
+  mainEndingEscapeFailureFlavorToken: HUNTRESS_MAIN_ENDING_ESCAPE_FAILURE_FLAVOR
+  primaryColor:
+    r: 0.8352941
+    g: 0.23529412
+    b: 0.23529412
+    a: 1
+  desiredSortPosition: 2
+  hidden: 0

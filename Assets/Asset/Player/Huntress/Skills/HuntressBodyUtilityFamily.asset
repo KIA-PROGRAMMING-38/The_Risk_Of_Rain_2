@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e2fa38a33e4e38c0dfbeb0a27708e3, type: 3}
+  m_Name: HuntressBodyUtilityFamily
+  m_EditorClassIdentifier:
+  variants:
+  - skillDef: {fileID: 11400000, guid: bfa13c55fa29dd24e9896ba1c5d0af76, type: 2}
+    unlockableName:
+    unlockableDef: {fileID: 0}
+  - skillDef: {fileID: 11400000, guid: f81bdfd4792c7144da4c2fc2a30b5c30, type: 2}
+    unlockableName:
+    unlockableDef: {fileID: 11400000, guid: b3f5360aa7e24724592c789cd9d40564, type: 2}
+  defaultVariantIndex: 0

@@ -8,8 +8,8 @@ public class Commando_Skill_Spawner : MonoBehaviour
     float _elapsedTime;
     internal static int launchOrder;
 
-    [SerializeField]
-    GameObject _spawnPosition;
+   
+   
 
     private Animator animator;
     enum pistolLaunchDirection
@@ -41,15 +41,16 @@ public class Commando_Skill_Spawner : MonoBehaviour
 
     }
 
+
+    [SerializeField]
+    public Transform _playerPosition;
     private void ShootBullet()
     {
-        if (_spawnPosition == null)
-        {
-            Debug.LogWarning("Spawn position isn't set.");
-            return;
-        }
+       
+       
 
-        GameObject CommandoBasicAttack = ObjectPooler.SpawnFromPool(TagID.COMMANDO_BASIC_ATTACK, _spawnPosition.transform.localPosition);
+        GameObject CommandoBasicAttack = ObjectPooler.SpawnFromPool(TagID.COMMANDO_BASIC_ATTACK, transform.localPosition);
+      
         launchOrder++;
         _elapsedTime = 0.0f;
         

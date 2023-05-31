@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ecbaa7ad1de01e38d9a0c00cfdb5264, type: 3}
+  m_Name: bdSlow50
+  m_EditorClassIdentifier:
+  iconPath:
+  iconSprite: {fileID: 21300000, guid: f7d3fa9bdf9ec5640a94fd16d0a3020b, type: 2}
+  buffColor:
+    r: 0.91764706
+    g: 0.40784314
+    b: 0.41960785
+    a: 1
+  canStack: 0
+  eliteDef: {fileID: 0}
+  isDebuff: 1
+  isCooldown: 0
+  isHidden: 0
+  startSfx: {fileID: 0}

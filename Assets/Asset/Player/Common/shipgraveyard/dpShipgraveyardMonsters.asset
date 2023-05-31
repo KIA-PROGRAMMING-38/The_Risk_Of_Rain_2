@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20cb76dcf664fe96a0afb94c0af4685, type: 3}
+  m_Name: dpShipgraveyardMonsters
+  m_EditorClassIdentifier:
+  poolCategories:
+  - name: Standard
+    categoryWeight: 0.98
+    alwaysIncluded: []
+    includedIfConditionsMet:
+    - dccs: {fileID: 11400000, guid: 0b9cfb400a9993242ae96c6eccac65c9, type: 2}
+      weight: 1
+      hasBeenSerialized: 1
+      requiredExpansions:
+      - {fileID: 11400000, guid: fd6b40d0575d72d42afc3738a4d82337, type: 2}
+    includedIfNoConditionsMet:
+    - dccs: {fileID: 11400000, guid: aa24c45089d1bb64c87916c4ae13a6f6, type: 2}
+      weight: 1
+      hasBeenSerialized: 1
+    hasBeenSerialized: 1
+  - name: Family
+    categoryWeight: 0.02
+    alwaysIncluded: []
+    includedIfConditionsMet:
+    - dccs: {fileID: 11400000, guid: 0256cd0382d353a4d95a88fb7eab8c79, type: 2}
+      weight: 1
+      hasBeenSerialized: 1
+      requiredExpansions: []
+    - dccs: {fileID: 11400000, guid: 1d21cdcee73f4424c89a8ee0466322e7, type: 2}
+      weight: 1
+      hasBeenSerialized: 1
+      requiredExpansions: []
+    - dccs: {fileID: 11400000, guid: f580ccbc2176c164d9c68f592bb0eb9c, type: 2}
+      weight: 1
+      hasBeenSerialized: 1
+      requiredExpansions: []
+    - dccs: {fileID: 11400000, guid: 1da81608d3e6b444097470347dd2364f, type: 2}
+      weight: 1
+      hasBeenSerialized: 1
+      requiredExpansions: []
+    - dccs: {fileID: 11400000, guid: b4d9fb8fed406f7458a606da2acdbfb0, type: 2}
+      weight: 1
+      hasBeenSerialized: 1
+      requiredExpansions:
+      - {fileID: 11400000, guid: fd6b40d0575d72d42afc3738a4d82337, type: 2}
+    includedIfNoConditionsMet: []
+    hasBeenSerialized: 1
+  - name: VoidInvasion
+    categoryWeight: 0.02
+    alwaysIncluded: []
+    includedIfConditionsMet:
+    - dccs: {fileID: 11400000, guid: d22ee3f851ab96449be4fa2ea8526fec, type: 2}
+      weight: 1
+      hasBeenSerialized: 1
+      requiredExpansions:
+      - {fileID: 11400000, guid: fd6b40d0575d72d42afc3738a4d82337, type: 2}
+    includedIfNoConditionsMet: []
+    hasBeenSerialized: 1

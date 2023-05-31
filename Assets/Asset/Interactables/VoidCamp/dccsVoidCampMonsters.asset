@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b819dae9297680f46e117abf0cce8970, type: 3}
+  m_Name: dccsVoidCampMonsters
+  m_EditorClassIdentifier:
+  categories:
+  - name: Champions
+    cards:
+    - spawnCard: {fileID: 11400000, guid: eee0b5aa5fb9cdc419acbd1fa55cf43b, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 1
+  - name: Minibosses
+    cards:
+    - spawnCard: {fileID: 11400000, guid: 90236e74f61e04b4081e59d24d859edf, type: 2}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 2
+  - name: Basic Monsters
+    cards:
+    - spawnCard: {fileID: 11400000, guid: bfdbe1f327c07ae4da949e16fdaa8fd4, type: 2}
+      selectionWeight: 3
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 11400000, guid: 2662607b2b012914792c1bdb76f90ae9, type: 2}
+      selectionWeight: 3
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 4

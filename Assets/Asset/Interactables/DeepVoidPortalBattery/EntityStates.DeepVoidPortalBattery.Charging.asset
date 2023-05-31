@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0682e7b67c36d354ff74c7717dd2da, type: 3}
+  m_Name: EntityStates.DeepVoidPortalBattery.Charging
+  m_EditorClassIdentifier:
+  targetType:
+    assemblyQualifiedName: EntityStates.DeepVoidPortalBattery.Charging, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  serializedFieldsCollection:
+    serializedFields:
+    - fieldName: chargingPositionIndicator
+      fieldValue:
+        stringValue:
+        objectValue: {fileID: 1271248676063217, guid: bf0359f882123ed4d88b7e63d7ba0540, type: 2}
+    - fieldName: animationStateName
+      fieldValue:
+        stringValue: Charging
+        objectValue: {fileID: 0}
+    - fieldName: onEnterSoundString
+      fieldValue:
+        stringValue: Play_ui_obj_voidCradle_open
+        objectValue: {fileID: 0}
+    - fieldName: onEnterChildToEnable
+      fieldValue:
+        stringValue: ChargingFX
+        objectValue: {fileID: 0}

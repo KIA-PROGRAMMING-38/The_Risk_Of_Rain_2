@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc95ef573bce08984f5abfa758d1c2e, type: 3}
+  m_Name: BossTierDef
+  m_EditorClassIdentifier:
+  _tier: 4
+  bgIconTexture: {fileID: 2800000, guid: 8ed64f0a3677f174e801ae3794a07493, type: 3}
+  colorIndex: 13
+  darkColorIndex: 22
+  isDroppable: 1
+  canScrap: 1
+  canRestack: 1
+  pickupRules: 0
+  highlightPrefab: {fileID: 1066041112783272, guid: 77bb4dfba6a38964293a26a1c0eda3f0, type: 2}
+  dropletDisplayPrefab: {fileID: 1753420446109539, guid: b8cd18748ecf5e34db8fa824935f5ad4, type: 2}

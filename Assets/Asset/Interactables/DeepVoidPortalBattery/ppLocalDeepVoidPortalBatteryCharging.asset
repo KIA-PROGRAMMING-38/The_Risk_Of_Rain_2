@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d655b07d2cd0339744b343f35ac324, type: 3}
+  m_Name: ppLocalDeepVoidPortalBatteryCharging
+  m_EditorClassIdentifier:
+  settings:
+  - {fileID: 11400000, guid: 143c089412adffd40a93ac036cca3676, type: 2}
+  - {fileID: 11400000, guid: 72bd3608fe36a9c4f9d47891522c7a90, type: 2}

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20cb76dcf664fe96a0afb94c0af4685, type: 3}
+  m_Name: dpShipgraveyardInteractables
+  m_EditorClassIdentifier:
+  poolCategories:
+  - name:
+    categoryWeight: 1
+    alwaysIncluded: []
+    includedIfConditionsMet:
+    - dccs: {fileID: 11400000, guid: 36ee32d5e4b7b5f4e91d06bebb73a21a, type: 2}
+      weight: 1
+      hasBeenSerialized: 1
+      requiredExpansions:
+      - {fileID: 11400000, guid: fd6b40d0575d72d42afc3738a4d82337, type: 2}
+    includedIfNoConditionsMet:
+    - dccs: {fileID: 11400000, guid: 3543822df3ca8484789f8cc356b7bb76, type: 2}
+      weight: 1
+      hasBeenSerialized: 1
+    hasBeenSerialized: 1

@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5788f2f618596e80f7240328a0ff365, type: 3}
+  m_Name: skinHuntressDefault
+  m_EditorClassIdentifier:
+  baseSkins: []
+  icon: {fileID: 21300000, guid: fcaa6d602ab700c4f939f2f1541ba2a9, type: 2}
+  nameToken: DEFAULT_SKIN
+  unlockableName:
+  unlockableDef: {fileID: 0}
+  rootObject: {fileID: 1886474481225142, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+  rendererInfos:
+  - renderer: {fileID: 120858297829109986, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+    defaultMaterial: {fileID: 2100000, guid: e8473740d1510674da49f2fc26e1120c, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 1
+    hideOnDeath: 0
+  - renderer: {fileID: 137187698251328468, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+    defaultMaterial: {fileID: 2100000, guid: b511070d843ec2048823bbeea265c877, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 23704325952257570, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+    defaultMaterial: {fileID: 2100000, guid: d2cd628656a03b049a690d4c232e89f6, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 1
+    hideOnDeath: 0
+  - renderer: {fileID: 23895252988620647, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+    defaultMaterial: {fileID: 2100000, guid: d2cd628656a03b049a690d4c232e89f6, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 1
+    hideOnDeath: 0
+  - renderer: {fileID: 199791763308878292, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+    defaultMaterial: {fileID: 2100000, guid: 59b9bfa9ec74f9c49829aa35361c989e, type: 2}
+    defaultShadowCastingMode: 0
+    ignoreOverlays: 1
+    hideOnDeath: 0
+  - renderer: {fileID: 23768335130661607, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+    defaultMaterial: {fileID: 2100000, guid: d2cd628656a03b049a690d4c232e89f6, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 1
+    hideOnDeath: 0
+  - renderer: {fileID: 23581444882949476, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+    defaultMaterial: {fileID: 2100000, guid: d2cd628656a03b049a690d4c232e89f6, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 1
+    hideOnDeath: 0
+  - renderer: {fileID: 23130709953509680, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+    defaultMaterial: {fileID: 2100000, guid: d2cd628656a03b049a690d4c232e89f6, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 1
+    hideOnDeath: 0
+  - renderer: {fileID: 23286121218660583, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+    defaultMaterial: {fileID: 2100000, guid: d2cd628656a03b049a690d4c232e89f6, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 1
+    hideOnDeath: 0
+  - renderer: {fileID: 23096756082736725, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+    defaultMaterial: {fileID: 2100000, guid: d2cd628656a03b049a690d4c232e89f6, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 1
+    hideOnDeath: 0
+  - renderer: {fileID: 137314968631190410, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+    defaultMaterial: {fileID: 2100000, guid: b511070d843ec2048823bbeea265c877, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 137289603300186970, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+    defaultMaterial: {fileID: 2100000, guid: f3a886498db0dae499f2245f404b2417, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  gameObjectActivations: []
+  meshReplacements:
+  - renderer: {fileID: 137314968631190410, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+    mesh: {fileID: 4300000, guid: 866712017971db14eb0716bfa357d218, type: 2}
+  - renderer: {fileID: 137289603300186970, guid: 400c6074af1cda54cab0b4be8e0d85e6, type: 2}
+    mesh: {fileID: 4300000, guid: 591c4493df703b0498abe803b0748717, type: 2}
+  projectileGhostReplacements: []
+  minionSkinReplacements: []

@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0682e7b67c36d354ff74c7717dd2da, type: 3}
+  m_Name: EntityStates.Huntress.ArrowRain
+  m_EditorClassIdentifier:
+  targetType:
+    assemblyQualifiedName: EntityStates.Huntress.ArrowRain, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  serializedFieldsCollection:
+    serializedFields:
+    - fieldName: maxDuration
+      fieldValue:
+        stringValue: 1.5
+        objectValue: {fileID: 0}
+    - fieldName: beginLoopSoundString
+      fieldValue:
+        stringValue: Play_huntress_R_aim_loop
+        objectValue: {fileID: 0}
+    - fieldName: endLoopSoundString
+      fieldValue:
+        stringValue: Stop_huntress_R_aim_loop
+        objectValue: {fileID: 0}
+    - fieldName: fireSoundString
+      fieldValue:
+        stringValue: Play_huntress_R_rain_start
+        objectValue: {fileID: 0}
+    - fieldName: arrowRainRadius
+      fieldValue:
+        stringValue: 7.5
+        objectValue: {fileID: 0}
+    - fieldName: damageCoefficient
+      fieldValue:
+        stringValue: 2.2
+        objectValue: {fileID: 0}
+    - fieldName: projectilePrefab
+      fieldValue:
+        stringValue:
+        objectValue: {fileID: 1439928462378123, guid: f69fdca3158ca184f8dafc46bf9f4efc, type: 2}
+    - fieldName: areaIndicatorPrefab
+      fieldValue:
+        stringValue:
+        objectValue: {fileID: 1091138226653667, guid: 8765001e04716ec46973bab7ae9cd963, type: 2}
+    - fieldName: muzzleFlashEffect
+      fieldValue:
+        stringValue:
+        objectValue: {fileID: 1112516217859513, guid: 249b27e694a56714ca7896f3a235bfd0, type: 2}

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d655b07d2cd0339744b343f35ac324, type: 3}
+  m_Name: ppLocalVoidFogMild
+  m_EditorClassIdentifier:
+  settings:
+  - {fileID: 11400000, guid: 5fc07e9982901454d9d03ab6bed44db8, type: 2}
+  - {fileID: 11400000, guid: 105f02bfcbae3be489446edf6c6b8fe9, type: 2}
+  - {fileID: 11400000, guid: 2445a747bc68e8448b4febd42496d358, type: 2}
+  - {fileID: 11400000, guid: aa8c55957ec05454ab9ff4fb37c38ab2, type: 2}

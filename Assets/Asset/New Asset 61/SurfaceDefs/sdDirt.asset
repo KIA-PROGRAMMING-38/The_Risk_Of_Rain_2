@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2350604e367f7d025d6ec6da3ecb7905, type: 3}
+  m_Name: sdDirt
+  m_EditorClassIdentifier:
+  surfaceDefIndex: -1
+  approximateColor:
+    r: 0.2924528
+    g: 0.17646343
+    b: 0.040005345
+    a: 0.85882354
+  impactEffectPrefab: {fileID: 0}
+  footstepEffectPrefab: {fileID: 0}
+  impactSoundString:
+  materialSwitchString: dirt
+  isSlippery: 0

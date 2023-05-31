@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44bba51897292f3efcf3390b49789e14, type: 3}
+  m_Name: muFULLSong07
+  m_EditorClassIdentifier:
+  soundBank:
+    idInternal: 0
+    valueGuidInternal:
+    WwiseObjectReference: {fileID: 11400000, guid: b1b44925d238eed4597cfc3e4fa194cc, type: 2}
+  states:
+  - idInternal: 0
+    valueGuidInternal:
+    groupIdInternal: 0
+    groupGuidInternal:
+    WwiseObjectReference: {fileID: 11400000, guid: 1c5928f301cd82548a1601e179aa5615, type: 2}
+  - idInternal: 0
+    valueGuidInternal:
+    groupIdInternal: 0
+    groupGuidInternal:
+    WwiseObjectReference: {fileID: 11400000, guid: 67bdc6bae7b81f14aa2ec5d454f55c99, type: 2}
+  comment: 'Evapotranspiration
+
+	blackbeach'

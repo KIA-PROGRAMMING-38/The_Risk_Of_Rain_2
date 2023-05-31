@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b819dae9297680f46e117abf0cce8970, type: 3}
+  m_Name: dccsVoidCampFlavorProps
+  m_EditorClassIdentifier:
+  categories:
+  - name: Nature
+    cards:
+    - spawnCard: {fileID: 11400000, guid: 3f59fdb0eee64294d920d9c05122883f, type: 2}
+      selectionWeight: 60
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 11400000, guid: 1096895304a87ea49b2fd0ef6b70221b, type: 2}
+      selectionWeight: 60
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 11400000, guid: 5b0af5aa5c1f31147b37138b8852036e, type: 2}
+      selectionWeight: 60
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 11400000, guid: 72206b1ead3bd63408729de1fcf917db, type: 2}
+      selectionWeight: 5
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 6
+  - name: Void Metal
+    cards:
+    - spawnCard: {fileID: 11400000, guid: 64a00a8ac58e8e84fb8ac43eea3ed043, type: 2}
+      selectionWeight: 2
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 11400000, guid: 7660461a44434fc46aaeca9abacba445, type: 2}
+      selectionWeight: 2
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable:
+      forbiddenUnlockable:
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 1

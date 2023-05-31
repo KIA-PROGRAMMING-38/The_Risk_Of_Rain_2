@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: 54ae28b1ba313dd48afe91c5f2a932fa
+timeCreated: 1685475431
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  externalObjects: {}
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: RiskofRainFont
+  fontNames:
+  - RiskofRainFont
+  fallbackFontReferences: []
+  customCharacters:
+  fontRenderingMode: 0
+  output:
+    hasEmptyFontData: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData:
+  assetBundleName: c95e64db9f533fef95bce1c8c4fbaee2.bundle
+  assetBundleVariant:
