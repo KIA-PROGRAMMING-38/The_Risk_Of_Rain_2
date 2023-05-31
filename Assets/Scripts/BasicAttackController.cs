@@ -29,10 +29,10 @@ public class BasicAttackController : MonoBehaviour
     {
         spawnTransforms = new Transform[2] { _spawnPositionLeft, _spawnPositionRight };
         rigidbody = GetComponent<Rigidbody>();
-       
+
     }
 
-   
+
     [SerializeField]
     ParticleSystem particleSystemOnEnableLeft;
     [SerializeField]
@@ -61,7 +61,7 @@ public class BasicAttackController : MonoBehaviour
 
     private void RotateCommandoProjectile()
     {
-        
+
         currentPlayerPosition = new Vector3(90f + _virtualCameraPosition.rotation.eulerAngles.x, _playerPosition.rotation.eulerAngles.y, 0);
         transform.rotation = Quaternion.Euler(currentPlayerPosition);
     }
@@ -73,25 +73,25 @@ public class BasicAttackController : MonoBehaviour
     }
 
     void Deactivate() => gameObject.SetActive(false);
-   
+
 
     [SerializeField]
-     GameObject particleSystemOnCollision;
+    GameObject particleSystemOnCollision;
 
     private void OnTriggerStay(Collider other)
     {
-       
+
 
         if (IsBulletCollided(other))
         {
-            Debug.Log("has collided!");
+
             particleSystemOnCollision.SetActive(true);
             rigidbody.Sleep(); // Stop the basic skill immediately.
-            
-        }
-      
 
-      
+        }
+
+
+
     }
 
     private bool IsBulletCollided(Collider collision)

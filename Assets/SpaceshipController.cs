@@ -1,18 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D;
 using UnityEngine;
 
 public class SpaceshipController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float speed;
+
+
+    private Rigidbody rigidbody;
+
+    [SerializeField]
+    Transform startPosition;
+
+    [SerializeField]
+    GameObject arrivalExplosionPS;
+
+    [SerializeField]
+    GameObject RocketPluimingPS;
+
+    [SerializeField]
+    GameObject playerIntroPS;
+
+    [SerializeField]
+    GameObject _player;
+
+    [SerializeField]
+    Transform _playerVirtualCameraPosition;
+
+    void Awake()
     {
-        
+        _player.SetActive(false);
+        arrivalExplosionPS.SetActive(false);
+        rigidbody = GetComponent<Rigidbody>();
+        rigidbody.velocity = (startPosition.position - transform.position).normalized * speed;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    private void OnTriggerEnter(Collider spaceship)
+    {
+        if (IsSpaceshipCollided(spaceship))
+        {
+            arrivalExplosionPS.SetActive(true);// explosion Particle
+            RocketPluimingPS.SetActive(false);
+            rigidbody.Sleep();
+            _player.SetActive(true);
+
+
+            Cinemachine_Controller.virtualCamera.Follow = _playerVirtualCameraPosition;
+            Cinemachine_Controller.virtualCamera.LookAt = _playerVirtualCameraPosition;
+        }
+
+    }
+
+    private bool IsSpaceshipCollided(Collider collision)
+    {
+        return (collision.CompareTag(TagID.TERRAIN));
     }
 }

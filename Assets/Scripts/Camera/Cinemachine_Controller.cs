@@ -5,6 +5,8 @@ using System.Threading;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
 
 public class Cinemachine_Controller : MonoBehaviour
 {
@@ -28,12 +30,20 @@ public class Cinemachine_Controller : MonoBehaviour
     public float MINIMUM_Y_POSITION = 0;
     public float MAXIMUM_Y_POSITION = 10;
 
+    
 
-
-    private CinemachineVirtualCamera virtualCamera;
+    public static CinemachineVirtualCamera virtualCamera;
     private Cinemachine3rdPersonFollow thirdPersonFollow;
     private CinemachineBasicMultiChannelPerlin virtualCameraNoise;
     CinemachineComposer composer;
+
+ 
+
+
+
+    [SerializeField]
+    GameObject _spaceShip;
+
 
     private void Start()
     {
@@ -42,10 +52,21 @@ public class Cinemachine_Controller : MonoBehaviour
         // virtualCameraNoise = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         thirdPersonFollow = virtualCamera.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
         composer = virtualCamera.GetCinemachineComponent<CinemachineComposer>();
+
+        //have the virtual camera watch spaceship.
+        virtualCamera.LookAt = _spaceShip.transform;
+
+
+        
+
+
     }
 
     private void Update()
     {
+
+       
+
         RotateYAxis();
         SetShaderParameter();
     }
