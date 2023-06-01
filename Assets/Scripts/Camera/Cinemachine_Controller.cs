@@ -47,26 +47,20 @@ public class Cinemachine_Controller : MonoBehaviour
 
     private void Start()
     {
-        // Get the CinemachineVirtualCamera component attached to the virtual camera body
+       
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
-        // virtualCameraNoise = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         thirdPersonFollow = virtualCamera.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
         composer = virtualCamera.GetCinemachineComponent<CinemachineComposer>();
 
-        //have the virtual camera watch spaceship.
+        //have the virtual camera watch the spaceship first.
         virtualCamera.LookAt = _spaceShip.transform;
-
-
-        
-
-
     }
 
     private void Update()
     {
 
-       
 
+       
         RotateYAxis();
         SetShaderParameter();
     }
@@ -76,7 +70,7 @@ public class Cinemachine_Controller : MonoBehaviour
     /// Rotate Y axis using lerp.
     /// Take note that the rate of change is not constant since Lerp2D.EaseOutExpo is involved.
     /// </summary>
-    /// 
+  
     float lerp;
     private void RotateYAxis()
     {

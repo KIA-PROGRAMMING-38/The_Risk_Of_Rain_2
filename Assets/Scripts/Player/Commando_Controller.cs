@@ -34,9 +34,13 @@ public class Commando_Controller : MonoBehaviour
         mouseY = Input.GetAxis("Mouse Y") * sensitivity;
 
 
-        MovePlayer();
         RotatePlayer();
         JumpPlayer();
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlayer();
     }
 
     private void RotatePlayer()
@@ -44,14 +48,19 @@ public class Commando_Controller : MonoBehaviour
         // 플레이어의 Y축 회전
         transform.Rotate(Vector3.up, mouseX);
 
-        
+
     }
 
     private void MovePlayer()
     {
-        Vector3 movement = new Vector3(moveX, 0f, moveZ);
-        Vector3 velocity = movement * speed * Time.deltaTime;
-        transform.Translate(velocity);
+        //get transform not to get world coordinates but local ones.
+        Vector3 moveDirection = (transform.right * moveX + transform.forward * moveZ).normalized;
+        Vector3 newVelocity = speed * moveDirection;
+
+      
+        newVelocity.y = rigidbody.velocity.y;
+
+        rigidbody.velocity = newVelocity;
 
         animator.SetFloat(AnimID.MOVE_X, moveX);
         animator.SetFloat(AnimID.MOVE_Y, moveZ);
@@ -65,7 +74,7 @@ public class Commando_Controller : MonoBehaviour
         {
             isJumping = true;
             animator.SetBool(AnimID.IS_JUMPING, true);
-            rigidbody.AddForce(Vector3.up * jumpForce,ForceMode.Impulse);
+            rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 

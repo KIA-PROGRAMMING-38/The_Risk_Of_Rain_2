@@ -8,8 +8,8 @@ public class Commando_Skill_Spawner : MonoBehaviour
     float _elapsedTime;
     internal static int launchOrder;
 
-   
-   
+
+
 
     private Animator animator;
     enum pistolLaunchDirection
@@ -27,33 +27,37 @@ public class Commando_Skill_Spawner : MonoBehaviour
     {
 
     }
+    [SerializeField]
+     Transform _playerPosition;
+
+    [SerializeField]
+    Transform _virtualCameraPosition;
+
+
+
     private void Update()
     {
+        Debug.DrawRay(_playerPosition.position, 100000 * _virtualCameraPosition.forward, Color.yellow);
+
         _elapsedTime += Time.deltaTime;
         if (Input.GetKey(KeyCode.Mouse0) && _elapsedTime > _spawnCoolTime)
         {
-           
             ShootBullet();
             SetAnimation();
-           
-
         }
 
     }
 
 
-    [SerializeField]
-    public Transform _playerPosition;
+
     private void ShootBullet()
     {
-       
-       
 
         GameObject CommandoBasicAttack = ObjectPooler.SpawnFromPool(TagID.COMMANDO_BASIC_ATTACK, transform.localPosition);
-      
+
         launchOrder++;
         _elapsedTime = 0.0f;
-        
+
 
     }
 
@@ -71,6 +75,6 @@ public class Commando_Skill_Spawner : MonoBehaviour
         }
 
         animator.SetTrigger(AnimID.PISTOL_LAUNCHED);
-      
+
     }
 }

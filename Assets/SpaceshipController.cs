@@ -28,6 +28,7 @@ public class SpaceshipController : MonoBehaviour
     [SerializeField]
     Transform _playerVirtualCameraPosition;
 
+    
     void Awake()
     {
         _player.SetActive(false);

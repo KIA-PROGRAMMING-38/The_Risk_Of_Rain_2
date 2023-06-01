@@ -11,9 +11,7 @@ public class BasicAttackController : MonoBehaviour
     Transform _spawnPositionRight;
 
 
-    //Get virtual camera position to rotate vertical screen.
-    [SerializeField]
-    Transform _virtualCameraPosition;
+
 
 
     //The player's position needs to be synchronized with the direction to ensure the movement of basic and special skills.
@@ -23,7 +21,7 @@ public class BasicAttackController : MonoBehaviour
 
     Rigidbody rigidbody;
     public float _bulletSpeed;
-    Vector3 currentPlayerPosition;
+    Vector3 setRotation;
     Transform[] spawnTransforms;
     private void Awake()
     {
@@ -32,66 +30,38 @@ public class BasicAttackController : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+
+    }
 
     [SerializeField]
     ParticleSystem particleSystemOnEnableLeft;
     [SerializeField]
     ParticleSystem particleSystemOnEnableRight;
 
+    Vector3 launchDirection;
     private void OnEnable()
     {
         particleSystemOnCollision.SetActive(false);
 
-        RotateCommandoProjectile();
+
         SetLaunchPosition();
-        LaunchProjectile();
         SetLaunchAnimation();
-
-
+        launchDirection = RotateCommandoProjectile();
+        LaunchProjectile(launchDirection);
     }
-
-
-
-    private void SetLaunchPosition()
-    {
-
-        transform.position = spawnTransforms[Commando_Skill_Spawner.launchOrder % 2].position;
-
-    }
-
-    private void RotateCommandoProjectile()
-    {
-
-        currentPlayerPosition = new Vector3(90f + _virtualCameraPosition.rotation.eulerAngles.x, _playerPosition.rotation.eulerAngles.y, 0);
-        transform.rotation = Quaternion.Euler(currentPlayerPosition);
-    }
-
-    private void LaunchProjectile()
-    {
-        rigidbody.velocity = transform.up * _bulletSpeed;
-        Invoke(nameof(Deactivate), 10f);
-    }
-
-    void Deactivate() => gameObject.SetActive(false);
-
 
     [SerializeField]
     GameObject particleSystemOnCollision;
 
     private void OnTriggerStay(Collider other)
     {
-
-
         if (IsBulletCollided(other))
         {
-
             particleSystemOnCollision.SetActive(true);
             rigidbody.Sleep(); // Stop the basic skill immediately.
-
         }
-
-
-
     }
 
     private bool IsBulletCollided(Collider collision)
@@ -99,13 +69,10 @@ public class BasicAttackController : MonoBehaviour
         return (collision.CompareTag(TagID.TERRAIN) || collision.CompareTag(TagID.ENEMY));
     }
 
-
     private void OnDisable()
     {
         CancelInvoke();
         ObjectPooler.ReturnToPool(gameObject);
-
-
     }
 
     private void SetLaunchAnimation()
@@ -119,4 +86,55 @@ public class BasicAttackController : MonoBehaviour
             particleSystemOnEnableRight.Play();
         }
     }
+
+    private void SetLaunchPosition()
+    {
+        transform.position = spawnTransforms[Commando_Skill_Spawner.launchOrder % 2].position;
+    }
+
+    /// <summary>
+    /// Get virtual camera's fowards vector to have the commando skills launch towards crosshair position.
+    /// Y offset is also used since the crosshair is moved to upward a bit.
+    /// </summary>
+    /// 
+
+    [SerializeField]
+    Transform _virtualCameraPosition;
+
+
+
+
+    public float launchPositionYOffset;
+    private Vector3 RotateCommandoProjectile()
+    {
+        _virtualCameraPosition.position += Vector3.up * launchPositionYOffset;
+
+        if (Physics.Raycast(Camera.main.transform.position,
+           10000 * _virtualCameraPosition.forward, out RaycastHit hitInfo))
+        {
+            Debug.Log("Ray's hit something");
+            Vector3 direction = hitInfo.point - spawnTransforms[Commando_Skill_Spawner.launchOrder % 2].position;
+
+           
+            // Vector3 rotationQuantity= new Vector3(90f + direction.y, _virtualCameraPosition.position.x, 0);
+
+            return direction.normalized;
+        }
+        else
+        {
+            Debug.Log("ERROR: Ray's hit nothing ");
+            Vector3 direction = _virtualCameraPosition.forward;
+            return _virtualCameraPosition.forward;
+        }
+
+
+    }
+
+    private void LaunchProjectile(Vector3 direction)
+    {
+        rigidbody.velocity = direction * _bulletSpeed;
+        Invoke(nameof(Deactivate), 10f);
+    }
+
+    void Deactivate() => gameObject.SetActive(false);
 }
