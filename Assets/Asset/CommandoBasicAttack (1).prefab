@@ -82,12 +82,12 @@ MonoBehaviour:
   _spawnPositionLeft: {fileID: 0}
   _spawnPositionRight: {fileID: 0}
   _playerPosition: {fileID: 0}
-  _bulletSpeed: 700
+  _bulletSpeed: 800
   particleSystemOnEnableLeft: {fileID: 0}
   particleSystemOnEnableRight: {fileID: 0}
   particleSystemOnCollision: {fileID: 1593361877948347606}
   _virtualCameraPosition: {fileID: 0}
-  launchPositionYOffset: -30
+  launchPositionYOffset: 0
 --- !u!33 &5028592001111001819
 MeshFilter:
   m_ObjectHideFlags: 0

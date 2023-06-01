@@ -9,11 +9,6 @@ public class BasicAttackController : MonoBehaviour
     Transform _spawnPositionLeft;
     [SerializeField]
     Transform _spawnPositionRight;
-
-
-
-
-
     //The player's position needs to be synchronized with the direction to ensure the movement of basic and special skills.
     [SerializeField]
     Transform _playerPosition;
@@ -27,18 +22,9 @@ public class BasicAttackController : MonoBehaviour
     {
         spawnTransforms = new Transform[2] { _spawnPositionLeft, _spawnPositionRight };
         rigidbody = GetComponent<Rigidbody>();
-
     }
 
-    private void Update()
-    {
 
-    }
-
-    [SerializeField]
-    ParticleSystem particleSystemOnEnableLeft;
-    [SerializeField]
-    ParticleSystem particleSystemOnEnableRight;
 
     Vector3 launchDirection;
     private void OnEnable()
@@ -75,6 +61,12 @@ public class BasicAttackController : MonoBehaviour
         ObjectPooler.ReturnToPool(gameObject);
     }
 
+
+
+    [SerializeField]
+    ParticleSystem particleSystemOnEnableLeft;
+    [SerializeField]
+    ParticleSystem particleSystemOnEnableRight;
     private void SetLaunchAnimation()
     {
         if (Commando_Skill_Spawner.launchOrder % 2 == 0)
@@ -92,23 +84,18 @@ public class BasicAttackController : MonoBehaviour
         transform.position = spawnTransforms[Commando_Skill_Spawner.launchOrder % 2].position;
     }
 
-    /// <summary>
-    /// Get virtual camera's fowards vector to have the commando skills launch towards crosshair position.
-    /// Y offset is also used since the crosshair is moved to upward a bit.
-    /// </summary>
-    /// 
 
+    /// <summary>
+    /// This method rotates the camera using a Raycast. 
+    /// The direction of the Raycast (where it is shot) is also calculated within this function.
+    /// It is important to note that the direction should be in sync with the position of the crosshair for correct orientation.
+    /// </summary>
+    /// <returns></returns>
+    
     [SerializeField]
     Transform _virtualCameraPosition;
-
-
-
-
-    public float launchPositionYOffset;
     private Vector3 RotateCommandoProjectile()
     {
-        _virtualCameraPosition.position += Vector3.up * launchPositionYOffset;
-
         if (Physics.Raycast(Camera.main.transform.position,
            10000 * _virtualCameraPosition.forward, out RaycastHit hitInfo))
         {
