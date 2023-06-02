@@ -28,11 +28,13 @@ public class SpaceshipController : MonoBehaviour
     [SerializeField]
     Transform _playerVirtualCameraPosition;
 
-    
+    private Collider collider; 
     void Awake()
     {
+
         _player.SetActive(false);
         arrivalExplosionPS.SetActive(false);
+        collider = GetComponent<Collider>();
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.velocity = (startPosition.position - transform.position).normalized * speed;
     }
@@ -54,6 +56,9 @@ public class SpaceshipController : MonoBehaviour
 
             Cinemachine_Controller.virtualCamera.Follow = _playerVirtualCameraPosition;
             Cinemachine_Controller.virtualCamera.LookAt = _playerVirtualCameraPosition;
+
+            collider.enabled = false;
+
         }
 
     }

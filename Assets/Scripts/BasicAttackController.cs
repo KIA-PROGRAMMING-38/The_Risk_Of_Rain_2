@@ -50,6 +50,12 @@ public class BasicAttackController : MonoBehaviour
         }
     }
 
+  
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log($"{name} to {collision.gameObject.name}");
+    }
+
     private bool IsBulletCollided(Collider collision)
     {
         return (collision.CompareTag(TagID.TERRAIN) || collision.CompareTag(TagID.ENEMY));
@@ -99,7 +105,7 @@ public class BasicAttackController : MonoBehaviour
         if (Physics.Raycast(Camera.main.transform.position,
            10000 * _virtualCameraPosition.forward, out RaycastHit hitInfo))
         {
-            Debug.Log("Ray's hit something");
+          
             Vector3 direction = hitInfo.point - spawnTransforms[Commando_Skill_Spawner.launchOrder % 2].position;
 
            

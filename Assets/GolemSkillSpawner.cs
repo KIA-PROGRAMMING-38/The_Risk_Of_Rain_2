@@ -29,10 +29,6 @@ public class GolemSkillSpawner : MonoBehaviour
             lineRenderer.SetPosition(0, _laserSpawnPosition.transform.position);
             lineRenderer.SetPosition(1, _player.transform.position);
         }
-        else
-        {
-            lineRenderer.enabled = false;
-        }
     }
 
     private void OnTriggerExit(Collider laserDetector)
