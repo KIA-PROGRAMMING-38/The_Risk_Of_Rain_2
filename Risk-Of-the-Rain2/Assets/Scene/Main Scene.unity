@@ -1755,7 +1755,7 @@ RectTransform:
   - {fileID: 1412858302}
   - {fileID: 1944654635}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -0.262, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2080,6 +2080,7 @@ GameObject:
   - component: {fileID: 483973982}
   - component: {fileID: 483973981}
   - component: {fileID: 483973980}
+  - component: {fileID: 483973985}
   m_Layer: 0
   m_Name: mdlGolem #668 (3)
   m_TagString: Enemy
@@ -2163,8 +2164,30 @@ Transform:
   - {fileID: 2141606479}
   - {fileID: 86318808}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 184.383, z: 0}
+--- !u!195 &483973985
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483973979}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 2.77
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!4 &487988484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9bfaed476bd48a5409647883be30fddc,
@@ -2880,7 +2903,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728118224}
-  m_LocalRotation: {x: -0.56452835, y: -0.26595727, z: -0.19867364, w: 0.7557138}
+  m_LocalRotation: {x: -0.5645283, y: -0.26595718, z: -0.19867352, w: 0.75571394}
   m_LocalPosition: {x: 386.1, y: 423.4, z: 221.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3434,7 +3457,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &827295541
 PrefabInstance:
@@ -5056,7 +5079,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257012775}
-  m_LocalRotation: {x: -0.56452835, y: -0.26595727, z: -0.19867364, w: 0.7557138}
+  m_LocalRotation: {x: -0.5645283, y: -0.26595718, z: -0.19867352, w: 0.75571394}
   m_LocalPosition: {x: 386.1, y: 423.4, z: 221.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5975,37 +5998,6 @@ Transform:
   m_Father: {fileID: 976258058}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0.000013215073, y: 0.00005119999, z: 28.885723}
---- !u!1 &1452110806
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1452110807}
-  m_Layer: 0
-  m_Name: Golems
-  m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1452110807
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452110806}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 584.75, y: 180.99998, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1461875771 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5,
@@ -7055,7 +7047,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1774820503
 PrefabInstance:
@@ -8522,6 +8514,7 @@ GameObject:
   - component: {fileID: 2141606479}
   - component: {fileID: 2141606482}
   - component: {fileID: 2141606481}
+  - component: {fileID: 2141606483}
   m_Layer: 0
   m_Name: LaserSpawnPosition
   m_TagString: Untagged
@@ -8537,7 +8530,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141606478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 19.4, z: 10.3}
+  m_LocalPosition: {x: -2.5, y: 26.73, z: -1.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8557,8 +8550,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1471395627750034582}
-  _laserSpawnPosition: {fileID: 403761267}
+  _laserSpawnPosition: {fileID: 2141606478}
   rangeRadius: 150
+  emissionIntensity: 1
+  _targetMaterial: {fileID: 2100000, guid: 6b423aab508c26442bfa22f0b8ee818f, type: 2}
+  _launchMaterial: {fileID: 2100000, guid: 43e42467d9b9f9343bbdf5b4e96abb68, type: 2}
+  blinkCount: 10
 --- !u!120 &2141606482
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -8579,7 +8576,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b423aab508c26442bfa22f0b8ee818f, type: 2}
+  - {fileID: 2100000, guid: 43e42467d9b9f9343bbdf5b4e96abb68, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8658,6 +8655,18 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &2141606483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141606478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be74c5c17ee15ac4ebbcfc541debe022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &50087097481566457
 Transform:
   m_ObjectHideFlags: 0
@@ -12679,7 +12688,7 @@ PrefabInstance:
     - target: {fileID: 4363179261997642334, guid: 559304777f488364b952d650f54dc02f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4363179261997642334, guid: 559304777f488364b952d650f54dc02f,
         type: 3}
