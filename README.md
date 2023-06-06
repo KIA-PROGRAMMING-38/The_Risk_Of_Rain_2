@@ -5,7 +5,7 @@
 [![]([https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.nexon.bluearchive](https://cdn.mos.cms.futurecdn.net/fFoCAtq7MbZqFk3wGvVbtd.jpg))
 
 
-싱글, 혹은 협력하여 각종 몹을 처치하고 보스를 물리치는 게임입니다. 
+Risk of Rain 2 is a classic multiplayer roguelike game that is the sequel to the  Risk of Rain.
 
 
 <!-- [<img width=100% height=100% alt="프로젝트 이름" src="https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.nexon.bluearchive](https://cdn.mos.cms.futurecdn.net/fFoCAtq7MbZqFk3wGvVbtd.jpg">](https://www.youtube.com/watch?v={유튜브 비디오 ID}) -->
