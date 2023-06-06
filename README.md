@@ -1,13 +1,12 @@
-# 프로젝트 이름
+# The Risk Of Rain 2
 
 <!-- 아래는 추후 배포 시 사용합니다. -->
 <!-- [![]...](링크) -->
-[![](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.nexon.bluearchive)
-[![](https://img.shields.io/badge/App_Store-0D96F6?style=for-the-badge&logo=app-store&logoColor=white)](https://apps.apple.com/kr/app/%EB%B8%94%EB%A3%A8-%EC%95%84%EC%B9%B4%EC%9D%B4%EB%B8%8C/id1571873795)
+[![]([https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.nexon.bluearchive](https://cdn.mos.cms.futurecdn.net/fFoCAtq7MbZqFk3wGvVbtd.jpg))
 
-어떤 게임인지 간단하게 소개해주세요.
 
-(이미지 클릭 시 유튜브로 이동합니다.)
+싱글, 혹은 협력하여 각종 몹을 처치하고 보스를 물리치는 게임입니다. 
+
 
 <!-- [<img width=100% height=100% alt="프로젝트 이름" src="https://img.youtube.com/vi/{유튜브 비디오 ID}/0.jpg">](https://www.youtube.com/watch?v={유튜브 비디오 ID}) -->
 <!-- https://www.youtube.com/watch?v=6eLQ-EPrnqM -->
