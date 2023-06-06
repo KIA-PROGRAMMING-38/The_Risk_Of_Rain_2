@@ -48,7 +48,8 @@ Shader "Cartoon FX/Remaster/Particle Ubershader"
 		_DissolveSmooth ("Dissolve Smoothing", Range(0.0001,0.5)) = 0.1
 		[ToggleNoKeyword] _InvertDissolveTex ("Invert Dissolve Texture", Float) = 0
 		[ToggleNoKeyword] _DoubleDissolve ("Double Dissolve", Float) = 0
-		[Toggle(_CFXR_DISSOLVE_ALONG_UV_X)] _UseDissolveOffsetUV ("Dissolve offset along X", Float) = 0
+		[Toggle(_CFXR_DISSOLVE_ALONG_UV_X)] _UseDissolveOff
+			UV ("Dissolve offset along X", Float) = 0
 	//# IF_KEYWORD _CFXR_DISSOLVE_ALONG_UV_X
 		_DissolveScroll ("UV Scrolling", Vector) = (0,0,0,0)
 	//# END_IF
