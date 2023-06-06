@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using System;
+using UniRx;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 public class Commando_Controller : MonoBehaviour
 {
@@ -10,32 +10,51 @@ public class Commando_Controller : MonoBehaviour
 
     private float mouseX;
     private float mouseY;
-    float moveX;
-    float moveZ;
+    private float moveX;
+    private float moveZ;
 
     private Animator animator;
     private Rigidbody rigidbody;
 
-    void Awake()
+    private Subject<Unit> eKeyPressSubject = new Subject<Unit>();
+    public IObservable<Unit> EKeyPressObservable => eKeyPressSubject;
+
+    public readonly bool IS_GAME_START;
+
+    private void Awake()
     {
+       
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
     }
-    void Update()
+
+    private void Start()
     {
-        //Get inputs.
+      
+        EKeyPressObservable
+            .Subscribe(_ => StartGame())
+            .AddTo(this); 
+    }
+
+    private void Update()
+    {
+        // Get inputs
         moveX = Input.GetAxis("Horizontal");
         moveZ = Input.GetAxis("Vertical");
         animator.SetFloat(AnimID.EULER_X, moveX);
         animator.SetFloat(AnimID.EULER_Y, moveZ);
 
-
         mouseX = Input.GetAxis("Mouse X") * sensitivity;
         mouseY = Input.GetAxis("Mouse Y") * sensitivity;
 
-
         RotatePlayer();
         JumpPlayer();
+
+        // Check for "E" key press
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            eKeyPressSubject.OnNext(Unit.Default);
+        }
     }
 
     private void FixedUpdate()
@@ -43,12 +62,27 @@ public class Commando_Controller : MonoBehaviour
         MovePlayer();
     }
 
+    private void StartGame()
+    {
+       
+        Debug.Log("startgame");
+        PlayStartAnimation();
+       
+    }
+
+    [SerializeField]
+    ParticleSystem startPS;
+    private async UniTaskVoid PlayStartAnimation()
+    {
+        startPS.transform.position = transform.position;
+        startPS.Play();
+        await UniTask.Delay(1000);
+    }
+
     private void RotatePlayer()
     {
-        // 플레이어의 Y축 회전
+        // Rotate the player around the Y-axis
         transform.Rotate(Vector3.up, mouseX);
-
-
     }
 
     private void MovePlayer()
@@ -57,7 +91,7 @@ public class Commando_Controller : MonoBehaviour
         Vector3 moveDirection = (transform.right * moveX + transform.forward * moveZ).normalized;
         Vector3 newVelocity = speed * moveDirection;
 
-      
+
         newVelocity.y = rigidbody.velocity.y;
 
         rigidbody.velocity = newVelocity;
@@ -89,3 +123,5 @@ public class Commando_Controller : MonoBehaviour
 
 
 }
+
+

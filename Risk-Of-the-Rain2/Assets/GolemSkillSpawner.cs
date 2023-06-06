@@ -2,6 +2,8 @@ using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
+using UnityEngine.UIElements;
 
 public class GolemSkillSpawner : MonoBehaviour
 {
@@ -26,6 +28,7 @@ public class GolemSkillSpawner : MonoBehaviour
     bool isLaunched;
     void Update()
     {
+        RotateGolemHead();
 
         Detected = DetectPlayer();
 
@@ -82,6 +85,12 @@ public class GolemSkillSpawner : MonoBehaviour
         lineRenderer.enabled = false;
     }
 
+    
+    public Transform _golemHead;
+    private void RotateGolemHead()
+    {
+        _golemHead.LookAt(_player.transform);
+    }
 
     public float emissionIntensity = 1f;
 

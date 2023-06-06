@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.U2D;
 using UnityEngine;
+using UniRx;
 
 public class SpaceshipController : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class SpaceshipController : MonoBehaviour
     void Awake()
     {
 
-        _player.SetActive(false);
+       
         arrivalExplosionPS.SetActive(false);
         collider = GetComponent<Collider>();
         rigidbody = GetComponent<Rigidbody>();
@@ -44,14 +45,14 @@ public class SpaceshipController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider spaceship)
+    private void OnTriggerStay(Collider spaceship)
     {
         if (IsSpaceshipCollided(spaceship))
         {
             arrivalExplosionPS.SetActive(true);// explosion Particle
             RocketPluimingPS.SetActive(false);
             rigidbody.Sleep();
-            _player.SetActive(true);
+            
 
 
             Cinemachine_Controller.virtualCamera.Follow = _playerVirtualCameraPosition;

@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 
 
@@ -9,12 +10,13 @@ public class BasicAttackController : MonoBehaviour
     Transform _spawnPositionLeft;
     [SerializeField]
     Transform _spawnPositionRight;
+
     //The player's position needs to be synchronized with the direction to ensure the movement of basic and special skills.
     [SerializeField]
     Transform _playerPosition;
 
-
     Rigidbody rigidbody;
+
     public float _bulletSpeed;
     Vector3 setRotation;
     Transform[] spawnTransforms;
@@ -25,13 +27,10 @@ public class BasicAttackController : MonoBehaviour
     }
 
 
-
     Vector3 launchDirection;
     private void OnEnable()
     {
         particleSystemOnCollision.SetActive(false);
-
-
         SetLaunchPosition();
         SetLaunchAnimation();
         launchDirection = RotateCommandoProjectile();
@@ -41,20 +40,25 @@ public class BasicAttackController : MonoBehaviour
     [SerializeField]
     GameObject particleSystemOnCollision;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (IsBulletCollided(other))
         {
-            particleSystemOnCollision.SetActive(true);
-            rigidbody.Sleep(); // Stop the basic skill immediately.
+            Play1ollisionParticleOnce();
         }
     }
 
-  
-    private void OnCollisionEnter(Collision collision)
+    private async UniTaskVoid Play1ollisionParticleOnce()
     {
-        Debug.Log($"{name} to {collision.gameObject.name}");
+        particleSystemOnCollision.SetActive(true);
+        rigidbody.Sleep();
+        await UniTask.Delay(200);
+        particleSystemOnCollision.SetActive(false);
+        Deactivate();
+
+
     }
+ 
 
     private bool IsBulletCollided(Collider collision)
     {
@@ -79,6 +83,7 @@ public class BasicAttackController : MonoBehaviour
         {
             particleSystemOnEnableLeft.Play();
         }
+
         else
         {
             particleSystemOnEnableRight.Play();
@@ -97,7 +102,6 @@ public class BasicAttackController : MonoBehaviour
     /// It is important to note that the direction should be in sync with the position of the crosshair for correct orientation.
     /// </summary>
     /// <returns></returns>
-    
     [SerializeField]
     Transform _virtualCameraPosition;
     private Vector3 RotateCommandoProjectile()
@@ -105,28 +109,23 @@ public class BasicAttackController : MonoBehaviour
         if (Physics.Raycast(Camera.main.transform.position,
            10000 * _virtualCameraPosition.forward, out RaycastHit hitInfo))
         {
-          
             Vector3 direction = hitInfo.point - spawnTransforms[Commando_Skill_Spawner.launchOrder % 2].position;
-
-           
             // Vector3 rotationQuantity= new Vector3(90f + direction.y, _virtualCameraPosition.position.x, 0);
-
             return direction.normalized;
         }
+
         else
         {
             Debug.Log("ERROR: Ray's hit nothing ");
             Vector3 direction = _virtualCameraPosition.forward;
             return _virtualCameraPosition.forward;
         }
-
-
     }
 
     private void LaunchProjectile(Vector3 direction)
     {
         rigidbody.velocity = direction * _bulletSpeed;
-        Invoke(nameof(Deactivate), 10f);
+        Invoke(nameof(Deactivate), 3f);
     }
 
     void Deactivate() => gameObject.SetActive(false);

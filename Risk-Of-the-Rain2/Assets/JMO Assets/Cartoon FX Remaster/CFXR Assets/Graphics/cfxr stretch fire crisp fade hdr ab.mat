@@ -11,17 +11,16 @@ Material:
   m_Shader: {fileID: 4800000, guid: e198026df304af84a85675be636192ea, type: 3}
   m_ValidKeywords:
   - _ALPHABLEND_ON
+  - _ALPHATEST_ON
   - _CFXR_DISSOLVE
-  - _CFXR_HDR_BOOST
+  - _CFXR_OVERLAYTEX_1X
   - _CFXR_SINGLE_CHANNEL
   - _CFXR_UV_DISTORTION
   - _CFXR_UV_DISTORTION_ADD
-  - _FADING_ON
   m_InvalidKeywords:
   - _
   - _CFXR_DITHERED_SHADOWS_OFF
   - _CFXR_OVERLAYBLEND_RGBA
-  - _CFXR_OVERLAYTEX_OFF
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -36,11 +35,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DissolveTex:
-        m_Texture: {fileID: 2800000, guid: bad5d0fa763e08742a9f746be9781732, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 56f433345b1faa64eb50cdb197d34f71, type: 3}
+        m_Scale: {x: 1.46, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DistortTex:
-        m_Texture: {fileID: 2800000, guid: 74db0952acdd7ba488d3d0b114954504, type: 3}
+        m_Texture: {fileID: 2800000, guid: 70ce7a5ab5ec0a54e8289848c8f16534, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DitherCustom:
@@ -52,11 +51,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 221462f4c3da8604c9dcc63641989a98, type: 3}
+        m_Texture: {fileID: 2800000, guid: 03825a665aa62554eb3e92e2ab6c4b12, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OverlayTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 56f433345b1faa64eb50cdb197d34f71, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SecondColorTex:
@@ -70,18 +69,18 @@ Material:
     - _BumpScale: 1
     - _CFXR_DITHERED_SHADOWS: 0
     - _CFXR_OVERLAYBLEND: 0
-    - _CFXR_OVERLAYTEX: 0
-    - _Cutoff: 0.1
+    - _CFXR_OVERLAYTEX: 1
+    - _Cutoff: 0.53
     - _DirLightScreenAtten: 1
     - _DirectLightingRamp: 1
-    - _DissolveSmooth: 0.05
-    - _Distort: 0.4
+    - _DissolveSmooth: 0.0001
+    - _Distort: 1.64
     - _DoubleDissolve: 0
     - _DstBlend: 10
     - _EdgeFadePow: 1
-    - _FadeAlongU: 1
-    - _HdrBoost: 1
-    - _HdrMultiply: 8
+    - _FadeAlongU: 0
+    - _HdrBoost: 0
+    - _HdrMultiply: 9.37
     - _IndirectLightingMix: 0.5
     - _InvertDissolveTex: 0
     - _LightingWorldPosStrength: 0.2
@@ -95,7 +94,7 @@ Material:
     - _SoftParticlesFadeDistanceNear: 0
     - _SrcBlend: 5
     - _UVDistortionAdd: 1
-    - _UseAlphaClip: 0
+    - _UseAlphaClip: 1
     - _UseBackLighting: 0
     - _UseDissolve: 1
     - _UseDissolveOffsetUV: 0
@@ -107,7 +106,7 @@ Material:
     - _UseLighting: 0
     - _UseLightingWorldPosOffset: 0
     - _UseNormalMap: 0
-    - _UseSP: 1
+    - _UseSP: 0
     - _UseSecondColor: 0
     - _UseUV2Distortion: 0
     - _UseUVDistortion: 1
@@ -115,7 +114,7 @@ Material:
     m_Colors:
     - _DissolveScroll: {r: 0, g: 0, b: 0, a: 0}
     - _DistortScrolling: {r: 1, g: 0, b: 1, a: 1}
-    - _OverlayTex_Scroll: {r: 0.1, g: 0.1, b: 1, a: 1}
+    - _OverlayTex_Scroll: {r: 3.49, g: 1.27, b: 2.71, a: 2.24}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _SoftParticlesFadeDistance: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
