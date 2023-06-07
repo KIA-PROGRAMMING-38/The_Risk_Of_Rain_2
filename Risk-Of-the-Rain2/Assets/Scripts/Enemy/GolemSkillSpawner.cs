@@ -72,9 +72,11 @@ public class GolemSkillSpawner : MonoBehaviour
 
         if (isLaunched == false)
         {
+            LaunchLaserToPlayer();
+        }
+        else if (isLaunched == true)
+        {
             lineRenderer.SetPosition(0, _laserSpawnPosition.transform.position);
-
-            lineRenderer.SetPosition(1, _player.transform.position);
         }
 
 
@@ -100,7 +102,12 @@ public class GolemSkillSpawner : MonoBehaviour
 
     int currentBlinkCount;
     public int blinkCount;
-
+    private async UniTaskVoid LaunchLaserToPlayer()
+    {
+        lineRenderer.SetPosition(0, _laserSpawnPosition.transform.position);
+        lineRenderer.SetPosition(1, _player.transform.position);
+        await UniTask.Delay(150);
+    }
     private async UniTaskVoid changeLaserColor()
     {
 

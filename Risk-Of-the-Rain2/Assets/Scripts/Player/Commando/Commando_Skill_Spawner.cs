@@ -47,6 +47,10 @@ public class Commando_Skill_Spawner : MonoBehaviour
                 ShootBullet();
                 SetAnimation();
             }
+            if (Input.GetKey(KeyCode.Mouse1) && _elapsedTime > _spawnCoolTime)
+            {
+                ShootUltimate();
+            }
         }
        
 
@@ -62,7 +66,12 @@ public class Commando_Skill_Spawner : MonoBehaviour
         launchOrder++;
         _elapsedTime = 0.0f;
 
+    }
 
+    private void ShootUltimate()
+    {
+        GameObject CommandoUltimate = ObjectPooler.SpawnFromPool(TagID.COMMANDO_ULTIMATE_ATTACK, transform.localPosition);
+        _elapsedTime = 0.0f;
     }
 
     private void SetAnimation()

@@ -1,15 +1,12 @@
-using Unity.VisualScripting;
-using UnityEngine;
 using Cysharp.Threading.Tasks;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-
-
-public class BasicAttackController : MonoBehaviour
+public class CommandoUltimateController : MonoBehaviour
 {
     [SerializeField]
-    Transform _spawnPositionLeft;
-    [SerializeField]
-    Transform _spawnPositionRight;
+    Transform _ultimateSpawnPosition;
 
     //The player's position needs to be synchronized with the direction to ensure the movement of basic and special skills.
     [SerializeField]
@@ -17,12 +14,16 @@ public class BasicAttackController : MonoBehaviour
 
     Rigidbody rigidbody;
 
-    public float _bulletSpeed;
-    Vector3 setRotation;
-    Transform[] spawnTransforms;
+    [SerializeField]
+    ParticleSystem launchPS;
+    [SerializeField]
+    ParticleSystem collisionPS;
+
+    public float _speed;
+   
+ 
     private void Awake()
     {
-        spawnTransforms = new Transform[2] { _spawnPositionLeft, _spawnPositionRight };
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -30,7 +31,7 @@ public class BasicAttackController : MonoBehaviour
     Vector3 launchDirection;
     private void OnEnable()
     {
-        particleSystemOnCollision.SetActive(false);
+        
         SetLaunchPosition();
         SetLaunchAnimation();
         launchDirection = RotateCommandoProjectile();
@@ -39,10 +40,9 @@ public class BasicAttackController : MonoBehaviour
 
     private void Update()
     {
-     
+
     }
-    [SerializeField]
-    GameObject particleSystemOnCollision;
+  
 
     private void OnTriggerEnter(Collider other)
     {
@@ -54,16 +54,15 @@ public class BasicAttackController : MonoBehaviour
 
     private async UniTaskVoid Play1ollisionParticleOnce()
     {
-        particleSystemOnCollision.SetActive(true);
+       
         rigidbody.Sleep();
         await UniTask.Delay(200);
-        particleSystemOnCollision.SetActive(false);
         await UniTask.Delay(100);
         Deactivate();
 
 
     }
- 
+
 
     private bool IsBulletCollided(Collider collision)
     {
@@ -78,26 +77,14 @@ public class BasicAttackController : MonoBehaviour
 
 
 
-    [SerializeField]
-    ParticleSystem particleSystemOnEnableLeft;
-    [SerializeField]
-    ParticleSystem particleSystemOnEnableRight;
     private void SetLaunchAnimation()
     {
-        if (Commando_Skill_Spawner.launchOrder % 2 == 0)
-        {
-            particleSystemOnEnableLeft.Play();
-        }
-
-        else
-        {
-            particleSystemOnEnableRight.Play();
-        }
+     
     }
 
     private void SetLaunchPosition()
     {
-        transform.position = spawnTransforms[Commando_Skill_Spawner.launchOrder % 2].position;
+        transform.position = _ultimateSpawnPosition.position;
     }
 
 
@@ -109,12 +96,13 @@ public class BasicAttackController : MonoBehaviour
     /// <returns></returns>
     [SerializeField]
     Transform _virtualCameraPosition;
+    public Vector3 offsetX;
     private Vector3 RotateCommandoProjectile()
     {
-        if (Physics.Raycast(Camera.main.transform.position,
+        if (Physics.Raycast((Camera.main.transform.position + offsetX),
            10000 * _virtualCameraPosition.forward, out RaycastHit hitInfo))
         {
-            Vector3 direction = hitInfo.point - spawnTransforms[Commando_Skill_Spawner.launchOrder % 2].position;
+            Vector3 direction = hitInfo.point - _ultimateSpawnPosition.position;
             // Vector3 rotationQuantity= new Vector3(90f + direction.y, _virtualCameraPosition.position.x, 0);
             return direction.normalized;
         }
@@ -129,7 +117,7 @@ public class BasicAttackController : MonoBehaviour
 
     private void LaunchProjectile(Vector3 direction)
     {
-        rigidbody.velocity = direction * _bulletSpeed;
+        rigidbody.velocity = direction * _speed;
         Invoke(nameof(Deactivate), 5f);
     }
 
