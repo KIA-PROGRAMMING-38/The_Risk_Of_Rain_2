@@ -2,14 +2,20 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: cfxr smoke cloud x4 ab
-  m_Shader: {fileID: 4800000, guid: e198026df304af84a85675be636192ea, type: 3}
-  m_ShaderKeywords: _ALPHABLEND_ON _CFXR_DISSOLVE _CFXR_DITHERED_SHADOWS_ON _FADING_ON
+  m_Shader: {fileID: 4800000, guid: 714e760b98304b44292e04841e05f258, type: 3}
+  m_ValidKeywords:
+  - _ALPHABLEND_ON
+  - _CFXR_DISSOLVE
+  - _CFXR_DITHERED_SHADOWS_ON
+  - _FADING_ON
+  m_InvalidKeywords:
+  - _CFXR_GLOW_POW_P0
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -47,9 +53,11 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BlendingType: 0
     - _CFXR_DITHERED_SHADOWS: 1
+    - _CFXR_GLOW_POW: 0
     - _CFXR_OVERLAYBLEND: 0
     - _CFXR_OVERLAYTEX: 0
     - _Cutoff: 0.1
@@ -59,9 +67,12 @@ Material:
     - _DstBlend: 10
     - _EdgeFadePow: 1
     - _FadeAlongU: 0
+    - _GlowMax: 1
+    - _GlowMin: 0
     - _HdrBoost: 0
     - _HdrMultiply: 3
     - _InvertDissolveTex: 0
+    - _MaxValue: 10
     - _OVERLAYBLEND: 0
     - _OVERLAYTEX: 0
     - _ReceivedShadowsStrength: 0.5
@@ -88,3 +99,4 @@ Material:
     - _DistortScrolling: {r: 0, g: 0, b: 1, a: 1}
     - _OverlayTex_Scroll: {r: 0.1, g: 0.1, b: 1, a: 1}
     - _SoftParticlesFadeDistance: {r: 0, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []

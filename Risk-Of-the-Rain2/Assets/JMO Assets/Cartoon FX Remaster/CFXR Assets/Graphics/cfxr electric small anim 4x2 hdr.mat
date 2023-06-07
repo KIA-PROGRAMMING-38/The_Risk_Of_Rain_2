@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: cfxr electric small anim 4x2 hdr
-  m_Shader: {fileID: 4800000, guid: e198026df304af84a85675be636192ea, type: 3}
+  m_Shader: {fileID: 4800000, guid: 3dda44a7d9cec71439b5b8e20fcbccfb, type: 3}
   m_ValidKeywords:
   - _ALPHABLEND_ON
   - _CFXR_HDR_BOOST
@@ -17,6 +17,7 @@ Material:
   m_InvalidKeywords:
   - _
   - _CFXR_DITHERED_SHADOWS_OFF
+  - _CFXR_GLOW_POW_P0
   - _CFXR_OVERLAYBLEND_RGBA
   - _CFXR_OVERLAYTEX_OFF
   - _OVERLAYTEX_OFF
@@ -63,7 +64,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 1d245859d55c51b4c8a708d3d521f0c0, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 7.5, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -81,6 +82,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ScreenDistortionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SecondColorTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -91,9 +96,11 @@ Material:
     - _BlendingType: 0
     - _BumpScale: 1
     - _CFXR_DITHERED_SHADOWS: 0
+    - _CFXR_GLOW_POW: 0
     - _CFXR_OVERLAYBLEND: 0
     - _CFXR_OVERLAYTEX: 0
     - _Cutoff: 0.5
+    - _DebugVisualize: 0
     - _DetailNormalMapScale: 1
     - _DirLightScreenAtten: 1
     - _DirectLightingRamp: 1
@@ -108,17 +115,22 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _GlowMax: 97.92
+    - _GlowMin: 13.24
     - _HdrBoost: 1
     - _HdrMultiply: 4
     - _IndirectLightingMix: 0.5
     - _InvertDissolveTex: 0
     - _LightingWorldPosStrength: 0.2
+    - _MaxValue: 19.33
     - _Metallic: 0
     - _Mode: 0
     - _OVERLAYBLEND: 0
     - _OVERLAYTEX: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _RingTopOffset: 0.05
+    - _ScreenDistortionScale: 0.1
     - _SecondColorSmooth: 0.2
     - _ShadowStrength: 1
     - _SingleChannel: 1
@@ -141,10 +153,12 @@ Material:
     - _UseLighting: 0
     - _UseLightingWorldPosOffset: 0
     - _UseNormalMap: 0
+    - _UseRadialUV: 0
     - _UseSP: 1
     - _UseSecondColor: 0
     - _UseUV2Distortion: 0
     - _UseUVDistortion: 0
+    - _WorldSpaceRing: 0
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

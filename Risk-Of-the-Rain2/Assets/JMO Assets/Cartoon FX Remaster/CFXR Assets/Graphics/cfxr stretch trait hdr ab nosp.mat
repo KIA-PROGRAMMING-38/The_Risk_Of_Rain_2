@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: cfxr stretch trait hdr ab nosp
-  m_Shader: {fileID: 4800000, guid: e198026df304af84a85675be636192ea, type: 3}
+  m_Shader: {fileID: 4800000, guid: 3dda44a7d9cec71439b5b8e20fcbccfb, type: 3}
   m_ValidKeywords:
   - _ALPHABLEND_ON
   - _CFXR_HDR_BOOST
@@ -79,6 +79,7 @@ Material:
     - _LightingWorldPosStrength: 0.2
     - _OVERLAYBLEND: 0
     - _OVERLAYTEX: 0
+    - _RingTopOffset: 0.05
     - _SecondColorSmooth: 0.2
     - _ShadowStrength: 1
     - _SingleChannel: 1
@@ -97,10 +98,12 @@ Material:
     - _UseLighting: 0
     - _UseLightingWorldPosOffset: 0
     - _UseNormalMap: 0
+    - _UseRadialUV: 0
     - _UseSP: 0
     - _UseSecondColor: 0
     - _UseUV2Distortion: 0
     - _UseUVDistortion: 0
+    - _WorldSpaceRing: 0
     - _ZWrite: 0
     m_Colors:
     - _DissolveScroll: {r: 0, g: 0, b: 0, a: 0}

@@ -52,8 +52,7 @@ public class Cinemachine_Controller : MonoBehaviour
         thirdPersonFollow = virtualCamera.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
         composer = virtualCamera.GetCinemachineComponent<CinemachineComposer>();
 
-        //have the virtual camera watch the spaceship first.
-        virtualCamera.LookAt = _spaceShip.transform;
+     
     }
 
     private void Update()
