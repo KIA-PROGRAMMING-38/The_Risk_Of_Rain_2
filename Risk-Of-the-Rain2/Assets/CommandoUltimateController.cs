@@ -8,12 +8,7 @@ public class CommandoUltimateController : MonoBehaviour
     [SerializeField]
     Transform _ultimateSpawnPosition;
 
-    //The player's position needs to be synchronized with the direction to ensure the movement of basic and special skills.
-    [SerializeField]
-    Transform _playerPosition;
-
     Rigidbody rigidbody;
-
     [SerializeField]
     ParticleSystem launchPS;
     [SerializeField]
@@ -31,16 +26,15 @@ public class CommandoUltimateController : MonoBehaviour
     Vector3 launchDirection;
     private void OnEnable()
     {
-        
         SetLaunchPosition();
         SetLaunchAnimation();
-        launchDirection = RotateCommandoProjectile();
+        launchDirection = SetDirectionToTarget();
         LaunchProjectile(launchDirection);
     }
 
     private void Update()
     {
-
+     
     }
   
 
@@ -52,13 +46,26 @@ public class CommandoUltimateController : MonoBehaviour
         }
     }
 
+
+   private async UniTaskVoid CheckPosition()
+    {
+        UniTask.Delay(50);
+        Debug.Log($"current position: {transform.position}");
+        UniTask.Delay(150);
+    }
+
+
+    [SerializeField]
+    GameObject particleSystemOnCollision;
     private async UniTaskVoid Play1ollisionParticleOnce()
     {
-       
         rigidbody.Sleep();
+        particleSystemOnCollision.SetActive(true);
         await UniTask.Delay(200);
-        await UniTask.Delay(100);
+        rigidbody.Sleep();
+        particleSystemOnCollision.SetActive(false);
         Deactivate();
+
 
 
     }
@@ -72,6 +79,7 @@ public class CommandoUltimateController : MonoBehaviour
     private void OnDisable()
     {
         CancelInvoke();
+        transform.position = _ultimateSpawnPosition.position;
         ObjectPooler.ReturnToPool(gameObject);
     }
 
@@ -85,6 +93,7 @@ public class CommandoUltimateController : MonoBehaviour
     private void SetLaunchPosition()
     {
         transform.position = _ultimateSpawnPosition.position;
+        
     }
 
 
@@ -96,29 +105,41 @@ public class CommandoUltimateController : MonoBehaviour
     /// <returns></returns>
     [SerializeField]
     Transform _virtualCameraPosition;
-    public Vector3 offsetX;
-    private Vector3 RotateCommandoProjectile()
-    {
-        if (Physics.Raycast((Camera.main.transform.position + offsetX),
-           10000 * _virtualCameraPosition.forward, out RaycastHit hitInfo))
-        {
-            Vector3 direction = hitInfo.point - _ultimateSpawnPosition.position;
-            // Vector3 rotationQuantity= new Vector3(90f + direction.y, _virtualCameraPosition.position.x, 0);
-            return direction.normalized;
-        }
+    [SerializeField]
+    Transform _virtualCameraChildren;
 
-        else
-        {
-            Debug.Log("ERROR: Ray's hit nothing ");
-            Vector3 direction = _virtualCameraPosition.forward;
-            return _virtualCameraPosition.forward;
-        }
+    public float maxDistance;
+
+
+    private Vector3 SetDirectionToTarget()
+    {
+        return _virtualCameraPosition.forward;
     }
+    //private Vector3 RotateCommandoProjectile()
+    //{
+
+    //    int enemyMask = LayerMask.GetMask(LayerID.ENEMY);
+    //    int terrainMask = LayerMask.GetMask(LayerID.ENEMY);
+    //    if (Physics.Raycast((Camera.main.transform.position),
+    //       10000 * _virtualCameraChildren.forward, out RaycastHit hitInfo , maxDistance, terrainMask))
+    //    {
+    //        Vector3 direction = hitInfo.point - _ultimateSpawnPosition.position;
+    //        // Vector3 rotationQuantity= new Vector3(90f + direction.y, _virtualCameraPosition.position.x, 0);
+    //        return direction.normalized;
+    //    }
+
+    //    else
+    //    {
+    //        Debug.Log("ERROR: Ray's hit nothing ");
+    //        //Vector3 direction = _virtualCameraPosition.forward;
+    //        return _virtualCameraPosition.forward;
+    //    }
+    //}
 
     private void LaunchProjectile(Vector3 direction)
     {
         rigidbody.velocity = direction * _speed;
-        Invoke(nameof(Deactivate), 5f);
+        Invoke(nameof(Deactivate), 3f);
     }
 
     void Deactivate() => gameObject.SetActive(false);

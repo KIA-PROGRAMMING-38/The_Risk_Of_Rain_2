@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Commando Ultimate
+  m_Name: Line Ultimate
   m_Shader: {fileID: -6465566751694194690, guid: a6f9eefa46c7ee149af73bfb7ede7722,
     type: 3}
   m_ValidKeywords: []
