@@ -23,6 +23,7 @@ public static class LayerID
 
 {
     public static readonly string PLAYER = "Player";
+    public static readonly string ENEMY = "ENEMY";
 }
 
 public static class TagID

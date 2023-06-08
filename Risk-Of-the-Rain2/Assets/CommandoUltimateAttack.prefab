@@ -64,7 +64,6 @@ MonoBehaviour:
   _speed: 1000
   particleSystemOnCollision: {fileID: 2329822596135712872}
   _virtualCameraPosition: {fileID: 0}
-  _virtualCameraChildren: {fileID: 0}
   maxDistance: 0
 --- !u!54 &1992460136
 Rigidbody:
@@ -80,7 +79,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &1992460134
 CapsuleCollider:
@@ -108,6 +107,7 @@ GameObject:
   - component: {fileID: 1184538678137918257}
   - component: {fileID: 4005007315967141883}
   - component: {fileID: 1361796004159020593}
+  - component: {fileID: 3469287838267844748}
   m_Layer: 0
   m_Name: cfxr mesh donut
   m_TagString: Untagged
@@ -123,8 +123,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3212289874172331566}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.65, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2329822596739382494}
@@ -201,7 +201,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ac049c7304beafc4eb40af26cced8880, type: 2}
+  - {fileID: 2100000, guid: 21ffd2b573778a5418194e7570a8a6ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -261,7 +261,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 0.64725304, b: 1, a: 1}
+      key0: {r: 0.7018868, g: 1, b: 0.9972775, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -297,6 +297,20 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!64 &3469287838267844748
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3212289874172331566}
+  m_Material: {fileID: 13400000, guid: e8d20971d43fc684396cf7ea823ac136, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8334291388943859142, guid: 5d48695472dfda94b92ac5316397da95, type: 3}
 --- !u!1 &5292936269030703425
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,14 +337,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5292936269030703425}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.269231, z: 0}
-  m_LocalScale: {x: 0.56935066, y: 0.31108183, z: 0.740156}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.99, y: 0, z: 0}
+  m_LocalScale: {x: 0.7401558, y: 0.4044063, z: 0.740156}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2329822596739382494}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &4466279164859020939
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -402,7 +416,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ac049c7304beafc4eb40af26cced8880, type: 2}
+  - {fileID: 2100000, guid: 21ffd2b573778a5418194e7570a8a6ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -14,11 +14,13 @@ public class CommandoUltimateController : MonoBehaviour
     [SerializeField]
     ParticleSystem collisionPS;
 
+    Camera _mainCamera;
     public float _speed;
    
  
     private void Awake()
     {
+        _mainCamera = Camera.main;
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -105,40 +107,39 @@ public class CommandoUltimateController : MonoBehaviour
     /// <returns></returns>
     [SerializeField]
     Transform _virtualCameraPosition;
-    [SerializeField]
-    Transform _virtualCameraChildren;
-
     public float maxDistance;
 
 
+  
     private Vector3 SetDirectionToTarget()
     {
-        return _virtualCameraPosition.forward;
-    }
-    //private Vector3 RotateCommandoProjectile()
-    //{
+       
+        
 
-    //    int enemyMask = LayerMask.GetMask(LayerID.ENEMY);
-    //    int terrainMask = LayerMask.GetMask(LayerID.ENEMY);
-    //    if (Physics.Raycast((Camera.main.transform.position),
-    //       10000 * _virtualCameraChildren.forward, out RaycastHit hitInfo , maxDistance, terrainMask))
-    //    {
-    //        Vector3 direction = hitInfo.point - _ultimateSpawnPosition.position;
-    //        // Vector3 rotationQuantity= new Vector3(90f + direction.y, _virtualCameraPosition.position.x, 0);
-    //        return direction.normalized;
-    //    }
+        int enemyMask = LayerMask.GetMask(LayerID.ENEMY);
+        int terrainMask = LayerMask.GetMask(LayerID.ENEMY);
+        if (Physics.Raycast(_mainCamera.transform.position,
+          10000 * _virtualCameraPosition.forward, out RaycastHit hitInfo))
+        {
+            Vector3 direction = hitInfo.point - _ultimateSpawnPosition.position;
+            //Vector3 rotationQuantity= new Vector3(90f + direction.y, _virtualCameraPosition.position.x, 0);
+            Debug.Log($"Ultimate skill Direction: {direction}");
+            return direction.normalized;
+           
+        }
 
-    //    else
-    //    {
-    //        Debug.Log("ERROR: Ray's hit nothing ");
-    //        //Vector3 direction = _virtualCameraPosition.forward;
-    //        return _virtualCameraPosition.forward;
-    //    }
-    //}
+        else
+        {
+            Debug.Log("ERROR: Ray's hit nothing ");
+            Vector3 direction = _virtualCameraPosition.forward;
+            return _virtualCameraPosition.forward;
+            }
+        }
 
     private void LaunchProjectile(Vector3 direction)
     {
         rigidbody.velocity = direction * _speed;
+        Debug.Log($"11111{rigidbody.velocity}");
         Invoke(nameof(Deactivate), 3f);
     }
 

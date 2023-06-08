@@ -22,6 +22,7 @@ public class BasicAttackController : MonoBehaviour
     Transform[] spawnTransforms;
     private void Awake()
     {
+        _mainCamera = Camera.main;
         spawnTransforms = new Transform[2] { _spawnPositionLeft, _spawnPositionRight };
         rigidbody = GetComponent<Rigidbody>();
     }
@@ -109,13 +110,15 @@ public class BasicAttackController : MonoBehaviour
     /// <returns></returns>
     [SerializeField]
     Transform _virtualCameraPosition;
+    Camera _mainCamera;
     private Vector3 RotateCommandoProjectile()
     {
-        if (Physics.Raycast(Camera.main.transform.position,
+        if (Physics.Raycast(_mainCamera.transform.position,
            10000 * _virtualCameraPosition.forward, out RaycastHit hitInfo))
         {
             Vector3 direction = hitInfo.point - spawnTransforms[Commando_Skill_Spawner.launchOrder % 2].position;
             // Vector3 rotationQuantity= new Vector3(90f + direction.y, _virtualCameraPosition.position.x, 0);
+            Debug.Log($"basic skill Direction: {direction}");
             return direction.normalized;
         }
 
@@ -130,6 +133,8 @@ public class BasicAttackController : MonoBehaviour
     private void LaunchProjectile(Vector3 direction)
     {
         rigidbody.velocity = direction * _bulletSpeed;
+        Debug.Log($"22222{rigidbody.velocity}");
+
         Invoke(nameof(Deactivate), 5f);
     }
 
