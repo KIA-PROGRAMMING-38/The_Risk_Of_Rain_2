@@ -4,7 +4,7 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 using Photon.Pun.Demo.Asteroids;
 
-public class Commando_Controller : MonoBehaviour
+public class CommandoController : MonoBehaviour
 {
     public float speed = 10f;
     public float sensitivity = 2f;
@@ -20,7 +20,7 @@ public class Commando_Controller : MonoBehaviour
     private Subject<Unit> eKeyPressSubject = new Subject<Unit>();
     public IObservable<Unit> EKeyPressObservable => eKeyPressSubject;
 
-    public static bool IS_GAME_START;
+   
 
     [SerializeField]
     private Transform _spaceshipTransform;
@@ -34,7 +34,6 @@ public class Commando_Controller : MonoBehaviour
 
     private void Start()
     {
-      
         EKeyPressObservable
             .Subscribe(_ => StartGame())
             .AddTo(this); 
@@ -47,7 +46,7 @@ public class Commando_Controller : MonoBehaviour
             eKeyPressSubject.OnNext(Unit.Default);
         }
 
-        if (IS_GAME_START == true)
+        if (GameManager.IsGameStarted == true)
         {
             // Get inputs
             moveX = Input.GetAxis("Horizontal");
@@ -64,7 +63,7 @@ public class Commando_Controller : MonoBehaviour
             // Check for "E" key press
           
         }
-        else if(IS_GAME_START == false)
+        else if(GameManager.IsGameStarted == false)
         {
             transform.position = _spaceshipTransform.position;
         }
@@ -82,9 +81,9 @@ public class Commando_Controller : MonoBehaviour
     private void StartGame()
     {
        
-        Debug.Log("startgame");
+        Debug.Log("Start Game");
         
-      
+      if(GameManager.IsGameStarted == false) 
         PlayStartAnimation();
         
 
@@ -108,11 +107,8 @@ public class Commando_Controller : MonoBehaviour
         rigidbody.AddForce(Vector3.forward * startMoveSpeed,ForceMode.Impulse);
         Cinemachine_Controller.virtualCamera.Follow = _playerVirtualCameraPosition;
         Cinemachine_Controller.virtualCamera.LookAt = _playerVirtualCameraPosition;
-        IS_GAME_START = true;
+        GameManager.IsGameStarted = true;
         startSmokePS.Stop();
-
-
-
     }
 
     private void RotatePlayer()
@@ -126,7 +122,6 @@ public class Commando_Controller : MonoBehaviour
         //get transform not to get world coordinates but local ones.
         Vector3 moveDirection = (transform.right * moveX + transform.forward * moveZ).normalized;
         Vector3 newVelocity = speed * moveDirection;
-
 
         newVelocity.y = rigidbody.velocity.y;
 

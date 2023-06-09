@@ -17,7 +17,7 @@ public class Golem_Controller : MonoBehaviour
 
     void Update()
     {
-        if(Commando_Controller.IS_GAME_START== true)
+        if(GameManager.IsGameStarted== true)
         {
             TracePlayer();
             TurnBackToNormal();

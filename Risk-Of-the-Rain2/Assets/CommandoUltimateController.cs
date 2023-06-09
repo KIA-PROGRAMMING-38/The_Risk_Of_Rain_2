@@ -58,7 +58,7 @@ public class CommandoUltimateController : MonoBehaviour
    private async UniTaskVoid CheckPosition()
     {
         UniTask.Delay(50);
-        Debug.Log($"current position: {transform.position}");
+       
         UniTask.Delay(150);
     }
 
@@ -141,7 +141,7 @@ public class CommandoUltimateController : MonoBehaviour
         {
             Vector3 direction = hitInfo.point - _ultimateSpawnPosition.position;
             Vector3 rotationQuantity= new Vector3(90f + direction.y, _virtualCameraPosition.position.x, 0);
-            Debug.Log($"Ultimate skill Direction: {direction}");
+            
             return direction.normalized;
            
         }

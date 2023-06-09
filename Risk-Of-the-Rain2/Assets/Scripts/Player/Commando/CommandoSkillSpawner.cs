@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Commando_Skill_Spawner : MonoBehaviour
+public class CommandoSkillSpawner : MonoBehaviour
 {
     public float _spawnCoolTime;
     float _elapsedTime;
@@ -37,7 +37,7 @@ public class Commando_Skill_Spawner : MonoBehaviour
 
     private void Update()
     {
-        if (Commando_Controller.IS_GAME_START == true)
+        if (GameManager.IsGameStarted == true)
         {
             Debug.DrawRay(_playerPosition.position, 100000 * _virtualCameraPosition.forward, Color.yellow);
 

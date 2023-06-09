@@ -85,7 +85,7 @@ public class BasicAttackController : MonoBehaviour
     ParticleSystem particleSystemOnEnableRight;
     private void SetLaunchAnimation()
     {
-        if (Commando_Skill_Spawner.launchOrder % 2 == 0)
+        if (CommandoSkillSpawner.launchOrder % 2 == 0)
         {
             particleSystemOnEnableLeft.Play();
         }
@@ -98,7 +98,7 @@ public class BasicAttackController : MonoBehaviour
 
     private void SetLaunchPosition()
     {
-        transform.position = spawnTransforms[Commando_Skill_Spawner.launchOrder % 2].position;
+        transform.position = spawnTransforms[CommandoSkillSpawner.launchOrder % 2].position;
     }
 
 
@@ -116,9 +116,9 @@ public class BasicAttackController : MonoBehaviour
         if (Physics.Raycast(_mainCamera.transform.position,
            10000 * _virtualCameraPosition.forward, out RaycastHit hitInfo))
         {
-            Vector3 direction = hitInfo.point - spawnTransforms[Commando_Skill_Spawner.launchOrder % 2].position;
+            Vector3 direction = hitInfo.point - spawnTransforms[CommandoSkillSpawner.launchOrder % 2].position;
             // Vector3 rotationQuantity= new Vector3(90f + direction.y, _virtualCameraPosition.position.x, 0);
-            Debug.Log($"basic skill Direction: {direction}");
+         
             return direction.normalized;
         }
 
@@ -133,7 +133,7 @@ public class BasicAttackController : MonoBehaviour
     private void LaunchProjectile(Vector3 direction)
     {
         rigidbody.velocity = direction * _bulletSpeed;
-        Debug.Log($"22222{rigidbody.velocity}");
+       
 
         Invoke(nameof(Deactivate), 5f);
     }
