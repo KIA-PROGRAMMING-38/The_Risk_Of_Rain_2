@@ -24,15 +24,21 @@ public class CommandoUltimateController : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
     }
 
-
+   
     Vector3 launchDirection;
     private void OnEnable()
     {
+      
+
         SetLaunchPosition();
         SetLaunchAnimation();
         launchDirection = SetDirectionToTarget();
         LaunchProjectile(launchDirection);
+
+        TrunOnRenderer();
     }
+
+    
 
     private void Update()
     {
@@ -47,7 +53,7 @@ public class CommandoUltimateController : MonoBehaviour
             Play1ollisionParticleOnce();
         }
     }
-
+    
 
    private async UniTaskVoid CheckPosition()
     {
@@ -67,9 +73,6 @@ public class CommandoUltimateController : MonoBehaviour
         rigidbody.Sleep();
         particleSystemOnCollision.SetActive(false);
         Deactivate();
-
-
-
     }
 
 
@@ -80,6 +83,7 @@ public class CommandoUltimateController : MonoBehaviour
 
     private void OnDisable()
     {
+        TurnOffRenderer();
         CancelInvoke();
         transform.position = _ultimateSpawnPosition.position;
         ObjectPooler.ReturnToPool(gameObject);
@@ -98,7 +102,19 @@ public class CommandoUltimateController : MonoBehaviour
         
     }
 
-
+    public TrailRenderer trailRenderer1;
+    public TrailRenderer trailRenderer2;
+    public TrailRenderer trailRenderer3;
+    void TurnOffRenderer()
+    {
+        trailRenderer1.enabled = false;
+        trailRenderer2.enabled = false;
+    }
+    void TrunOnRenderer()
+    {
+        trailRenderer1.enabled = true;
+        trailRenderer2.enabled = true;
+    }
     /// <summary>
     /// This method rotates the camera using a Raycast. 
     /// The direction of the Raycast (where it is shot) is also calculated within this function.
@@ -122,7 +138,7 @@ public class CommandoUltimateController : MonoBehaviour
           10000 * _virtualCameraPosition.forward, out RaycastHit hitInfo))
         {
             Vector3 direction = hitInfo.point - _ultimateSpawnPosition.position;
-            //Vector3 rotationQuantity= new Vector3(90f + direction.y, _virtualCameraPosition.position.x, 0);
+            Vector3 rotationQuantity= new Vector3(90f + direction.y, _virtualCameraPosition.position.x, 0);
             Debug.Log($"Ultimate skill Direction: {direction}");
             return direction.normalized;
            
@@ -130,7 +146,7 @@ public class CommandoUltimateController : MonoBehaviour
 
         else
         {
-            Debug.Log("ERROR: Ray's hit nothing ");
+           
             Vector3 direction = _virtualCameraPosition.forward;
             return _virtualCameraPosition.forward;
             }
@@ -139,7 +155,7 @@ public class CommandoUltimateController : MonoBehaviour
     private void LaunchProjectile(Vector3 direction)
     {
         rigidbody.velocity = direction * _speed;
-        Debug.Log($"11111{rigidbody.velocity}");
+       
         Invoke(nameof(Deactivate), 3f);
     }
 
