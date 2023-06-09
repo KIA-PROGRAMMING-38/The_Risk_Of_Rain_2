@@ -109,11 +109,13 @@ public class CommandoUltimateController : MonoBehaviour
     {
         trailRenderer1.enabled = false;
         trailRenderer2.enabled = false;
+        trailRenderer3.enabled = false;
     }
     void TrunOnRenderer()
     {
         trailRenderer1.enabled = true;
         trailRenderer2.enabled = true;
+        trailRenderer3.enabled = true;
     }
     /// <summary>
     /// This method rotates the camera using a Raycast. 

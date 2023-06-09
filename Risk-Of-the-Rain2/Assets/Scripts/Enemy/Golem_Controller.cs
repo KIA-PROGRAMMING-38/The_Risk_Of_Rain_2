@@ -17,8 +17,12 @@ public class Golem_Controller : MonoBehaviour
 
     void Update()
     {
-        TracePlayer();
-        TurnBackToNormal();
+        if(Commando_Controller.IS_GAME_START== true)
+        {
+            TracePlayer();
+            TurnBackToNormal();
+        }
+    
       
     }
     void SetPosition() => agent.Warp(_playerTransform.position);
