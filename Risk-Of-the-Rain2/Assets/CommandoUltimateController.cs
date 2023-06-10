@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class CommandoUltimateController : MonoBehaviour
@@ -16,56 +17,57 @@ public class CommandoUltimateController : MonoBehaviour
 
     Camera _mainCamera;
     public float _speed;
-   
- 
+
+
     private void Awake()
     {
         _mainCamera = Camera.main;
         rigidbody = GetComponent<Rigidbody>();
+        OriginalRotation = transform.eulerAngles;
     }
 
-   
-    Vector3 launchDirection;
-    private void OnEnable()
-    {
-      
 
+    Vector3 launchDirection;
+    Vector3 OriginalRotation;
+    private void OnEnable()
+  {
+       
         SetLaunchPosition();
+        
         SetLaunchAnimation();
         launchDirection = SetDirectionToTarget();
         LaunchProjectile(launchDirection);
-
+        
+       
+      
+        
         TrunOnRenderer();
     }
 
-    
+    public Transform _playerTrasnform;
 
     private void Update()
     {
-     
+      
+        
     }
-  
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (IsBulletCollided(other))
         {
-            Play1ollisionParticleOnce();
+            PlayCollisionParticleOnce();
         }
     }
-    
 
-   private async UniTaskVoid CheckPosition()
-    {
-        UniTask.Delay(50);
-       
-        UniTask.Delay(150);
-    }
+
+
 
 
     [SerializeField]
     GameObject particleSystemOnCollision;
-    private async UniTaskVoid Play1ollisionParticleOnce()
+    private async UniTaskVoid PlayCollisionParticleOnce()
     {
         rigidbody.Sleep();
         particleSystemOnCollision.SetActive(true);
@@ -93,13 +95,13 @@ public class CommandoUltimateController : MonoBehaviour
 
     private void SetLaunchAnimation()
     {
-     
+
     }
 
     private void SetLaunchPosition()
     {
         transform.position = _ultimateSpawnPosition.position;
-        
+
     }
 
     public TrailRenderer trailRenderer1;
@@ -128,36 +130,34 @@ public class CommandoUltimateController : MonoBehaviour
     public float maxDistance;
 
 
-  
+
     private Vector3 SetDirectionToTarget()
     {
-       
-        
-
         int enemyMask = LayerMask.GetMask(LayerID.ENEMY);
         int terrainMask = LayerMask.GetMask(LayerID.ENEMY);
         if (Physics.Raycast(_mainCamera.transform.position,
           10000 * _virtualCameraPosition.forward, out RaycastHit hitInfo))
         {
             Vector3 direction = hitInfo.point - _ultimateSpawnPosition.position;
-            Vector3 rotationQuantity= new Vector3(90f + direction.y, _virtualCameraPosition.position.x, 0);
-            
             return direction.normalized;
-           
         }
 
         else
         {
-           
             Vector3 direction = _virtualCameraPosition.forward;
             return _virtualCameraPosition.forward;
-            }
         }
+    }
 
     private void LaunchProjectile(Vector3 direction)
     {
+        Debug.Log($"발사 전 회전값{transform.rotation}");
+        Quaternion rotation = Quaternion.LookRotation(direction,Vector3.down);
+     
+        transform.rotation = rotation;
+        Debug.Log($"발사 후 회전값{transform.rotation}");
         rigidbody.velocity = direction * _speed;
-       
+
         Invoke(nameof(Deactivate), 3f);
     }
 

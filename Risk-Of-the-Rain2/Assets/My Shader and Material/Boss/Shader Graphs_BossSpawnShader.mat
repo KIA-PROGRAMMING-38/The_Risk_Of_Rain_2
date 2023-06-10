@@ -40,10 +40,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaThreshold: 0.014
-    - _LaserThickness: 85.23
+    - _LaserThickness: 0.39
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _TimeScale: 10
+    - _TimeScale: 0.18
     m_Colors:
     - _Albedo: {r: 1, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 7.5523434, g: 0, b: 0, a: 0}
