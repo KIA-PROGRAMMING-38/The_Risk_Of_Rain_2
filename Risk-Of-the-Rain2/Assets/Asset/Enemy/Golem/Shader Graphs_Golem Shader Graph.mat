@@ -72,14 +72,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 0.10000002
-    - _BrightnessOffset: 0.1
-    - _Metallic: 0.03
-    - _NormalDepth: 1.55
+    - _AlphaThreshold: 0.3
+    - _Brightness: 0.099999994
+    - _BrightnessOffset: 0.22
+    - _GlowPartSize: 1.81
+    - _Metallic: 1.17
+    - _NormalDepth: 1.85
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smooth: 0.31
+    - _ShowingPart: 299.27585
+    - _Smooth: 0.19
     m_Colors:
-    - _Brigness_color: {r: 1, g: 0.93895674, b: 0.2216981, a: 0}
-    - _EmmisionColor: {r: 0.21698111, g: 0.15920313, b: 0.10951406, a: 0}
+    - _Albedo: {r: 0.38679248, g: 0, b: 0, a: 1}
+    - _Brigness_color: {r: 1, g: 0.93093187, b: 0.14528298, a: 0}
+    - _EmmisionColor: {r: 0.9528302, g: 0.8847804, b: 0.8215913, a: 0}
+    - _GlowSpawningColor: {r: 611.1318, g: 12.206812, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -40,7 +40,7 @@ public class BasicAttackController : MonoBehaviour
 
     private void Update()
     {
-     
+
     }
     [SerializeField]
     GameObject particleSystemOnCollision;
@@ -64,7 +64,7 @@ public class BasicAttackController : MonoBehaviour
 
 
     }
- 
+
 
     private bool IsBulletCollided(Collider collision)
     {
@@ -118,7 +118,7 @@ public class BasicAttackController : MonoBehaviour
         {
             Vector3 direction = hitInfo.point - spawnTransforms[CommandoSkillSpawner.launchOrder % 2].position;
             // Vector3 rotationQuantity= new Vector3(90f + direction.y, _virtualCameraPosition.position.x, 0);
-         
+
             return direction.normalized;
         }
 
@@ -133,7 +133,7 @@ public class BasicAttackController : MonoBehaviour
     private void LaunchProjectile(Vector3 direction)
     {
         rigidbody.velocity = direction * _bulletSpeed;
-       
+
 
         Invoke(nameof(Deactivate), 5f);
     }

@@ -1,11 +1,6 @@
 using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
+
 
 
 public class Cinemachine_Controller : MonoBehaviour

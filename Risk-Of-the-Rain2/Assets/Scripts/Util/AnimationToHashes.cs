@@ -16,8 +16,8 @@ public static class AnimID
 
     public static readonly int PISTOL_LAUNCHED = Animator.StringToHash("PistolLaunched");
     public static readonly int PISTOL_DIRECTION = Animator.StringToHash("PistolDirection");
-    
-    public static readonly int IS_JUMPING= Animator.StringToHash("IsJumping");
+
+    public static readonly int IS_JUMPING = Animator.StringToHash("IsJumping");
 }
 public static class LayerID
 
@@ -36,6 +36,13 @@ public static class TagID
     public static readonly string ENEMY = "Enemy";
 
 }
+
+public static class GolemShaderParamID
+{
+    public static readonly string SHOWING_PART = "_ShowingPart";
+    public static readonly string BRIGHTNESS = "_Brightness";
+}
+
 
 
 

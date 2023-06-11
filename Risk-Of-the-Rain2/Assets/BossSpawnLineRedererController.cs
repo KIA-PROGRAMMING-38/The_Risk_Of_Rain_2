@@ -99,14 +99,14 @@ public class BossSpawnLineRedererController : MonoBehaviour
         }
 
         await UniTask.NextFrame();
-        Debug.Log("2");
+        Debug.Log("2 : you should turn off this function.");
 
     }
     private async UniTaskVoid DelayLaserSpawn()
     {
         await UniTask.Delay(laserSpawnDelay);
         isDrawingLaserStart = true;
-        Debug.Log("1");
+        Debug.Log("you should turn off this function.");
         return;
     }
 }

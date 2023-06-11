@@ -30,17 +30,17 @@ public class CommandoUltimateController : MonoBehaviour
     Vector3 launchDirection;
     Vector3 OriginalRotation;
     private void OnEnable()
-  {
-       
+    {
+
         SetLaunchPosition();
-        
+
         SetLaunchAnimation();
         launchDirection = SetDirectionToTarget();
         LaunchProjectile(launchDirection);
-        
-       
-      
-        
+
+
+
+
         TrunOnRenderer();
     }
 
@@ -48,8 +48,8 @@ public class CommandoUltimateController : MonoBehaviour
 
     private void Update()
     {
-      
-        
+
+
     }
 
 
@@ -151,11 +151,11 @@ public class CommandoUltimateController : MonoBehaviour
 
     private void LaunchProjectile(Vector3 direction)
     {
-        Debug.Log($"발사 전 회전값{transform.rotation}");
-        Quaternion rotation = Quaternion.LookRotation(direction,Vector3.down);
-     
+
+        Quaternion rotation = Quaternion.LookRotation(direction, Vector3.down);
+
         transform.rotation = rotation;
-        Debug.Log($"발사 후 회전값{transform.rotation}");
+
         rigidbody.velocity = direction * _speed;
 
         Invoke(nameof(Deactivate), 3f);

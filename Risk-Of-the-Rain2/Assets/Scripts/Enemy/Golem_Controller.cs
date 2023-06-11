@@ -9,21 +9,23 @@ public class Golem_Controller : MonoBehaviour
     public Renderer _renderer;
 
     public Material MaterialIdle;
+    public Material MaterialOnSpawn;
     public Material MaterialOnDamaged;
 
     public NavMeshAgent agent;
     public Transform _playerTransform;
-   
+
 
     void Update()
     {
-        if(GameManager.IsGameStarted== true)
+        TurnOnSpawningShader();
+        if (GameManager.IsGameStarted == true)
         {
             TracePlayer();
             TurnBackToNormal();
         }
-    
-      
+
+
     }
     void SetPosition() => agent.Warp(_playerTransform.position);
 
@@ -46,23 +48,31 @@ public class Golem_Controller : MonoBehaviour
         {
             changeMaterial();
         }
-      
+
+    }
+    public float currentShowingPart;
+    public float spawningSpeed;
+
+    private async UniTaskVoid TurnOnSpawningShader()
+    {
+        currentShowingPart += spawningSpeed * Time.deltaTime;
+        MaterialOnSpawn.SetFloat(GolemShaderParamID.SHOWING_PART, currentShowingPart);
+
     }
 
     private async UniTaskVoid changeMaterial()
     {
         onDamaged = true;
-        if(currentBrightness < maxBrightness)
+        if (currentBrightness < maxBrightness)
         {
             currentBrightness += 1.5f;
             MaterialOnDamaged.SetFloat("_Brightness", currentBrightness);
         }
-        
 
 
         currentBrightness = Mathf.Lerp(currentBrightness, maxBrightness, Time.deltaTime * materialChangingSpeed);
         MaterialOnDamaged.SetFloat("_Brightness", currentBrightness);
-       
+
         await UniTask.Delay(1000);
         onDamaged = false;
 
@@ -73,8 +83,8 @@ public class Golem_Controller : MonoBehaviour
         {
             currentBrightness = Mathf.Lerp(currentBrightness, minBrightness, Time.deltaTime * materialReversingSpeed);
             MaterialOnDamaged.SetFloat("_Brightness", currentBrightness);
-            
+
         }
-       
+
     }
 }
