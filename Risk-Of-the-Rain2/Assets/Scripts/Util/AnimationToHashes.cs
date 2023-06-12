@@ -5,7 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-
+public static class GolemAnimID
+{
+    public static readonly int ON_DAMAGED = Animator.StringToHash("_OnDamaged");
+    public static readonly int DEAD = Animator.StringToHash("_Dead");
+}
 public static class AnimID
 
 {

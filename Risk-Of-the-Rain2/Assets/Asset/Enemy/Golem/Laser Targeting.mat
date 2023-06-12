@@ -55,13 +55,21 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlphaThreshold: 0
+    - _Brightness: 0.10000807
+    - _BrightnessOffset: 0.5
+    - _GlowPartSize: 0.12
     - _Metallic: 0
     - _NormalDepth: 1.17
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _ShowingPart: 0.33
     - _Smooth: 0
     m_Colors:
+    - _Albedo: {r: 0.27358484, g: 0.08104303, b: 0.08104303, a: 1}
+    - _Brigness_color: {r: 1, g: 0.96932155, b: 0.5981132, a: 0}
     - _EmmisionColor: {r: 6.44868, g: 5.12396, b: 0.7604575, a: 0}
+    - _GlowSpawningColor: {r: 2, g: 0.5019608, b: 0.5019608, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &9141962613714898747
 MonoBehaviour:
