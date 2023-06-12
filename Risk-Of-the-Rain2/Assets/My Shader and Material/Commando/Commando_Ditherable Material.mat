@@ -58,7 +58,7 @@ Material:
     m_Floats:
     - _Dither_Size: 1
     - _Emission: 0.68
-    - _Opacity: 0.83480215
+    - _Opacity: 0.34435225
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

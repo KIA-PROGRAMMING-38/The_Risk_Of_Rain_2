@@ -1,19 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 
 public class GolemSpawner : MonoBehaviour
 {
-    private Transform[] golemSpawnPosition;
-
-    [SerializeField]
-    Transform firstSpawnPosition;
-    [SerializeField]
-    Transform secondSpawnPosition;
-    [SerializeField]
-    Transform thirdSpawnPosition;
 
 
     public float spawnInterval;
@@ -21,7 +11,6 @@ public class GolemSpawner : MonoBehaviour
 
     private Subject<Unit> spawnGolem = new Subject<Unit>();
     public IObservable<Unit> EKeyPressObservable => spawnGolem;
-
     private void Awake()
     {
         SetPosition();
@@ -42,24 +31,45 @@ public class GolemSpawner : MonoBehaviour
     }
 
 
+    [SerializeField]
+    GameObject _golem;
+
+
     int spawnOrder;
     private void SpawnGolem()
     {
+        
+        spawnOrder = UnityEngine.Random.RandomRange(0, 3);
+        GameObject golem = Instantiate(_golem, golemSpawnPosition[spawnOrder].position, Quaternion.identity);
+        golem.SetActive(false);
+        golem.SetActive(true);
 
-        if (elapsedTime > spawnInterval)
-        {
-            GameObject golem = ObjectPooler.SpawnFromPool(TagID.COMMANDO_BASIC_ATTACK, golemSpawnPosition[spawnOrder % 3].localPosition);
-        }
-        spawnOrder++;
 
+        Debug.Log($"{golem}: goleInfo");
+        elapsedTime = 0f;
     }
 
     private bool CheckIfSpawnIsPoss(float elapsedTime, float spawnInterval)
     {
-        bool spawnable = elapsedTime > spawnInterval;
-        return spawnable;
-    }
 
+        if (elapsedTime > spawnInterval)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+    private Transform[] golemSpawnPosition;
+
+    [SerializeField]
+    Transform firstSpawnPosition;
+    [SerializeField]
+    Transform secondSpawnPosition;
+    [SerializeField]
+    Transform thirdSpawnPosition;
     private void SetPosition()
     {
         golemSpawnPosition = new Transform[3];
@@ -68,4 +78,5 @@ public class GolemSpawner : MonoBehaviour
         golemSpawnPosition[1] = secondSpawnPosition;
         golemSpawnPosition[2] = thirdSpawnPosition;
     }
+
 }

@@ -73,14 +73,14 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaThreshold: 0.3
-    - _Brightness: 0.099999994
+    - _Brightness: 0.10000001
     - _BrightnessOffset: 0.22
     - _GlowPartSize: 1.27
     - _Metallic: 1.17
     - _NormalDepth: 1.85
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShowingPart: 43.94
+    - _ShowingPart: 22.476362
     - _Smooth: 0.19
     m_Colors:
     - _Albedo: {r: 0.38679248, g: 0, b: 0, a: 1}

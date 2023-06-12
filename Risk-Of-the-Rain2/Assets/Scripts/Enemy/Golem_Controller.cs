@@ -1,20 +1,19 @@
 using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Golem_Controller : MonoBehaviour
 {
 
- 
-
     public Renderer _renderer;
 
 
-    public Material MaterialOnSpawn;
-    public Material MaterialOnDamaged;
 
+    public Material golemMaterial;
+    Material newMaterial; // use to have each golem objects get its own material to be controlled independently.
     public NavMeshAgent agent;
     public Transform _playerTransform;
 
@@ -45,18 +44,35 @@ public class Golem_Controller : MonoBehaviour
 
     private void Awake()
     {
+   
+
+       
+
         animator = GetComponent<Animator>();
     }
 
+
+
     private void OnEnable()
     {
+        currentShowingPart = minShowingPart;
+        newMaterial = new Material(golemMaterial);
+
+        Debug.Log("OnEnable");
+        _renderer = GetComponentInChildren<Renderer>();
+        if (_renderer == null)
+        {
+            Debug.LogError("No Renderer found on this object or its children.");
+            return;
+        }
+        _renderer.material = newMaterial;
+    
         hp = 100;
-      
+
     }
     void Update()
     {
         TurnOnSpawningShader();
-        Debug.Log($"Golem Hp: {hp}");
 
         if (GameManager.IsGameStarted == true)
         {
@@ -69,8 +85,6 @@ public class Golem_Controller : MonoBehaviour
             {
                 OnDeath();
             }
-
-
         }
 
 
@@ -94,8 +108,10 @@ public class Golem_Controller : MonoBehaviour
 
         if (other.CompareTag(TagID.COMMANDO_BASIC_ATTACK))
         {
-            isOnDamaged = true;
+
+
             TurnOnHpAnimation();
+
             changeMaterial();
             HP -= 1;
         }
@@ -104,11 +120,15 @@ public class Golem_Controller : MonoBehaviour
 
     private async UniTaskVoid TurnOnHpAnimation()
     {
+        if (isOnDamaged == false)
+        {
+            isOnDamaged = true;
+            animator.SetBool(GolemAnimID.ON_DAMAGED, true);
+            await UniTask.Delay(500);
+            animator.SetBool(GolemAnimID.ON_DAMAGED, false);
+            isOnDamaged = false;
+        }
 
-        animator.SetBool(GolemAnimID.ON_DAMAGED, true);
-        await UniTask.Delay(500);
-        animator.SetBool(GolemAnimID.ON_DAMAGED, false);
-        isOnDamaged = false;
 
     }
 
@@ -130,24 +150,25 @@ public class Golem_Controller : MonoBehaviour
         if (isDead == false && currentShowingPart < maxShowingPart)
         {
             currentShowingPart += spawningSpeed * Time.deltaTime;
-            MaterialOnSpawn.SetFloat(GolemShaderParamID.SHOWING_PART, currentShowingPart);
+            _renderer.material.SetFloat(GolemShaderParamID.SHOWING_PART, currentShowingPart);
         }
 
     }
 
     public float initialDamagedBrightness;
+    private CancellationTokenSource _souce = new();
     private async UniTaskVoid changeMaterial()
     {
         onDamaged = true;
         if (currentBrightness < maxBrightness)
         {
             currentBrightness += initialDamagedBrightness;
-            MaterialOnDamaged.SetFloat("_Brightness", currentBrightness);
+            _renderer.material.SetFloat("_Brightness", currentBrightness);
         }
 
 
         currentBrightness = Mathf.Lerp(currentBrightness, maxBrightness, Time.deltaTime * materialChangingSpeed);
-        MaterialOnDamaged.SetFloat("_Brightness", currentBrightness);
+        _renderer.material.SetFloat("_Brightness", currentBrightness);
 
         await UniTask.Delay(1000);
         onDamaged = false;
@@ -159,7 +180,7 @@ public class Golem_Controller : MonoBehaviour
         if (onDamaged == false)
         {
             currentBrightness = Mathf.Lerp(currentBrightness, minBrightness, Time.deltaTime * materialReversingSpeed);
-            MaterialOnDamaged.SetFloat("_Brightness", currentBrightness);
+            _renderer.material.SetFloat("_Brightness", currentBrightness);
         }
 
     }
@@ -172,14 +193,20 @@ public class Golem_Controller : MonoBehaviour
             currentShowingPart -= vanishSpeed * Time.deltaTime;
             Debug.Log($"currentshowingPart: {currentShowingPart}");
 
-            MaterialOnDamaged.SetFloat(GolemShaderParamID.SHOWING_PART, currentShowingPart);
+            _renderer.material.SetFloat(GolemShaderParamID.SHOWING_PART, currentShowingPart);
         }
 
         await UniTask.Delay(1000);
         Deactivate();
+    }
 
 
+    void Deactivate() => gameObject.SetActive(false);
+
+
+
+    private void OnDisable()
+    {
 
     }
-    void Deactivate() => gameObject.SetActive(false);
 }

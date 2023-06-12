@@ -9,6 +9,7 @@ TagManager:
   - Terrain
   - Enemy
   - Bullet
+  - Golem
   layers:
   - Default
   - TransparentFX

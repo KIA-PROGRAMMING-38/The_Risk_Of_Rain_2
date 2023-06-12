@@ -35,6 +35,7 @@ public static class TagID
 {
     public static readonly string COMMANDO_BASIC_ATTACK = "CommandoBasicAttack";
     public static readonly string COMMANDO_ULTIMATE_ATTACK = "CommandoUltimateAttack";
+    public static readonly string GOLEM = "Golem";
     public static readonly string PLAYER = "Player";
     public static readonly string TERRAIN = "Terrain";
     public static readonly string ENEMY = "Enemy";

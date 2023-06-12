@@ -7,8 +7,9 @@ using UnityEngine.UIElements;
 
 public class GolemSkillSpawner : MonoBehaviour
 {
-
+    [SerializeField]
     public GameObject _player;
+    [SerializeField]
     public GameObject _laserSpawnPosition;
     private LineRenderer lineRenderer;
     private Renderer renderer;
@@ -45,7 +46,6 @@ public class GolemSkillSpawner : MonoBehaviour
 
     private bool DetectPlayer()
     {
-
         int layerMask = LayerMask.GetMask(LayerID.PLAYER);
         Collider[] colliders = Physics.OverlapSphere(transform.position, rangeRadius, layerMask);
 
@@ -57,10 +57,6 @@ public class GolemSkillSpawner : MonoBehaviour
         {
             return false;
         }
-
-
-
-
     }
 
     private void TurnOnLaser()
