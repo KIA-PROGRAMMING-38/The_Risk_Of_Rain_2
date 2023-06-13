@@ -2,18 +2,17 @@ using System;
 using UniRx;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
-using Photon.Pun.Demo.Asteroids;
+using UnityEngine.Rendering.PostProcessing;
+using System.Runtime.Versioning;
 
 public class BossSpawnLineRedererController : MonoBehaviour
 {
-    private Subject<Unit> eKeyPressSubject = new Subject<Unit>();
-    public IObservable<Unit> EKeyPressObservable => eKeyPressSubject;
-
-
-    public float radius = 5f;
-
-    public float radiusSizeSensitiviy;
-    public int numSegments = 100;
+    private Subject<Unit> eKeyBossSpawn = new Subject<Unit>();
+    public IObservable<Unit> bossObservable => eKeyBossSpawn;
+    
+  
+    public GameObject _camera;
+    private IDisposable disposable;
 
 
     public float radiusIncreasingSensitivity;
@@ -21,33 +20,31 @@ public class BossSpawnLineRedererController : MonoBehaviour
     public Transform _laserSpawnPosition;
     private void Awake()
     {
-        lineRenderer.transform.position = transform.position;
-        radius = 0f;
+        laser.localScale = Vector3.zero;
+      
     }
 
     private void Start()
     {
-        EKeyPressObservable
-           .Subscribe(_ => DrawLaser())
-           .AddTo(this);
+        bossObservable
+            .Subscribe(_ => StartSpawningBoss())
+            .AddTo(this);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && playerIsOnZone == true)
         {
-            GameManager.IsBossSpawned = true;
-            eKeyPressSubject.OnNext(Unit.Default);
+            eKeyBossSpawn.OnNext(Unit.Default);
         }
 
         if (GameManager.IsBossSpawned == true)
         {
-            DelayLaserSpawn();
-            IncreaseRadius();
+            IncreaseSize();
         }
     }
 
-    bool playerIsOnZone;
+    static bool playerIsOnZone;
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag(TagID.PLAYER))
@@ -58,56 +55,36 @@ public class BossSpawnLineRedererController : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        playerIsOnZone = false;
-    }
-
-
-    void DrawLaser()
-    {
-        Debug.Log("Boss Spawned! ! ");
-        lineRenderer.positionCount = numSegments + 1;
-
-        float angleStep = 360f / numSegments;
-
-        for (int i = 0; i <= numSegments; i++)
+        if (other.CompareTag(TagID.PLAYER))
         {
-            float angle = i * angleStep;
-            float x = Mathf.Sin(Mathf.Deg2Rad * angle) * radius * radiusSizeSensitiviy;
-            float y = Mathf.Cos(Mathf.Deg2Rad * angle) * radius * radiusSizeSensitiviy;
-
-            Vector3 pos = new Vector3(x, y, 0f);
-            lineRenderer.SetPosition(i, pos);
+            playerIsOnZone = false;
         }
-
-        lineRenderer.loop = true;
-
     }
+
+    private void StartSpawningBoss() => GameManager.IsBossSpawned = true;
 
     public int laserSpawnDelay;
-    public bool isDrawingLaserStart;
-    public float maxRadius;
-    public float startRadius = 0f;
-    float lerp;
-    private async UniTaskVoid IncreaseRadius()
+    static bool conditionIsTrue;
+  
+
+    private void SendMessageToCamera()
     {
-
-        if (isDrawingLaserStart == true)
-        {
-            lerp += radiusIncreasingSensitivity * Time.deltaTime;
-            radius = Mathf.Lerp(startRadius, maxRadius, lerp);
-            DrawLaser();
-        }
-
-        await UniTask.NextFrame();
-        Debug.Log("2 : you should turn off this function.");
-
+        _camera.SendMessage(MessageID.BOSS_SPAWN_EFFECT_ON);
+        Debug.Log("Sent Message");
     }
-    private async UniTaskVoid DelayLaserSpawn()
+
+    public float growingSpeed;
+    [SerializeField]
+    public Transform laser;
+    private async UniTaskVoid IncreaseSize()
     {
+        SendMessageToCamera();
         await UniTask.Delay(laserSpawnDelay);
-        isDrawingLaserStart = true;
-        Debug.Log("you should turn off this function.");
-        return;
+        Vector3 vectorMesh = laser.localScale;
+        float growing = growingSpeed * Time.deltaTime;
+        laser.localScale = new Vector3(vectorMesh.x + growing, vectorMesh.y + growing, vectorMesh.z + growing);
     }
+
+
 }
 

@@ -48,6 +48,13 @@ public static class GolemShaderParamID
     public static readonly string BRIGHTNESS = "_Brightness";
 }
 
+public static class MessageID
+{
+    public static readonly string BOSS_SPAWN_EFFECT_ON = "BossSpawnEffectOn";
+   
+}
+
+
 
 
 
