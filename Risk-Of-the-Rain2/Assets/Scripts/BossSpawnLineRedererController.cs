@@ -9,19 +9,19 @@ public class BossSpawnLineRedererController : MonoBehaviour
 {
     private Subject<Unit> eKeyBossSpawn = new Subject<Unit>();
     public IObservable<Unit> bossObservable => eKeyBossSpawn;
-    
-  
+
+
     public GameObject _camera;
     private IDisposable disposable;
 
 
     public float radiusIncreasingSensitivity;
-    public LineRenderer lineRenderer;
-    public Transform _laserSpawnPosition;
+
     private void Awake()
     {
         laser.localScale = Vector3.zero;
-      
+        bossSpawnPS.SetActive(false);
+
     }
 
     private void Start()
@@ -53,6 +53,15 @@ public class BossSpawnLineRedererController : MonoBehaviour
         }
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+
+    }
+
+
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag(TagID.PLAYER))
@@ -65,7 +74,7 @@ public class BossSpawnLineRedererController : MonoBehaviour
 
     public int laserSpawnDelay;
     static bool conditionIsTrue;
-  
+
 
     private void SendMessageToCamera()
     {
@@ -76,14 +85,27 @@ public class BossSpawnLineRedererController : MonoBehaviour
     public float growingSpeed;
     [SerializeField]
     public Transform laser;
+    public GameObject bossSpawnPS;
+    public float maxsize;
+    public static bool isMaxSize;
     private async UniTaskVoid IncreaseSize()
     {
+      
+        Debug.Log(laser.localScale.x);
         SendMessageToCamera();
         await UniTask.Delay(laserSpawnDelay);
-        Vector3 vectorMesh = laser.localScale;
-        float growing = growingSpeed * Time.deltaTime;
-        laser.localScale = new Vector3(vectorMesh.x + growing, vectorMesh.y + growing, vectorMesh.z + growing);
+        if (maxsize > laser.localScale.x)
+        {
+          
+            bossSpawnPS.SetActive(true);
+            Vector3 vectorMesh = laser.localScale;
+            float growing = growingSpeed * Time.deltaTime;
+            //콜라이더에 닿으면 멈추는게 낳을 것 같은데? 
+            laser.localScale = new Vector3(vectorMesh.x + growing, vectorMesh.y + growing, vectorMesh.z + growing);
+        }
+
     }
+
 
 
 }
