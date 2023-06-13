@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf1a75d95a3f44928336bc7e15c5489, type: 3}
+  m_Name: idrsTitan
+  m_EditorClassIdentifier:
+  namedItemRuleGroups: []
+  namedEquipmentRuleGroups: []
+  keyAssetRuleGroups:
+  - keyAsset: {fileID: 11400000, guid: 8543193f2511e304aa5fc75d1c57dd2e, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1950910456740793, guid: afd1134776d3db74d93d145a46fd1b2b, type: 2}
+        childName: Head
+        localPos:
+          x: 0
+          y: 0.86
+          z: 1.427
+        localAngles:
+          x: 89.98022
+          y: 6.03709E-07
+          z: 0
+        localScale:
+          x: 1.3349
+          y: 1.3349
+          z: 1.3349
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 09293765fbda7714780f601cbdc43e32, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1421680091808319, guid: 7a3067c5ca117084494b5f5ce43ea349, type: 2}
+        childName: Head
+        localPos:
+          x: -0
+          y: 6.54
+          z: 0.8
+        localAngles:
+          x: 270
+          y: -0
+          z: 0
+        localScale:
+          x: 0.7
+          y: 0.7
+          z: 0.7
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: a3e3f18f027588c43b77061f1ea724d9, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1907429562189658, guid: 7a1a50765a096444caf2c621206cc84b, type: 2}
+        childName: Head
+        localPos:
+          x: 0
+          y: 5.49
+          z: 0
+        localAngles:
+          x: -0
+          y: 0
+          z: 0
+        localScale:
+          x: 7.9301305
+          y: 7.9301305
+          z: 7.9301305
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 3dcfc1531c166d94e84e3f0ddd4432ff, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1870459312622267, guid: 70125f0ec0387d046a8dd574ebfba474, type: 2}
+        childName: Head
+        localPos:
+          x: -0
+          y: 7.53
+          z: 0
+        localAngles:
+          x: 270
+          y: -0
+          z: 0
+        localScale:
+          x: 0.3
+          y: 0.3
+          z: 0.3
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 9a4b03e623636434e8f878f67035a7ab, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1039909246471502, guid: 1074ccbd1bddac44489ae59ea7a580f7, type: 2}
+        childName: Head
+        localPos:
+          x: -0
+          y: 6.54
+          z: 0.8
+        localAngles:
+          x: 270
+          y: -0
+          z: 0
+        localScale:
+          x: 0.7
+          y: 0.7
+          z: 0.7
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 21c8dbc9357f66646b89ef64f977fce3, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1180837791134181, guid: 4721887f9dd02974f99c5cd2402dadf2, type: 2}
+        childName: Head
+        localPos:
+          x: 0
+          y: 5.52
+          z: 1.02
+        localAngles:
+          x: 319.74255
+          y: -2.0045918E-06
+          z: 5.073879E-07
+        localScale:
+          x: 3
+          y: 3
+          z: 3
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1180837791134181, guid: 4721887f9dd02974f99c5cd2402dadf2, type: 2}
+        childName: Head
+        localPos:
+          x: 0
+          y: 5.75
+          z: 0.28
+        localAngles:
+          x: 297.51196
+          y: -9.922218E-07
+          z: -8.3354263E-07
+        localScale:
+          x: 2
+          y: 2
+          z: 2
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 8949dbe41e087444fbb2ae41cc290197, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 1839763920369985, guid: d472b7f03c7db434b94f7e2658c20f7e, type: 2}
+        childName: Head
+        localPos:
+          x: 0.76
+          y: 5.47
+          z: 0.27
+        localAngles:
+          x: 359.29355
+          y: 350.75592
+          z: 0.025464542
+        localScale:
+          x: 1
+          y: 1
+          z: 1
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 1839763920369985, guid: d472b7f03c7db434b94f7e2658c20f7e, type: 2}
+        childName: Head
+        localPos:
+          x: -0.7600057
+          y: 5.469978
+          z: 0.26998174
+        localAngles:
+          x: 359.29355
+          y: 350.75592
+          z: 0.025465397
+        localScale:
+          x: -0.9999998
+          y: 0.9999994
+          z: 0.9999995
+        limbMask: 0

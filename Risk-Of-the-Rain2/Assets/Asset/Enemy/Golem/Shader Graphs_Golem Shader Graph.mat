@@ -84,7 +84,7 @@ Material:
     - _Smooth: 0.19
     m_Colors:
     - _Albedo: {r: 0.38679248, g: 0, b: 0, a: 1}
-    - _Brigness_color: {r: 1, g: 0.93093187, b: 0.14528298, a: 0}
+    - _Brigness_color: {r: 2, g: 1.2313726, b: 0, a: 0}
     - _EmmisionColor: {r: 0.990566, g: 0.7854866, b: 0.5924706, a: 0}
     - _GlowSpawningColor: {r: 611.1318, g: 12.206812, b: 0, a: 0}
   m_BuildTextureStacks: []

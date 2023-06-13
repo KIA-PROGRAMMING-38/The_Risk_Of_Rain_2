@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_Titan Shader
+  m_Shader: {fileID: -6465566751694194690, guid: a161b3c77e01a804f9a12ac36e91bd10,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 457dd293272f979429ecbe4cf42adfcd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DamagedTexture:
+        m_Texture: {fileID: 2800000, guid: 3792825edf5a26643a73c058ab658579, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Diffuse_Map:
+        m_Texture: {fileID: 2800000, guid: d6eaa3bed63f35d44920a12efb748d68, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal_Map:
+        m_Texture: {fileID: 2800000, guid: d709cacfac57d07448f3c39d07d6cbfe, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SurfaceTexture:
+        m_Texture: {fileID: 2800000, guid: 666b4082ad6d4914dbb5e1f14787dc56, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaThreshold: 0.483
+    - _Brightness: 1.56
+    - _BrightnessOffset: 0.5
+    - _GlowPartSize: 1.4
+    - _Metallic: 0
+    - _NormalDepth: 1.42
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ShowingPart: 121.28
+    - _Smooth: 0
+    m_Colors:
+    - _Albedo: {r: 0, g: 0.2924528, b: 0.052899305, a: 1}
+    - _Brigness_color: {r: 1, g: 0.513, b: 0, a: 0.54509807}
+    - _DiffuseOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _DiffuseTile: {r: 9.73, g: 28.05, b: 0, a: 0}
+    - _EmmisionColor: {r: 1.187573, g: 1.187573, b: 1.187573, a: 0}
+    - _GlowSpawningColor: {r: 0.060031682, g: 7.254765, b: 0, a: 0}
+    - _Offset: {r: 3.08, g: 0, b: 0, a: 0}
+    - _Tile: {r: 5, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!114 &6391726744096490251
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5

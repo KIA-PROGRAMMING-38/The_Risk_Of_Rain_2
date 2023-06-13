@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5028592001111001819}
   - component: {fileID: 5028592001111001820}
   - component: {fileID: 5028592001111001821}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CommandoBasicAttack (1)
   m_TagString: CommandoBasicAttack
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4019164456709269732}
   m_LocalRotation: {x: 0.60116, y: -0.37229922, z: 0.37229922, w: 0.60116}
   m_LocalPosition: {x: 1.88, y: 0, z: 3.77}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.010000001, y: 0.010000001, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1593361877948508406}
@@ -256,6 +256,14 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 979632a27455af442bd2d8f36eb0ffce, type: 3}
       propertyPath: m_Name
       value: CFX3_Hit_Misc_D
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 979632a27455af442bd2d8f36eb0ffce, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 979632a27455af442bd2d8f36eb0ffce, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 979632a27455af442bd2d8f36eb0ffce, type: 3}
       propertyPath: m_RootOrder

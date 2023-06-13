@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4224274af48c064ac004cf7d56d80f8, type: 3}
+  m_Name: cscTitanGooLake
+  m_EditorClassIdentifier:
+  prefab: {fileID: 1197293272780075, guid: aebd58f672050514983e9612ce53c663, type: 2}
+  sendOverNetwork: 1
+  hullSize: 2
+  nodeGraphType: 0
+  requiredFlags: 0
+  forbiddenFlags: 4
+  directorCreditCost: 600
+  occupyPosition: 0
+  eliteRules: 0
+  noElites: 0
+  forbiddenAsBoss: 0
+  _loadout:
+    bodyLoadouts:
+    - body: {fileID: 114636664504710791, guid: 4f9935aa8ba35bd498ac26c1b29b3fce, type: 2}
+      skillChoices: []
+      skinChoice: {fileID: 11400000, guid: f073cff179d07594abcefafe2cc51734, type: 2}
+  inventoryToCopy: {fileID: 0}
+  equipmentToGrant: []
+  itemsToGrant: []

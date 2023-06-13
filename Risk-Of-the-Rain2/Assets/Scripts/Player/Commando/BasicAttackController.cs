@@ -20,8 +20,11 @@ public class BasicAttackController : MonoBehaviour
     public float _bulletSpeed;
     Vector3 setRotation;
     Transform[] spawnTransforms;
+
+    TrailRenderer trailRenderer;
     private void Awake()
     {
+        trailRenderer = GetComponent<TrailRenderer>();
         _mainCamera = Camera.main;
         spawnTransforms = new Transform[2] { _spawnPositionLeft, _spawnPositionRight };
         rigidbody = GetComponent<Rigidbody>();
@@ -31,11 +34,17 @@ public class BasicAttackController : MonoBehaviour
     Vector3 launchDirection;
     private void OnEnable()
     {
+        
         particleSystemOnCollision.SetActive(false);
+       
         SetLaunchPosition();
+        trailRenderer.enabled = true;
         SetLaunchAnimation();
         launchDirection = RotateCommandoProjectile();
+
+      
         LaunchProjectile(launchDirection);
+       
     }
 
     private void Update()
@@ -73,7 +82,9 @@ public class BasicAttackController : MonoBehaviour
 
     private void OnDisable()
     {
+      
         CancelInvoke();
+        trailRenderer.enabled = false;
         ObjectPooler.ReturnToPool(gameObject);
     }
 

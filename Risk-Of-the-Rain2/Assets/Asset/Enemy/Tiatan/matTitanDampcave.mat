@@ -1,0 +1,172 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: matTitanDampcave
+  m_Shader: {fileID: 4800000, guid: d135c2b363a462641a16d90c20e7e2bf, type: 3}
+  m_ShaderKeywords: DITHER FORCE_SPEC SPLATMAP USE_VERTEX_COLORS _EMISSION _NORMALMAP
+  m_LightmapFlags: 1
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BlueChannelNormalTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BlueChannelTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowHeightRamp:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowHeightmap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FresnelMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FresnelRamp:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GreenChannelNormalTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GreenChannelTex:
+        m_Texture: {fileID: 2800000, guid: 8e3d7f82051709745be1822a961e3ca5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: c857a051fae959440bc3661aaa6fdbc7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalTex:
+        m_Texture: {fileID: 2800000, guid: d709cacfac57d07448f3c39d07d6cbfe, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PrintRamp:
+        m_Texture: {fileID: 2800000, guid: a02b902ae1a6ebc48b86096dda6556de, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SliceAlphaTex:
+        m_Texture: {fileID: 2800000, guid: 8be76741f96902847a095d518dbe330f, type: 3}
+        m_Scale: {x: 12, y: 12}
+        m_Offset: {x: 0, y: 0}
+    - _SplatmapTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 5, y: 5}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AOON: 0
+    - _BlendDepth: 0.2
+    - _BlendPower: 1
+    - _BlueChannelBias: -2
+    - _BlueChannelSmoothness: 0
+    - _BumpScale: 1
+    - _ColorsOn: 1
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DecalLayer: 0
+    - _Depth: 0.492
+    - _DetailNormalMapScale: 1
+    - _DiffuseBias: 0.5
+    - _DiffuseExponent: 2
+    - _DiffuseHardness: 0.91
+    - _DiffuseScale: 0.5
+    - _DitherOn: 1
+    - _DstBlend: 0
+    - _EliteBrightnessMax: 1
+    - _EliteBrightnessMin: 0
+    - _EliteIndex: 0
+    - _EliteOn: 0
+    - _EmBoost: 1
+    - _EmPower: 0
+    - _EnableCutout: 0
+    - _FEON: 0
+    - _Fade: 1
+    - _FadeBias: 0
+    - _FadeDistance: 5.43
+    - _FlowDiffuseStrength: 1
+    - _FlowEmissionStrength: 1
+    - _FlowHeightBias: 0
+    - _FlowHeightPower: 1
+    - _FlowMaskStrength: 0
+    - _FlowNormalStrength: 1
+    - _FlowSpeed: 1
+    - _FlowTextureScaleFactor: 1
+    - _FlowmapOn: 0
+    - _ForceSpecOn: 1
+    - _FresnelBoost: 1
+    - _FresnelPower: 1
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _GrassCutoff: 1
+    - _GreenChannelBias: -0.93
+    - _GreenChannelSmoothness: 0
+    - _LightWarpMaxDistance: 100
+    - _LightWarpMinDistance: 10
+    - _LimbPrimeMask: 1
+    - _LimbRemovalOn: 0
+    - _Metallic: 0
+    - _Mode: 0
+    - _NormalStrength: 1
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _PrintBias: 0
+    - _PrintBoost: 9.95
+    - _PrintDirection: 1
+    - _PrintEmissionToAlbedoLerp: 0
+    - _PrintOn: 0
+    - _RampInfo: 0
+    - _RimBoost: 1
+    - _RimPower: 6.01
+    - _RimStrength: 11.1
+    - _SliceAlphaDepth: 0.62
+    - _SliceBandHeight: 0.91
+    - _SliceHeight: 2.36
+    - _Smoothness: 0.118
+    - _SmoothnessTextureChannel: 0
+    - _SpecularExponent: 0.1
+    - _SpecularHighlights: 1
+    - _SpecularStrength: 0.015
+    - _SplatmapOn: 1
+    - _SplatmapTileScale: 3
+    - _SrcBlend: 1
+    - _TextureFactor: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmColor: {r: 0.52205884, g: 0.17657875, b: 0.17657875, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FlashColor: {r: 0, g: 0, b: 0, a: 1}
+    - _GrassColor: {r: 0.25, g: 0.09558824, b: 0.15628806, a: 1}
+    - _PrintColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _RimColor: {r: 0, g: 0, b: 0, a: 0}
+    - _RimTint: {r: 1, g: 1, b: 1, a: 1}
+    - _SliceColor: {r: 0.99264705, g: 0.14597753, b: 0.14597753, a: 1}
+    - _SpecularTint: {r: 0, g: 0, b: 0, a: 1}

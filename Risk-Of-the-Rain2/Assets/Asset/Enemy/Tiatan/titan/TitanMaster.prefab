@@ -1,0 +1,335 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1197293272780075
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4573485717024234}
+  - component: {fileID: 114426108954438332}
+  - component: {fileID: 114296040034588455}
+  - component: {fileID: 114113277082329945}
+  - component: {fileID: 114301762479342074}
+  - component: {fileID: 114361549353842701}
+  - component: {fileID: 114982159107030854}
+  - component: {fileID: 114308643261378054}
+  - component: {fileID: 114273209812425319}
+  - component: {fileID: 114208401555438582}
+  - component: {fileID: 114774111853717137}
+  m_Layer: 0
+  m_Name: TitanMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4573485717024234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197293272780075}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 115.8677, y: 19.88, z: 123.72767}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114426108954438332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197293272780075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d9d96cad9bfe8eb5fac3eb44f55c57, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 13
+    i1: 214
+    i2: 139
+    i3: 63
+    i4: 253
+    i5: 118
+    i6: 59
+    i7: 84
+    i8: 106
+    i9: 38
+    i10: 15
+    i11: 66
+    i12: 115
+    i13: 140
+    i14: 72
+    i15: 251
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &114296040034588455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197293272780075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fb514bad3ca062104487063a9bbf9a, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  _masterIndex: -1
+  bodyPrefab: {fileID: 1956694448889516, guid: 4f9935aa8ba35bd498ac26c1b29b3fce, type: 2}
+  spawnOnStart: 0
+  _teamIndex: 2
+  onBodyDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  destroyOnBodyDeath: 1
+  isBoss: 0
+  preventGameOver: 1
+--- !u!114 &114113277082329945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197293272780075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc72f571a72f10f18e7ab7c400f12723, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+--- !u!114 &114301762479342074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197293272780075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78774bd40a63f025d4bdde13db8754b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  fullVision: 0
+  neverRetaliateFriendlies: 0
+  enemyAttentionDuration: 5
+  desiredSpawnNodeGraphType: 0
+  stateMachine: {fileID: 114361549353842701}
+  scanState:
+    _typeName: EntityStates.AI.Walker.Wander
+  isHealer: 0
+  enemyAttention: 0
+  aimVectorDampTime: 0.1
+  aimVectorMaxSpeed: 180
+  selectedSkilldriverName:
+  debugEnemyHurtBox: {fileID: 0}
+--- !u!114 &114361549353842701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197293272780075}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8f3b038e95bdfe850a872cc3100135, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  customName: AI
+  initialStateType:
+    _typeName: EntityStates.AI.Walker.Wander
+  mainStateType:
+    _typeName: EntityStates.AI.Walker.Wander
+--- !u!114 &114982159107030854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197293272780075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385e6f07768717260b0101ddbf570792, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  customName:
+  skillSlot: 3
+  requiredSkill: {fileID: 0}
+  requireSkillReady: 1
+  requireEquipmentReady: 0
+  minUserHealthFraction: -Infinity
+  maxUserHealthFraction: 0.95
+  minTargetHealthFraction: -Infinity
+  maxTargetHealthFraction: Infinity
+  minDistance: 20
+  maxDistance: 80
+  selectionRequiresTargetLoS: 1
+  selectionRequiresOnGround: 0
+  selectionRequiresAimTarget: 0
+  maxTimesSelected: -1
+  moveTargetType: 0
+  activationRequiresTargetLoS: 0
+  activationRequiresAimTargetLoS: 0
+  activationRequiresAimConfirmation: 0
+  movementType: 1
+  moveInputScale: 1
+  aimType: 2
+  ignoreNodeGraph: 0
+  shouldSprint: 0
+  shouldFireEquipment: 0
+  shouldTapButton: 0
+  buttonPressType: 0
+  driverUpdateTimerOverride: -1
+  resetCurrentEnemyOnNextDriverSelection: 0
+  noRepeat: 0
+  nextHighPriorityOverride: {fileID: 0}
+--- !u!114 &114308643261378054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197293272780075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385e6f07768717260b0101ddbf570792, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  customName: RechargeRocks
+  skillSlot: 2
+  requiredSkill: {fileID: 0}
+  requireSkillReady: 1
+  requireEquipmentReady: 0
+  minUserHealthFraction: -Infinity
+  maxUserHealthFraction: 0.6
+  minTargetHealthFraction: -Infinity
+  maxTargetHealthFraction: Infinity
+  minDistance: 0
+  maxDistance: 90
+  selectionRequiresTargetLoS: 0
+  selectionRequiresOnGround: 0
+  selectionRequiresAimTarget: 0
+  maxTimesSelected: -1
+  moveTargetType: 0
+  activationRequiresTargetLoS: 0
+  activationRequiresAimTargetLoS: 0
+  activationRequiresAimConfirmation: 0
+  movementType: 1
+  moveInputScale: 1
+  aimType: 1
+  ignoreNodeGraph: 0
+  shouldSprint: 0
+  shouldFireEquipment: 0
+  shouldTapButton: 0
+  buttonPressType: 0
+  driverUpdateTimerOverride: -1
+  resetCurrentEnemyOnNextDriverSelection: 0
+  noRepeat: 0
+  nextHighPriorityOverride: {fileID: 0}
+--- !u!114 &114273209812425319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197293272780075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385e6f07768717260b0101ddbf570792, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  customName:
+  skillSlot: 1
+  requiredSkill: {fileID: 0}
+  requireSkillReady: 1
+  requireEquipmentReady: 0
+  minUserHealthFraction: -Infinity
+  maxUserHealthFraction: Infinity
+  minTargetHealthFraction: -Infinity
+  maxTargetHealthFraction: Infinity
+  minDistance: 0
+  maxDistance: 200
+  selectionRequiresTargetLoS: 0
+  selectionRequiresOnGround: 0
+  selectionRequiresAimTarget: 0
+  maxTimesSelected: -1
+  moveTargetType: 0
+  activationRequiresTargetLoS: 0
+  activationRequiresAimTargetLoS: 0
+  activationRequiresAimConfirmation: 0
+  movementType: 1
+  moveInputScale: 1
+  aimType: 1
+  ignoreNodeGraph: 0
+  shouldSprint: 0
+  shouldFireEquipment: 0
+  shouldTapButton: 0
+  buttonPressType: 0
+  driverUpdateTimerOverride: -1
+  resetCurrentEnemyOnNextDriverSelection: 0
+  noRepeat: 0
+  nextHighPriorityOverride: {fileID: 0}
+--- !u!114 &114208401555438582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197293272780075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385e6f07768717260b0101ddbf570792, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  customName:
+  skillSlot: -1
+  requiredSkill: {fileID: 0}
+  requireSkillReady: 0
+  requireEquipmentReady: 0
+  minUserHealthFraction: -Infinity
+  maxUserHealthFraction: Infinity
+  minTargetHealthFraction: -Infinity
+  maxTargetHealthFraction: Infinity
+  minDistance: 0
+  maxDistance: Infinity
+  selectionRequiresTargetLoS: 0
+  selectionRequiresOnGround: 0
+  selectionRequiresAimTarget: 0
+  maxTimesSelected: -1
+  moveTargetType: 0
+  activationRequiresTargetLoS: 0
+  activationRequiresAimTargetLoS: 0
+  activationRequiresAimConfirmation: 0
+  movementType: 1
+  moveInputScale: 1
+  aimType: 2
+  ignoreNodeGraph: 0
+  shouldSprint: 0
+  shouldFireEquipment: 0
+  shouldTapButton: 0
+  buttonPressType: 0
+  driverUpdateTimerOverride: -1
+  resetCurrentEnemyOnNextDriverSelection: 0
+  noRepeat: 0
+  nextHighPriorityOverride: {fileID: 0}
+--- !u!114 &114774111853717137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197293272780075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e939c2d74fc1f45d1a150fefe4b28fc, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
