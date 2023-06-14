@@ -2,10 +2,8 @@ using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
-using UnityEngine.UIElements;
 
-public class GolemSkillSpawner : MonoBehaviour
+public class TitanHeadController : MonoBehaviour
 {
     [SerializeField]
     public GameObject _player;
@@ -104,8 +102,6 @@ public class GolemSkillSpawner : MonoBehaviour
         lineRenderer.SetPosition(1, _player.transform.position);
         await UniTask.Delay(150);
     }
-
-    public float laserCoolTime;
     private async UniTaskVoid changeLaserColor()
     {
 
@@ -132,7 +128,7 @@ public class GolemSkillSpawner : MonoBehaviour
             await UniTask.Delay(300);
 
             lineRenderer.enabled = false;
-            await UniTask.Delay((int)(laserCoolTime * 1000));
+            await UniTask.Delay(2000);
 
 
 

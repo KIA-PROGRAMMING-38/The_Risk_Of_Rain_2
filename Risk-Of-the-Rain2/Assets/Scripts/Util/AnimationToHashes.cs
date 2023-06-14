@@ -9,6 +9,8 @@ public static class GolemAnimID
 {
     public static readonly int ON_DAMAGED = Animator.StringToHash("_OnDamaged");
     public static readonly int DEAD = Animator.StringToHash("_Dead");
+    public static readonly int MOVING = Animator.StringToHash("_Moving");
+    public static readonly int CLAP = Animator.StringToHash("_Clap");
 }
 public static class AnimID
 
@@ -53,7 +55,8 @@ public static class GolemShaderParamID
 public static class MessageID
 {
     public static readonly string BOSS_SPAWN_EFFECT_ON = "BossSpawnEffectOn";
-   
+    public static readonly string VIBRATE_CAMERA = "VibrateCamera";
+
 }
 
 

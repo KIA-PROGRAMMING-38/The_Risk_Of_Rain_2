@@ -22,11 +22,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 457dd293272f979429ecbe4cf42adfcd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2b39454f3dfd90246b8bd6185f6b59ab, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DamagedTexture:
-        m_Texture: {fileID: 2800000, guid: 3792825edf5a26643a73c058ab658579, type: 3}
+        m_Texture: {fileID: 2800000, guid: 251870c58d278a24380e7bb4ba6fe5a1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse_Map:
@@ -55,24 +55,28 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaThreshold: 0.483
-    - _Brightness: 1.56
+    - _AlphaThreshold: 0.148
+    - _Brightness: 0.44
     - _BrightnessOffset: 0.5
-    - _GlowPartSize: 1.4
+    - _Fresnel_Power: 3.8
+    - _GlowPartSize: 2.84
+    - _InterSectionDepth: 0.28
     - _Metallic: 0
-    - _NormalDepth: 1.42
+    - _NormalDepth: 3.61
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShowingPart: 121.28
+    - _ShowingPart: 122.96
     - _Smooth: 0
     m_Colors:
-    - _Albedo: {r: 0, g: 0.2924528, b: 0.052899305, a: 1}
-    - _Brigness_color: {r: 1, g: 0.513, b: 0, a: 0.54509807}
-    - _DiffuseOffset: {r: 0, g: 0, b: 0, a: 0}
-    - _DiffuseTile: {r: 9.73, g: 28.05, b: 0, a: 0}
+    - _Albedo: {r: 0, g: 0, b: 0, a: 1}
+    - _Brigness_color: {r: 4.872822, g: 1.5359982, b: 0, a: 0.54509807}
+    - _DamagedTile: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - _DamagedTileOffset: {r: -0.3, g: 2.76, b: 0, a: 0}
+    - _DiffuseOffset: {r: 1, g: 1, b: 0, a: 0}
+    - _DiffuseTile: {r: 8.67, g: -2.19, b: 0, a: 0}
     - _EmmisionColor: {r: 1.187573, g: 1.187573, b: 1.187573, a: 0}
     - _GlowSpawningColor: {r: 0.060031682, g: 7.254765, b: 0, a: 0}
-    - _Offset: {r: 3.08, g: 0, b: 0, a: 0}
+    - _Offset: {r: 11.21, g: 0.4, b: 0, a: 0}
     - _Tile: {r: 5, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6391726744096490251

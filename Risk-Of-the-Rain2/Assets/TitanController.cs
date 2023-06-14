@@ -13,7 +13,7 @@ public class TitanController : MonoBehaviour
 
     public Material golemMaterial;
     Material newMaterial; // use to have each golem objects get its own material to be controlled independently.
-  
+
     public Transform _playerTransform;
 
     private Animator animator;
@@ -55,16 +55,16 @@ public class TitanController : MonoBehaviour
     private void OnEnable()
     {
         currentShowingPart = minShowingPart;
-        newMaterial = new Material(golemMaterial);
+        // newMaterial = new Material(golemMaterial);
 
-        Debug.Log("OnEnable");
-        _renderer = GetComponentInChildren<Renderer>();
+       
+       
         if (_renderer == null)
         {
             Debug.LogError("No Renderer found on this object or its children.");
             return;
         }
-        _renderer.material = newMaterial;
+      
 
         hp = 100;
 
@@ -79,6 +79,7 @@ public class TitanController : MonoBehaviour
             if (isDead == false)
             {
                
+                TurnOnSpawningShader();
             }
             else
             {
@@ -89,8 +90,8 @@ public class TitanController : MonoBehaviour
 
     }
 
-  
-      
+
+
     public float materialChangingSpeed;
     public float materialReversingSpeed;
     public float minBrightness;
@@ -146,6 +147,7 @@ public class TitanController : MonoBehaviour
     {
         if (isDead == false && currentShowingPart < maxShowingPart)
         {
+            
             currentShowingPart += spawningSpeed * Time.deltaTime;
             _renderer.material.SetFloat(GolemShaderParamID.SHOWING_PART, currentShowingPart);
         }
@@ -167,7 +169,7 @@ public class TitanController : MonoBehaviour
         currentBrightness = Mathf.Lerp(currentBrightness, maxBrightness, Time.deltaTime * materialChangingSpeed);
         _renderer.material.SetFloat("_Brightness", currentBrightness);
 
-        await UniTask.Delay(1000);
+        await UniTask.Delay(90);
         onDamaged = false;
 
     }

@@ -54,14 +54,6 @@ public class BossSpawnLineRedererController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-
-
-    }
-
-
-
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag(TagID.PLAYER))
@@ -75,12 +67,19 @@ public class BossSpawnLineRedererController : MonoBehaviour
     public int laserSpawnDelay;
     static bool conditionIsTrue;
 
-
+    private bool isVibrating = false;
     private void SendMessageToCamera()
     {
         _camera.SendMessage(MessageID.BOSS_SPAWN_EFFECT_ON);
+        if (isVibrating == false)
+        {
+            isVibrating = true;
+            _camera.SendMessage(MessageID.VIBRATE_CAMERA);
+        }
+
         Debug.Log("Sent Message");
     }
+
 
     public float growingSpeed;
     [SerializeField]
@@ -92,13 +91,13 @@ public class BossSpawnLineRedererController : MonoBehaviour
     public GameObject _titan;
     private async UniTaskVoid IncreaseSize()
     {
-      
+
         Debug.Log(laser.localScale.x);
         SendMessageToCamera();
         await UniTask.Delay(laserSpawnDelay);
         if (maxsize > laser.localScale.x)
         {
-          
+
             bossSpawnPS.SetActive(true);
             _titan.SetActive(true);
             Vector3 vectorMesh = laser.localScale;

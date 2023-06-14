@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -10,12 +11,12 @@ public class Golem_Controller : MonoBehaviour
 
     public Renderer _renderer;
 
-
+    private Rigidbody rigidbody;
 
     public Material golemMaterial;
     Material newMaterial; // use to have each golem objects get its own material to be controlled independently.
     public NavMeshAgent agent;
-    public Transform _playerTransform;
+    public Transform _player;
 
     private Animator animator;
     private int hp;
@@ -41,13 +42,10 @@ public class Golem_Controller : MonoBehaviour
         }
     }
 
-
+    float originalAgentSpeed;
     private void Awake()
     {
-   
-
-       
-
+        originalAgentSpeed = agent.speed;
         animator = GetComponent<Animator>();
     }
 
@@ -58,7 +56,7 @@ public class Golem_Controller : MonoBehaviour
         currentShowingPart = minShowingPart;
         newMaterial = new Material(golemMaterial);
 
-        Debug.Log("OnEnable");
+
         _renderer = GetComponentInChildren<Renderer>();
         if (_renderer == null)
         {
@@ -66,7 +64,7 @@ public class Golem_Controller : MonoBehaviour
             return;
         }
         _renderer.material = newMaterial;
-    
+
         hp = 100;
 
     }
@@ -88,12 +86,42 @@ public class Golem_Controller : MonoBehaviour
         }
 
 
+        MoveAnimationOn();
+
+    }
+    public float agentSearchRadius = 10f;
+    private async UniTaskVoid TracePlayer()
+    {
+
+
+        NavMeshHit hit;
+        bool positionFound = NavMesh.SamplePosition(_player.position, out hit, agentSearchRadius, NavMesh.AllAreas);
+
+        if (positionFound)
+        {
+            agent.SetDestination(hit.position);
+        }
+
+
+
+        if (agent.remainingDistance <= agent.stoppingDistance || agent.pathStatus == NavMeshPathStatus.PathPartial || agent.pathStatus == NavMeshPathStatus.PathInvalid || !positionFound)
+        {
+            animator.SetBool(GolemAnimID.MOVING, false);
+            agent.isStopped = true;
+
+
+        }
+
+        else
+        {
+            animator.SetBool(GolemAnimID.MOVING, true);
+            agent.isStopped = false;
+        }
+
+
     }
 
-    void TracePlayer()
-    {
-        agent.SetDestination(_playerTransform.position);
-    }
+
     public float materialChangingSpeed;
     public float materialReversingSpeed;
     public float minBrightness;
@@ -108,13 +136,12 @@ public class Golem_Controller : MonoBehaviour
 
         if (other.CompareTag(TagID.COMMANDO_BASIC_ATTACK))
         {
-
-
             TurnOnHpAnimation();
-
             changeMaterial();
             HP -= 1;
         }
+
+
 
     }
 
@@ -134,9 +161,7 @@ public class Golem_Controller : MonoBehaviour
 
     private async UniTaskVoid TurnOnDead()
     {
-        animator.SetBool(GolemAnimID.DEAD, true);
-
-
+        animator.SetBool(GolemAnimID.DEAD, isDead);
     }
 
 
@@ -170,7 +195,7 @@ public class Golem_Controller : MonoBehaviour
         currentBrightness = Mathf.Lerp(currentBrightness, maxBrightness, Time.deltaTime * materialChangingSpeed);
         _renderer.material.SetFloat("_Brightness", currentBrightness);
 
-        await UniTask.Delay(1000);
+        await UniTask.Delay(5);
         onDamaged = false;
 
     }
@@ -191,8 +216,6 @@ public class Golem_Controller : MonoBehaviour
         if (isDead == true && currentShowingPart > minShowingPart)
         {
             currentShowingPart -= vanishSpeed * Time.deltaTime;
-            Debug.Log($"currentshowingPart: {currentShowingPart}");
-
             _renderer.material.SetFloat(GolemShaderParamID.SHOWING_PART, currentShowingPart);
         }
 
@@ -200,7 +223,19 @@ public class Golem_Controller : MonoBehaviour
         Deactivate();
     }
 
+    private void MoveAnimationOn()
+    {
 
+        bool isMoviong = agent.remainingDistance <= agent.stoppingDistance;
+        animator.SetBool(GolemAnimID.MOVING, isMoviong);
+        //if(agent.pathStatus == NavMeshPathStatus.PathPartial ||agent.pathStatus == NavMeshPathStatus.PathInvalid)
+        //{
+        //    animator.SetBool(GolemAnimID.MOVING, false);
+        //}
+
+
+
+    }
     void Deactivate() => gameObject.SetActive(false);
 
 

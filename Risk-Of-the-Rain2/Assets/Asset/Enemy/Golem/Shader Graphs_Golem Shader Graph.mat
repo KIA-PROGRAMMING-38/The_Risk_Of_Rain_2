@@ -51,7 +51,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
-        m_Texture: {fileID: 2800000, guid: ff1fb87c7466ffe4184e68da72aaf01a, type: 3}
+        m_Texture: {fileID: 2800000, guid: c979fc9f77e24d74c8f0f3f9a8ce09f7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SurfaceTexture:
@@ -72,19 +72,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaThreshold: 0.3
-    - _Brightness: 0.10000001
+    - _AlphaThreshold: 0.362
+    - _Brightness: -0
     - _BrightnessOffset: 0.22
+    - _FresenelPower: 2.64
     - _GlowPartSize: 1.27
     - _Metallic: 1.17
     - _NormalDepth: 1.85
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShowingPart: 22.476362
+    - _ShowingPart: 53.85
     - _Smooth: 0.19
     m_Colors:
     - _Albedo: {r: 0.38679248, g: 0, b: 0, a: 1}
-    - _Brigness_color: {r: 2, g: 1.2313726, b: 0, a: 0}
+    - _Brigness_color: {r: 2.0152128, g: 0.94892454, b: 0, a: 0}
     - _EmmisionColor: {r: 0.990566, g: 0.7854866, b: 0.5924706, a: 0}
-    - _GlowSpawningColor: {r: 611.1318, g: 12.206812, b: 0, a: 0}
+    - _GlowSpawningColor: {r: 17.215624, g: 0.80698234, b: 0.40349117, a: 0}
   m_BuildTextureStacks: []
