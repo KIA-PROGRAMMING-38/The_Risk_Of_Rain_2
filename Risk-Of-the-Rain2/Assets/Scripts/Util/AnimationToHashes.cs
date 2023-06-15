@@ -19,6 +19,7 @@ public static class AnimID
     public static readonly int MOVE_Y = Animator.StringToHash("MoveY");
     public static readonly int EULER_X = Animator.StringToHash("EulerX");
     public static readonly int EULER_Y = Animator.StringToHash("EulerY");
+    public static readonly int ROLL = Animator.StringToHash("Roll");
 
     public static readonly int PISTOL_LAUNCHED = Animator.StringToHash("PistolLaunched");
     public static readonly int PISTOL_DIRECTION = Animator.StringToHash("PistolDirection");

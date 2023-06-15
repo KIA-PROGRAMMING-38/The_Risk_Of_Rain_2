@@ -3,6 +3,7 @@ using UniRx;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using Photon.Pun.Demo.Asteroids;
+using UnityEngine.UIElements;
 
 public class CommandoController : MonoBehaviour
 {
@@ -18,9 +19,11 @@ public class CommandoController : MonoBehaviour
     private Rigidbody rigidbody;
 
     private Subject<Unit> eKeyPressSubject = new Subject<Unit>();
-    public IObservable<Unit> EKeyPressObservable => eKeyPressSubject;
+    private Subject<Unit> ShiftKeyPressSubject = new Subject<Unit>();
 
-   
+    public IObservable<Unit> EKeyPressObservable => eKeyPressSubject;
+    public IObservable<Unit> ShiftKeyPressObservable => ShiftKeyPressSubject;
+
 
     [SerializeField]
     private Transform _spaceshipTransform;
@@ -36,14 +39,28 @@ public class CommandoController : MonoBehaviour
     {
         EKeyPressObservable
             .Subscribe(_ => StartGame())
-            .AddTo(this); 
+            .AddTo(this);
+
+        ShiftKeyPressSubject
+          .Subscribe(_ => RollAndDash())
+          .AddTo(this);
     }
 
     private void Update()
     {
+
+
+        elapseTimeForRoll += Time.deltaTime;
+
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             eKeyPressSubject.OnNext(Unit.Default);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && RollingCoolTime < elapseTimeForRoll)
+        {
+            ShiftKeyPressSubject.OnNext(Unit.Default);
         }
 
         if (GameManager.IsGameStarted == true)
@@ -61,18 +78,23 @@ public class CommandoController : MonoBehaviour
             JumpPlayer();
 
             // Check for "E" key press
-          
+
         }
-        else if(GameManager.IsGameStarted == false)
+        else if (GameManager.IsGameStarted == false)
         {
             transform.position = _spaceshipTransform.position;
         }
-      
+
     }
 
     private void FixedUpdate()
     {
-        MovePlayer();
+       
+            MovePlayer();
+        
+          
+        
+      
     }
 
 
@@ -80,13 +102,11 @@ public class CommandoController : MonoBehaviour
     Transform _playerVirtualCameraPosition;
     private void StartGame()
     {
-       
-        Debug.Log("Start Game");
-        
-      if(GameManager.IsGameStarted == false) 
-        PlayStartAnimation();
-        
 
+        Debug.Log("Start Game");
+
+        if (GameManager.IsGameStarted == false)
+            PlayStartAnimation();
 
 
     }
@@ -104,7 +124,7 @@ public class CommandoController : MonoBehaviour
         await UniTask.Delay(2000);
         startPS.transform.position = transform.position;
         startPS.Play();
-        rigidbody.AddForce(Vector3.forward * startMoveSpeed,ForceMode.Impulse);
+        rigidbody.AddForce(Vector3.forward * startMoveSpeed, ForceMode.Impulse);
         Cinemachine_Controller.virtualCamera.Follow = _playerVirtualCameraPosition;
         Cinemachine_Controller.virtualCamera.LookAt = _playerVirtualCameraPosition;
         GameManager.IsGameStarted = true;
@@ -143,7 +163,35 @@ public class CommandoController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private readonly float RESET = 0f;
+    public static bool isRolling = false;
+    public float RollingForce;
+    public float RollingCoolTime;
+    private float elapseTimeForRoll;
+    
+    async private UniTaskVoid RollAndDash()
+    {
+        Debug.Log("Enter to Roll");
+        if (!isRolling)
+        {
+            Debug.Log("Implement Roll");
+            isRolling = true;
+
+            elapseTimeForRoll = 0f;
+            // turn off on the animation statemachine behavior.
+            animator.SetTrigger(AnimID.ROLL);
+
+            float originalSpeed = speed;
+            speed = RollingForce;
+             await UniTask.Delay(200);
+            isRolling = false;
+            speed = originalSpeed;
+        }
+
+    }
+  
+
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag(TagID.TERRAIN))
         {
