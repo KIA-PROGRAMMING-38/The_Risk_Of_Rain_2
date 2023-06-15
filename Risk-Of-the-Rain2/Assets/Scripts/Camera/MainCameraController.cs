@@ -96,7 +96,27 @@ public class MainCameraController : MonoBehaviour
     public float m_AmplitudeGain;
     public float m_FrequencyGain;
 
+    public float m_AmplitudeGainOnArrive;
+    public float m_FrequencyGainOnArrive;
+    public float _vibrationDurationTimeOnArrive;
+
     public float _vibrationDurationTime;
+
+    private async UniTaskVoid VibrateCameraOnArrive()
+    {
+        virtualCameraNoise = _virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        virtualCameraNoise.m_AmplitudeGain = m_AmplitudeGainOnArrive;
+        virtualCameraNoise.m_FrequencyGain = m_FrequencyGainOnArrive;
+
+        Debug.Log("impulse!");
+
+        await UniTask.Delay((int)(_vibrationDurationTimeOnArrive * 1000));
+
+        Debug.Log("turnback!");
+        virtualCameraNoise.m_AmplitudeGain = 0;
+        virtualCameraNoise.m_FrequencyGain = 0;
+
+    }
 
     private async UniTaskVoid VibrateCamera()
     {

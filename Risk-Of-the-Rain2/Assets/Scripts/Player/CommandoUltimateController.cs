@@ -26,6 +26,10 @@ public class CommandoUltimateController : MonoBehaviour
         OriginalRotation = transform.eulerAngles;
     }
 
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
 
     Vector3 launchDirection;
     Vector3 OriginalRotation;

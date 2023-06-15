@@ -4,6 +4,7 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 using Photon.Pun.Demo.Asteroids;
 using UnityEngine.UIElements;
+using UnityEditor;
 
 public class CommandoController : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class CommandoController : MonoBehaviour
 
     private void Awake()
     {
+        originalSpeed = speed * LerpingSpeed;
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
         startSmokePS.Stop();
@@ -50,7 +52,7 @@ public class CommandoController : MonoBehaviour
     {
 
 
-        elapseTimeForRoll += Time.deltaTime;
+        elapseTimeForRoll +=  Time.deltaTime;
 
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -89,12 +91,14 @@ public class CommandoController : MonoBehaviour
 
     private void FixedUpdate()
     {
-       
-            MovePlayer();
-        
-          
-        
-      
+
+        MovePlayer();
+
+
+        rollLerp += Time.deltaTime;
+
+
+
     }
 
 
@@ -149,6 +153,15 @@ public class CommandoController : MonoBehaviour
 
         animator.SetFloat(AnimID.MOVE_X, moveX);
         animator.SetFloat(AnimID.MOVE_Y, moveZ);
+
+        if (isRolling == true)
+        {
+            speed = Lerp2D.EaseOutExpo(originalSpeed, RollingForce, rollLerp);
+        }
+        else
+        {
+            speed = originalSpeed;
+        }
     }
 
     bool isJumping = false;
@@ -166,9 +179,12 @@ public class CommandoController : MonoBehaviour
     private readonly float RESET = 0f;
     public static bool isRolling = false;
     public float RollingForce;
+    public float RollingPlayTime;
+    public float LerpingSpeed;
     public float RollingCoolTime;
     private float elapseTimeForRoll;
-    
+    private float rollLerp;
+    float originalSpeed;
     async private UniTaskVoid RollAndDash()
     {
         Debug.Log("Enter to Roll");
@@ -176,20 +192,20 @@ public class CommandoController : MonoBehaviour
         {
             Debug.Log("Implement Roll");
             isRolling = true;
-
+            rollLerp = 0f;
             elapseTimeForRoll = 0f;
             // turn off on the animation statemachine behavior.
             animator.SetTrigger(AnimID.ROLL);
-
-            float originalSpeed = speed;
             speed = RollingForce;
-             await UniTask.Delay(200);
+
+            await UniTask.Delay((int)(RollingPlayTime * 1000));
             isRolling = false;
+            
             speed = originalSpeed;
         }
 
     }
-  
+
 
     private void OnTriggerStay(Collider other)
     {
