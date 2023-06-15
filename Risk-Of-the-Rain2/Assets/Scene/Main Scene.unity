@@ -2303,7 +2303,7 @@ MonoBehaviour:
   arrivalExplosionPS: {fileID: 1461875771}
   RocketPluimingPS: {fileID: 1211139262}
   startDelayTime: 20
-  EnteringTiming: 50
+  EnteringTiming: 30
   enteringEffectDuration: 1
   _enteringEffect: {fileID: 278362098}
 --- !u!54 &348173082
@@ -5202,7 +5202,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728118224}
-  m_LocalRotation: {x: 0.042553004, y: 0.85442966, z: 0.51294744, w: -0.070881635}
+  m_LocalRotation: {x: 0.042552993, y: 0.85442966, z: 0.51294744, w: -0.07088161}
   m_LocalPosition: {x: 88, y: 419, z: 280}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8525,7 +8525,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257012775}
-  m_LocalRotation: {x: 0.042553004, y: 0.85442966, z: 0.51294744, w: -0.070881635}
+  m_LocalRotation: {x: 0.042552993, y: 0.85442966, z: 0.51294744, w: -0.07088161}
   m_LocalPosition: {x: 88, y: 419, z: 280}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
