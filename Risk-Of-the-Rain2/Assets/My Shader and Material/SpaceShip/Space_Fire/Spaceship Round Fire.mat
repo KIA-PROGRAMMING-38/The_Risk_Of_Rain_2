@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Spaceship Effect
-  m_Shader: {fileID: -6465566751694194690, guid: a99845f9e43c56d48b523265c8e5c228,
+  m_Name: Spaceship Round Fire
+  m_Shader: {fileID: -6465566751694194690, guid: d1021ebb85e470546aa7a29949ef879a,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -21,8 +21,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MaskTexture:
-        m_Texture: {fileID: 2800000, guid: ba7f5871d64969247840bf7567ecb623, type: 3}
+    - _AlphaMaskMap:
+        m_Texture: {fileID: 2800000, guid: 092bacc00dd08104a8e9a3e70e72b3d7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureMaskMap:
+        m_Texture: {fileID: 2800000, guid: a75fde1250141f649bfe324bc5bc3888, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -39,14 +43,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaThreshold: 0.35
+    - _Alpha: 34.58
+    - _AlphaThreshold: 7.03
+    - _EmissionThickness: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _TimeValue: 6.59
     m_Colors:
-    - _Albedo: {r: 0.5943396, g: 0.5909754, b: 0.5909754, a: 0}
-    - _EmissionColor: {r: 0, g: 3.4162965, b: 8.47419, a: 0}
+    - _Albedo: {r: 0.021200981, g: 0.020465687, b: 0.020833334, a: 0}
+    - _Emission: {r: 1.419334, g: 0.12666832, b: 0.089172825, a: 0}
+    - _TextureOffset: {r: 0, g: -0.27, b: 0, a: 0}
+    - _TextureSize: {r: 0.15, g: 0.2, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &7397168160024831683
+--- !u!114 &3601921653923580911
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

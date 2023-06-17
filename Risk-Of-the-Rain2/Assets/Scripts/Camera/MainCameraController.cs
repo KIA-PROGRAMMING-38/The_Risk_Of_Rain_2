@@ -36,14 +36,25 @@ public class MainCameraController : MonoBehaviour
        
         volume = GetComponent<Volume>();
         volume.profile.TryGet(out colorAdjustments);
+
     }
 
+    public float _startShakingIncreaseSpeed;
 
     void Update()
     {
         if (volume.profile.TryGet(out vignette))
         {
             vignette.intensity.Override(1 - Mathf.Lerp(0, 1, Time.time * vignetteDisappearingSpeed));
+        }
+
+
+        if (GameManager.IsPlayerArrived == false)
+        {
+            m_FrequencyGainStart += Time.deltaTime * _startShakingIncreaseSpeed;
+            _vibrationDurationTimeStart += Time.deltaTime * _startShakingIncreaseSpeed;
+            VibrateCameraStart();
+    
         }
     }
 
@@ -92,7 +103,10 @@ public class MainCameraController : MonoBehaviour
 
   
     private CinemachineBasicMultiChannelPerlin virtualCameraNoise;
-   
+
+    private float m_FrequencyGainStart = 0f;
+    private float _vibrationDurationTimeStart = 0f;
+
     public float m_AmplitudeGain;
     public float m_FrequencyGain;
 
@@ -102,13 +116,13 @@ public class MainCameraController : MonoBehaviour
 
     public float _vibrationDurationTime;
 
-    private async UniTaskVoid VibrateCameraOnArrive()
+    private async UniTaskVoid VibrateCameraOnArrival()
     {
         virtualCameraNoise = _virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         virtualCameraNoise.m_AmplitudeGain = m_AmplitudeGainOnArrive;
         virtualCameraNoise.m_FrequencyGain = m_FrequencyGainOnArrive;
 
-        Debug.Log("impulse!");
+        Debug.Log("impulse! ARRIVAL!");
 
         await UniTask.Delay((int)(_vibrationDurationTimeOnArrive * 1000));
 
@@ -118,17 +132,24 @@ public class MainCameraController : MonoBehaviour
 
     }
 
+    private void VibrateCameraStart()
+    {
+        virtualCameraNoise = _virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        virtualCameraNoise.m_AmplitudeGain = m_FrequencyGainStart;
+        virtualCameraNoise.m_FrequencyGain = _vibrationDurationTimeStart;
+
+    }
+
     private async UniTaskVoid VibrateCamera()
     {
         virtualCameraNoise = _virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         virtualCameraNoise.m_AmplitudeGain = m_AmplitudeGain;
         virtualCameraNoise.m_FrequencyGain = m_FrequencyGain;
 
-        Debug.Log("impulse!");
 
         await UniTask.Delay((int)(_vibrationDurationTime * 1000));
 
-        Debug.Log("turnback!");
+      
         virtualCameraNoise.m_AmplitudeGain = 0;
         virtualCameraNoise.m_FrequencyGain = 0;
 

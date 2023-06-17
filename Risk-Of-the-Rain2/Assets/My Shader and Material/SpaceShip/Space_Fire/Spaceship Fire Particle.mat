@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Sphere Boss Spawn shader
-  m_Shader: {fileID: -6465566751694194690, guid: ec3880eb8779e5b49904e9a4f1be1ab9,
+  m_Name: Spaceship Fire Particle
+  m_Shader: {fileID: -6465566751694194690, guid: d1021ebb85e470546aa7a29949ef879a,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -21,8 +21,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _SampleTexture2D_821b3c578d5040ab9c43cf7d603d80d7_Texture_1:
-        m_Texture: {fileID: 2800000, guid: c2a31d5ebad6d1f41b46a3b3f6fe8dfe, type: 3}
+    - _AlphaMaskMap:
+        m_Texture: {fileID: 2800000, guid: 092bacc00dd08104a8e9a3e70e72b3d7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureMaskMap:
+        m_Texture: {fileID: 2800000, guid: a75fde1250141f649bfe324bc5bc3888, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -39,14 +43,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Alpha: 40.38
+    - _AlphaThreshold: 4.9
+    - _EmissionThickness: 58.7
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Range: 0.71
+    - _TimeValue: 4.79
     m_Colors:
-    - _Color: {r: 84.44851, g: 1.1153532, b: 1.1153532, a: 0}
-    - _EmissionColor: {r: 4.2352943, g: 0, b: 0, a: 0}
+    - _Albedo: {r: 1, g: 1, b: 1, a: 0}
+    - _Emission: {r: 1, g: 0.21052632, b: 0, a: 0}
+    - _TextureOffset: {r: 0, g: -0.27, b: 0, a: 0}
+    - _TextureSize: {r: 0.23, g: 0.72, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &8573312777006152166
+--- !u!114 &3601921653923580911
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

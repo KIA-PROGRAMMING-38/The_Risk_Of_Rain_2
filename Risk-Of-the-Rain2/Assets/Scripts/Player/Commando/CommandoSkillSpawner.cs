@@ -119,4 +119,10 @@ public class CommandoSkillSpawner : MonoBehaviour
         animator.SetTrigger(AnimID.PISTOL_LAUNCHED);
 
     }
+
+
+    private void ShowCrosshair()
+    {
+
+    }
 }

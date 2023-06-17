@@ -14,7 +14,7 @@ public class CrosshairController : MonoBehaviour
    
     private void Start()
     {
-
+        
         reticle = GetComponent<RectTransform>();
 
     }

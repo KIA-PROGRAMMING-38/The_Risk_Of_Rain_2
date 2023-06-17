@@ -109,7 +109,7 @@ public class CommandoController : MonoBehaviour
 
         Debug.Log("Start Game");
 
-        if (GameManager.IsGameStarted == false)
+        if (GameManager.IsGameStarted == false && GameManager.IsPlayerArrived == true)
             PlayStartAnimation();
 
 
@@ -124,6 +124,7 @@ public class CommandoController : MonoBehaviour
     public float startMoveSpeed;
     private async UniTaskVoid PlayStartAnimation()
     {
+        GameManager.IsGameStarted = true;
         startSmokePS.Play();
         await UniTask.Delay(2000);
         startPS.transform.position = transform.position;
@@ -131,7 +132,6 @@ public class CommandoController : MonoBehaviour
         rigidbody.AddForce(Vector3.forward * startMoveSpeed, ForceMode.Impulse);
         Cinemachine_Controller.virtualCamera.Follow = _playerVirtualCameraPosition;
         Cinemachine_Controller.virtualCamera.LookAt = _playerVirtualCameraPosition;
-        GameManager.IsGameStarted = true;
         startSmokePS.Stop();
     }
 
