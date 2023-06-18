@@ -8,7 +8,6 @@ public class SpaceshipController : MonoBehaviour
 {
     public float speed;
 
-
     private Rigidbody rigidbody;
 
     [SerializeField]
@@ -47,6 +46,7 @@ public class SpaceshipController : MonoBehaviour
     public float fireRoundEffectDuration;
     public GameObject _1stEnteringEffect;
     public GameObject _2ndEnteringEffect;
+
     void Update()
     {
         elapsedTime += Time.time - currentTime;
@@ -63,6 +63,11 @@ public class SpaceshipController : MonoBehaviour
             isEffectPlayed = true;
             PlayEnteringEffect();
 
+        }
+
+        if (GameManager.IsPlayerArrived == true)
+        {
+            MoveRoundFireEffect();
         }
     }
 
@@ -87,27 +92,60 @@ public class SpaceshipController : MonoBehaviour
     }
 
     [SerializeField]
-    GameObject TurnOffRoundFireEffect;
+    GameObject _firstRoundFireEffect;
+    [SerializeField]
+    GameObject _secondRoundFireEffect;
+    [SerializeField]
+    GameObject _thirdRoundFireEffect;
     async private UniTaskVoid TurnOffFireRoundEffect()
     {
-        
         await UniTask.Delay((int)fireRoundEffectDuration);
-        TurnOffRoundFireEffect.SetActive(false);
+        _firstRoundFireEffect.SetActive(false);
        
+        await UniTask.Delay((int)fireRoundEffectDuration);
+        _thirdRoundFireEffect.SetActive(false);
+
+        await UniTask.Delay((int)fireRoundEffectDuration);
+        _secondRoundFireEffect.SetActive(false);
+
     }
+
+    public float roundEffecetSpeed;
+    async private UniTaskVoid MoveRoundFireEffect()
+    {
+        _firstRoundFireEffect.transform.position += (startPosition.position - transform.position).normalized * roundEffecetSpeed;
+        await UniTask.Delay((int)fireRoundEffectDuration);
+        _secondRoundFireEffect.transform.position += (startPosition.position - transform.position).normalized * roundEffecetSpeed;
+        await UniTask.Delay((int)fireRoundEffectDuration);
+        _thirdRoundFireEffect.transform.position += (startPosition.position - transform.position).normalized * roundEffecetSpeed;
+      
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+    }
+
     [SerializeField] GameObject _camera;
     private void OnTriggerStay(Collider spaceship)
     {
+
         if (IsSpaceshipCollided(spaceship))
         {
+
+
             arrivalExplosionPS.SetActive(true);// explosion Particle
             RocketPluimingPS.SetActive(false);
             rigidbody.Sleep();
             collider.enabled = false;
             GameManager.IsPlayerArrived = true;
             _camera.SendMessage(MessageID.VIBRATE_CAMERA_ON_ARRIVAL);
+
             TurnOffFireRoundEffect();
+
         }
+
 
     }
 

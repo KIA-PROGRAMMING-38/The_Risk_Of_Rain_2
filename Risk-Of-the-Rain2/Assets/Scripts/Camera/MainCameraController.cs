@@ -4,6 +4,7 @@ using UnityEngine.Rendering;
 using Cysharp.Threading.Tasks;
 using System.Threading;
 using Cinemachine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class MainCameraController : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class MainCameraController : MonoBehaviour
 
     void Start()
     {
-       
+
         volume = GetComponent<Volume>();
         volume.profile.TryGet(out colorAdjustments);
 
@@ -54,54 +55,83 @@ public class MainCameraController : MonoBehaviour
             m_FrequencyGainStart += Time.deltaTime * _startShakingIncreaseSpeed;
             _vibrationDurationTimeStart += Time.deltaTime * _startShakingIncreaseSpeed;
             VibrateCameraStart();
-    
+
         }
     }
 
-  
+
     private async UniTaskVoid BossSpawnEffectOn()
     {
         lerp += Time.deltaTime * exposureChangingSpeed;
         currentExposure = Mathf.Lerp(darkendExposure, originalExposure, 1 - lerp);
-      
-        colorAdjustments.postExposure.value = currentExposure;
 
+        colorAdjustments.postExposure.value = currentExposure;
         TurnOnRed();
-       
+
+        if (lerp > 2)
+        {
+            RaiseExposure();
+        }
+
+
+
+
+
+
+    }
+    private async UniTaskVoid RaiseExposure()
+    {
+
+        lerp += Time.deltaTime * exposureChangingSpeed;
+        currentExposure = Mathf.Lerp(originalExposure, darkendExposure, 1 - lerp);
     }
 
-
-     public float transitionDuration = 2.0f;
-
-    private void TurnOnRed()
+    public float ColorChangingSpeed;
+    public float transitionDuration = 2.0f;
+    public Color initialColor;
+    public Color bossSpawnColor;
+    bool isChangingToRed;
+    float elapsed;
+    private async UniTaskVoid TurnOnRed()
     {
-        Debug.Log("Changing To Red");
+
         ColorAdjustments colorAdjustments;
+
 
         if (volume.profile.TryGet<ColorAdjustments>(out colorAdjustments))
         {
-            // Get the initial color
-            Color initialColor = colorAdjustments.colorFilter.value;
 
-            // We'll transition over the course of [transitionDuration] seconds
-            for (float t = 0; t < transitionDuration; t += Time.deltaTime)
+            if (isChangingToRed == false)
             {
-                // Lerp the color filter value from the initial color to red
-                colorAdjustments.colorFilter.value = Color.Lerp(initialColor, Color.red, t / transitionDuration);
-                // wait for the next frame
+                elapsed = 0f;
+                isChangingToRed = true;
+
             }
 
-            // Ensure the color is set to red at the end of the transition
-            colorAdjustments.colorFilter.value = Color.red;
+
+            while (elapsed < transitionDuration)
+            {
+                Debug.Log($"{elapsed}Changing To Red");
+                elapsed += Time.deltaTime;
+
+                // Lerp the color filter value from the initial color to red
+                colorAdjustments.colorFilter.value = Color.Lerp(initialColor, bossSpawnColor, elapsed / transitionDuration);
+
+                // wait for the next frame
+                await UniTask.NextFrame();
+            }
+
+
+
         }
 
 
 
     }
 
-  
 
-  
+
+
     private CinemachineBasicMultiChannelPerlin virtualCameraNoise;
 
     private float m_FrequencyGainStart = 0f;
@@ -149,9 +179,41 @@ public class MainCameraController : MonoBehaviour
 
         await UniTask.Delay((int)(_vibrationDurationTime * 1000));
 
-      
+
         virtualCameraNoise.m_AmplitudeGain = 0;
         virtualCameraNoise.m_FrequencyGain = 0;
 
     }
+
+    [SerializeField]
+    Volume _damagedEffectVolume;
+
+
+
+    [SerializeField]
+    Color _damagedColor;
+    public float _damageEffectDurationSeconds;
+    public async UniTaskVoid ChangeVolumeToDamageEffect()
+    {
+
+        ColorAdjustments colorAdjustments;
+
+
+        if (volume.profile.TryGet<ColorAdjustments>(out colorAdjustments))
+        {
+
+
+            // Lerp the color filter value from the initial color to red
+            colorAdjustments.colorFilter.value = _damagedColor;
+
+            // wait for the next frame
+            await UniTask.Delay((int)(_damageEffectDurationSeconds * 1000));
+            colorAdjustments.colorFilter.value = initialColor;
+        }
+
+
+
+    }
+
 }
+

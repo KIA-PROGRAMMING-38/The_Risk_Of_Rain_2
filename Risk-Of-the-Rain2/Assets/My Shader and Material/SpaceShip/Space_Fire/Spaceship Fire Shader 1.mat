@@ -43,15 +43,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 1.53
+    - _Alpha: 1.26
     - _AlphaThreshold: 7.03
     - _EmissionThickness: 0.22
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _TimeValue: 6.4
+    - _TimeValue: 6.59
     m_Colors:
-    - _Albedo: {r: 0.16981131, g: 0.08090067, b: 0.116464935, a: 0}
-    - _Emission: {r: 0.09019608, g: 0.010784314, b: 0.0029411765, a: 0}
+    - _Albedo: {r: 0.09803922, g: 0.015686272, b: 0.015686272, a: 0}
+    - _Emission: {r: 0.0555222, g: 0.010259537, b: 0.0024140088, a: 0}
     - _TextureOffset: {r: 0, g: -0.27, b: 0, a: 0}
     - _TextureSize: {r: 0.41, g: 0.4, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -56,6 +56,7 @@ public class BasicAttackController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Play1ollisionParticleOnce();
         if (IsBulletCollided(other))
         {
             Play1ollisionParticleOnce();
@@ -70,8 +71,6 @@ public class BasicAttackController : MonoBehaviour
         particleSystemOnCollision.SetActive(false);
         await UniTask.Delay(100);
         Deactivate();
-
-
     }
 
 

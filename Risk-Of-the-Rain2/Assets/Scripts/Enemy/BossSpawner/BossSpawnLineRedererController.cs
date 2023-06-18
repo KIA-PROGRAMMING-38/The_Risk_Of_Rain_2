@@ -102,7 +102,7 @@ public class BossSpawnLineRedererController : MonoBehaviour
             _titan.SetActive(true);
             Vector3 vectorMesh = laser.localScale;
             float growing = growingSpeed * Time.deltaTime;
-            //콜라이더에 닿으면 멈추는게 낳을 것 같은데? 
+     
             laser.localScale = new Vector3(vectorMesh.x + growing, vectorMesh.y + growing, vectorMesh.z + growing);
         }
 

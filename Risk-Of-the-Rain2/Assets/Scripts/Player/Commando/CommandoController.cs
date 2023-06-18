@@ -8,6 +8,23 @@ using UnityEditor;
 
 public class CommandoController : MonoBehaviour
 {
+
+    static public int commandoMaxHp = 60;
+    public static int Hp { get; private set; }
+    public void SetPlayerHp(int hp)
+    {
+        Hp = hp; 
+    }
+
+    public void TakeDamage(int damage)
+    {
+        Hp -= damage;
+        if (Hp < 0)
+        {
+            Hp = 0;
+        }
+    }
+
     public float speed = 10f;
     public float sensitivity = 2f;
 
@@ -24,13 +41,14 @@ public class CommandoController : MonoBehaviour
 
     public IObservable<Unit> EKeyPressObservable => eKeyPressSubject;
     public IObservable<Unit> ShiftKeyPressObservable => ShiftKeyPressSubject;
-
+    [SerializeField] private MainCameraController _mainCameraController;
 
     [SerializeField]
     private Transform _spaceshipTransform;
 
     private void Awake()
     {
+        
         originalSpeed = speed * LerpingSpeed;
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
@@ -39,6 +57,8 @@ public class CommandoController : MonoBehaviour
 
     private void Start()
     {
+        SetPlayerHp(commandoMaxHp);
+
         EKeyPressObservable
             .Subscribe(_ => StartGame())
             .AddTo(this);
@@ -52,7 +72,7 @@ public class CommandoController : MonoBehaviour
     {
 
 
-        elapseTimeForRoll +=  Time.deltaTime;
+        elapseTimeForRoll += Time.deltaTime;
 
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -67,6 +87,7 @@ public class CommandoController : MonoBehaviour
 
         if (GameManager.IsGameStarted == true)
         {
+          
             // Get inputs
             moveX = Input.GetAxis("Horizontal");
             moveZ = Input.GetAxis("Vertical");
@@ -110,22 +131,39 @@ public class CommandoController : MonoBehaviour
         Debug.Log("Start Game");
 
         if (GameManager.IsGameStarted == false && GameManager.IsPlayerArrived == true)
+        {
+           
             PlayStartAnimation();
-
+            PlayCrossHair();
+        }
+         
 
     }
+
+   
+
+    [SerializeField]
+    GameObject _crossHair;
+    private void PlayCrossHair()
+    {
+        _crossHair.SetActive(true);
+    }
+
 
     [SerializeField]
     ParticleSystem startPS;
 
     [SerializeField]
     ParticleSystem startSmokePS;
+    
+   
+
 
     public float startMoveSpeed;
     private async UniTaskVoid PlayStartAnimation()
     {
-        GameManager.IsGameStarted = true;
         startSmokePS.Play();
+             GameManager.IsGameStarted = true;
         await UniTask.Delay(2000);
         startPS.transform.position = transform.position;
         startPS.Play();
@@ -133,6 +171,7 @@ public class CommandoController : MonoBehaviour
         Cinemachine_Controller.virtualCamera.Follow = _playerVirtualCameraPosition;
         Cinemachine_Controller.virtualCamera.LookAt = _playerVirtualCameraPosition;
         startSmokePS.Stop();
+       
     }
 
     private void RotatePlayer()
@@ -185,12 +224,20 @@ public class CommandoController : MonoBehaviour
     private float elapseTimeForRoll;
     private float rollLerp;
     float originalSpeed;
+
+    [SerializeField]
+    public ParticleSystem _dashParticle;
+    public Transform _dashParticlePosition;
     async private UniTaskVoid RollAndDash()
     {
-        Debug.Log("Enter to Roll");
+        
         if (!isRolling)
         {
-            Debug.Log("Implement Roll");
+            _dashParticle.transform.position = _dashParticlePosition.position;
+            _dashParticle.Play();
+
+            //to hold the position...
+
             isRolling = true;
             rollLerp = 0f;
             elapseTimeForRoll = 0f;
@@ -200,9 +247,16 @@ public class CommandoController : MonoBehaviour
 
             await UniTask.Delay((int)(RollingPlayTime * 1000));
             isRolling = false;
-            
+
+
             speed = originalSpeed;
+            _dashParticle.Stop();
         }
+
+    }
+
+    private void TakeDamage()
+    {
 
     }
 
@@ -214,6 +268,19 @@ public class CommandoController : MonoBehaviour
             animator.SetBool(AnimID.IS_JUMPING, false);
             isJumping = false;
         }
+    }
+
+ 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(TagID.ENEMY))
+        {
+            Debug.Log("got damaged!");
+            TakeDamage(-1);
+          
+            _mainCameraController.ChangeVolumeToDamageEffect();
+        }
+       
     }
 
 

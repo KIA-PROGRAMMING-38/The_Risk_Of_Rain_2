@@ -228,10 +228,7 @@ public class Golem_Controller : MonoBehaviour
 
         bool isMoviong = agent.remainingDistance <= agent.stoppingDistance;
         animator.SetBool(GolemAnimID.MOVING, isMoviong);
-        //if(agent.pathStatus == NavMeshPathStatus.PathPartial ||agent.pathStatus == NavMeshPathStatus.PathInvalid)
-        //{
-        //    animator.SetBool(GolemAnimID.MOVING, false);
-        //}
+    
 
 
 
