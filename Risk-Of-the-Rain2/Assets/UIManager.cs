@@ -8,6 +8,8 @@ using System.Threading;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
+    GameObject _inPlayUI;
+    [SerializeField]
     private Slider sliderHP;
 
     [SerializeField]
@@ -44,6 +46,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        _inPlayUI.SetActive(false);
 
         titleTMP.text = string.Empty;
         subtitleTMP.text = string.Empty;
@@ -58,9 +61,12 @@ public class UIManager : MonoBehaviour
     {
         if (GameManager.IsGameStarted == true)
         {
+            _inPlayUI.SetActive(true);
+
             escapeTMP.SetActive(false);
             _exitSource.Cancel();
             _source.Cancel();
+
         }
 
 

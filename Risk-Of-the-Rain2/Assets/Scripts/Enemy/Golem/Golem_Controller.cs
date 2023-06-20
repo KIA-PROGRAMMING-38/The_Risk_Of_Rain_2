@@ -19,7 +19,8 @@ public class Golem_Controller : MonoBehaviour
     public Transform _player;
 
     private Animator animator;
-    private int hp;
+    public int hp;
+    public int maxHp;
     private bool isDead;
     private bool isOnDamaged;
     public int HP
@@ -27,7 +28,7 @@ public class Golem_Controller : MonoBehaviour
         get { return hp; }
         set
         {
-            if (value < 0)
+            if (value < -1)
             {
                 TurnOnDead();
                 if (isDead == false)
@@ -65,7 +66,7 @@ public class Golem_Controller : MonoBehaviour
         }
         _renderer.material = newMaterial;
 
-        hp = 20;
+        hp = maxHp;
 
     }
     void Update()
@@ -128,7 +129,7 @@ public class Golem_Controller : MonoBehaviour
     public float maxBrightness;
     public float currentBrightness;
 
-    private bool onDamaged = false;
+    public bool onDamaged = false;
 
 
     private void OnTriggerEnter(Collider other)
