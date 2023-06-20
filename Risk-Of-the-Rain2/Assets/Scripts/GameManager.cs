@@ -29,6 +29,18 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
+        if (IsMouseOverGameWindow())
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             // Reloads the current scene
@@ -51,7 +63,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+   
+    bool IsMouseOverGameWindow()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        if (mousePos.x < 0 || mousePos.y < 0 || mousePos.x > Screen.width || mousePos.y > Screen.height)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
 }
 
 

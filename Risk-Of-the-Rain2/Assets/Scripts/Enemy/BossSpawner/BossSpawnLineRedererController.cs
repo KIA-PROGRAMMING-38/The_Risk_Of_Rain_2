@@ -14,6 +14,8 @@ public class BossSpawnLineRedererController : MonoBehaviour
     public GameObject _camera;
     private IDisposable disposable;
 
+    [SerializeField]
+    private UIManager _UImanager;
 
     public float radiusIncreasingSensitivity;
 
@@ -49,16 +51,22 @@ public class BossSpawnLineRedererController : MonoBehaviour
     {
         if (other.CompareTag(TagID.PLAYER))
         {
+            _UImanager.ShowBossSpawnableMessage(true);
+
             playerIsOnZone = true;
         }
+      
 
     }
+  
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag(TagID.PLAYER))
         {
+            _UImanager.ShowBossSpawnableMessage(false);
             playerIsOnZone = false;
+           
         }
     }
 

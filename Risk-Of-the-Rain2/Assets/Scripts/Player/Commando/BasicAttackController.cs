@@ -34,16 +34,24 @@ public class BasicAttackController : MonoBehaviour
     Vector3 launchDirection;
     private void OnEnable()
     {
-        
-        particleSystemOnCollision.SetActive(false);
-       
-        SetLaunchPosition();
-        trailRenderer.enabled = true;
-        SetLaunchAnimation();
-        launchDirection = RotateCommandoProjectile();
 
-      
-        LaunchProjectile(launchDirection);
+        if (GameManager.IsGameStarted == true)
+        {
+            particleSystemOnCollision.SetActive(false);
+
+            SetLaunchPosition();
+            trailRenderer.enabled = true;
+            SetLaunchAnimation();
+            launchDirection = RotateCommandoProjectile();
+
+
+            LaunchProjectile(launchDirection);
+        }
+        else
+        {
+            rigidbody.Sleep();
+        }
+       
        
     }
 

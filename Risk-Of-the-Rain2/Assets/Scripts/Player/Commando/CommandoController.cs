@@ -2,9 +2,7 @@ using System;
 using UniRx;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
-using Photon.Pun.Demo.Asteroids;
-using UnityEngine.UIElements;
-using UnityEditor;
+
 
 public class CommandoController : MonoBehaviour
 {
@@ -44,12 +42,30 @@ public class CommandoController : MonoBehaviour
     [SerializeField] private MainCameraController _mainCameraController;
 
     [SerializeField]
+    public static float DashCoolTime = 5f;
+    public static float DashElapsedTime = DashCoolTime;
+
+
+    [SerializeField]
     private Transform _spaceshipTransform;
 
+
+    private readonly float RESET = 0f;
+    public static bool isDashing = false;
+    public float dashForce;
+    public float dashPlayTime;
+    public float lerpingSpeed;
+    private float rollLerp;
+   
+    float originalSpeed;
+
+    [SerializeField]
+    public ParticleSystem _dashParticle;
+    public Transform _dashParticlePosition;
     private void Awake()
     {
         
-        originalSpeed = speed * LerpingSpeed;
+        originalSpeed = speed * lerpingSpeed;
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
         startSmokePS.Stop();
@@ -70,9 +86,10 @@ public class CommandoController : MonoBehaviour
 
     private void Update()
     {
-
-
-        elapseTimeForRoll += Time.deltaTime;
+       
+            DashElapsedTime += Time.deltaTime;
+       
+     
 
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -80,7 +97,7 @@ public class CommandoController : MonoBehaviour
             eKeyPressSubject.OnNext(Unit.Default);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && RollingCoolTime < elapseTimeForRoll)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && DashCoolTime < DashElapsedTime)
         {
             ShiftKeyPressSubject.OnNext(Unit.Default);
         }
@@ -103,8 +120,10 @@ public class CommandoController : MonoBehaviour
             // Check for "E" key press
 
         }
+        
         else if (GameManager.IsGameStarted == false)
         {
+            rigidbody.Sleep();
             transform.position = _spaceshipTransform.position;
         }
 
@@ -112,11 +131,12 @@ public class CommandoController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        MovePlayer();
-
-
-        rollLerp += Time.deltaTime;
+        if (GameManager.IsGameStarted ==true)
+        {
+            MovePlayer();
+            rollLerp += Time.deltaTime;
+        }
+     
 
 
 
@@ -167,7 +187,7 @@ public class CommandoController : MonoBehaviour
         await UniTask.Delay(2000);
         startPS.transform.position = transform.position;
         startPS.Play();
-        rigidbody.AddForce(Vector3.forward * startMoveSpeed, ForceMode.Impulse);
+      
         Cinemachine_Controller.virtualCamera.Follow = _playerVirtualCameraPosition;
         Cinemachine_Controller.virtualCamera.LookAt = _playerVirtualCameraPosition;
         startSmokePS.Stop();
@@ -193,9 +213,9 @@ public class CommandoController : MonoBehaviour
         animator.SetFloat(AnimID.MOVE_X, moveX);
         animator.SetFloat(AnimID.MOVE_Y, moveZ);
 
-        if (isRolling == true)
+        if (isDashing == true)
         {
-            speed = Lerp2D.EaseOutExpo(originalSpeed, RollingForce, rollLerp);
+            speed = Lerp2D.EaseOutExpo(originalSpeed, dashForce, rollLerp);
         }
         else
         {
@@ -215,38 +235,26 @@ public class CommandoController : MonoBehaviour
         }
     }
 
-    private readonly float RESET = 0f;
-    public static bool isRolling = false;
-    public float RollingForce;
-    public float RollingPlayTime;
-    public float LerpingSpeed;
-    public float RollingCoolTime;
-    private float elapseTimeForRoll;
-    private float rollLerp;
-    float originalSpeed;
-
-    [SerializeField]
-    public ParticleSystem _dashParticle;
-    public Transform _dashParticlePosition;
+ 
     async private UniTaskVoid RollAndDash()
     {
         
-        if (!isRolling)
+        if (!isDashing)
         {
+            DashElapsedTime = 0f;
             _dashParticle.transform.position = _dashParticlePosition.position;
             _dashParticle.Play();
 
             //to hold the position...
-
-            isRolling = true;
+            isDashing = true;
             rollLerp = 0f;
-            elapseTimeForRoll = 0f;
+           
             // turn off on the animation statemachine behavior.
             animator.SetTrigger(AnimID.ROLL);
-            speed = RollingForce;
+            speed = dashForce;
 
-            await UniTask.Delay((int)(RollingPlayTime * 1000));
-            isRolling = false;
+            await UniTask.Delay((int)(dashPlayTime * 1000));
+            isDashing = false;
 
 
             speed = originalSpeed;
@@ -255,10 +263,6 @@ public class CommandoController : MonoBehaviour
 
     }
 
-    private void TakeDamage()
-    {
-
-    }
 
 
     private void OnTriggerStay(Collider other)

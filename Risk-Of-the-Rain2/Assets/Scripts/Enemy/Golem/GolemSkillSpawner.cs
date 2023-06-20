@@ -14,11 +14,12 @@ public class GolemSkillSpawner : MonoBehaviour
     private LineRenderer lineRenderer;
     private Renderer renderer;
 
-
+    private Transform _laserCollider;
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
         renderer = GetComponent<Renderer>();
+        _laserCollider = GetComponentInChildren<Transform>();
 
     }
 
@@ -128,6 +129,7 @@ public class GolemSkillSpawner : MonoBehaviour
 
 
             renderer.material = _launchMaterial;
+            _laserCollider.position = _player.transform.position;
             isLaunched = true;
             await UniTask.Delay(300);
 

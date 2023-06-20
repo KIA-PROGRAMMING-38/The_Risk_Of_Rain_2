@@ -66,7 +66,7 @@ public class TitanController : MonoBehaviour
         }
       
 
-        hp = 100;
+        hp = 20;
 
     }
     void Update()

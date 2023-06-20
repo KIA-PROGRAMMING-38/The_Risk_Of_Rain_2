@@ -44,6 +44,10 @@ public class CommandoUltimateController : MonoBehaviour
             LaunchProjectile(launchDirection);
             TrunOnRenderer();
         }
+        else
+        {
+            rigidbody.Sleep();
+        }
 
     }
 

@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class CommandoSkillSpawner : MonoBehaviour
 {
-    public float _spawnCoolTime;
+    public float _basicAttackCoolTime;
+    [SerializeField]
+    public static float UltimateCoolTime = 10f;
+    public static float UltimateElapsedTime = UltimateCoolTime;
     float _elapsedTime;
     internal static int launchOrder;
 
@@ -46,12 +49,14 @@ public class CommandoSkillSpawner : MonoBehaviour
             Debug.DrawRay(_playerPosition.position, 100000 * _virtualCameraPosition.forward, Color.yellow);
 
             _elapsedTime += Time.deltaTime;
-            if (Input.GetKey(KeyCode.Mouse0) && _elapsedTime > _spawnCoolTime)
+            UltimateElapsedTime += Time.deltaTime;
+
+            if (Input.GetKey(KeyCode.Mouse0) && _elapsedTime > _basicAttackCoolTime)
             {
                 ShootBullet();
                 SetAnimation();
             }
-            if (Input.GetKey(KeyCode.Mouse1) && _elapsedTime > _spawnCoolTime)
+            if (Input.GetKey(KeyCode.Mouse1) && UltimateElapsedTime > UltimateCoolTime)
             {
                 ShootUltimate();
             }
@@ -75,7 +80,7 @@ public class CommandoSkillSpawner : MonoBehaviour
     private void ShootUltimate()
     {
         GameObject CommandoUltimate = ObjectPooler.SpawnFromPool(TagID.COMMANDO_ULTIMATE_ATTACK, transform.localPosition);
-        _elapsedTime = 0.0f;
+        UltimateElapsedTime = 0f;
     }
 
     [SerializeField]

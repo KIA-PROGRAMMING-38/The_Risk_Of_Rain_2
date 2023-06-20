@@ -65,7 +65,7 @@ public class Golem_Controller : MonoBehaviour
         }
         _renderer.material = newMaterial;
 
-        hp = 100;
+        hp = 20;
 
     }
     void Update()

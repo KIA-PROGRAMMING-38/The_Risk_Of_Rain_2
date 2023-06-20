@@ -32,30 +32,32 @@ public class MainCameraController : MonoBehaviour
     public float frequencyGain;
     public float vibratingTime;
 
+
+
     void Start()
     {
-
         volume = GetComponent<Volume>();
         volume.profile.TryGet(out colorAdjustments);
-
     }
 
     public float _startShakingIncreaseSpeed;
 
+
+    private float startLerp;
+    public float startExposureIncreasingSpeed;
     void Update()
     {
-        if (volume.profile.TryGet(out vignette))
-        {
-            vignette.intensity.Override(1 - Mathf.Lerp(0, 1, Time.time * vignetteDisappearingSpeed));
-        }
 
 
         if (GameManager.IsPlayerArrived == false)
         {
+            startLerp += Time.deltaTime * startExposureIncreasingSpeed;
+            RaiseExposureStart(-3, 0.4f, startLerp);
+
+
             m_FrequencyGainStart += Time.deltaTime * _startShakingIncreaseSpeed;
             _vibrationDurationTimeStart += Time.deltaTime * _startShakingIncreaseSpeed;
             VibrateCameraStart();
-
         }
     }
 
@@ -72,12 +74,6 @@ public class MainCameraController : MonoBehaviour
         {
             RaiseExposure();
         }
-
-
-
-
-
-
     }
     private async UniTaskVoid RaiseExposure()
     {
@@ -85,6 +81,15 @@ public class MainCameraController : MonoBehaviour
         lerp += Time.deltaTime * exposureChangingSpeed;
         currentExposure = Mathf.Lerp(originalExposure, darkendExposure, 1 - lerp);
     }
+
+
+    private void RaiseExposureStart(float from, float to, float lerp)
+    {
+        
+        currentExposure = Mathf.Lerp(from, to, lerp);
+        colorAdjustments.postExposure.value = currentExposure;
+    }
+
 
     public float ColorChangingSpeed;
     public float transitionDuration = 2.0f;
@@ -94,10 +99,7 @@ public class MainCameraController : MonoBehaviour
     float elapsed;
     private async UniTaskVoid TurnOnRed()
     {
-
         ColorAdjustments colorAdjustments;
-
-
         if (volume.profile.TryGet<ColorAdjustments>(out colorAdjustments))
         {
 
@@ -107,7 +109,6 @@ public class MainCameraController : MonoBehaviour
                 isChangingToRed = true;
 
             }
-
 
             while (elapsed < transitionDuration)
             {
@@ -120,13 +121,7 @@ public class MainCameraController : MonoBehaviour
                 // wait for the next frame
                 await UniTask.NextFrame();
             }
-
-
-
         }
-
-
-
     }
 
 
@@ -159,7 +154,6 @@ public class MainCameraController : MonoBehaviour
         Debug.Log("turnback!");
         virtualCameraNoise.m_AmplitudeGain = 0;
         virtualCameraNoise.m_FrequencyGain = 0;
-
     }
 
     private void VibrateCameraStart()
@@ -167,7 +161,6 @@ public class MainCameraController : MonoBehaviour
         virtualCameraNoise = _virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         virtualCameraNoise.m_AmplitudeGain = m_FrequencyGainStart;
         virtualCameraNoise.m_FrequencyGain = _vibrationDurationTimeStart;
-
     }
 
     private async UniTaskVoid VibrateCamera()
@@ -182,27 +175,20 @@ public class MainCameraController : MonoBehaviour
 
         virtualCameraNoise.m_AmplitudeGain = 0;
         virtualCameraNoise.m_FrequencyGain = 0;
-
     }
 
     [SerializeField]
     Volume _damagedEffectVolume;
-
-
-
     [SerializeField]
     Color _damagedColor;
     public float _damageEffectDurationSeconds;
     public async UniTaskVoid ChangeVolumeToDamageEffect()
     {
-
         ColorAdjustments colorAdjustments;
 
 
         if (volume.profile.TryGet<ColorAdjustments>(out colorAdjustments))
         {
-
-
             // Lerp the color filter value from the initial color to red
             colorAdjustments.colorFilter.value = _damagedColor;
 
@@ -210,9 +196,6 @@ public class MainCameraController : MonoBehaviour
             await UniTask.Delay((int)(_damageEffectDurationSeconds * 1000));
             colorAdjustments.colorFilter.value = initialColor;
         }
-
-
-
     }
 
 }
