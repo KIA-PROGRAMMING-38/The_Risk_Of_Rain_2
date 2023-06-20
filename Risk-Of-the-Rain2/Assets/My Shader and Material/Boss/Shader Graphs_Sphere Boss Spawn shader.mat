@@ -43,7 +43,7 @@ Material:
     - _QueueOffset: 0
     - _Range: 0.71
     m_Colors:
-    - _Color: {r: 63.25359, g: 0, b: 0, a: 0}
+    - _Color: {r: 84.44851, g: 1.1153532, b: 1.1153532, a: 0}
     - _EmissionColor: {r: 4.2352943, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8573312777006152166

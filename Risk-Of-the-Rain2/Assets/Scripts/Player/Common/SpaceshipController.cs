@@ -8,7 +8,6 @@ public class SpaceshipController : MonoBehaviour
 {
     public float speed;
 
-
     private Rigidbody rigidbody;
 
     [SerializeField]
@@ -20,14 +19,16 @@ public class SpaceshipController : MonoBehaviour
     [SerializeField]
     GameObject RocketPluimingPS;
 
-   
+
 
     private Collider collider;
     float currentTime;
     void Awake()
     {
 
-        _enteringEffect.SetActive(false);
+        _1stEnteringEffect.SetActive(false);
+        _2ndEnteringEffect.SetActive(false);
+
         arrivalExplosionPS.SetActive(false);
         collider = GetComponent<Collider>();
         rigidbody = GetComponent<Rigidbody>();
@@ -41,12 +42,15 @@ public class SpaceshipController : MonoBehaviour
     private bool isLaunched;
     private bool isEffectPlayed;
     public float enteringEffectDuration;
-    public GameObject _enteringEffect;
+    public float effectGap;
+    public float fireRoundEffectDuration;
+    public GameObject _1stEnteringEffect;
+    public GameObject _2ndEnteringEffect;
+
     void Update()
     {
-        
         elapsedTime += Time.time - currentTime;
-        Debug.Log($"{elapsedTime}");
+
         if (elapsedTime > startDelayTime && !isLaunched)
         {
             isLaunched = true;
@@ -60,26 +64,88 @@ public class SpaceshipController : MonoBehaviour
             PlayEnteringEffect();
 
         }
+
+        if (GameManager.IsPlayerArrived == true)
+        {
+            MoveRoundFireEffect();
+        }
     }
+
+    private Vector3 effectPosition;
 
     async private UniTaskVoid PlayEnteringEffect()
     {
-        _enteringEffect.SetActive(true);
+        _1stEnteringEffect.SetActive(true);
+        effectPosition = _1stEnteringEffect.transform.position;
+        _1stEnteringEffect.transform.position = effectPosition;
+
+        await UniTask.Delay((int)effectGap);
+
+        _2ndEnteringEffect.SetActive(true);
+        effectPosition = _2ndEnteringEffect.transform.position;
+        _2ndEnteringEffect.transform.position = effectPosition;
+
+
         await UniTask.Delay((int)enteringEffectDuration);
-        _enteringEffect.SetActive(false);
+        _1stEnteringEffect.SetActive(false);
+        _2ndEnteringEffect.SetActive(false);
     }
 
+    [SerializeField]
+    GameObject _firstRoundFireEffect;
+    [SerializeField]
+    GameObject _secondRoundFireEffect;
+    [SerializeField]
+    GameObject _thirdRoundFireEffect;
+    async private UniTaskVoid TurnOffFireRoundEffect()
+    {
+        await UniTask.Delay((int)fireRoundEffectDuration);
+        _firstRoundFireEffect.SetActive(false);
+       
+        await UniTask.Delay((int)fireRoundEffectDuration);
+        _thirdRoundFireEffect.SetActive(false);
+
+        await UniTask.Delay((int)fireRoundEffectDuration);
+        _secondRoundFireEffect.SetActive(false);
+
+    }
+
+    public float roundEffecetSpeed;
+    async private UniTaskVoid MoveRoundFireEffect()
+    {
+        _firstRoundFireEffect.transform.position += (startPosition.position - transform.position).normalized * roundEffecetSpeed;
+        await UniTask.Delay((int)fireRoundEffectDuration);
+        _secondRoundFireEffect.transform.position += (startPosition.position - transform.position).normalized * roundEffecetSpeed;
+        await UniTask.Delay((int)fireRoundEffectDuration);
+        _thirdRoundFireEffect.transform.position += (startPosition.position - transform.position).normalized * roundEffecetSpeed;
+      
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+    }
+
+    [SerializeField] GameObject _camera;
     private void OnTriggerStay(Collider spaceship)
     {
+
         if (IsSpaceshipCollided(spaceship))
         {
+
+
             arrivalExplosionPS.SetActive(true);// explosion Particle
             RocketPluimingPS.SetActive(false);
             rigidbody.Sleep();
-
             collider.enabled = false;
+            GameManager.IsPlayerArrived = true;
+            _camera.SendMessage(MessageID.VIBRATE_CAMERA_ON_ARRIVAL);
+
+            TurnOffFireRoundEffect();
 
         }
+
 
     }
 

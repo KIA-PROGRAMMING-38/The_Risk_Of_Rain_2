@@ -24,28 +24,31 @@ public class CommandoUltimateController : MonoBehaviour
         _mainCamera = Camera.main;
         rigidbody = GetComponent<Rigidbody>();
         OriginalRotation = transform.eulerAngles;
+        Invoke(nameof(Deactivate), 0.1f);
     }
 
     private void Start()
     {
-        gameObject.SetActive(false);
+        
     }
 
     Vector3 launchDirection;
     Vector3 OriginalRotation;
     private void OnEnable()
     {
+        if (GameManager.IsGameStarted == true)
+        {
+            SetLaunchPosition();
+            SetLaunchAnimation();
+            launchDirection = SetDirectionToTarget();
+            LaunchProjectile(launchDirection);
+            TrunOnRenderer();
+        }
+        else
+        {
+            rigidbody.Sleep();
+        }
 
-        SetLaunchPosition();
-
-        SetLaunchAnimation();
-        launchDirection = SetDirectionToTarget();
-        LaunchProjectile(launchDirection);
-
-
-
-
-        TrunOnRenderer();
     }
 
     public Transform _playerTrasnform;
@@ -94,6 +97,8 @@ public class CommandoUltimateController : MonoBehaviour
         transform.position = _ultimateSpawnPosition.position;
         ObjectPooler.ReturnToPool(gameObject);
     }
+
+    
 
 
 

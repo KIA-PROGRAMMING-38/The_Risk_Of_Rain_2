@@ -39,14 +39,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaThreshold: 0.45
+    - _AlphaThreshold: 0.12
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Time: -1.6
     - _TimeDivided: -5
     m_Colors:
     - _Albedo: {r: 1, g: 1, b: 1, a: 0}
-    - _EmissionColor: {r: 383.49805, g: 361.41177, b: 361.41177, a: 0}
+    - _EmissionColor: {r: 102.75575, g: 97.37587, b: 97.37587, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8589037378109585993
 MonoBehaviour:

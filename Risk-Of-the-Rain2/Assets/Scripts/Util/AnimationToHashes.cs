@@ -57,7 +57,7 @@ public static class MessageID
 {
     public static readonly string BOSS_SPAWN_EFFECT_ON = "BossSpawnEffectOn";
     public static readonly string VIBRATE_CAMERA = "VibrateCamera";
-
+    public static readonly string VIBRATE_CAMERA_ON_ARRIVAL = "VibrateCameraOnArrival";
 }
 
 

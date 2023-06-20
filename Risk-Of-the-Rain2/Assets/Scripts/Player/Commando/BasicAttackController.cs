@@ -34,16 +34,24 @@ public class BasicAttackController : MonoBehaviour
     Vector3 launchDirection;
     private void OnEnable()
     {
-        
-        particleSystemOnCollision.SetActive(false);
-       
-        SetLaunchPosition();
-        trailRenderer.enabled = true;
-        SetLaunchAnimation();
-        launchDirection = RotateCommandoProjectile();
 
-      
-        LaunchProjectile(launchDirection);
+        if (GameManager.IsGameStarted == true)
+        {
+            particleSystemOnCollision.SetActive(false);
+
+            SetLaunchPosition();
+            trailRenderer.enabled = true;
+            SetLaunchAnimation();
+            launchDirection = RotateCommandoProjectile();
+
+
+            LaunchProjectile(launchDirection);
+        }
+        else
+        {
+            rigidbody.Sleep();
+        }
+       
        
     }
 
@@ -56,6 +64,7 @@ public class BasicAttackController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Play1ollisionParticleOnce();
         if (IsBulletCollided(other))
         {
             Play1ollisionParticleOnce();
@@ -70,8 +79,6 @@ public class BasicAttackController : MonoBehaviour
         particleSystemOnCollision.SetActive(false);
         await UniTask.Delay(100);
         Deactivate();
-
-
     }
 
 
