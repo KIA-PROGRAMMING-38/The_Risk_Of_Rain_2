@@ -112,7 +112,7 @@ public class MainCameraController : MonoBehaviour
 
             while (elapsed < transitionDuration)
             {
-                Debug.Log($"{elapsed}Changing To Red");
+                
                 elapsed += Time.deltaTime;
 
                 // Lerp the color filter value from the initial color to red
@@ -147,11 +147,11 @@ public class MainCameraController : MonoBehaviour
         virtualCameraNoise.m_AmplitudeGain = m_AmplitudeGainOnArrive;
         virtualCameraNoise.m_FrequencyGain = m_FrequencyGainOnArrive;
 
-        Debug.Log("impulse! ARRIVAL!");
+      
 
         await UniTask.Delay((int)(_vibrationDurationTimeOnArrive * 1000));
 
-        Debug.Log("turnback!");
+       
         virtualCameraNoise.m_AmplitudeGain = 0;
         virtualCameraNoise.m_FrequencyGain = 0;
     }
