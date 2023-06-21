@@ -19,7 +19,8 @@ public class Golem_Controller : MonoBehaviour
     public Transform _player;
 
     private Animator animator;
-    private int hp;
+    public int hp;
+    public int maxHp;
     private bool isDead;
     private bool isOnDamaged;
     public int HP
@@ -27,7 +28,7 @@ public class Golem_Controller : MonoBehaviour
         get { return hp; }
         set
         {
-            if (value < 0)
+            if (value < -1)
             {
                 TurnOnDead();
                 if (isDead == false)
@@ -65,7 +66,7 @@ public class Golem_Controller : MonoBehaviour
         }
         _renderer.material = newMaterial;
 
-        hp = 20;
+        hp = maxHp;
 
     }
     void Update()
@@ -128,14 +129,17 @@ public class Golem_Controller : MonoBehaviour
     public float maxBrightness;
     public float currentBrightness;
 
-    private bool onDamaged = false;
+    public bool onDamaged = false;
 
 
+    public Vector3 hitPosition;
+    public Vector3 UIOffest;
     private void OnTriggerEnter(Collider other)
     {
 
         if (other.CompareTag(TagID.COMMANDO_BASIC_ATTACK))
         {
+            hitPosition = other.gameObject.transform.position + UIOffest;
             TurnOnHpAnimation();
             changeMaterial();
             HP -= 1;
@@ -151,7 +155,7 @@ public class Golem_Controller : MonoBehaviour
         {
             isOnDamaged = true;
             animator.SetBool(GolemAnimID.ON_DAMAGED, true);
-            await UniTask.Delay(500);
+            await UniTask.Delay(100);
             animator.SetBool(GolemAnimID.ON_DAMAGED, false);
             isOnDamaged = false;
         }
