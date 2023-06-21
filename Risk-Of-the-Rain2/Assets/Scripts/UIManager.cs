@@ -151,4 +151,3 @@ public class Utils
         return current != 0 && max != 0 ? current / max : 0;
     }
 }
-

@@ -30,7 +30,8 @@ public class Golem_Controller : MonoBehaviour
         {
             if (value < -1)
             {
-                TurnOnDead();
+                TurnOffCollider();
+                PlayDeadAnim();
                 if (isDead == false)
                 {
                     isDead = true;
@@ -42,6 +43,7 @@ public class Golem_Controller : MonoBehaviour
             }
         }
     }
+
 
     float originalAgentSpeed;
     private void Awake()
@@ -162,8 +164,13 @@ public class Golem_Controller : MonoBehaviour
 
 
     }
-
-    private async UniTaskVoid TurnOnDead()
+    private void TurnOffCollider()
+    {
+        Collider collider = GetComponent<Collider>();
+        collider.enabled= false;
+        
+    }
+    private async UniTaskVoid PlayDeadAnim()
     {
         animator.SetBool(GolemAnimID.DEAD, isDead);
     }
