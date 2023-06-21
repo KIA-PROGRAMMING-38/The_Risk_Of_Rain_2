@@ -25,7 +25,7 @@ TagManager:
   - PlaySkill
   - EnemySkill
   - Enemy
-  - 
+  - UI
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 737441913
     locked: 0

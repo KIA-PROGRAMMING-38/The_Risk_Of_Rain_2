@@ -19,7 +19,7 @@ public class TitanController : MonoBehaviour
     private Animator animator;
     private int hp;
     private bool isDead;
-    private bool isOnDamaged;
+    public bool isOnDamaged;
     public int HP
     {
         get { return hp; }
@@ -27,7 +27,7 @@ public class TitanController : MonoBehaviour
         {
             if (value < 0)
             {
-                TurnOnDead();
+               
                 if (isDead == false)
                 {
                     isDead = true;
@@ -57,14 +57,14 @@ public class TitanController : MonoBehaviour
         currentShowingPart = minShowingPart;
         // newMaterial = new Material(golemMaterial);
 
-       
-       
+
+
         if (_renderer == null)
         {
             Debug.LogError("No Renderer found on this object or its children.");
             return;
         }
-      
+
 
         hp = 20;
 
@@ -78,7 +78,7 @@ public class TitanController : MonoBehaviour
             TurnBackToNormal();
             if (isDead == false)
             {
-               
+
                 TurnOnSpawningShader();
             }
             else
@@ -98,44 +98,40 @@ public class TitanController : MonoBehaviour
     public float maxBrightness;
     public float currentBrightness;
 
-    private bool onDamaged = false;
+    public bool onDamaged = false;
 
 
+
+    public Vector3 hitPosition;
+    public Vector3 UIOffest;
     private void OnTriggerEnter(Collider other)
     {
 
         if (other.CompareTag(TagID.COMMANDO_BASIC_ATTACK))
         {
 
-
-            //TurnOnHpAnimation();
-
+            hitPosition = other.gameObject.transform.position + UIOffest;
+            TurnOnHpAnimation();
             changeMaterial();
             HP -= 1;
         }
 
     }
 
-    //private async UniTaskVoid TurnOnHpAnimation()
-    //{
-    //    if (isOnDamaged == false)
-    //    {
-    //        isOnDamaged = true;
-    //        animator.SetBool(GolemAnimID.ON_DAMAGED, true);
-    //        await UniTask.Delay(500);
-    //        animator.SetBool(GolemAnimID.ON_DAMAGED, false);
-    //        isOnDamaged = false;
-    //    }
-
-
-    //}
-
-    private async UniTaskVoid TurnOnDead()
+    private async UniTaskVoid TurnOnHpAnimation()
     {
-        animator.SetBool(GolemAnimID.DEAD, true);
-
-
+        if (onDamaged == false)
+        {
+            onDamaged = true;
+            animator.SetBool(GolemAnimID.ON_DAMAGED, true);
+            await UniTask.Delay(500);
+            animator.SetBool(GolemAnimID.ON_DAMAGED, false);
+            onDamaged = false;
+        }
     }
+
+
+
 
 
     public float currentShowingPart;
@@ -147,7 +143,7 @@ public class TitanController : MonoBehaviour
     {
         if (isDead == false && currentShowingPart < maxShowingPart)
         {
-            
+
             currentShowingPart += spawningSpeed * Time.deltaTime;
             _renderer.material.SetFloat(GolemShaderParamID.SHOWING_PART, currentShowingPart);
         }

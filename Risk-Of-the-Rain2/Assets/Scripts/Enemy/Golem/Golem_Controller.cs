@@ -132,11 +132,14 @@ public class Golem_Controller : MonoBehaviour
     public bool onDamaged = false;
 
 
+    public Vector3 hitPosition;
+    public Vector3 UIOffest;
     private void OnTriggerEnter(Collider other)
     {
 
         if (other.CompareTag(TagID.COMMANDO_BASIC_ATTACK))
         {
+            hitPosition = other.gameObject.transform.position + UIOffest;
             TurnOnHpAnimation();
             changeMaterial();
             HP -= 1;
@@ -152,7 +155,7 @@ public class Golem_Controller : MonoBehaviour
         {
             isOnDamaged = true;
             animator.SetBool(GolemAnimID.ON_DAMAGED, true);
-            await UniTask.Delay(500);
+            await UniTask.Delay(100);
             animator.SetBool(GolemAnimID.ON_DAMAGED, false);
             isOnDamaged = false;
         }
