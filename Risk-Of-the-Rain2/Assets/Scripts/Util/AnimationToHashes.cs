@@ -53,6 +53,12 @@ public static class GolemShaderParamID
     public static readonly string BRIGHTNESS = "_Brightness";
 }
 
+public static class UIShaderParamID
+{
+    public static readonly string EXTRA_ALPHA = "_extraAlpha";
+    public static readonly string MASK_OFFSET = "_maskOffset";
+}
+
 public static class MessageID
 {
     public static readonly string BOSS_SPAWN_EFFECT_ON = "BossSpawnEffectOn";

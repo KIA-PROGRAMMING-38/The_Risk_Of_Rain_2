@@ -152,7 +152,6 @@ public class CommandoController : MonoBehaviour
 
         if (GameManager.IsGameStarted == false && GameManager.IsPlayerArrived == true)
         {
-           
             PlayStartAnimation();
             PlayCrossHair();
         }
@@ -183,7 +182,7 @@ public class CommandoController : MonoBehaviour
     private async UniTaskVoid PlayStartAnimation()
     {
         startSmokePS.Play();
-             GameManager.IsGameStarted = true;
+        GameManager.IsGameStarted = true;
         await UniTask.Delay(2000);
         startPS.transform.position = transform.position;
         startPS.Play();
