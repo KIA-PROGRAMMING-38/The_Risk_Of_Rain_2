@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public static bool IsBossSpawned;
     public static bool IsGameStarted;
+    public static bool IsPlayStarted;
     public static bool IsPlayerArrived;
     public static bool StartAnimation;
     public static float playTime;

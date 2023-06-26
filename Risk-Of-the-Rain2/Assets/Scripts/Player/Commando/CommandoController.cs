@@ -136,12 +136,13 @@ public class CommandoController : MonoBehaviour
             MovePlayer();
             rollLerp += Time.deltaTime;
         }
-     
-
-
-
     }
 
+
+    private void PlayAttackedAnimation()
+    {
+        
+    }
 
     [SerializeField]
     Transform _playerVirtualCameraPosition;
@@ -264,18 +265,15 @@ public class CommandoController : MonoBehaviour
 
 
 
-    private void OnTriggerStay(Collider other)
+ 
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(TagID.TERRAIN))
         {
             animator.SetBool(AnimID.IS_JUMPING, false);
             isJumping = false;
         }
-    }
 
- 
-    private void OnTriggerEnter(Collider other)
-    {
         if (other.CompareTag(TagID.ENEMY))
         {
             Debug.Log("got damaged!");

@@ -28,7 +28,7 @@ public class Golem_Controller : MonoBehaviour
         get { return hp; }
         set
         {
-            if (value < -1)
+            if (value < 0)
             {
                 TurnOffCollider();
                 PlayDeadAnim();

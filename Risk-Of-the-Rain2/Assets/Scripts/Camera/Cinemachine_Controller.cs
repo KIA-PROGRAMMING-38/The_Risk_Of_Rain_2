@@ -37,7 +37,7 @@ public class Cinemachine_Controller : MonoBehaviour
 
 
     [SerializeField]
-    GameObject _spaceShip;
+    GameObject _lookAtTarget;
 
 
     private void Start()
@@ -46,15 +46,10 @@ public class Cinemachine_Controller : MonoBehaviour
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
         thirdPersonFollow = virtualCamera.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
         composer = virtualCamera.GetCinemachineComponent<CinemachineComposer>();
-
-     
     }
 
     private void Update()
     {
-
-
-       
         RotateYAxis();
         SetShaderParameter();
     }
@@ -95,56 +90,56 @@ public class Cinemachine_Controller : MonoBehaviour
     }
 
 
-    public float _shaderOriginalDitherSize = 1f;
+    public float _originalDitherSize = 1f;
 
-    public float SHADER_MINIMUM_OPACITY = 0.3f;
-    public float SHADER_ORIGINAL_OPACITY = 0.3f;
+    public float _minimumAlpha = 0.3f;
+    public float _defaultAlpha = 0.3f;
 
-    public float _shaderDitherSize = 0.016f;
-    public float _shaderOpacity = 0.3f;
+    public float _ditherSize = 0.016f;
+    public float _initialAlpha = 0.3f;
 
-    public float _opacityChangeTriggingPoint = 100f;
-    public float _opacityChangeTriggingPointEnd = 30f;
+    public float _alphaChangeTippingPoint = 100f;
+    public float _alphaTippingPointFinished = 30f;
 
     private float distanceLerp;
 
 
-    /// <summary>
-    /// set 
-    /// </summary>
     private void SetShaderParameter()
     {
-        if (thirdPersonFollow.CameraDistance < _opacityChangeTriggingPoint)
+        // The alpha has to be lower only when the distance is closer than the tipping point.
+        if (thirdPersonFollow.CameraDistance < _alphaChangeTippingPoint)
         {
-            TurnOnDithering();
-            SetOpacity();
+            ApplyDitherEffect();
+            SetAlpha();
         }
         else
         {
-            SetOriginalOpacity();
-            SetOriginalDither();
+            SetDefaultAlpha();
+            SetDefaultDither();
         }
     }
 
-    private void SetOpacity()
+ 
+    
+    private void SetAlpha()
     {
-        distanceLerp = Mathf.InverseLerp(_opacityChangeTriggingPoint, _opacityChangeTriggingPointEnd, distance);
-        _shaderOpacity = Mathf.Lerp(SHADER_MINIMUM_OPACITY, SHADER_ORIGINAL_OPACITY, 1 - distanceLerp);
-        material.SetFloat("_Opacity", _shaderOpacity);
+        distanceLerp = Mathf.InverseLerp(_alphaChangeTippingPoint, _alphaTippingPointFinished, distance);
+        _initialAlpha = Mathf.Lerp(_minimumAlpha, _defaultAlpha, 1 - distanceLerp);
+        material.SetFloat("_Opacity", _initialAlpha);
     }
 
-    private void SetOriginalOpacity()
+    private void SetDefaultAlpha()
     {
-        material.SetFloat("_Opacity", SHADER_ORIGINAL_OPACITY);
+        material.SetFloat("_Opacity", _defaultAlpha);
     }
 
-    private void TurnOnDithering()
+    private void ApplyDitherEffect()
     {
-        material.SetFloat("_Dither_Size", _shaderDitherSize);
+        material.SetFloat("_Dither_Size", _ditherSize);
     }
 
-    private void SetOriginalDither()
+    private void SetDefaultDither()
     {
-        material.SetFloat("_Dither_Size", _shaderOriginalDitherSize);
+        material.SetFloat("_Dither_Size", _originalDitherSize);
     }
 }

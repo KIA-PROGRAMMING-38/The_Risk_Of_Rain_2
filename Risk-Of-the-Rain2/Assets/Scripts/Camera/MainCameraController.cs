@@ -4,7 +4,8 @@ using UnityEngine.Rendering;
 using Cysharp.Threading.Tasks;
 using System.Threading;
 using Cinemachine;
-using UnityEngine.Rendering.PostProcessing;
+using System;
+using static Unity.VisualScripting.Member;
 
 public class MainCameraController : MonoBehaviour
 {
@@ -19,7 +20,8 @@ public class MainCameraController : MonoBehaviour
     float hueShift;
     float saturation;
 
-    private CancellationTokenSource _source;
+
+
     public float currentExposure;
     public float originalExposure;
     public float darkendExposure;
@@ -28,16 +30,34 @@ public class MainCameraController : MonoBehaviour
     public float vignetteDisappearingSpeed = 1f;
     [SerializeField]
     public CinemachineVirtualCamera _virtualCamera;
+    [SerializeField]
+    private Transform virtualCamera;
     public float amplitudeGain;
     public float frequencyGain;
     public float vibratingTime;
 
 
+    private CancellationTokenSource _cancelTokenSource;
+    private CancellationTokenSource _playTokenSource;
+    private CancellationToken _canceltoken;
 
     void Start()
     {
+        defaultPosition = virtualCamera.position;
+        // 토큰 소스 초기화
+        _cancelTokenSource = new CancellationTokenSource();
+        _playTokenSource = new CancellationTokenSource();
+        _cancelTokenSource.Cancel();
+
+        // 토큰 초기화
+        _canceltoken = _playTokenSource.Token;
+     
+
         volume = GetComponent<Volume>();
         volume.profile.TryGet(out colorAdjustments);
+      
+
+
     }
 
     public float _startShakingIncreaseSpeed;
@@ -59,7 +79,20 @@ public class MainCameraController : MonoBehaviour
             _vibrationDurationTimeStart += Time.deltaTime * _startShakingIncreaseSpeed;
             VibrateCameraStart();
         }
+
+        if (GameManager.IsGameStarted == true)
+        {
+            LowerCamera().Forget();
+
+        }
+
+        if (defaultPosition.y - _loweredQuantity < _lowerQuantity)
+        {
+            _canceltoken = _cancelTokenSource.Token;
+        }
+     
     }
+
 
 
     private async UniTaskVoid BossSpawnEffectOn()
@@ -85,7 +118,7 @@ public class MainCameraController : MonoBehaviour
 
     private void RaiseExposureStart(float from, float to, float lerp)
     {
-        
+
         currentExposure = Mathf.Lerp(from, to, lerp);
         colorAdjustments.postExposure.value = currentExposure;
     }
@@ -112,7 +145,7 @@ public class MainCameraController : MonoBehaviour
 
             while (elapsed < transitionDuration)
             {
-                
+
                 elapsed += Time.deltaTime;
 
                 // Lerp the color filter value from the initial color to red
@@ -147,11 +180,11 @@ public class MainCameraController : MonoBehaviour
         virtualCameraNoise.m_AmplitudeGain = m_AmplitudeGainOnArrive;
         virtualCameraNoise.m_FrequencyGain = m_FrequencyGainOnArrive;
 
-      
+
 
         await UniTask.Delay((int)(_vibrationDurationTimeOnArrive * 1000));
 
-       
+
         virtualCameraNoise.m_AmplitudeGain = 0;
         virtualCameraNoise.m_FrequencyGain = 0;
     }
@@ -181,21 +214,90 @@ public class MainCameraController : MonoBehaviour
     Volume _damagedEffectVolume;
     [SerializeField]
     Color _damagedColor;
+
+    public float vignetteIntensity;
+
     public float _damageEffectDurationSeconds;
     public async UniTaskVoid ChangeVolumeToDamageEffect()
     {
         ColorAdjustments colorAdjustments;
 
 
-        if (volume.profile.TryGet<ColorAdjustments>(out colorAdjustments))
-        {
-            // Lerp the color filter value from the initial color to red
-            colorAdjustments.colorFilter.value = _damagedColor;
+        //if (volume.profile.TryGet<ColorAdjustments>(out colorAdjustments))
+        //{
+        //    Debug.Log("Color Changed!");
+        //    // Lerp the color filter value from the initial color to red
+        //    colorAdjustments.colorFilter.value = _damagedColor;
 
-            // wait for the next frame
+        //    // wait for the next frame
+        //    await UniTask.Delay((int)(_damageEffectDurationSeconds * 1000));
+        //    colorAdjustments.colorFilter.value = initialColor;
+        //}
+
+
+        if (volume.profile.TryGet<ColorAdjustments>(out colorAdjustments) &&
+      volume.profile.TryGet<Vignette>(out vignette))
+        {
+            Debug.Log("Color and Vignette Changed!");
+
+
+            Color initialColor = colorAdjustments.colorFilter.value;
+            float initialIntensity = vignette.intensity.value;
+            Color initialVignetteColor = vignette.color.value;
+
+
+            colorAdjustments.colorFilter.value = _damagedColor;
+            vignette.intensity.value = vignetteIntensity;
+            vignette.color.value = _damagedColor;
+
+
             await UniTask.Delay((int)(_damageEffectDurationSeconds * 1000));
+
+
             colorAdjustments.colorFilter.value = initialColor;
+            vignette.intensity.value = initialIntensity;
+            vignette.color.value = initialVignetteColor;
         }
+    }
+
+    private void PlayStartCameraMove()
+    {
+
+    }
+
+    public float _cameraMovingTime;
+    public float _loweringSpeed;
+    public float _lowerQuantity;
+    private float _loweredQuantity;
+    private float elpasedTime;
+    
+    private Vector3 defaultPosition;
+
+
+   
+    
+
+    public async UniTaskVoid LowerCamera()
+    {
+        Debug.Log("시작");
+      
+        while (true)
+        {
+            Debug.Log("업데이트");
+            _loweredQuantity = defaultPosition.y - virtualCamera.position.y;
+            Debug.Log($"lowered Quantity {_loweredQuantity}");
+            Debug.Log($"_lowerQuantity  {_lowerQuantity}");
+            if (_loweredQuantity < _lowerQuantity)
+            {
+                virtualCamera.position += Vector3.down * _loweringSpeed;
+            }
+
+
+           await UniTask.Yield(_canceltoken);
+
+        }
+
+        Debug.Log("끝");
     }
 
 }

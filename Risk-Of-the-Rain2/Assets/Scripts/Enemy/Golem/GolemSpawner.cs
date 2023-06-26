@@ -35,6 +35,10 @@ public class GolemSpawner : MonoBehaviour
     GameObject _golem;
 
 
+    [SerializeField]
+    Golem_Controller _golemController;
+
+
     int spawnOrder;
     private void SpawnGolem()
     {
@@ -45,10 +49,14 @@ public class GolemSpawner : MonoBehaviour
         golem.SetActive(true);
 
 
+        golem.GetComponent<Golem_Controller>().hp = _golemController.maxHp;
+
+
         Debug.Log($"{golem}: goleInfo");
         elapsedTime = 0f;
     }
 
+   
     private bool CheckIfSpawnIsPoss(float elapsedTime, float spawnInterval)
     {
 

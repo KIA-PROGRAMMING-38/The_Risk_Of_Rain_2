@@ -65,7 +65,7 @@ Material:
     - _NormalDepth: 2.08
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShowingPart: 116.75
+    - _ShowingPart: 93.6
     - _Smooth: 0
     m_Colors:
     - _Albedo: {r: 0.035339016, g: 0.035332855, b: 0.047169805, a: 0.94509804}

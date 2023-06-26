@@ -27,6 +27,7 @@ public class GolemHpUIManager : MonoBehaviour
     private Color DyingColor;
 
     private Slider sliderHP;
+
     private Golem_Controller _golemController;
 
     public float hpBarDuration;
