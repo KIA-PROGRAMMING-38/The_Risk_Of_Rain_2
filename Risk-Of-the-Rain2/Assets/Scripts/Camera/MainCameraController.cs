@@ -52,12 +52,8 @@ public class MainCameraController : MonoBehaviour
         // 토큰 초기화
         _canceltoken = _playTokenSource.Token;
      
-
         volume = GetComponent<Volume>();
         volume.profile.TryGet(out colorAdjustments);
-      
-
-
     }
 
     public float _startShakingIncreaseSpeed;
@@ -245,20 +241,20 @@ public class MainCameraController : MonoBehaviour
             float initialIntensity = vignette.intensity.value;
             Color initialVignetteColor = vignette.color.value;
 
-
             colorAdjustments.colorFilter.value = _damagedColor;
             vignette.intensity.value = vignetteIntensity;
             vignette.color.value = _damagedColor;
 
-
             await UniTask.Delay((int)(_damageEffectDurationSeconds * 1000));
-
 
             colorAdjustments.colorFilter.value = initialColor;
             vignette.intensity.value = initialIntensity;
             vignette.color.value = initialVignetteColor;
         }
     }
+
+
+
 
     private void PlayStartCameraMove()
     {
@@ -279,14 +275,12 @@ public class MainCameraController : MonoBehaviour
 
     public async UniTaskVoid LowerCamera()
     {
-        Debug.Log("시작");
-      
+     
         while (true)
         {
-            Debug.Log("업데이트");
+         
             _loweredQuantity = defaultPosition.y - virtualCamera.position.y;
-            Debug.Log($"lowered Quantity {_loweredQuantity}");
-            Debug.Log($"_lowerQuantity  {_lowerQuantity}");
+         
             if (_loweredQuantity < _lowerQuantity)
             {
                 virtualCamera.position += Vector3.down * _loweringSpeed;
@@ -297,7 +291,7 @@ public class MainCameraController : MonoBehaviour
 
         }
 
-        Debug.Log("끝");
+     
     }
 
 }

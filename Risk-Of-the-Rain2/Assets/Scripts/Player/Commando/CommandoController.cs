@@ -191,6 +191,7 @@ public class CommandoController : MonoBehaviour
         Cinemachine_Controller.virtualCamera.Follow = _playerVirtualCameraPosition;
         Cinemachine_Controller.virtualCamera.LookAt = _playerVirtualCameraPosition;
         startSmokePS.Stop();
+        
        
     }
 
