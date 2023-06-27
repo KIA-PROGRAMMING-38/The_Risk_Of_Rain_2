@@ -68,7 +68,7 @@ public class Golem_Controller : MonoBehaviour
         }
         _renderer.material = newMaterial;
 
-        hp = maxHp;
+        HP = maxHp;
 
     }
     void Update()
@@ -231,6 +231,7 @@ public class Golem_Controller : MonoBehaviour
         }
 
         await UniTask.Delay(1000);
+        Debug.Log("on Death");
         Deactivate();
     }
 
@@ -250,6 +251,7 @@ public class Golem_Controller : MonoBehaviour
 
     private void OnDisable()
     {
-
+        CancelInvoke();
+        ObjectPooler.ReturnToPool(gameObject);
     }
 }

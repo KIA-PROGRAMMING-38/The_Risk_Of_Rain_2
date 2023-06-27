@@ -93,7 +93,7 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    GameObject _SpawnFromPool(string tag, Vector2 position, Quaternion rotation)
+    GameObject _SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
         if (!poolDictionary.ContainsKey(tag))
             throw new Exception($"Pool with tag {tag} doesn't exist.");

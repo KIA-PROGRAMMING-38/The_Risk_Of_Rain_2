@@ -26,6 +26,7 @@ public class GolemHpUIManager : MonoBehaviour
     [SerializeField]
     private Color DyingColor;
 
+   
     private Slider sliderHP;
 
     private Golem_Controller _golemController;
@@ -34,13 +35,12 @@ public class GolemHpUIManager : MonoBehaviour
     private bool isonDamaged;
     CancellationTokenSource _damageSouce = new();
 
-    void Start()
+    void Awake()
     {
         _golemController = GetComponentInParent<Golem_Controller>();
         sliderHP = GetComponentInChildren<Slider>();
-
+        
         _slider.SetActive(false);
-        sliderHP.image.color = initialColor;
     }
 
 
@@ -84,7 +84,9 @@ public class GolemHpUIManager : MonoBehaviour
         }
 
         await UniTask.Delay((int)(hpBarDuration * 2000), cancellationToken: _damageSouce.Token);
+
         isonDamaged = false;
+
         if (_golemController.onDamaged == false && isonDamaged == false)
         {
             _slider.SetActive(false);

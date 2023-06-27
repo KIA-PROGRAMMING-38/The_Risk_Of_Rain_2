@@ -11,6 +11,7 @@ TagManager:
   - Bullet
   - Golem
   - SizeTarget
+  - GolemController
   layers:
   - Default
   - TransparentFX

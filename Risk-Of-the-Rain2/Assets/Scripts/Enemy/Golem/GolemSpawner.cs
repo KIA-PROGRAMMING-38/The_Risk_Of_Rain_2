@@ -26,13 +26,9 @@ public class GolemSpawner : MonoBehaviour
     private void Update()
     {
         elapsedTime += Time.deltaTime;
-        isSpawnable = CheckIfSpawnIsPoss(elapsedTime, spawnInterval);
-        if (isSpawnable == true) spawnGolem.OnNext(Unit.Default);
+        isSpawnable = CheckSpawningPoss(elapsedTime, spawnInterval);
+        if (isSpawnable == true) SpawnGolem();
     }
-
-
-    [SerializeField]
-    GameObject _golem;
 
 
     [SerializeField]
@@ -42,22 +38,21 @@ public class GolemSpawner : MonoBehaviour
     int spawnOrder;
     private void SpawnGolem()
     {
+      
+
+        GameObject Golem = ObjectPooler.SpawnFromPool(TagID.GOLEM,
+            golemSpawnPosition[spawnOrder % 3].position);
         
-        spawnOrder = UnityEngine.Random.RandomRange(0, 3);
-        GameObject golem = Instantiate(_golem, golemSpawnPosition[spawnOrder].position, Quaternion.identity);
-        golem.SetActive(false);
-        golem.SetActive(true);
 
-
-        golem.GetComponent<Golem_Controller>().hp = _golemController.maxHp;
-
-
-        Debug.Log($"{golem}: goleInfo");
+        spawnOrder++;
+       
+        Debug.Log($"{Golem}: goleInfo");
         elapsedTime = 0f;
+        
     }
 
    
-    private bool CheckIfSpawnIsPoss(float elapsedTime, float spawnInterval)
+    private bool CheckSpawningPoss(float elapsedTime, float spawnInterval)
     {
 
         if (elapsedTime > spawnInterval)
