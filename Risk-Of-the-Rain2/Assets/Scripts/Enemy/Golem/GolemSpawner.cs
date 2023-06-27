@@ -9,8 +9,27 @@ public class GolemSpawner : MonoBehaviour
     public float spawnInterval;
     private float elapsedTime;
 
-    private Subject<Unit> spawnGolem = new Subject<Unit>();
-    public IObservable<Unit> EKeyPressObservable => spawnGolem;
+
+    private Transform[] golemSpawnPosition;
+
+    [SerializeField]
+    Transform firstSpawnPosition;
+    [SerializeField]
+    Transform secondSpawnPosition;
+    [SerializeField]
+    Transform thirdSpawnPosition;
+
+
+    
+    private void SetPosition()
+    {
+        golemSpawnPosition = new Transform[3];
+
+        golemSpawnPosition[0] = firstSpawnPosition;
+        golemSpawnPosition[1] = secondSpawnPosition;
+        golemSpawnPosition[2] = thirdSpawnPosition;
+    }
+
     private void Awake()
     {
         SetPosition();
@@ -18,9 +37,7 @@ public class GolemSpawner : MonoBehaviour
 
     private void Start()
     {
-        EKeyPressObservable
-          .Subscribe(_ => SpawnGolem())
-          .AddTo(this);
+       
     }
     bool isSpawnable;
     private void Update()
@@ -65,21 +82,5 @@ public class GolemSpawner : MonoBehaviour
         }
 
     }
-    private Transform[] golemSpawnPosition;
-
-    [SerializeField]
-    Transform firstSpawnPosition;
-    [SerializeField]
-    Transform secondSpawnPosition;
-    [SerializeField]
-    Transform thirdSpawnPosition;
-    private void SetPosition()
-    {
-        golemSpawnPosition = new Transform[3];
-
-        golemSpawnPosition[0] = firstSpawnPosition;
-        golemSpawnPosition[1] = secondSpawnPosition;
-        golemSpawnPosition[2] = thirdSpawnPosition;
-    }
-
+   
 }

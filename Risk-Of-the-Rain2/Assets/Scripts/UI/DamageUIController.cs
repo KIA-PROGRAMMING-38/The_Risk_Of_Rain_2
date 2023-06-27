@@ -8,9 +8,8 @@ public class DamageUIController : MonoBehaviour
     private GameObject _damagedText;
     [SerializeField]
     private Transform _golem;
-    [SerializeField]
+    
     private Golem_Controller golem_Controller;
-
     [SerializeField]
     private TitanController titanController;
 
@@ -19,6 +18,10 @@ public class DamageUIController : MonoBehaviour
     void Start()
     {
 
+    }
+    private void OnEnable()
+    {
+        golem_Controller = GetComponentInParent<Golem_Controller>();
     }
 
 

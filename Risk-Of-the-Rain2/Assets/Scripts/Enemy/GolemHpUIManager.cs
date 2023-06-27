@@ -11,13 +11,17 @@ using UnityEngine.Animations;
 public class GolemHpUIManager : MonoBehaviour
 {
 
-    [SerializeField]
-    private GameObject _slider;
+  
 
-    [SerializeField]
+   
+
+ 
     private GameObject _hpPart;
-    [SerializeField]
+
     private Image _hpFill;
+
+   
+    private Image backGround;
 
     [SerializeField]
     private Color initialColor;
@@ -26,8 +30,8 @@ public class GolemHpUIManager : MonoBehaviour
     [SerializeField]
     private Color DyingColor;
 
-   
-    private Slider sliderHP;
+
+    private Slider slider;
 
     private Golem_Controller _golemController;
 
@@ -35,14 +39,35 @@ public class GolemHpUIManager : MonoBehaviour
     private bool isonDamaged;
     CancellationTokenSource _damageSouce = new();
 
-    void Awake()
-    {
-        _golemController = GetComponentInParent<Golem_Controller>();
-        sliderHP = GetComponentInChildren<Slider>();
-        
-        _slider.SetActive(false);
-    }
+    private GameObject sliderObject;
 
+
+    private CancellationTokenSource _cancelTokenSource;
+    private CancellationTokenSource _playTokenSource;
+    private CancellationToken _canceltoken;
+    private void Start()
+    {
+        _cancelTokenSource = new CancellationTokenSource();
+        _playTokenSource = new CancellationTokenSource();
+        _cancelTokenSource.Cancel();
+        _canceltoken = _playTokenSource.Token;
+
+    }
+   
+    private void OnEnable()
+    {
+
+        _golemController = GetComponentInParent<Golem_Controller>();
+        slider = GetComponentInChildren<Slider>();
+
+         sliderObject = transform.Find("Golem HP Slider")?.gameObject;
+
+     
+        Transform hpColorTransform = transform.GetChild(0).GetChild(1).GetChild(0);
+        _hpFill = hpColorTransform.GetComponent<Image>();
+
+        _hpFill.color = initialColor;
+    }
 
     void Update()
     {
@@ -53,47 +78,42 @@ public class GolemHpUIManager : MonoBehaviour
             ShowHpBar();
         }
 
+
     }
 
     async private UniTaskVoid ShowHpBar()
     {
-        _slider.SetActive(true);
 
-        if (sliderHP != null)
+        while (true)
         {
+            sliderObject.SetActive(true);
 
-            if (_golemController.hp != 0)
-            {
-                sliderHP.value = Utils.Percent(_golemController.HP, _golemController.maxHp);
-                if (sliderHP.value < 0.8 && sliderHP.value > 0.2)
-                {
-                    _hpFill.color = DamangedColor;
-                }
-                else if (sliderHP.value < 0.2f)
-                {
-                    _hpFill.color = DyingColor;
-                }
 
-               
-            }
-            if (_golemController.hp < 0)
+            slider.value = Utils.Percent(_golemController.hp, _golemController.maxHp);
+
+            if (slider.value < 0.8 && slider.value > 0.2)
             {
-                _hpPart.SetActive(false);
+                _hpFill.color = DamangedColor;
             }
 
-        }
+            else if (slider.value < 0.3)
+            {
+                _hpFill.color = DyingColor;
+            }
 
-        await UniTask.Delay((int)(hpBarDuration * 2000), cancellationToken: _damageSouce.Token);
 
-        isonDamaged = false;
 
-        if (_golemController.onDamaged == false && isonDamaged == false)
-        {
-            _slider.SetActive(false);
-        }
-        else
-        {
-            _damageSouce.Cancel();
+            await UniTask.Delay((int)(hpBarDuration * 2000), cancellationToken: _damageSouce.Token);
+
+            isonDamaged = false;
+
+            if (_golemController.onDamaged == false && isonDamaged == false)
+            {
+                sliderObject.SetActive(false);
+            }
+
+            await UniTask.Yield(_canceltoken);
+            Debug.Log("golem alive");
         }
 
     }

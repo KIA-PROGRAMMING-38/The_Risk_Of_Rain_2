@@ -275,7 +275,7 @@ public class CommandoController : MonoBehaviour
             isJumping = false;
         }
 
-        if (other.CompareTag(TagID.ENEMY))
+        if (other.CompareTag(TagID.GOLEM))
         {
             Debug.Log("got damaged!");
             TakeDamage(-1);

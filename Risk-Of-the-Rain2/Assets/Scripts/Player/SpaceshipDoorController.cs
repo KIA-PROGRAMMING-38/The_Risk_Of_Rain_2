@@ -13,7 +13,7 @@ public class SpaceshipDoorController : MonoBehaviour
 
     private void Awake()
     {
-
+        rb = GetComponent<Rigidbody>();
     }
     void Start()
     {
@@ -35,11 +35,14 @@ public class SpaceshipDoorController : MonoBehaviour
     }
 
     public float animationTime;
+    public float doorExlplosionPower;
     async private UniTaskVoid MoveDoor()
     {
 
         await UniTask.Delay((int)animationTime);
         isAnimated = true;
+        rb.isKinematic = false;
+        rb.AddForce((Vector3.forward + Vector3.up) * doorExlplosionPower);
 
     }
 }

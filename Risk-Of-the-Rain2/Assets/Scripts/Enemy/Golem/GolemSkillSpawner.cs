@@ -14,6 +14,8 @@ public class GolemSkillSpawner : MonoBehaviour
     private LineRenderer lineRenderer;
     private Renderer renderer;
 
+
+    [SerializeField] Golem_Controller golem_Controller;
     private Transform _laserCollider;
     void Start()
     {
@@ -34,7 +36,7 @@ public class GolemSkillSpawner : MonoBehaviour
 
         Detected = DetectPlayer();
 
-        if (Detected)
+        if (Detected && golem_Controller.isFullySpawned)
         {
             TurnOnLaser();
             changeLaserColor();

@@ -6,6 +6,7 @@ using System.Threading;
 using Cinemachine;
 using System;
 using static Unity.VisualScripting.Member;
+using Unity.VisualScripting;
 
 public class MainCameraController : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class MainCameraController : MonoBehaviour
     public float frequencyGain;
     public float vibratingTime;
 
-
+    private bool isCamLowering;
     private CancellationTokenSource _cancelTokenSource;
     private CancellationTokenSource _playTokenSource;
     private CancellationToken _canceltoken;
@@ -47,11 +48,13 @@ public class MainCameraController : MonoBehaviour
         // 토큰 소스 초기화
         _cancelTokenSource = new CancellationTokenSource();
         _playTokenSource = new CancellationTokenSource();
-        _cancelTokenSource.Cancel();
+        //_cancelTokenSource.Cancel();
+
+
 
         // 토큰 초기화
         _canceltoken = _playTokenSource.Token;
-     
+
         volume = GetComponent<Volume>();
         volume.profile.TryGet(out colorAdjustments);
     }
@@ -76,17 +79,22 @@ public class MainCameraController : MonoBehaviour
             VibrateCameraStart();
         }
 
-        if (GameManager.IsGameStarted == true)
+        if (GameManager.IsGameStarted == true && isCamLowering == false)
         {
+            Debug.Log("실행");
             LowerCamera().Forget();
+            if (isCamLowering == false)
+            {
+                isCamLowering = true;
+                //InvokeRepeating(nameof(CancelUniTask), 2.5f, 1);
+
+            }
+
 
         }
 
-        if (defaultPosition.y - _loweredQuantity < _lowerQuantity)
-        {
-            _canceltoken = _cancelTokenSource.Token;
-        }
-     
+
+
     }
 
 
@@ -264,35 +272,44 @@ public class MainCameraController : MonoBehaviour
     public float _cameraMovingTime;
     public float _loweringSpeed;
     public float _lowerQuantity;
-    private float _loweredQuantity;
+    private float _loweredQuantity = 0;
     private float elpasedTime;
-    
+
     private Vector3 defaultPosition;
 
 
-   
-    
+
+
 
     public async UniTaskVoid LowerCamera()
     {
-     
         while (true)
         {
-         
-            _loweredQuantity = defaultPosition.y - virtualCamera.position.y;
-         
+            
             if (_loweredQuantity < _lowerQuantity)
             {
-                virtualCamera.position += Vector3.down * _loweringSpeed;
+                virtualCamera.position += (Vector3.down + Vector3.back).normalized * _loweringSpeed;
+               
+            }
+            _loweredQuantity += _loweringSpeed;
+            Debug.Log("Unitask's working");
+            Debug.Log($"_loweredQuantity :  {_loweredQuantity}");
+            Debug.Log($"_lowerQuantity :  {_lowerQuantity}");
+
+            if (_loweredQuantity >= _lowerQuantity)
+            {
+                Debug.Log("카메라이동끝남");
+                _cancelTokenSource.Cancel();
             }
 
-
-           await UniTask.Yield(_canceltoken);
-
+            await UniTask.Yield(cancellationToken: _cancelTokenSource.Token);
         }
 
-     
-    }
 
+    }
+    void CancelUniTask()
+    {
+        _cancelTokenSource.Cancel();
+    }
 }
 

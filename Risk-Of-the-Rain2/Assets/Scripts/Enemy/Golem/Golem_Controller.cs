@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,7 +11,6 @@ public class Golem_Controller : MonoBehaviour
 {
 
     public Renderer _renderer;
-
     private Rigidbody rigidbody;
 
     public Material golemMaterial;
@@ -23,6 +23,10 @@ public class Golem_Controller : MonoBehaviour
     public int maxHp;
     private bool isDead;
     private bool isOnDamaged;
+    public bool isFullySpawned;
+
+    [SerializeField]
+    private GameObject _LaserController;
     public int HP
     {
         get { return hp; }
@@ -30,10 +34,11 @@ public class Golem_Controller : MonoBehaviour
         {
             if (value < 0)
             {
-                TurnOffCollider();
-                PlayDeadAnim();
+               
+
                 if (isDead == false)
                 {
+                    OnDeath();
                     isDead = true;
                 }
             }
@@ -56,6 +61,7 @@ public class Golem_Controller : MonoBehaviour
 
     private void OnEnable()
     {
+        HP = maxHp;
         currentShowingPart = minShowingPart;
         newMaterial = new Material(golemMaterial);
 
@@ -68,7 +74,7 @@ public class Golem_Controller : MonoBehaviour
         }
         _renderer.material = newMaterial;
 
-        HP = maxHp;
+      
 
     }
     void Update()
@@ -188,6 +194,11 @@ public class Golem_Controller : MonoBehaviour
             currentShowingPart += spawningSpeed * Time.deltaTime;
             _renderer.material.SetFloat(GolemShaderParamID.SHOWING_PART, currentShowingPart);
         }
+        else
+        {
+            await UniTask.Delay(200);
+            isFullySpawned = true;
+        }
 
     }
 
@@ -224,15 +235,21 @@ public class Golem_Controller : MonoBehaviour
     public float vanishSpeed;
     private async UniTask OnDeath()
     {
+       
         if (isDead == true && currentShowingPart > minShowingPart)
         {
             currentShowingPart -= vanishSpeed * Time.deltaTime;
             _renderer.material.SetFloat(GolemShaderParamID.SHOWING_PART, currentShowingPart);
         }
-
+       
+        PlayDeadAnim();
+        TurnOffCollider();
+        _LaserController.SetActive(false);
         await UniTask.Delay(1000);
         Debug.Log("on Death");
         Deactivate();
+       
+       
     }
 
     private void MoveAnimationOn()
