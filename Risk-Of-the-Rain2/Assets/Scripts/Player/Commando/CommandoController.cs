@@ -7,6 +7,37 @@ using Cysharp.Threading.Tasks;
 public class CommandoController : MonoBehaviour
 {
     [Space(15f)]
+    [Header("Commando Info")]
+    [Space(5f)]
+
+    public float speed = 10f;
+    public float sensitivity = 2f;
+    bool isJumping = false;
+    public float jumpForce;
+    public float startMoveSpeed;
+
+    [Space(15f)]
+    [Header("Dash Info")]
+    [Space(5f)]
+
+    public float dashForce;
+    public float dashPlayTime;
+    public float lerpingSpeed;
+    private float rollLerp;
+    private float originalSpeed;
+    public static float DashCoolTime = 5f;
+    public static float DashElapsedTime = DashCoolTime;
+    private readonly float RESET = 0f;
+    public static bool isDashing = false;
+
+
+    [SerializeField]
+    public ParticleSystem _dashParticle;
+    public Transform _dashParticlePosition;
+
+
+    [Space(15f)]
+
     [Header("Commando Interaction Info")]
 
     private bool isDamageable;
@@ -17,25 +48,36 @@ public class CommandoController : MonoBehaviour
     [Space(5f)]
     static public int commandoMaxHp = 60;
     public static int Hp { get; private set; }
-    public void SetPlayerHp(int hp)
-    {
-        Hp = hp; 
-    }
 
-    public void TakeDamage(int damage)
-    {
-        unDamagedTime = 0f;
-        isDamageable = false;
-          Hp -= damage;
-        if (Hp < 0)
-        {
-            OnPlayerDead();
-            Hp = 0;
-        }
-    }
+    [Space(15f)]
+    [Header("Camera Info")]
+    [Space(5f)]
 
-    public float speed = 10f;
-    public float sensitivity = 2f;
+    [SerializeField]
+    private MainCameraController _mainCameraController;
+    [SerializeField]
+    Transform _playerVirtualCameraPosition;
+
+    [Space(15f)]
+    [Header("On Start")]
+    [Space(5f)]
+
+    [SerializeField]
+    private Transform _spaceshipTransform;
+
+    [SerializeField]
+    ParticleSystem startPS;
+
+    [SerializeField]
+    ParticleSystem startSmokePS;
+
+    [Space(15f)]
+    [Header("On Death")]
+    [Space(5f)]
+
+    public float deadBounceForce;
+    [SerializeField]
+    Transform _lookAtAfterDeath;
 
     private float mouseX;
     private float mouseY;
@@ -50,37 +92,23 @@ public class CommandoController : MonoBehaviour
 
     public IObservable<Unit> EKeyPressObservable => eKeyPressSubject;
     public IObservable<Unit> ShiftKeyPressObservable => ShiftKeyPressSubject;
-    [SerializeField] private MainCameraController _mainCameraController;
-
-    [SerializeField]
-    public static float DashCoolTime = 5f;
-    public static float DashElapsedTime = DashCoolTime;
 
 
-    [SerializeField]
-    private Transform _spaceshipTransform;
+    public static bool isDead { get; private set; }
 
-
-    private readonly float RESET = 0f;
-    public static bool isDashing = false;
-    public float dashForce;
-    public float dashPlayTime;
-    public float lerpingSpeed;
-    private float rollLerp;
-   
-    float originalSpeed;
-
-    [SerializeField]
-    public ParticleSystem _dashParticle;
-    public Transform _dashParticlePosition;
 
 
 
     private Rigidbody[] _ragdollRigidbodies;
     private void Awake()
     {
+        rigidbody = GetComponent<Rigidbody>();
+
         _ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
+
         DisableRagdoll();
+
+
 
         originalSpeed = speed * lerpingSpeed;
         animator = GetComponent<Animator>();
@@ -103,10 +131,10 @@ public class CommandoController : MonoBehaviour
 
     private void Update()
     {
-       
-            DashElapsedTime += Time.deltaTime;
-       
-     
+
+        DashElapsedTime += Time.deltaTime;
+
+
 
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -119,9 +147,9 @@ public class CommandoController : MonoBehaviour
             ShiftKeyPressSubject.OnNext(Unit.Default);
         }
 
-        if (GameManager.IsGameStarted == true)
+        if (GameManager.IsGameStarted == true && isDead == false)
         {
-          
+
             // Get inputs
             moveX = Input.GetAxis("Horizontal");
             moveZ = Input.GetAxis("Vertical");
@@ -136,13 +164,13 @@ public class CommandoController : MonoBehaviour
             // Check for "E" key press
 
             unDamagedTime += Time.deltaTime;
-            if(unDamagedTime > inDamageableDuration)
+            if (unDamagedTime > inDamageableDuration)
             {
                 isDamageable = true;
             }
 
         }
-        
+
         else if (GameManager.IsGameStarted == false)
         {
             rigidbody.Sleep();
@@ -153,7 +181,7 @@ public class CommandoController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameManager.IsGameStarted ==true)
+        if (GameManager.IsGameStarted == true)
         {
             MovePlayer();
             rollLerp += Time.deltaTime;
@@ -163,11 +191,10 @@ public class CommandoController : MonoBehaviour
 
     private void PlayAttackedAnimation()
     {
-        
+
     }
 
-    [SerializeField]
-    Transform _playerVirtualCameraPosition;
+
     private void StartGame()
     {
 
@@ -178,11 +205,11 @@ public class CommandoController : MonoBehaviour
             PlayStartAnimation();
             PlayCrossHair();
         }
-         
+
 
     }
 
-   
+
 
     [SerializeField]
     GameObject _crossHair;
@@ -192,16 +219,7 @@ public class CommandoController : MonoBehaviour
     }
 
 
-    [SerializeField]
-    ParticleSystem startPS;
 
-    [SerializeField]
-    ParticleSystem startSmokePS;
-    
-   
-
-
-    public float startMoveSpeed;
     private async UniTaskVoid PlayStartAnimation()
     {
         startSmokePS.Play();
@@ -209,12 +227,12 @@ public class CommandoController : MonoBehaviour
         await UniTask.Delay(2000);
         startPS.transform.position = transform.position;
         startPS.Play();
-      
+
         Cinemachine_Controller.virtualCamera.Follow = _playerVirtualCameraPosition;
         Cinemachine_Controller.virtualCamera.LookAt = _playerVirtualCameraPosition;
         startSmokePS.Stop();
-        
-       
+
+
     }
 
     private void RotatePlayer()
@@ -246,8 +264,7 @@ public class CommandoController : MonoBehaviour
         }
     }
 
-    bool isJumping = false;
-    public float jumpForce;
+
     private void JumpPlayer()
     {
         if (!isJumping && Input.GetKeyDown(KeyCode.Space))
@@ -258,10 +275,10 @@ public class CommandoController : MonoBehaviour
         }
     }
 
- 
+
     async private UniTaskVoid RollAndDash()
     {
-        
+
         if (!isDashing)
         {
             DashElapsedTime = 0f;
@@ -271,7 +288,7 @@ public class CommandoController : MonoBehaviour
             //to hold the position...
             isDashing = true;
             rollLerp = 0f;
-           
+
             // turn off on the animation statemachine behavior.
             animator.SetTrigger(AnimID.ROLL);
             speed = dashForce;
@@ -286,9 +303,6 @@ public class CommandoController : MonoBehaviour
 
     }
 
-
-
- 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(TagID.TERRAIN))
@@ -309,27 +323,58 @@ public class CommandoController : MonoBehaviour
             TakeDamage(-1);
             _mainCameraController.ChangeVolumeToDamageEffect().Forget();
         }
-       
+
     }
 
     private void OnPlayerDead()
     {
+        Cinemachine_Controller.virtualCamera.LookAt = _lookAtAfterDeath;
+        Cinemachine_Controller.virtualCamera.Follow = _lookAtAfterDeath;
+
+        rigidbody.AddForce((Vector3.back + Vector3.up) * deadBounceForce, ForceMode.Impulse);
         EnableRagdoll();
+
+
     }
 
     private void DisableRagdoll()
     {
         foreach (var rigidbody in _ragdollRigidbodies)
         {
-            rigidbody.isKinematic = true;
+
+            rigidbody.Sleep();
         }
+
+        rigidbody.WakeUp();
     }
 
     private void EnableRagdoll()
     {
         foreach (var rigidbody in _ragdollRigidbodies)
         {
-            rigidbody.isKinematic = false;
+
+            rigidbody.WakeUp();
+        }
+
+        animator.enabled = false;
+
+    }
+
+    public void SetPlayerHp(int hp)
+    {
+        Hp = hp;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        unDamagedTime = 0f;
+        isDamageable = false;
+        Hp -= damage;
+        if (Hp < 0)
+        {
+            OnPlayerDead();
+            isDead = true;
+            Hp = 0;
         }
     }
 }

@@ -36,9 +36,6 @@ public class Cinemachine_Controller : MonoBehaviour
 
 
 
-    [SerializeField]
-    GameObject _lookAtTarget;
-
 
     private void Start()
     {
@@ -50,7 +47,11 @@ public class Cinemachine_Controller : MonoBehaviour
 
     private void Update()
     {
-        RotateYAxis();
+        if (!CommandoController.isDead)
+        {
+            RotateYAxis();
+        }
+       
         SetShaderParameter();
     }
 
