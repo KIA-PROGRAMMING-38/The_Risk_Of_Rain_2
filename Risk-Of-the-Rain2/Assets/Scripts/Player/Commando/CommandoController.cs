@@ -75,9 +75,12 @@ public class CommandoController : MonoBehaviour
     [Header("On Death")]
     [Space(5f)]
 
-    public float deadBounceForce;
+    
     [SerializeField]
-    Transform _lookAtAfterDeath;
+    private GameObject _ragDoll;
+    [SerializeField]
+    private GameObject _originalMesh;
+
 
     private float mouseX;
     private float mouseY;
@@ -99,14 +102,14 @@ public class CommandoController : MonoBehaviour
 
 
 
-    private Rigidbody[] _ragdollRigidbodies;
+  
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
 
-        _ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
+        
 
-        DisableRagdoll();
+       
 
 
 
@@ -328,37 +331,19 @@ public class CommandoController : MonoBehaviour
 
     private void OnPlayerDead()
     {
-        Cinemachine_Controller.virtualCamera.LookAt = _lookAtAfterDeath;
-        Cinemachine_Controller.virtualCamera.Follow = _lookAtAfterDeath;
+        _originalMesh.SetActive(false);
+        _ragDoll.SetActive(true);
 
-        rigidbody.AddForce((Vector3.back + Vector3.up) * deadBounceForce, ForceMode.Impulse);
-        EnableRagdoll();
+        Cinemachine_Controller.virtualCamera.LookAt = _ragDoll.transform;
+        Cinemachine_Controller.virtualCamera.Follow = _ragDoll.transform;
 
-
-    }
-
-    private void DisableRagdoll()
-    {
-        foreach (var rigidbody in _ragdollRigidbodies)
-        {
-
-            rigidbody.Sleep();
-        }
-
-        rigidbody.WakeUp();
-    }
-
-    private void EnableRagdoll()
-    {
-        foreach (var rigidbody in _ragdollRigidbodies)
-        {
-
-            rigidbody.WakeUp();
-        }
-
+        
         animator.enabled = false;
+       
+
 
     }
+
 
     public void SetPlayerHp(int hp)
     {

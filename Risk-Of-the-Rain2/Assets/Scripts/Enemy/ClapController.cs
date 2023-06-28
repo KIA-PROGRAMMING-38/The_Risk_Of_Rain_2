@@ -11,7 +11,7 @@ public class ClapController : MonoBehaviour
     [Space(5f)]
 
     [SerializeField]
-    public static readonly int clapDamage = 40;
+    public static readonly int clapDamage = 80;
     [SerializeField]
     private float clapCooltime;
     private float elapsedTime;
