@@ -9,24 +9,53 @@ using UnityEngine.AI;
 
 public class Golem_Controller : MonoBehaviour
 {
+    private Animator animator;
 
+
+    [Header("Material & Shader")]
     public Renderer _renderer;
     private Rigidbody rigidbody;
-
     public Material golemMaterial;
+
+    public float materialChangingSpeed;
+    public float materialReversingSpeed;
+    public float minBrightness;
+    public float maxBrightness;
+    public float currentBrightness;
+
+
+    public float currentShowingPart;
+    public float maxShowingPart;
+    public float minShowingPart = -3;
+    public float spawningSpeed;
+    public float initialDamagedBrightness;
     Material newMaterial; // use to have each golem objects get its own material to be controlled independently.
+   
+
+    [Space(10f)]
+    [Header("Nav Agent Info")]
     public NavMeshAgent agent;
     public Transform _player;
 
-    private Animator animator;
+
+  
+
+    [Space(10f)]
+
+    [Header("HP info")]
     public int hp;
     public int maxHp;
     private bool isDead;
     private bool isOnDamaged;
     public bool isFullySpawned;
 
+    [Header("Slots")]
     [SerializeField]
     private GameObject _LaserController;
+
+    [Header("UI")]
+    public Vector3 hitPosition;
+    public Vector3 UIOffest;
     public int HP
     {
         get { return hp; }
@@ -131,17 +160,11 @@ public class Golem_Controller : MonoBehaviour
     }
 
 
-    public float materialChangingSpeed;
-    public float materialReversingSpeed;
-    public float minBrightness;
-    public float maxBrightness;
-    public float currentBrightness;
 
     public bool onDamaged = false;
 
 
-    public Vector3 hitPosition;
-    public Vector3 UIOffest;
+ 
     private void OnTriggerEnter(Collider other)
     {
 
@@ -182,10 +205,6 @@ public class Golem_Controller : MonoBehaviour
     }
 
 
-    public float currentShowingPart;
-    public float maxShowingPart;
-    public float minShowingPart = -3;
-    public float spawningSpeed;
 
     private async UniTaskVoid TurnOnSpawningShader()
     {
@@ -202,7 +221,7 @@ public class Golem_Controller : MonoBehaviour
 
     }
 
-    public float initialDamagedBrightness;
+  
     private CancellationTokenSource _souce = new();
     private async UniTaskVoid changeMaterial()
     {

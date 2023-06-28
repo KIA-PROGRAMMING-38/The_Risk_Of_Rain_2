@@ -113,7 +113,7 @@ public class GolemHpUIManager : MonoBehaviour
             }
 
             await UniTask.Yield(_canceltoken);
-            Debug.Log("golem alive");
+          
         }
 
     }

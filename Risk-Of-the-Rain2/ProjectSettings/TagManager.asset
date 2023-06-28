@@ -12,6 +12,8 @@ TagManager:
   - Golem
   - SizeTarget
   - GolemController
+  - GolemClap
+  - GolemLaser
   layers:
   - Default
   - TransparentFX

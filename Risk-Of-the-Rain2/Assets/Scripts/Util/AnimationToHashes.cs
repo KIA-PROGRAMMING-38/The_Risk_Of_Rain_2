@@ -42,7 +42,8 @@ public static class TagID
     public static readonly string PLAYER = "Player";
     public static readonly string TERRAIN = "Terrain";
     public static readonly string ENEMY = "Enemy";
-
+    public static readonly string GOLEM_CLAP = "GolemClap";
+    public static readonly string GOLEM_LASER = "GolemLaser";
     public static readonly string SIZE_TARGET = "SizeTarget";
 
 }

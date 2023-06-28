@@ -22,7 +22,10 @@ public class MainCameraController : MonoBehaviour
     float saturation;
 
 
+    [Space(15f)]
 
+    [Header("Boss Spawn Effect")]
+    [Space(5f)]
     public float currentExposure;
     public float originalExposure;
     public float darkendExposure;
@@ -33,6 +36,9 @@ public class MainCameraController : MonoBehaviour
     public CinemachineVirtualCamera _virtualCamera;
     [SerializeField]
     private Transform virtualCamera;
+
+    [Space(5f)]
+
     public float amplitudeGain;
     public float frequencyGain;
     public float vibratingTime;
@@ -42,6 +48,54 @@ public class MainCameraController : MonoBehaviour
     private CancellationTokenSource _playTokenSource;
     private CancellationToken _canceltoken;
 
+    [Space(15f)]
+    [Header("Boss Spawn Effect")]
+    [Space(5f)]
+    public float ColorChangingSpeed;
+    public float transitionDuration = 2.0f;
+    public Color initialColor;
+    public Color bossSpawnColor;
+    bool isChangingToRed;
+    float elapsed;
+
+    [Space(15f)]
+    [Header("Start Move")]
+    [Space(5f)]
+    public float _cameraMovingTime;
+    public float _loweringSpeed;
+    public float _lowerQuantity;
+    private float _loweredQuantity = 0;
+    private float elpasedTime;
+    private Vector3 defaultPosition;
+
+    [Space(15f)]
+    [Header("Intro Shake")]
+    [Space(5f)]
+    private CinemachineBasicMultiChannelPerlin virtualCameraNoise;
+
+    private float m_FrequencyGainStart = 0f;
+    private float _vibrationDurationTimeStart = 0f;
+
+    public float m_AmplitudeGain;
+    public float m_FrequencyGain;
+
+    public float m_AmplitudeGainOnArrive;
+    public float m_FrequencyGainOnArrive;
+    public float _vibrationDurationTimeOnArrive;
+
+    public float _vibrationDurationTime;
+
+    [Space(15f)]
+    [Header("Player Damaged Effect")]
+    [Space(5f)]
+    [SerializeField]
+    Volume _damagedEffectVolume;
+    [SerializeField]
+    Color _damagedColor;
+
+    public float vignetteIntensity;
+
+    public float _damageEffectDurationSeconds;
     void Start()
     {
         defaultPosition = virtualCamera.position;
@@ -49,9 +103,6 @@ public class MainCameraController : MonoBehaviour
         _cancelTokenSource = new CancellationTokenSource();
         _playTokenSource = new CancellationTokenSource();
         //_cancelTokenSource.Cancel();
-
-
-
         // 토큰 초기화
         _canceltoken = _playTokenSource.Token;
 
@@ -66,8 +117,6 @@ public class MainCameraController : MonoBehaviour
     public float startExposureIncreasingSpeed;
     void Update()
     {
-
-
         if (GameManager.IsPlayerArrived == false)
         {
             startLerp += Time.deltaTime * startExposureIncreasingSpeed;
@@ -89,15 +138,8 @@ public class MainCameraController : MonoBehaviour
                 //InvokeRepeating(nameof(CancelUniTask), 2.5f, 1);
 
             }
-
-
         }
-
-
-
     }
-
-
 
     private async UniTaskVoid BossSpawnEffectOn()
     {
@@ -127,13 +169,7 @@ public class MainCameraController : MonoBehaviour
         colorAdjustments.postExposure.value = currentExposure;
     }
 
-
-    public float ColorChangingSpeed;
-    public float transitionDuration = 2.0f;
-    public Color initialColor;
-    public Color bossSpawnColor;
-    bool isChangingToRed;
-    float elapsed;
+   
     private async UniTaskVoid TurnOnRed()
     {
         ColorAdjustments colorAdjustments;
@@ -164,19 +200,6 @@ public class MainCameraController : MonoBehaviour
 
 
 
-    private CinemachineBasicMultiChannelPerlin virtualCameraNoise;
-
-    private float m_FrequencyGainStart = 0f;
-    private float _vibrationDurationTimeStart = 0f;
-
-    public float m_AmplitudeGain;
-    public float m_FrequencyGain;
-
-    public float m_AmplitudeGainOnArrive;
-    public float m_FrequencyGainOnArrive;
-    public float _vibrationDurationTimeOnArrive;
-
-    public float _vibrationDurationTime;
 
     private async UniTaskVoid VibrateCameraOnArrival()
     {
@@ -214,14 +237,7 @@ public class MainCameraController : MonoBehaviour
         virtualCameraNoise.m_FrequencyGain = 0;
     }
 
-    [SerializeField]
-    Volume _damagedEffectVolume;
-    [SerializeField]
-    Color _damagedColor;
-
-    public float vignetteIntensity;
-
-    public float _damageEffectDurationSeconds;
+  
     public async UniTaskVoid ChangeVolumeToDamageEffect()
     {
         ColorAdjustments colorAdjustments;
@@ -256,8 +272,8 @@ public class MainCameraController : MonoBehaviour
             await UniTask.Delay((int)(_damageEffectDurationSeconds * 1000));
 
             colorAdjustments.colorFilter.value = initialColor;
-            vignette.intensity.value = initialIntensity;
-            vignette.color.value = initialVignetteColor;
+            vignette.intensity.value = 0;
+            vignette.color.value = Color.white;
         }
     }
 
@@ -268,19 +284,9 @@ public class MainCameraController : MonoBehaviour
     {
 
     }
+   
 
-    public float _cameraMovingTime;
-    public float _loweringSpeed;
-    public float _lowerQuantity;
-    private float _loweredQuantity = 0;
-    private float elpasedTime;
-
-    private Vector3 defaultPosition;
-
-
-
-
-
+    
     public async UniTaskVoid LowerCamera()
     {
         while (true)
@@ -292,13 +298,11 @@ public class MainCameraController : MonoBehaviour
                
             }
             _loweredQuantity += _loweringSpeed;
-            Debug.Log("Unitask's working");
-            Debug.Log($"_loweredQuantity :  {_loweredQuantity}");
-            Debug.Log($"_lowerQuantity :  {_lowerQuantity}");
+           
 
             if (_loweredQuantity >= _lowerQuantity)
             {
-                Debug.Log("카메라이동끝남");
+              
                 _cancelTokenSource.Cancel();
             }
 

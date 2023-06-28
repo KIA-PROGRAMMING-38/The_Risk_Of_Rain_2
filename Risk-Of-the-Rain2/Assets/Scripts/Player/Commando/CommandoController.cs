@@ -6,7 +6,15 @@ using Cysharp.Threading.Tasks;
 
 public class CommandoController : MonoBehaviour
 {
+    [Space(15f)]
+    [Header("Commando Interaction Info")]
 
+    private bool isDamageable;
+    [SerializeField]
+    private float inDamageableDuration;
+    private float unDamagedTime;
+
+    [Space(5f)]
     static public int commandoMaxHp = 60;
     public static int Hp { get; private set; }
     public void SetPlayerHp(int hp)
@@ -16,9 +24,12 @@ public class CommandoController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Hp -= damage;
+        unDamagedTime = 0f;
+        isDamageable = false;
+          Hp -= damage;
         if (Hp < 0)
         {
+            OnPlayerDead();
             Hp = 0;
         }
     }
@@ -62,9 +73,15 @@ public class CommandoController : MonoBehaviour
     [SerializeField]
     public ParticleSystem _dashParticle;
     public Transform _dashParticlePosition;
+
+
+
+    private Rigidbody[] _ragdollRigidbodies;
     private void Awake()
     {
-        
+        _ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
+        DisableRagdoll();
+
         originalSpeed = speed * lerpingSpeed;
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
@@ -116,8 +133,13 @@ public class CommandoController : MonoBehaviour
 
             RotatePlayer();
             JumpPlayer();
-
             // Check for "E" key press
+
+            unDamagedTime += Time.deltaTime;
+            if(unDamagedTime > inDamageableDuration)
+            {
+                isDamageable = true;
+            }
 
         }
         
@@ -275,17 +297,41 @@ public class CommandoController : MonoBehaviour
             isJumping = false;
         }
 
-        if (other.CompareTag(TagID.GOLEM))
+        if (other.CompareTag(TagID.GOLEM_CLAP))
+        {
+            Debug.Log("got damaged!");
+            TakeDamage(ClapController.clapDamage);
+            _mainCameraController.ChangeVolumeToDamageEffect().Forget();
+        }
+        if (other.CompareTag(TagID.GOLEM_LASER))
         {
             Debug.Log("got damaged!");
             TakeDamage(-1);
-          
-            _mainCameraController.ChangeVolumeToDamageEffect();
+            _mainCameraController.ChangeVolumeToDamageEffect().Forget();
         }
        
     }
 
+    private void OnPlayerDead()
+    {
+        EnableRagdoll();
+    }
 
+    private void DisableRagdoll()
+    {
+        foreach (var rigidbody in _ragdollRigidbodies)
+        {
+            rigidbody.isKinematic = true;
+        }
+    }
+
+    private void EnableRagdoll()
+    {
+        foreach (var rigidbody in _ragdollRigidbodies)
+        {
+            rigidbody.isKinematic = false;
+        }
+    }
 }
 
 
