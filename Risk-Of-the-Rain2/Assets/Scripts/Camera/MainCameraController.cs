@@ -120,7 +120,7 @@ public class MainCameraController : MonoBehaviour
         if (GameManager.IsPlayerArrived == false)
         {
             startLerp += Time.deltaTime * startExposureIncreasingSpeed;
-            RaiseExposureStart(-3, 0.4f, startLerp);
+            RaiseExposureStart(-3, originalExposure, startLerp);
 
 
             m_FrequencyGainStart += Time.deltaTime * _startShakingIncreaseSpeed;

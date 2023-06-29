@@ -30,14 +30,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3751908182182556296}
-  m_LocalRotation: {x: -0.5829295, y: 0.17823143, z: 0.13294363, w: 0.7815067}
+  m_LocalRotation: {x: -0.5829309, y: 0.17822821, z: 0.13294159, w: 0.7815067}
   m_LocalPosition: {x: 175, y: 407, z: 547.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 1.248, y: 73.376, z: -0.101}
+  m_LocalEulerAnglesHint: {x: -73.439, y: 25.694, z: 0}
 --- !u!114 &3751908182182556288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,21 +51,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentExposure: 0
-  originalExposure: 0.3
-  darkendExposure: -0.6
+  originalExposure: -0.4
+  darkendExposure: -1.2
   lerp: 0
-  exposureChangingSpeed: 0.5
+  exposureChangingSpeed: 0.47
   vignetteDisappearingSpeed: 0.8
   _virtualCamera: {fileID: 0}
+  virtualCamera: {fileID: 0}
   amplitudeGain: 3
   frequencyGain: 3
   vibratingTime: 5
-  _startShakingIncreaseSpeed: 0.38
-  startExposureIncreasingSpeed: 1.48
   ColorChangingSpeed: 0.0001
   transitionDuration: 20
   initialColor: {r: 1, g: 1, b: 1, a: 0}
   bossSpawnColor: {r: 0.9245283, g: 0.48406905, b: 0.48406905, a: 0}
+  _cameraMovingTime: 2.7
+  _loweringSpeed: 1
+  _lowerQuantity: 35
   m_AmplitudeGain: 3
   m_FrequencyGain: 3
   m_AmplitudeGainOnArrive: 50
@@ -73,8 +75,11 @@ MonoBehaviour:
   _vibrationDurationTimeOnArrive: 0.2
   _vibrationDurationTime: 3
   _damagedEffectVolume: {fileID: 3751908182182556303}
-  _damagedColor: {r: 0.990566, g: 0.717931, b: 0.61209506, a: 0}
-  _damageEffectDurationSeconds: 0
+  _damagedColor: {r: 0.990566, g: 0.060617343, b: 0, a: 0.15686275}
+  vignetteIntensity: 0.11
+  _damageEffectDurationSeconds: 0.32
+  _startShakingIncreaseSpeed: 0.38
+  startExposureIncreasingSpeed: 1.48
 --- !u!20 &3751908182182556299
 Camera:
   m_ObjectHideFlags: 0
