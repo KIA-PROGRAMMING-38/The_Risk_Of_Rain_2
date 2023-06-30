@@ -96,8 +96,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.33
-  m_fontSizeBase: 6.33
+  m_fontSize: 6.13
+  m_fontSizeBase: 6.13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -151,9 +151,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 5128347231361151668}
-  fadeColor: {r: 1, g: 1, b: 1, a: 0}
-  offset: {x: 4.47, y: 0, z: -14.13}
+  fadeColor: {r: 1, g: 1, b: 1, a: 0.36862746}
+  offset: {x: 0, y: 0, z: 0}
   movingSpeed: 0.24
-  dropingSpeed: 1.5
-  duration: 2
+  dropingSpeed: 2.51
+  duration: 1.8
   alphaDropSpeed: 2.06

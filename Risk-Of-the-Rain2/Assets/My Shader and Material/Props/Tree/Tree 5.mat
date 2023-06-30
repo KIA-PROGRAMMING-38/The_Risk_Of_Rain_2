@@ -43,7 +43,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _MoveSpeed: 1.16
+    - _MoveSpeed: 0.24
+    - _MoveSpeedMin: 0.12
     - _NoiseHeight: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0

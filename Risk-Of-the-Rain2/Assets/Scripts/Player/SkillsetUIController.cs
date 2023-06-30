@@ -40,7 +40,7 @@ public class SkillsetUIController : MonoBehaviour
     {
         if (CommandoController.DashCoolTime > CommandoController.DashElapsedTime)
         {
-
+            _dashUI.color = notReadyColor;
             _dashTMP.text =
                 $"{(int)CommandoController.DashCoolTime - (int)CommandoController.DashElapsedTime}";
 

@@ -58,11 +58,11 @@ Material:
     m_Floats:
     - _Dither_Size: 0.016
     - _Emission: 0.68
-    - _Opacity: 0.7095002
+    - _Opacity: 0.3
     - _QueueControl: 0
     - _QueueOffset: 0
     - _saturation: 1.09
     m_Colors:
-    - _Albedo: {r: 1.3904691, g: 1.4194372, b: 1.8443027, a: 0}
+    - _Albedo: {r: 0.8761182, g: 1.03778, b: 1.9592518, a: 0}
     - _Emission_Color: {r: 134.59056, g: 148.57399, b: 358.3255, a: 0}
   m_BuildTextureStacks: []

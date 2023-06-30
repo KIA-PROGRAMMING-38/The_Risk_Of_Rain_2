@@ -9,6 +9,9 @@ public class GolemSpawner : MonoBehaviour
     public float spawnInterval;
     private float elapsedTime;
 
+    private Subject<Unit> DecreaseInterval = new Subject<Unit>();
+    public IObservable<Unit> bossObservable => DecreaseInterval;
+
 
     private Transform[] golemSpawnPosition;
 
@@ -18,6 +21,9 @@ public class GolemSpawner : MonoBehaviour
     Transform secondSpawnPosition;
     [SerializeField]
     Transform thirdSpawnPosition;
+
+    [SerializeField]
+    private TitanController _titanController;
 
 
     
@@ -37,19 +43,26 @@ public class GolemSpawner : MonoBehaviour
 
     private void Start()
     {
-       
+        bossObservable
+          .Subscribe(_ => DecreaseSpawnInterval())
+          .AddTo(this);
     }
     bool isSpawnable;
     private void Update()
     {
-        elapsedTime += Time.deltaTime;
-        isSpawnable = CheckSpawningPoss(elapsedTime, spawnInterval);
-        if (isSpawnable == true) SpawnGolem();
+        if(_titanController.isDead == false)
+        {
+            elapsedTime += Time.deltaTime;
+            isSpawnable = CheckSpawningPoss(elapsedTime, spawnInterval);
+            if (isSpawnable == true) SpawnGolem();
+        }
+        if (_titanController.isSpawned == true)
+        {
+            DecreaseInterval.OnNext(Unit.Default);
+        }
+
     }
 
-
-    [SerializeField]
-    Golem_Controller _golemController;
 
 
     int spawnOrder;
@@ -82,5 +95,10 @@ public class GolemSpawner : MonoBehaviour
         }
 
     }
-   
+
+    private void DecreaseSpawnInterval()
+    {
+        spawnInterval = 10f;
+    }
+
 }

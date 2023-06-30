@@ -7,6 +7,7 @@ using Cinemachine;
 using System;
 using static Unity.VisualScripting.Member;
 using Unity.VisualScripting;
+using UniRx;
 
 public class MainCameraController : MonoBehaviour
 {
@@ -55,6 +56,7 @@ public class MainCameraController : MonoBehaviour
     public float transitionDuration = 2.0f;
     public Color initialColor;
     public Color bossSpawnColor;
+    public Color bossSpawnCompleteColor;
     bool isChangingToRed;
     float elapsed;
 
@@ -96,14 +98,21 @@ public class MainCameraController : MonoBehaviour
     public float vignetteIntensity;
 
     public float _damageEffectDurationSeconds;
+
+    [Space(15f)]
+    [Header("Reference")]
+    [Space(5f)]
+
+    [SerializeField]
+    TitanController _titanController;
     void Start()
     {
         defaultPosition = virtualCamera.position;
-        // 토큰 소스 초기화
+       
         _cancelTokenSource = new CancellationTokenSource();
         _playTokenSource = new CancellationTokenSource();
         //_cancelTokenSource.Cancel();
-        // 토큰 초기화
+     
         _canceltoken = _playTokenSource.Token;
 
         volume = GetComponent<Volume>();
@@ -147,7 +156,15 @@ public class MainCameraController : MonoBehaviour
         currentExposure = Mathf.Lerp(darkendExposure, originalExposure, 1 - lerp);
 
         colorAdjustments.postExposure.value = currentExposure;
-        TurnOnRed();
+        if (_titanController.isSpawned == false)
+        {
+            TurnOnRed();
+        }
+        else if (_titanController.isSpawned == true)
+        {
+            TurnBackToDefault();
+        }
+
 
         if (lerp > 2)
         {
@@ -169,7 +186,7 @@ public class MainCameraController : MonoBehaviour
         colorAdjustments.postExposure.value = currentExposure;
     }
 
-   
+
     private async UniTaskVoid TurnOnRed()
     {
         ColorAdjustments colorAdjustments;
@@ -190,6 +207,33 @@ public class MainCameraController : MonoBehaviour
 
                 // Lerp the color filter value from the initial color to red
                 colorAdjustments.colorFilter.value = Color.Lerp(initialColor, bossSpawnColor, elapsed / transitionDuration);
+
+                // wait for the next frame
+                await UniTask.NextFrame();
+            }
+        }
+    }
+    private bool isTurnigBackToDefault;
+    private async UniTaskVoid TurnBackToDefault()
+    {
+        ColorAdjustments colorAdjustments;
+        if (volume.profile.TryGet<ColorAdjustments>(out colorAdjustments))
+        {
+
+            if (isTurnigBackToDefault == false)
+            {
+                elapsed = 0f;
+                isTurnigBackToDefault = true;
+
+            }
+
+            while (elapsed < transitionDuration)
+            {
+                Debug.Log("Truning Back to normal");
+                elapsed += Time.deltaTime;
+
+                // Lerp the color filter value from the initial color to red
+                colorAdjustments.colorFilter.value = Color.Lerp(bossSpawnColor, bossSpawnCompleteColor, elapsed / transitionDuration);
 
                 // wait for the next frame
                 await UniTask.NextFrame();
@@ -237,7 +281,7 @@ public class MainCameraController : MonoBehaviour
         virtualCameraNoise.m_FrequencyGain = 0;
     }
 
-  
+
     public async UniTaskVoid ChangeVolumeToDamageEffect()
     {
         ColorAdjustments colorAdjustments;
@@ -284,25 +328,25 @@ public class MainCameraController : MonoBehaviour
     {
 
     }
-   
 
-    
+
+
     public async UniTaskVoid LowerCamera()
     {
         while (true)
         {
-            
+
             if (_loweredQuantity < _lowerQuantity)
             {
                 virtualCamera.position += (Vector3.down + Vector3.back).normalized * _loweringSpeed;
-               
+
             }
             _loweredQuantity += _loweringSpeed;
-           
+
 
             if (_loweredQuantity >= _lowerQuantity)
             {
-              
+
                 _cancelTokenSource.Cancel();
             }
 

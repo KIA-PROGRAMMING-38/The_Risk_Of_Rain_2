@@ -1,7 +1,9 @@
 using Cysharp.Threading.Tasks;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using UniRx;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,7 +20,8 @@ public class TitanController : MonoBehaviour
 
     private Animator animator;
     private int hp;
-    private bool isDead;
+    public bool isSpawned;
+    public bool isDead;
     public bool isOnDamaged;
     public int HP
     {
@@ -50,7 +53,10 @@ public class TitanController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-
+    private void Start()
+    {
+       
+    }
 
     private void OnEnable()
     {
@@ -124,7 +130,7 @@ public class TitanController : MonoBehaviour
         {
             onDamaged = true;
             animator.SetBool(GolemAnimID.ON_DAMAGED, true);
-            await UniTask.Delay(500);
+            await UniTask.Delay(100);
             animator.SetBool(GolemAnimID.ON_DAMAGED, false);
             onDamaged = false;
         }
@@ -143,10 +149,12 @@ public class TitanController : MonoBehaviour
     {
         if (isDead == false && currentShowingPart < maxShowingPart)
         {
-
             currentShowingPart += spawningSpeed * Time.deltaTime;
             _renderer.material.SetFloat(GolemShaderParamID.SHOWING_PART, currentShowingPart);
+            isSpawned = false;
         }
+        if(currentShowingPart > maxShowingPart -0.1f) isSpawned = true;
+
 
     }
 
@@ -204,4 +212,6 @@ public class TitanController : MonoBehaviour
     {
 
     }
+
+   
 }

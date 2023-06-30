@@ -73,7 +73,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaThreshold: 0.362
-    - _Brightness: 0
+    - _Brightness: 0.26
     - _BrightnessOffset: 0.25
     - _FresenelPower: 2.64
     - _GlowPartSize: 1.27
@@ -85,7 +85,7 @@ Material:
     - _Smooth: 0.19
     m_Colors:
     - _Albedo: {r: 0.38679248, g: 0, b: 0, a: 1}
-    - _Brigness_color: {r: 0.015686275, g: 0.0059136944, b: 0, a: 0}
+    - _Brigness_color: {r: 0.015686275, g: 0.0052046604, b: 0, a: 0}
     - _EmmisionColor: {r: 4.1311874, g: 4.1311874, b: 4.1311874, a: 0}
     - _GlowSpawningColor: {r: 17.215624, g: 0.80698234, b: 0.40349117, a: 0}
   m_BuildTextureStacks: []

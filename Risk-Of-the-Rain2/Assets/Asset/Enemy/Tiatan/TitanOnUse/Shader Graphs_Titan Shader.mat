@@ -59,23 +59,23 @@ Material:
     - _Brightness: 0.02
     - _BrightnessOffset: 1.6
     - _Fresnel_Power: 3.46
-    - _GlowPartSize: 2.84
+    - _GlowPartSize: 0.65
     - _InterSectionDepth: 0.28
     - _Metallic: 0
     - _NormalDepth: 2.08
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShowingPart: 93.6
+    - _ShowingPart: 94.95
     - _Smooth: 0
     m_Colors:
     - _Albedo: {r: 0.035339016, g: 0.035332855, b: 0.047169805, a: 0.94509804}
-    - _Brigness_color: {r: 4.872822, g: 1.5359982, b: 0, a: 0.54509807}
+    - _Brigness_color: {r: 4.872822, g: 0.40101114, b: 0, a: 0.54509807}
     - _DamagedTile: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _DamagedTileOffset: {r: -0.3, g: 2.76, b: 0, a: 0}
     - _DiffuseOffset: {r: 1, g: 1, b: 0, a: 0}
     - _DiffuseTile: {r: 8.67, g: -2.19, b: 0, a: 0}
     - _EmmisionColor: {r: 0.3019608, g: 0.27002478, b: 0, a: 0}
-    - _GlowSpawningColor: {r: 0.060031682, g: 7.254765, b: 0, a: 0}
+    - _GlowSpawningColor: {r: 0.9269794, g: 59.017693, b: 0, a: 0}
     - _Offset: {r: 11.21, g: 0.4, b: 0, a: 0}
     - _Tile: {r: 5, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

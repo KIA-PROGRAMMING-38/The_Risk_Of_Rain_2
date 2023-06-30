@@ -24,13 +24,20 @@ public class DamagedTMPController : MonoBehaviour
     public float duration;
     private float elapsedTime;
     public float alphaDropSpeed;
+    private float alphaChangingThreshold =0.3f;
     // Update is called once per frame
     void Update()
     {
+        elapsedTime += Time.deltaTime;
         MoveUp();
-        ChangeAlpha();
 
-        if (elapsedTime > duration - 0.3f)
+        if(elapsedTime > alphaChangingThreshold)
+        {
+            ChangeAlpha();
+        } 
+       
+
+        if (elapsedTime > duration - alphaChangingThreshold)
         {
             PlayDestoryAnimation();
         }
@@ -63,7 +70,7 @@ public class DamagedTMPController : MonoBehaviour
         mat.color = currentColor;
     }
 
-    CancellationTokenSource cts = new();
+    
     private void PlayDestoryAnimation()
     {
         transform.position += Vector3.down * dropingSpeed;

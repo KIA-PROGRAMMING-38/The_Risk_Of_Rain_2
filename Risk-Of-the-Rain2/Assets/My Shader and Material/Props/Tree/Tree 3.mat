@@ -44,6 +44,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _MoveSpeed: 0.2
+    - _MoveSpeedMin: 0.44
     - _NoiseHeight: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0

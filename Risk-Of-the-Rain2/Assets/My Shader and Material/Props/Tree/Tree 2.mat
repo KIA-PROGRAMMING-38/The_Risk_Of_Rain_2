@@ -44,6 +44,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _MoveSpeed: 0.97
+    - _MoveSpeedMin: 0
     - _NoiseHeight: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -53,7 +54,7 @@ Material:
     - _movingSpeedX: 5.53
     - _movingSpeedY: 15.47
     - _movingSpeedZ: 10.8
-    - _sineHeight: 0.1
+    - _sineHeight: 0.31
     - _sineHeight_1: 0
     m_Colors:
     - _BaseColor: {r: 0.24891421, g: 0.3018868, b: 0.24891421, a: 0}

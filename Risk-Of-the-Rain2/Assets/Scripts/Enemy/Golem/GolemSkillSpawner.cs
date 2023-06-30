@@ -90,7 +90,10 @@ public class GolemSkillSpawner : MonoBehaviour
     public Transform _golemHead;
     private void RotateGolemHead()
     {
-        _golemHead.LookAt(_player.transform);
+        if (CommandoController.isDead == false)
+        {
+            _golemHead.LookAt(_player.transform);
+        }
     }
 
     public float emissionIntensity = 1f;
