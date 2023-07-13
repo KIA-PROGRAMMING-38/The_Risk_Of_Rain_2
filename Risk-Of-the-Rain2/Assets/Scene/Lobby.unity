@@ -1193,8 +1193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a15f27d56d1e448bdbc61c900748dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 2653394912928798477, guid: b42cc2e81fffdfd42b5c24129e76f37b, type: 3}
   connectionInfoText: {fileID: 0}
-  joinButton: {fileID: 0}
+  joinButton: {fileID: 1977855588}
   networkStatus: {fileID: 822358901}
   notification: {fileID: 2070746704}
 --- !u!4 &1023969493

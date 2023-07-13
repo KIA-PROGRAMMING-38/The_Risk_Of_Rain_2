@@ -9,6 +9,7 @@ using UnityEngine.AI;
 
 public class Golem_Controller : MonoBehaviour
 {
+  
     private Animator animator;
 
 
@@ -38,9 +39,12 @@ public class Golem_Controller : MonoBehaviour
     public Transform _player;
 
 
-  
-
     [Space(10f)]
+    [Header("variables for animations")]
+    public float stopDuration;
+    private readonly float MILSEC_TO_SECOND = 1000;
+
+  [Space(10f)]
 
     [Header("HP info")]
     public int hp;
@@ -48,7 +52,9 @@ public class Golem_Controller : MonoBehaviour
     private bool isDead;
     private bool isOnDamaged;
     public bool isFullySpawned;
-
+    private readonly int MIL_TO_SEC = 1000;
+    public float vanishSpeed;
+    public float deactivateDelay;
     [Header("Slots")]
     [SerializeField]
     private GameObject _LaserController;
@@ -56,6 +62,8 @@ public class Golem_Controller : MonoBehaviour
     [Header("UI")]
     public Vector3 hitPosition;
     public Vector3 UIOffest;
+
+  
     public int HP
     {
         get { return hp; }
@@ -171,6 +179,7 @@ public class Golem_Controller : MonoBehaviour
         if (other.CompareTag(TagID.COMMANDO_BASIC_ATTACK))
         {
             hitPosition = other.gameObject.transform.position + UIOffest;
+            PlayDamagedAnimation();
             TurnOnHpAnimation();
             changeMaterial();
             HP -= 1;
@@ -180,14 +189,33 @@ public class Golem_Controller : MonoBehaviour
 
     }
 
+
+    private async UniTask PlayDamagedAnimation()
+    {
+        animator.SetBool(GolemAnimID.ON_DAMAGED, true);
+        agent.speed = 0;
+
+        await UniTask.Delay((int)(stopDuration * MILSEC_TO_SECOND));
+
+        if (isOnDamaged == false)
+        {
+            animator.SetBool(GolemAnimID.ON_DAMAGED, false);
+            agent.speed = originalAgentSpeed;
+        }
+      
+
+
+    }
     private async UniTaskVoid TurnOnHpAnimation()
     {
         if (isOnDamaged == false)
         {
             isOnDamaged = true;
-            animator.SetBool(GolemAnimID.ON_DAMAGED, true);
+          
+
             await UniTask.Delay(100);
-            animator.SetBool(GolemAnimID.ON_DAMAGED, false);
+
+            
             isOnDamaged = false;
         }
 
@@ -250,8 +278,7 @@ public class Golem_Controller : MonoBehaviour
         }
 
     }
-
-    public float vanishSpeed;
+   
     private async UniTask OnDeath()
     {
        
@@ -264,8 +291,7 @@ public class Golem_Controller : MonoBehaviour
         PlayDeadAnim();
         TurnOffCollider();
         _LaserController.SetActive(false);
-        await UniTask.Delay(1000);
-        Debug.Log("on Death");
+        await UniTask.Delay((int)(MIL_TO_SEC * deactivateDelay));
         Deactivate();
        
        

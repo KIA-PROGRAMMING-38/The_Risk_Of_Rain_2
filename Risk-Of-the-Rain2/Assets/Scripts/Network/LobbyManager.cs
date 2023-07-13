@@ -10,11 +10,18 @@ using TMPro;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
+    [Header("Settings")]
+    [Space(5f)]
     private readonly string version = "1.0";
-
     private string userId = "Mati";
     private PhotonView photonView;
     private int readyPlayersCount = 0;
+
+    [Space(15f)]
+    [Header("Prefabs and Refference")]
+    [Space(5f)]
+    [SerializeField]
+    GameObject _player;
 
     private void Awake()
     {
@@ -104,13 +111,14 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         { // $ => string.Format(); 
             Debug.Log($"{player.Value.NickName},{player.Value.ActorNumber}"); //actor number is ID number of the user
         }
-       
-        
+
+
     }
     public void LoadGameScene()
     {
         if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
+            InstantiatePlayer();
             PhotonNetwork.LoadLevel("Main Scene");
         }
         else
@@ -134,6 +142,14 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         {
             LoadGameScene();
         }
+    }
+
+    public void InstantiatePlayer()
+    {
+        Debug.Log("Instantiate Player");
+        PhotonNetwork.Instantiate(_player.name, Vector3.zero, Quaternion.identity); // Instantiate player for the master client
+
+
     }
 }
 

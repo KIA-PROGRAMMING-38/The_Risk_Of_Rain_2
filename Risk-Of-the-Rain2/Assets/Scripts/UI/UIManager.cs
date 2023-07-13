@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
     private string subtitle = "Ground Zero";
     private string escapeText = "E Exit Escape Pod";
     private string spawnBossText = "E Spawn Boss";
-
+    private readonly int MIL_TO_SEC = 1000;
     [SerializeField]
     private GameObject escapeTMP;
 
@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI subtitleTMP;
-
+    public float exitUIDelaySec;
     public float _interval;
     public float _titleShowingDelay;
     public float _titleShowingDuration;
@@ -43,6 +43,10 @@ public class UIManager : MonoBehaviour
 
     private CancellationTokenSource _source = new();
     private CancellationTokenSource _exitSource = new();
+
+    [Header("Reference")]
+    [SerializeField]
+    CommandoController commandoController;
 
     private void Start()
     {
@@ -77,15 +81,17 @@ public class UIManager : MonoBehaviour
 
         }
 
-        if (sliderHP != null) sliderHP.value = Utils.Percent(CommandoController.Hp, CommandoController.commandoMaxHp);
-        if (textHP != null) textHP.text = $"{CommandoController.Hp} / {CommandoController.commandoMaxHp}";
-        if (textHP != null) secondTextHP.text = $"{CommandoController.Hp} / {CommandoController.commandoMaxHp}";
+        if (sliderHP != null) sliderHP.value = Utils.Percent(commandoController.Hp, commandoController.commandoMaxHp);
+        if (textHP != null) textHP.text = $"{commandoController.Hp} / {commandoController.commandoMaxHp}";
+        if (textHP != null) secondTextHP.text = $"{commandoController.Hp} / {commandoController.commandoMaxHp}";
     }
+
+  
     async private UniTaskVoid PlayExitText(CancellationToken cancellationToken)
     {
-        Debug.Log("exit Text ");
+       
 
-        await UniTask.Delay(4000);
+        await UniTask.Delay((int)(exitUIDelaySec * MIL_TO_SEC));
         escapeTMP.SetActive(true);
 
     }
@@ -104,28 +110,28 @@ public class UIManager : MonoBehaviour
         if (!isTitlePrinted)
         {
             isTitlePrinted = true;
-            await UniTask.Delay((int)_titleShowingDelay * 1000);
+            await UniTask.Delay((int)_titleShowingDelay * MIL_TO_SEC);
 
             for (int i = 0; i < title.Length; i++)
             {
                 titleTMP.text += title[i];
-                await UniTask.Delay((int)(_interval * 1000));
+                await UniTask.Delay((int)(_interval * MIL_TO_SEC));
             }
 
             for (int i = 0; i < subtitle.Length; i++)
             {
                 subtitleTMP.text += subtitle[i];
-                await UniTask.Delay((int)(_interval * 1000));
+                await UniTask.Delay((int)(_interval * MIL_TO_SEC));
             }
 
 
-            await UniTask.Delay((int)(_titleShowingDuration * 1000));
+            await UniTask.Delay((int)(_titleShowingDuration * MIL_TO_SEC));
 
             while (subtitleTMP.text.Length > 0)
             {
                 // remove the last character
                 subtitleTMP.text = subtitleTMP.text.Substring(0, subtitleTMP.text.Length - 1);
-                await UniTask.Delay((int)(_interval * 1000)); // convert to milliseconds
+                await UniTask.Delay((int)(_interval * MIL_TO_SEC)); // convert to milliseconds
             }
 
 
@@ -133,7 +139,7 @@ public class UIManager : MonoBehaviour
             {
                 // remove the last character
                 titleTMP.text = titleTMP.text.Substring(0, titleTMP.text.Length - 1);
-                await UniTask.Delay((int)(_interval * 1000)); // convert to milliseconds
+                await UniTask.Delay((int)(_interval * MIL_TO_SEC)); // convert to milliseconds
             }
 
             isTitlePrinted = true;

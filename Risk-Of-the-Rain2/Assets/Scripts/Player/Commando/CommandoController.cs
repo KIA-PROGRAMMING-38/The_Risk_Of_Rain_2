@@ -44,10 +44,11 @@ public class CommandoController : MonoBehaviour
     [SerializeField]
     private float inDamageableDuration;
     private float unDamagedTime;
-
-    [Space(5f)]
-    static public int commandoMaxHp = 60;
-    public static int Hp { get; private set; }
+    [SerializeField]
+    public int commandoMaxHp;
+  
+ 
+    public int Hp { get; set; }
 
     [Space(15f)]
     [Header("Camera Info")]
@@ -71,49 +72,38 @@ public class CommandoController : MonoBehaviour
     [SerializeField]
     ParticleSystem startSmokePS;
 
+    public float startDuration;
     [Space(15f)]
     [Header("On Death")]
     [Space(5f)]
 
-    
+
     [SerializeField]
     private GameObject _ragDoll;
     [SerializeField]
     private GameObject _originalMesh;
-
-
     private float mouseX;
     private float mouseY;
     private float moveX;
     private float moveZ;
-
     private Animator animator;
     private Rigidbody rigidbody;
-
     private Subject<Unit> eKeyPressSubject = new Subject<Unit>();
     private Subject<Unit> ShiftKeyPressSubject = new Subject<Unit>();
-
     public IObservable<Unit> EKeyPressObservable => eKeyPressSubject;
     public IObservable<Unit> ShiftKeyPressObservable => ShiftKeyPressSubject;
-
 
     public static bool isDead { get; private set; }
 
 
 
 
-  
+
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody>();
-
-        
-
-       
-
-
-
         originalSpeed = speed * lerpingSpeed;
+
+        rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
         startSmokePS.Stop();
@@ -192,24 +182,13 @@ public class CommandoController : MonoBehaviour
     }
 
 
-    private void PlayAttackedAnimation()
-    {
-
-    }
-
-
     private void StartGame()
     {
-
-        Debug.Log("Start Game");
-
         if (GameManager.IsGameStarted == false && GameManager.IsPlayerArrived == true)
         {
             PlayStartAnimation();
             PlayCrossHair();
         }
-
-
     }
 
 
@@ -222,12 +201,12 @@ public class CommandoController : MonoBehaviour
     }
 
 
-
+   
     private async UniTaskVoid PlayStartAnimation()
     {
         startSmokePS.Play();
         GameManager.IsGameStarted = true;
-        await UniTask.Delay(2000);
+        await UniTask.Delay((int)(startDuration * 1000));
         startPS.transform.position = transform.position;
         startPS.Play();
 
@@ -316,13 +295,11 @@ public class CommandoController : MonoBehaviour
 
         if (other.CompareTag(TagID.GOLEM_CLAP))
         {
-            Debug.Log("got damaged!");
             TakeDamage(ClapController.clapDamage);
             _mainCameraController.ChangeVolumeToDamageEffect().Forget();
         }
         if (other.CompareTag(TagID.GOLEM_LASER))
         {
-            Debug.Log("got damaged!");
             TakeDamage(-1);
             _mainCameraController.ChangeVolumeToDamageEffect().Forget();
         }
@@ -337,11 +314,7 @@ public class CommandoController : MonoBehaviour
         Cinemachine_Controller.virtualCamera.LookAt = _ragDoll.transform;
         Cinemachine_Controller.virtualCamera.Follow = _ragDoll.transform;
 
-        
         animator.enabled = false;
-       
-
-
     }
 
 

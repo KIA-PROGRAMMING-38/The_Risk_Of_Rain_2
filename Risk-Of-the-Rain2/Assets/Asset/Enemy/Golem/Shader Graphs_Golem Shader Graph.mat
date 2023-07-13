@@ -73,7 +73,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaThreshold: 0.362
-    - _Brightness: 0.26
+    - _Brightness: 0.1
     - _BrightnessOffset: 0.25
     - _FresenelPower: 2.64
     - _GlowPartSize: 1.27

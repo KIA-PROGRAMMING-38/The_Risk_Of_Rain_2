@@ -44,10 +44,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _MoveSpeed: 1.34
+    - _MoveSpeedMin: 0.08
     - _NoiseHeight: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _WindSpeed: 0.78
+    - _WindSpeed: 0.06
     - _fresnelPower: 1.29
     - _movingSpeed: 292.47
     - _movingSpeedX: 5.53

@@ -100,6 +100,19 @@ public class MainCameraController : MonoBehaviour
     public float _damageEffectDurationSeconds;
 
     [Space(15f)]
+    [Header("Inventory")]
+    [Space(5f)]
+
+
+    [SerializeField]
+    public float blurSpeed;
+    [SerializeField]
+    public float originalDepthDistance;
+    [SerializeField]
+    public float targetDepthOfDistance;
+    private float depthLerp;
+    private DepthOfField depthOfField;
+    [Space(15f)]
     [Header("Reference")]
     [Space(5f)]
 
@@ -108,11 +121,11 @@ public class MainCameraController : MonoBehaviour
     void Start()
     {
         defaultPosition = virtualCamera.position;
-       
+
         _cancelTokenSource = new CancellationTokenSource();
         _playTokenSource = new CancellationTokenSource();
         //_cancelTokenSource.Cancel();
-     
+
         _canceltoken = _playTokenSource.Token;
 
         volume = GetComponent<Volume>();
@@ -139,7 +152,7 @@ public class MainCameraController : MonoBehaviour
 
         if (GameManager.IsGameStarted == true && isCamLowering == false)
         {
-            Debug.Log("실행");
+
             LowerCamera().Forget();
             if (isCamLowering == false)
             {
@@ -148,8 +161,40 @@ public class MainCameraController : MonoBehaviour
 
             }
         }
-    }
 
+
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            tapIsOn = true;
+            isInitalized = false;
+
+           
+        }
+
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            PlayInventoryAnim();
+           
+        }
+        else
+        {
+            ShutInventoryAnim();
+          
+        }
+
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            tapIsOn = false;
+            isInitalized = false;
+
+           
+
+
+        }
+
+    }
+    private bool isInitialized;
     private async UniTaskVoid BossSpawnEffectOn()
     {
         lerp += Time.deltaTime * exposureChangingSpeed;
@@ -287,17 +332,6 @@ public class MainCameraController : MonoBehaviour
         ColorAdjustments colorAdjustments;
 
 
-        //if (volume.profile.TryGet<ColorAdjustments>(out colorAdjustments))
-        //{
-        //    Debug.Log("Color Changed!");
-        //    // Lerp the color filter value from the initial color to red
-        //    colorAdjustments.colorFilter.value = _damagedColor;
-
-        //    // wait for the next frame
-        //    await UniTask.Delay((int)(_damageEffectDurationSeconds * 1000));
-        //    colorAdjustments.colorFilter.value = initialColor;
-        //}
-
 
         if (volume.profile.TryGet<ColorAdjustments>(out colorAdjustments) &&
       volume.profile.TryGet<Vignette>(out vignette))
@@ -315,19 +349,12 @@ public class MainCameraController : MonoBehaviour
 
             await UniTask.Delay((int)(_damageEffectDurationSeconds * 1000));
 
-            colorAdjustments.colorFilter.value = initialColor;
+            colorAdjustments.colorFilter.value = Color.white;
             vignette.intensity.value = 0;
             vignette.color.value = Color.white;
         }
     }
 
-
-
-
-    private void PlayStartCameraMove()
-    {
-
-    }
 
 
 
@@ -358,6 +385,75 @@ public class MainCameraController : MonoBehaviour
     void CancelUniTask()
     {
         _cancelTokenSource.Cancel();
+    }
+
+    private async UniTaskVoid PlayInventoryAnim()
+    {
+
+        if (isInitalized == false)
+        {
+            isInitalized = true;
+            depthLerp = 0f;
+            elapsed = 0f;
+        }
+
+
+        if (tapIsOn == true)
+        {
+            if (volume.profile.TryGet<DepthOfField>(out depthOfField))
+            {
+                elapsed = Time.deltaTime;
+
+                while (elapsed < transitionDuration && tapIsOn == true)
+                {
+                    depthLerp += Time.deltaTime * blurSpeed;
+
+                    // Lerp the color filter value from the initial color to red
+                    depthOfField.focusDistance.value = Mathf.Lerp(originalDepthDistance, targetDepthOfDistance, depthLerp);
+
+                    Debug.Log($"depthLerp in PlayInventoryAnim: {depthLerp}");
+                    // wait for the next frame
+                    await UniTask.NextFrame();
+                }
+
+            }
+        }
+
+
+    }
+
+    private bool tapIsOn;
+
+    private bool isInitalized;
+    private async UniTaskVoid ShutInventoryAnim()
+    {
+        if (isInitalized == false)
+        {
+            isInitalized = true;
+            depthLerp = 0f;
+            elapsed = 0f;
+        }
+
+        if (tapIsOn == false)
+        {
+
+            if (volume.profile.TryGet<DepthOfField>(out depthOfField))
+            {
+                elapsed = Time.deltaTime;
+
+                while (elapsed < transitionDuration)
+                {
+
+                    depthLerp += Time.deltaTime * blurSpeed;
+                    // Lerp the color filter value from the initial color to red
+                    depthOfField.focusDistance.value = Mathf.Lerp(originalDepthDistance, targetDepthOfDistance, 1 - depthLerp);
+                    // wait for the next frame
+                    await UniTask.NextFrame();
+                }
+
+            }
+        }
+
     }
 }
 

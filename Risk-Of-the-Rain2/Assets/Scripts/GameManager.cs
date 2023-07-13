@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Timer")]
+    [Space(15f)]
     [SerializeField]
     public TextMeshProUGUI _timeTextWholeNumber;
 
@@ -24,6 +26,12 @@ public class GameManager : MonoBehaviour
     private double timeInSeconds;
     private float gameStarttime;
 
+
+    [Header("Inventory")]
+    [Space(15f)]
+
+    
+    public Material material;
     private void Start()
     {
        
@@ -62,6 +70,8 @@ public class GameManager : MonoBehaviour
         {
             gameStarttime = Time.time;
         }
+
+      
     }
 
    
