@@ -2,7 +2,7 @@
 
 <!-- 아래는 추후 배포 시 사용합니다. -->
 <!-- [![]...](링크) -->
-[![]([https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.nexon.bluearchive](https://cdn.mos.cms.futurecdn.net/fFoCAtq7MbZqFk3wGvVbtd.jpg))
+[![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fkr.123rf.com%2Fphoto_10101139_%25EC%2583%2598%25ED%2594%258C-%25EC%259A%25B0%25ED%2591%259C.html&psig=AOvVaw3LGno1fz4Sppn7E6qj8EMh&ust=1691628341825000&source=images&cd=vfe&opi=89978449&ved=0CBMQjhxqFwoTCNiFmOWszoADFQAAAAAdAAAAABAE)
 
 
 Risk of Rain 2 is a classic multiplayer roguelike game that is the sequel to the  Risk of Rain.
@@ -35,9 +35,7 @@ Risk of Rain 2 is a classic multiplayer roguelike game that is the sequel to the
 - ![Unity](https://img.shields.io/badge/unity-%23000000.svg?style=for-the-badge&logo=unity&logoColor=white) xxxx.xx.xx
 - 써드파티 패키지/라이브러리
   <!-- [패키지/라이브러리 이름](링크) 꼭 버전 쓰세요. -->
-  - [Odin Inspector and Serializer v3.1.12.2](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)
-  - [UniTask v2.3.3](https://github.com/Cysharp/UniTask)
-  - [UniRx v7.1.0](https://github.com/neuecc/UniRx)
+
   
  ---
  
