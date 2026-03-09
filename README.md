@@ -3,8 +3,6 @@
 <!-- 아래는 추후 배포 시 사용합니다. -->
 <!-- [![]...](링크) -->
 ![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fkr.123rf.com%2Fphoto_10101139_%25EC%2583%2598%25ED%2594%258C-%25EC%259A%25B0%25ED%2591%259C.html&psig=AOvVaw3LGno1fz4Sppn7E6qj8EMh&ust=1691628341825000&source=images&cd=vfe&opi=89978449&ved=0CBMQjhxqFwoTCNiFmOWszoADFQAAAAAdAAAAABAE)
-
-
 Risk of Rain 2 is a classic multiplayer roguelike game that is the sequel to the  Risk of Rain.
 
 
