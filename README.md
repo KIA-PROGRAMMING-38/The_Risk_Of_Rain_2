@@ -24,7 +24,6 @@ Risk of Rain 2 is a classic multiplayer roguelike game that is the sequel to the
 <!-- [github 유저이름](github 프로필 링크) -->
 - [Mati-as](https://github.com/Mati-as)
 - [choiseonmun](https://github.com/ChoiSeonMun)
-- [choiseonmun](https://github.com/ChoiSeonMun)  
 
 ---
 
@@ -34,7 +33,6 @@ Risk of Rain 2 is a classic multiplayer roguelike game that is the sequel to the
 - 써드파티 패키지/라이브러리
   <!-- [패키지/라이브러리 이름](링크) 꼭 버전 쓰세요. -->
 
-  
  ---
  
  # 핵심 기술 문서
